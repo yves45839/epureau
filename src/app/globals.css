@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "./epureau.css";
+
+/* Les polices sont chargées par next/font ; on branche les variables de la charte. */
+:root {
+  --font-display: var(--ff-outfit), "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: var(--ff-inter), "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--ff-mono), ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* Lien d'évitement (accessibilité) */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  background: var(--marine);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 0 0 10px 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.skip:focus { left: 0; }
+
+/* En-tête des pages internes (repris de la bannière d'accueil, en plus sobre) */
+.pagehead {
+  background: var(--grad-profondeur);
+  color: #fff;
+  padding: clamp(48px, 6vw, 78px) 0 clamp(52px, 6vw, 82px);
+  position: relative;
+  overflow: hidden;
+}
+.pagehead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(55% 90% at 88% 15%, rgba(111, 211, 242, 0.28), transparent 62%);
+}
+.pagehead .wrap { position: relative; max-width: 940px; }
+.pagehead h1 {
+  color: #fff;
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  margin: 14px 0 0;
+}
+.pagehead p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.7;
+  max-width: 72ch;
+  margin: 14px 0 0;
+}
+.fil { font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+.fil a { color: rgba(255, 255, 255, 0.75); }
+.fil a:hover { color: var(--cyan-2); }
+.fil .on { color: var(--cyan-2); }
+
+/* Cartouche d'information en fin de rubrique */
+.encart {
+  display: grid;
+  gap: 10px;
+  padding: 26px 28px;
+  border-radius: var(--r-lg);
+  background: var(--g50);
+  border: 1px solid var(--g200);
+}
+.encart b { font-family: var(--font-display); color: var(--marine); font-size: 17px; }
+.encart p { font-size: 14.5px; color: var(--g500); margin: 0; }
+
+/* Pastille des cartes « domaines » : sortie du cadre image pour ne pas être rognée. */
+.dcard { position: relative; }
+.dcard .pastille {
+  position: absolute;
+  left: 18px;
+  top: 158px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cyan);
+  color: #06122b;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px -8px rgba(26, 181, 232, 0.8);
+  z-index: 2;
+}
+.dcard .pastille svg { width: 22px; height: 22px; }
+
+/* Taille par défaut des pictogrammes : :where() garde une spécificité nulle,
+   donc toutes les règles contextuelles de la charte continuent de primer. */
+:where(svg.ic) { width: 18px; height: 18px; flex: none; }
