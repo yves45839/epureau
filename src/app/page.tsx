@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import ToTop from "@/components/ToTop";
 import { societe } from "@/content/site";
 import "./home.css";
+import "../../public/maquette/carousels.css";
 
 export default function HomePage() {
   return (

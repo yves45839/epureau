@@ -1,7 +1,9 @@
+import { mountCarousels } from "../../public/maquette/carousels.js";
 import { domaines } from "@/content/site";
 
 /** Interactions de la maquette validée, limitées à l'accueil et nettoyées au départ. */
 export function mountHomeInteractions(root: HTMLElement) {
+  const cleanupCarousels = mountCarousels(root);
   const lifecycle = new AbortController();
   const { signal } = lifecycle;
   let alive = true;
@@ -140,6 +142,7 @@ export function mountHomeInteractions(root: HTMLElement) {
 
   return () => {
     alive = false;
+    cleanupCarousels();
     lifecycle.abort(); revealObserver.disconnect(); caseObserver.disconnect(); serviceObserver.disconnect();
     cancelAnimationFrame(caseFrame); cancelAnimationFrame(servicesFrame);
     if (dialog.open) { document.body.style.overflow = previousOverflow; dialog.close(); }

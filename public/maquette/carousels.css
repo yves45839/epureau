@@ -1,0 +1,52 @@
+/* Les deux carrousels conservent la composition et la hauteur de l’accueil validé. */
+[data-hero-carousel] .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .95s ease;pointer-events:none}
+[data-hero-carousel] .hero-slide.is-current{opacity:1}
+[data-hero-carousel] .hero-photo img{animation:none;width:100%;height:100%;object-fit:cover}
+[data-hero-carousel] .hero-slide:nth-child(2) img{object-position:65% 50%}
+[data-hero-carousel] .hero-slide:nth-child(3) img{object-position:70% 50%}
+[data-hero-carousel] .hero-bottom{gap:20px;bottom:18px}
+[data-hero-carousel] .carousel-controls{display:flex;align-items:center;gap:8px}
+[data-hero-carousel] .carousel-caption{font-size:12px;line-height:1.4;max-width:160px;margin-right:10px;color:#e5f1f7}
+:is([data-hero-carousel],[data-logo-carousel]) .carousel-button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:1px solid #ffffff55;border-radius:50%;background:#071d3b40;color:white;cursor:pointer;transition:background .25s,border-color .25s}
+:is([data-hero-carousel],[data-logo-carousel]) .carousel-button:hover{background:#ffffff25;border-color:#ffffffb3}
+:is([data-hero-carousel],[data-logo-carousel]) .carousel-button:focus-visible{outline-offset:3px}
+:is([data-hero-carousel],[data-logo-carousel]) .carousel-button svg{width:18px;height:18px}
+:is([data-hero-carousel],[data-logo-carousel]) .carousel-prev svg{transform:rotate(180deg)}
+[data-hero-carousel] .carousel-dots{display:flex;align-items:center;gap:0}
+[data-hero-carousel] .carousel-dot{position:relative;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+[data-hero-carousel] .carousel-dot::after{content:"";position:absolute;left:10px;right:10px;top:21px;height:2px;border-radius:2px;background:#ffffff55;transition:background .25s,height .25s}
+[data-hero-carousel] .carousel-dot[aria-pressed=true]::after{background:var(--cyan);height:4px;top:20px}
+:is([data-hero-carousel],[data-logo-carousel]) .carousel-count{font-size:11px;letter-spacing:.08em;font-variant-numeric:tabular-nums;white-space:nowrap;margin-inline:5px}
+:is([data-hero-carousel],[data-logo-carousel]) [hidden]{display:none!important}
+.carousel-announcement{position:absolute!important;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+[data-logo-carousel]{min-width:0}
+[data-logo-carousel] .client-logos{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:8px;padding:8px;margin:24px -8px 0;width:calc(100% + 16px);scrollbar-width:thin;scrollbar-color:#bdd0dd transparent}
+[data-logo-carousel] .client-logos>.company-logo{flex:0 0 calc((100% - 28px)/3);scroll-snap-align:start;scroll-snap-stop:always}
+[data-logo-carousel] .logo-carousel-controls{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:16px}
+[data-logo-carousel] .carousel-button{border-color:var(--line);color:var(--ink);background:white}
+[data-logo-carousel] .carousel-button:hover{background:var(--mist);border-color:#86bdce}
+[data-logo-carousel] .carousel-button:disabled{opacity:.32;cursor:default;background:white}
+[data-logo-carousel] .carousel-count{color:var(--muted);min-width:58px;text-align:center}
+
+@media(max-width:1100px){[data-hero-carousel] .carousel-caption{display:none}}
+@media(max-width:980px){[data-logo-carousel] .client-logos>.company-logo{flex-basis:calc((100% - 14px)/2)}}
+@media(max-width:700px){
+  [data-hero-carousel] .hero-bottom{justify-content:flex-end;bottom:14px}
+  [data-hero-carousel] .hero-bottom .scroll-link,[data-hero-carousel] .carousel-dots{display:none}
+  [data-hero-carousel] .hero-content{padding-bottom:82px}
+  [data-hero-carousel] .hero-slide:nth-child(2) img{object-position:72% 50%}
+  [data-logo-carousel] .logo-carousel-controls{margin-top:12px}
+}
+@media(max-height:520px){
+  [data-hero-carousel] .hero-content{padding:8px 0 68px}
+  :is(.hero,.home-hero)[data-hero-carousel] h1{font-size:clamp(23px,6vh,28px);line-height:1.1}
+  [data-hero-carousel] .hero-content>p,[data-hero-carousel] .hero-content>.eyebrow,[data-hero-carousel] .hero-content>.home-eyebrow{display:none}
+  [data-hero-carousel] .hero-actions{margin-top:14px;gap:18px}
+  [data-hero-carousel] .hero-actions .button{min-height:44px;padding:10px 16px}
+  [data-hero-carousel] .hero-bottom{bottom:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  [data-hero-carousel] .hero-slide{transition:none}
+  [data-logo-carousel] .client-logos{scroll-behavior:auto}
+}

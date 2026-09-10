@@ -78,3 +78,7 @@
 .home-experience .form-feedback.error{background:#fff0ec;color:#942b24}
 .home-experience .form-feedback a{text-decoration:underline}
 .home-experience .button:disabled{opacity:.65;transform:none;cursor:wait}
+
+.home-experience .references-grid{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@media(max-width:980px){.home-experience .references-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:700px){.home-experience .references-grid{grid-template-columns:minmax(0,1fr)}}
