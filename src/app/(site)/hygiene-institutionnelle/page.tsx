@@ -43,6 +43,7 @@ export default function Hygiene() {
   return (
     <>
       <PageHeader
+        image="/images/illustrations/hygiene.webp"
         fil={["Hygiène institutionnelle"]}
         titre="Produits, équipements de dosage et expertise technique"
         lead="EPUREAU accompagne les établissements exigeants avec des solutions complètes d'hygiène institutionnelle, en partenariat avec les leaders mondiaux du secteur."
@@ -66,15 +67,15 @@ export default function Hygiene() {
                 exigeantes.
               </p>
             </div>
-            <figure className="photo rv">
+            <figure className="photo illustrated-photo rv">
               <Image
-                src="/images/dom-hygiene.jpg"
-                alt="Buanderie professionnelle équipée par EPUREAU"
+                src="/images/illustrations/hygiene.webp"
+                alt="Illustration générée : technicienne ouest-africaine dans une buanderie professionnelle"
                 width={640}
                 height={480}
                 style={{ objectPosition: "70% 50%" }}
               />
-              <figcaption>Désinfection · surfaces &amp; locaux</figcaption>
+              <figcaption>Entretien du linge · illustration générée</figcaption>
             </figure>
           </div>
 

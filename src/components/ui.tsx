@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import Icon from "./Icon";
+import AnimatedNumber from "./AnimatedNumber";
 
 export function SectionHead({
   eyebrow,
@@ -30,13 +32,16 @@ export function PageHeader({
   fil,
   titre,
   lead,
+  image,
 }: {
   fil: string[];
   titre: string;
   lead: string;
+  image?: string;
 }) {
   return (
-    <section className="pagehead">
+    <section className={`pagehead${image ? " photo-pagehead" : ""}`}>
+      {image && <Image src={image} alt="" fill sizes="100vw" preload />}
       <div className="wrap">
         <nav className="fil" aria-label="Fil d'Ariane">
           <Link href="/">Accueil</Link>
@@ -50,13 +55,14 @@ export function PageHeader({
         <h1>{titre}</h1>
         <p>{lead}</p>
       </div>
+      {image && <span className="image-disclosure">Illustration générée</span>}
     </section>
   );
 }
 
 /** Renvoi vers le formulaire unique — présent au bas de chaque rubrique. */
 export function BandeAppel({
-  titre = "Un besoin de traitement d'eau ou d'hygiène industrielle ?",
+  titre = "Demander une cotation",
   texte = "Décrivez-nous votre installation : nous revenons vers vous avec une proposition chiffrée.",
   libelle = "Demander une cotation",
 }: {
@@ -87,7 +93,7 @@ export function ChiffresCles({ items }: { items: { valeur: string; exposant: str
           <div className="stat" key={c.legende}>
             <b>
               {c.exposant && <sup>{c.exposant}</sup>}
-              {c.valeur}
+              <AnimatedNumber value={c.valeur} animate={c.valeur !== "2015"} />
             </b>
             <span>{c.legende}</span>
           </div>

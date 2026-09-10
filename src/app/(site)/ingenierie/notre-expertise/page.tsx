@@ -24,6 +24,7 @@ export default function NotreExpertise() {
   return (
     <>
       <PageHeader
+        image="/images/illustrations/ingenierie.webp"
         fil={["Ingénierie de l'eau", "Notre expertise"]}
         titre="De la conception à l'exploitation, EPUREAU CI assure toute la chaîne"
         lead="Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clé en main des unités de traitement."

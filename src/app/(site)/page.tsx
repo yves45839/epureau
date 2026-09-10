@@ -1,36 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import PhotoBanner from "@/components/PhotoBanner";
 import Icon from "@/components/Icon";
-import { SectionHead, BandeAppel, ChiffresCles } from "@/components/ui";
-import { chiffres, clients, domaines, realisations } from "@/content/site";
+import { SectionHead, BandeAppel } from "@/components/ui";
+import { clients, domaines, realisations } from "@/content/site";
+import { visuelsDomaines } from "@/content/illustrations";
 
 export default function Accueil() {
   return (
     <>
       <Hero />
-      <ChiffresCles items={chiffres} />
 
       <section className="sec" id="domaines">
         <div className="wrap">
           <SectionHead
             center
-            eyebrow="Nos domaines d'intervention"
-            titre="Quatre métiers, une même exigence sur la qualité de l'eau"
-            lead="De l'étude d'une station d'épuration à la fourniture quotidienne de produits formulés, EPUREAU CI couvre l'ensemble de la chaîne."
+            eyebrow="EPUREAU Côte d'Ivoire"
+            titre="Nos domaines d'intervention"
           />
-          <div className="domains rvs">
-            {domaines.map((d) => (
-              <Link className="dcard" href={d.lien} key={d.titre}>
+          <div className="domains visual-domains rvs">
+            {domaines.map((d, i) => (
+              <Link className="dcard visual-domain" href={d.lien} key={d.titre}>
                 <div className="im">
-                  <Image src={d.image} alt={d.alt} width={640} height={360} />
+                  <Image src={visuelsDomaines[i].src} alt={visuelsDomaines[i].alt} fill sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" style={{ objectPosition: i === 3 ? "20% 50%" : visuelsDomaines[i].position }} />
                 </div>
-                <span className="pastille">
-                  <Icon name={d.icone} />
-                </span>
+                <span className="domain-index mono" aria-hidden="true">0{i + 1}</span>
                 <div className="bd">
                   <h3>{d.titre}</h3>
-                  <p>{d.texte}</p>
+
                   <span className="arrow-link">
                     {d.lienTexte} <Icon name="arrow" />
                   </span>
@@ -38,6 +36,7 @@ export default function Accueil() {
               </Link>
             ))}
           </div>
+          <p className="illustration-note">Visuels métiers : illustrations générées.</p>
         </div>
       </section>
 
@@ -50,50 +49,22 @@ export default function Accueil() {
         </div>
       </div>
 
+      <PhotoBanner />
+
       <section className="sec alt">
         <div className="wrap">
           <div className="about">
             <div className="text rv">
               <span className="eyebrow">Qui sommes-nous ?</span>
-              <h2 className="title">
-                Experts en ingénierie de l&apos;eau, au service de l&apos;industrie ivoirienne
-              </h2>
-              <p className="lead" style={{ marginTop: 18 }}>
-                EPUREAU CI est une Société par Actions Simplifiée (SAS), créée et basée en Côte
-                d&apos;Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société
-                française, elle a rejoint <strong>YANGONDI HOLDING</strong>.
-              </p>
-              <p className="lead">
-                Spécialisée dans le traitement des eaux (potable, usée, industrielle), EPUREAU CÔTE
-                D&apos;IVOIRE associe à son ingénierie prouvée en potabilisation et épuration des
-                eaux le savoir-faire des marques ECOLAB et NALCO.
-              </p>
+              <h2 className="title">EPUREAU Côte d&apos;Ivoire</h2>
+              <p className="lead" style={{ marginTop: 18 }}>EPUREAU CI est une Société par Actions Simplifiée (SAS), créée et basée en Côte d&apos;Ivoire depuis octobre 2015.</p>
               <div style={{ marginTop: 26 }}>
                 <Link className="btn btn-ghost" href="/a-propos">
                   Découvrir l&apos;entreprise <Icon name="arrow" />
                 </Link>
               </div>
             </div>
-            <div className="collage rv">
-              <figure className="f1">
-                <Image src="/images/apropos-1.jpg" alt="Local technique d'une station EPUREAU" width={640} height={480} />
-                <figcaption>STEP EUROLAIT · 270 m³/j</figcaption>
-              </figure>
-              <figure className="f2">
-                <Image src="/images/apropos-2.jpg" alt="Unité de traitement, CHR d'Adzopé" width={640} height={360} />
-                <figcaption>CHR d&apos;Adzopé · 90 m³/j</figcaption>
-              </figure>
-              <figure className="f3">
-                <Image src="/images/apropos-3.jpg" alt="Bassins de traitement, GARDEN Center" width={640} height={360} />
-                <figcaption>GARDEN Center</figcaption>
-              </figure>
-              <div className="badge" aria-hidden="true">
-                <div>
-                  <b>2015</b>
-                  <small>Côte d&apos;Ivoire</small>
-                </div>
-              </div>
-            </div>
+            <figure className="native-photo rv"><Image src="/images/projets-ci/abidjan-laiterie-process.jpg" alt="Installation de traitement réalisée avec EPUREAU à Abidjan" width={799} height={601} sizes="(max-width: 900px) 100vw, 50vw" /><figcaption>Station de traitement des eaux · Abidjan</figcaption></figure>
           </div>
         </div>
       </section>
@@ -101,28 +72,25 @@ export default function Accueil() {
       <section className="sec">
         <div className="wrap">
           <SectionHead
-            eyebrow="Nos réalisations"
-            titre="Des stations conçues, installées et mises en service"
-            lead="Chaque projet est une nouvelle opportunité de mettre notre expertise au service de nos clients et de contribuer à un avenir durable."
+            eyebrow="Ingénierie du traitement de l'eau"
+            titre="Nos réalisations"
           />
           <div className="projects rvs">
             {realisations.slice(0, 3).map((r) => (
               <article className="proj" key={r.slug}>
                 <div className="im">
-                  <Image src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={400} />
-                  <span className="veil" />
+                  <Image src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
+                  </div>
                   <div className="cap">
                     <span className="t">{r.type}</span>
                     <span className="c">
                       {r.debit}
                       <small>{r.unite}</small>
                     </span>
-                  </div>
-                </div>
-                <div className="bd">
+                  </div><div className="bd">
                   <h3>{r.nom}</h3>
                   <span className="cl">{r.client}</span>
-                  <p>{r.texte}</p>
+
                   <Link className="arrow-link more" href="/ingenierie/nos-realisations">
                     Voir la réalisation <Icon name="arrow" />
                   </Link>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./editorial.css";
 
 // Polices auto-hébergées (fichiers dans src/fonts) : pas d'appel à Google Fonts,
 // donc pas de requête externe côté visiteur ni de dépendance au réseau au build.

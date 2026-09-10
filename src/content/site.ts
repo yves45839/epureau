@@ -87,8 +87,8 @@ export const domaines = [
       "Bureau d'études, conception, réalisation et exploitation des ouvrages, en clé en main.",
     lien: "/ingenierie/notre-expertise",
     lienTexte: "Notre expertise",
-    image: "/images/dom-ingenierie.jpg",
-    alt: "Pose des ouvrages sur un chantier EPUREAU",
+    image: "/images/projets-ci/abidjan-laiterie.jpg",
+    alt: "Station de traitement des eaux à Abidjan, réalisée avec EPUREAU",
     icone: "droplet",
   },
   {

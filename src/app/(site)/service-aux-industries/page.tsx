@@ -43,6 +43,7 @@ export default function Industries() {
   return (
     <>
       <PageHeader
+        image="/images/illustrations/industrie.webp"
         fil={["Service aux industries"]}
         titre="Une équipe technique chevronnée au service de votre production"
         lead="EPUREAU CI est une société de service : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production."

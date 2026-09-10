@@ -16,30 +16,28 @@ export default function NosRealisations() {
     <>
       <PageHeader
         fil={["Ingénierie de l'eau", "Nos réalisations"]}
-        titre="Des stations conçues, installées et mises en service"
-        lead="Chez EPUREAU CI, chaque projet est une nouvelle opportunité de mettre notre expertise au service de nos clients et de contribuer à un avenir durable."
+        titre="Nos réalisations"
+        lead="Stations conçues, installées et mises en service."
       />
 
       <section className="sec">
         <div className="wrap">
           <div className="projects rvs">
             {realisations.map((r) => (
-              <article className="proj" key={r.slug}>
+              <article className="proj" key={r.slug} id={r.slug}>
                 <div className="im">
-                  <Image src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={400} />
-                  <span className="veil" />
+                  <Image src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
+                  </div>
                   <div className="cap">
                     <span className="t">{r.type}</span>
                     <span className="c">
                       {r.debit}
                       <small>{r.unite}</small>
                     </span>
-                  </div>
-                </div>
-                <div className="bd">
+                  </div><div className="bd">
                   <h3>{r.nom}</h3>
                   <span className="cl">{r.client}</span>
-                  <p>{r.texte}</p>
+                  <details className="project-details"><summary>Le projet en détail</summary><p>{r.texte}</p></details>
                   <Link className="arrow-link more" href="/mediatheque#photos">
                     Photos du chantier <Icon name="arrow" />
                   </Link>
