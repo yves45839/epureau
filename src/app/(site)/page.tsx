@@ -23,7 +23,7 @@ export default function Accueil() {
             {domaines.map((d, i) => (
               <Link className="dcard visual-domain" href={d.lien} key={d.titre}>
                 <div className="im">
-                  <Image src={visuelsDomaines[i].src} alt={visuelsDomaines[i].alt} fill sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" style={{ objectPosition: i === 3 ? "20% 50%" : visuelsDomaines[i].position }} />
+                  <Image src={visuelsDomaines[i].src} alt={visuelsDomaines[i].alt} fill sizes="(max-width: 600px) 100vw, 50vw" style={{ objectPosition: i === 3 ? "20% 50%" : visuelsDomaines[i].position }} />
                 </div>
                 <span className="domain-index mono" aria-hidden="true">0{i + 1}</span>
                 <div className="bd">

@@ -63,7 +63,6 @@ export default function Hero() {
           <div className="wrap cinema-copy">
             <span className="eyebrow">EPUREAU Côte d&apos;Ivoire</span>
             {i === 0 ? <h1 className="cinema-title">{d.titre}</h1> : <h2 className="cinema-title">{d.titre}</h2>}
-            <p>{d.texte}</p>
             <Link className="btn btn-primary" href={d.lien}>{d.lienTexte}<Icon name="arrow" /></Link>
           </div>
         </article>

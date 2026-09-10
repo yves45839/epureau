@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
-import { navigation, societe } from "@/content/site";
+import { navigation } from "@/content/site";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -45,33 +45,6 @@ export default function Nav() {
 
   return (
     <>
-      <div className="topbar">
-        <div className="wrap">
-          <ul>
-            <li>
-              <Icon name="phone" />
-              <a href={`tel:${societe.telephoneLien}`}>{societe.telephone}</a>
-            </li>
-            <li>
-              <Icon name="mail" />
-              <a href={`mailto:${societe.email}`}>{societe.email}</a>
-            </li>
-            <li>
-              <Icon name="clock" />
-              {societe.horaires}
-            </li>
-          </ul>
-          <div className="lang">
-            <button type="button" className="on" aria-current="true">
-              FR
-            </button>
-            <button type="button" title="Version anglaise en préparation" disabled>
-              EN
-            </button>
-          </div>
-        </div>
-      </div>
-
       <header className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
         <div className="wrap">
           <div className="nav-bar">
