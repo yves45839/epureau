@@ -43,23 +43,16 @@ export default function Hygiene() {
   return (
     <>
       <PageHeader
-        image="/images/illustrations/hygiene.webp"
         fil={["Hygiène institutionnelle"]}
-        titre="Produits, équipements de dosage et expertise technique"
-        lead="EPUREAU accompagne les établissements exigeants avec des solutions complètes d'hygiène institutionnelle, en partenariat avec les leaders mondiaux du secteur."
+        titre="Hygiène institutionnelle"
+        lead="Hôpitaux, hôtels, cuisines professionnelles, buanderies et pressings : produits, dosage et expertise."
       />
 
       <section className="sec">
         <div className="wrap">
           <div className="split" style={{ marginBottom: "clamp(36px,4vw,56px)" }}>
             <div className="sec-head rv" style={{ margin: 0 }}>
-              <span className="eyebrow">Notre accompagnement</span>
-              <h2 className="title">Des solutions complètes pour les établissements exigeants</h2>
-              <p className="lead">
-                EPUREAU accompagne les hôpitaux, buanderies, pressings, hôtels, cuisines
-                professionnelles et restaurants avec des produits chimiques haute performance, des
-                équipements de dosage et une expertise technique.
-              </p>
+              <h2 className="title">Notre accompagnement</h2>
               <p className="lead">
                 Grâce à son partenariat avec les leaders mondiaux de l&apos;hygiène, EPUREAU optimise
                 la propreté, la sécurité sanitaire et alimentaire ainsi que les coûts

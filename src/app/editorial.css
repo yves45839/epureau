@@ -172,11 +172,39 @@ html.js .visual-domains>*.in{clip-path:inset(0 round 10px)}
  .cinema-controls{bottom:25px}.hero-cinema .image-disclosure{bottom:2px;font-size:10px}
  .cinema-controls .hero-tabs button{padding:6px 0}
 }
+.product-access{background:var(--g50);border-bottom:1px solid var(--g200);padding:32px 0}
+.product-access .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.product-access h2{font-size:clamp(22px,2.4vw,30px);font-weight:500;line-height:1.25;color:var(--marine)}
+.product-access p{margin:8px 0 0;font-size:14px;color:var(--g500)}
+.product-access .btn{flex-shrink:0}
+.photo-banner.process-banner{height:auto;padding:0}
+.process-banner .photo-banner-frame>img{object-position:50% 50%}
+.process-banner .photo-banner-frame::after{background:linear-gradient(90deg,#071831a6,#07183133),linear-gradient(0deg,#07183170,transparent 70%)}
+.journey-layout{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:8%;margin-top:calc(-75svh + var(--nav-height));padding-bottom:18svh}
+.process-banner-heading{position:sticky;top:calc(var(--nav-height) + 15svh);padding-bottom:36px}
+.process-banner-heading h2{font-size:clamp(36px,4.5vw,62px);max-width:12ch}
+.journey-cards{list-style:none;padding:0;margin:0;display:grid;gap:22svh}
+.journey-card{padding:clamp(26px,3vw,42px);background:#fff;border:1px solid #ffffff80;border-radius:12px;box-shadow:0 24px 64px #061c3830}
+.journey-number{display:block;font-size:14px;color:#087a9e;margin-bottom:28px}
+.journey-card h3{color:var(--marine);font-size:clamp(26px,3vw,38px);font-weight:500;line-height:1.15;margin-bottom:20px}
+.journey-card ul{list-style:none;padding:0;margin:0;color:var(--g500);font-size:16px}
+.journey-card li{padding:10px 0;border-top:1px solid var(--g200)}
+.process-banner .image-disclosure{right:auto;left:24px}
+@media(max-width:700px){
+ .product-access .wrap{align-items:flex-start;flex-direction:column;gap:20px}
+ .journey-layout{grid-template-columns:1fr;gap:32px;margin-top:calc(-85svh + var(--nav-height));padding-bottom:14svh}
+ .process-banner-heading{position:relative;top:auto;padding:0}
+ .process-banner-heading h2{font-size:38px;margin:14px 0 22px;max-width:none}
+ .journey-cards{gap:16svh}.journey-card{max-width:460px;width:100%;margin-left:auto}
+ .process-banner .image-disclosure{left:18px;font-size:11px}
+}
 @media(prefers-reduced-motion:reduce){
  .cinema-slide,.cinema-copy>*{transition:none!important}
  .cinema-image img,.photo-banner-frame,.photo-banner-frame>img{animation:none!important;transform:none!important;clip-path:none!important}
  html.js .rv,html.js .rvs>*{opacity:1;clip-path:none;transform:none;transition:none}
  .photo-banner{height:auto}.photo-banner-frame{position:absolute;inset:0;height:100%}
  .photo-banner-content{position:relative;top:auto;padding-block:100px}
+ .journey-layout{margin-top:0;padding-block:64px}.process-banner-heading{position:relative;top:auto}
+ .journey-cards{gap:24px}
  .visual-domain:hover .im img,.visual-domain:focus-visible .im img{transform:none}
 }

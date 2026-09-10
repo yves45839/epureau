@@ -19,7 +19,6 @@ export default function Negoce() {
   return (
     <>
       <PageHeader
-        image="/images/illustrations/industrie.webp"
         fil={["Négoce de produits chimiques"]}
         titre="Deux références mondiales, une même équipe technique locale"
         lead="Dosage, suivi analytique, audits de performance et formation de vos opérateurs. Les produits sont présentés sans tarif : chaque besoin fait l'objet d'une cotation personnalisée après échange avec nos équipes techniques."
