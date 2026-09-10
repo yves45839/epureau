@@ -1,0 +1,79 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import HomeQuoteForm from "./HomeQuoteForm";
+import { mountHomeInteractions } from "./homeInteractions";
+
+/** Accueil issu de la maquette validée, avec le formulaire de cotation réel. */
+export default function HomeLanding() {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (root.current) return mountHomeInteractions(root.current);
+  }, []);
+  return <div className="home-experience" ref={root}>
+  <svg className="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol><symbol id="diagonal" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol><symbol id="phone" viewBox="0 0 24 24"><path d="m6 3 4 5-3 3c2 3 3 4 6 6l3-3 5 4c-1 4-5 4-9 2C7 17 3 12 3 7c0-2 1-4 3-4Z"/></symbol><symbol id="close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol></defs></svg>
+  <a className="home-skip" href="#contenu">Aller au contenu</a>
+  <header className="site-header">
+    <div className="shell header-inner">
+      <a className="brand" href="#accueil" aria-label="EPUREAU — Accueil"><img src="/images/logo.png" width="560" height="162" alt="EPUREAU Côte d’Ivoire" /></a>
+      <nav className="desktop-nav" aria-label="Navigation principale"><a href="#metiers">Nos métiers</a><a href="#metiers" data-detail="produits">Produits</a><a href="#realisations">Réalisations</a><a href="/a-propos">À propos</a></nav>
+      <a className="button header-contact" href="#contact">Demander une cotation<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+      <button className="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+    <nav id="mobile-menu" className="mobile-nav" aria-label="Navigation mobile" hidden><a href="#metiers">Nos métiers</a><a href="#metiers" data-detail="produits">Produits</a><a href="#realisations">Réalisations</a><a href="/a-propos">À propos</a><a href="#contact">Demander une cotation</a></nav>
+  </header>
+
+  <main id="contenu">
+    <section id="accueil" className="home-hero">
+      <div className="hero-photo"><img src="/images/illustrations/panorama-eau.webp" width="1672" height="941" alt="Illustration d’une installation de traitement d’eau dans un paysage ouest-africain" fetchPriority="high" /></div>
+      <div className="shell hero-content">
+        <span className="home-eyebrow light">EPUREAU Côte d’Ivoire</span>
+        <h1>L’ingénierie de l’eau.<br />Les services aux industries.<br /><span>L’hygiène.</span></h1>
+        <p>Conception d’installations, accompagnement technique et fourniture de produits chimiques.</p>
+        <div className="hero-actions"><a className="button cyan" href="#metiers">Nos métiers<svg aria-hidden="true"><use href="#arrow"/></svg></a><a className="text-link" href="#realisations">Voir nos réalisations<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div>
+      </div>
+      <div className="hero-bottom shell"><a href="#metiers" className="scroll-link"><span>↓</span> Découvrir EPUREAU</a></div>
+    </section>
+
+    <section id="metiers" className="section services-section">
+      <div className="shell services-shell">
+        <div className="section-heading reveal"><div><span className="home-eyebrow">Nos métiers</span><h2>Nos domaines<br />d’intervention.</h2></div></div>
+        <div className="services-grid">
+          <a className="service-card reveal" href="#contact" data-detail="ingenierie"><div className="service-photo"><img src="/images/illustrations/ingenierie.webp" width="1672" height="941" alt="Illustration : ingénieurs ouest-africains sur une installation de traitement" loading="lazy" /></div><div className="service-body"><span className="service-topline">01 <svg aria-hidden="true"><use href="#diagonal"/></svg></span><h3>Ingénierie<br />de l’eau</h3><p>Études, conception, réalisation et exploitation des ouvrages.</p><span className="service-link">Notre expertise</span></div></a>
+          <a className="service-card reveal" href="#contact" data-detail="industries"><div className="service-photo"><img src="/images/illustrations/industrie.webp" width="1672" height="941" alt="Illustration : technicienne ouest-africaine dans une installation industrielle" loading="lazy" /></div><div className="service-body"><span className="service-topline">02 <svg aria-hidden="true"><use href="#diagonal"/></svg></span><h3>Services<br />aux industries</h3><p>Produits formulés, optimisation des utilités et services ECOLAB.</p><span className="service-link">Nos services</span></div></a>
+          <a className="service-card reveal" href="#contact" data-detail="hygiene"><div className="service-photo"><img src="/images/illustrations/hygiene.webp" width="1672" height="941" alt="Illustration : entretien du linge dans une buanderie professionnelle ouest-africaine" loading="lazy" /></div><div className="service-body"><span className="service-topline">03 <svg aria-hidden="true"><use href="#diagonal"/></svg></span><h3>Hygiène<br />institutionnelle</h3><p>Produits, équipements de dosage et expertise technique.</p><span className="service-link">Nos solutions</span></div></a>
+          <a className="service-card reveal" href="#contact" data-detail="produits"><div className="service-photo"><img src="/maquette/images/produits.webp" width="1672" height="941" alt="Illustration : produits chimiques conditionnés et matériel de laboratoire" loading="lazy" /></div><div className="service-body"><span className="service-topline">04 <svg aria-hidden="true"><use href="#diagonal"/></svg></span><h3>Produits<br />chimiques</h3><p>NALCO, ECOLAB, commodités, réactifs et matériel de mesure.</p><span className="service-link">Nos produits</span></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="realisations" className="proof-section">
+      <div className="shell section-heading reveal"><div><span className="home-eyebrow light">Sur le terrain · Côte d’Ivoire</span><h2>Nos réalisations.</h2></div><a href="/ingenierie/nos-realisations" className="text-link">Toutes nos réalisations<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div>
+      <div className="proof-story">
+        <div className="proof-stage" aria-hidden="true"><div className="shell stage-inner"><div className="stage-rail"><span>01</span><div><i></i></div><span>02</span></div><div className="stage-images"><img className="active" data-case-image="0" src="/maquette/images/projets/eurolait.jpg" alt="" width="640" height="245" loading="lazy" /><img data-case-image="1" src="/maquette/images/projets/chr-adzope.jpg" alt="" width="640" height="245" loading="lazy" /></div><span className="stage-caption">Photographies de réalisations</span></div></div>
+        <div className="shell case-list">
+          <article className="case-card" data-case="0"><img className="case-mobile-photo" src="/maquette/images/projets/eurolait.jpg" alt="Station de traitement des eaux industrielles EUROLAIT à Abidjan" width="640" height="245" loading="lazy" /><span className="case-number">01 / 05</span><span className="home-eyebrow light">Industrie agroalimentaire</span><h3>EUROLAIT.</h3><p>Traitement physico-chimique des eaux usées industrielles.</p><div className="case-tags"><span>Abidjan</span><span>Installation et mise en service</span></div><a className="text-link" href="/ingenierie/nos-realisations#eurolait">Voir le projet<svg aria-hidden="true"><use href="#diagonal"/></svg></a></article>
+          <article className="case-card" data-case="1"><img className="case-mobile-photo" src="/maquette/images/projets/chr-adzope.jpg" alt="Station de traitement des eaux hospitalières du CHR d’Adzopé" width="640" height="245" loading="lazy" /><span className="case-number">02 / 05</span><span className="home-eyebrow light">Établissement hospitalier</span><h3>CHR<br />d’Adzopé.</h3><p>Traitement des eaux usées hospitalières.</p><div className="case-tags"><span>AGENTIS / SEG</span><span>Adzopé</span></div><a className="text-link" href="/ingenierie/nos-realisations#chr-adzope">Voir le projet<svg aria-hidden="true"><use href="#diagonal"/></svg></a></article>
+        </div>
+      </div>
+<div className="shell catalogue-grid"><article className="catalogue-card reveal"><div className="catalogue-photo"><img src="/maquette/images/projets/pisam.jpg" width="640" height="245" style={{ maxWidth: 640 }} alt="Réalisation PISAM à Abidjan" loading="lazy" /></div><div className="catalogue-body"><span className="case-number">03 / 05</span><h3>PISAM</h3><span className="catalogue-location">Abidjan · Traitement biologique</span><p>Station modulaire de traitement biologique MBBR.</p><a className="text-link" href="/ingenierie/nos-realisations#pisam">Voir le projet<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div></article><article className="catalogue-card reveal"><div className="catalogue-photo"><img src="/maquette/images/projets/mipa.jpg" width="640" height="245" style={{ maxWidth: 640 }} alt="Réalisation MIPA à Abidjan" loading="lazy" /></div><div className="catalogue-body"><span className="case-number">04 / 05</span><h3>MIPA</h3><span className="catalogue-location">Abidjan · Procédé SBR</span><p>Traitement des effluents industriels par procédé SBR.</p><a className="text-link" href="/ingenierie/nos-realisations#mipa">Voir le projet<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div></article><article className="catalogue-card reveal"><div className="catalogue-photo"><img src="/maquette/images/projets/garden-center.jpg" width="640" height="245" style={{ maxWidth: 640 }} alt="Réalisation GARDEN Center à Abidjan" loading="lazy" /></div><div className="catalogue-body"><span className="case-number">05 / 05</span><h3>GARDEN Center</h3><span className="catalogue-location">Abidjan · Prétraitement</span><p>Ouvrages de prétraitement et de dessablage.</p><a className="text-link" href="/ingenierie/nos-realisations#garden-center">Voir le projet<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div></article></div>
+    </section>
+
+    <section className="section references-section">
+      <div className="shell references-grid">
+        <div className="clients-block reveal"><span className="home-eyebrow">Nos références</span><h2>Ils nous font confiance.</h2><div className="client-logos" aria-label="Quelques références clients"><button className="company-logo" type="button" aria-label="Cargill" aria-pressed="false"><img src="/maquette/images/logos/cargill.png" width="960" height="430" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">Cargill</span></button><button className="company-logo" type="button" aria-label="EUROLAIT" aria-pressed="false"><img src="/maquette/images/logos/eurolait.png" width="264" height="60" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">EUROLAIT</span></button><button className="company-logo" type="button" aria-label="BRASSIVOIRE" aria-pressed="false"><img src="/maquette/images/logos/brassivoire.png" width="491" height="185" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">BRASSIVOIRE</span></button><button className="company-logo" type="button" aria-label="Nestlé" aria-pressed="false"><img src="/maquette/images/logos/nestle.png" width="221" height="228" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">Nestlé</span></button><button className="company-logo" type="button" aria-label="PALMCI" aria-pressed="false"><img src="/maquette/images/logos/palmci.png" width="100" height="100" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">PALMCI</span></button><button className="company-logo" type="button" aria-label="PISAM" aria-pressed="false"><img src="/maquette/images/logos/pisam.png" width="1475" height="579" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">PISAM</span></button></div></div>
+        <div className="brands-block reveal"><span className="home-eyebrow">Marques représentées</span><div className="brand-logos"><button className="company-logo" type="button" aria-label="NALCO Water" aria-pressed="false"><img src="/maquette/images/logos/nalco-water.svg" width="233" height="49" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">NALCO Water</span></button><button className="company-logo" type="button" aria-label="ECOLAB" aria-pressed="false"><img src="/maquette/images/logos/ecolab.webp" width="600" height="114" alt="" loading="lazy" /><span className="company-name" aria-hidden="true">ECOLAB</span></button></div><p>Traitement de l’eau.<br />Hygiène et sécurité alimentaire.</p><a href="#metiers" data-detail="produits" className="text-link dark">Voir les produits<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
+    </section>
+
+    <section id="contact" className="contact-section section">
+      <div className="shell contact-grid">
+        <div className="contact-copy reveal"><span className="home-eyebrow">Contact</span><h2>Demander<br />une cotation.</h2><p>Notre équipe vous accompagne.</p><a className="phone-link" href="tel:+2252722228905"><svg aria-hidden="true"><use href="#phone"/></svg>+225 27 22 22 89 05</a><a className="email-link" href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a><div className="contact-address">Cocody, Abidjan · Côte d’Ivoire<br />Lundi – Vendredi · 08h30 – 17h30</div></div>
+        <HomeQuoteForm />
+      </div>
+    </section>
+  </main>
+
+  <dialog id="service-dialog"><button className="dialog-close" aria-label="Fermer"><svg aria-hidden="true"><use href="#close"/></svg></button><span className="home-eyebrow">Nos métiers</span><h2 id="dialog-title"></h2><p id="dialog-description"></p><div id="dialog-points"></div><a className="button" id="dialog-contact" href="#contact">Contacter notre équipe<svg aria-hidden="true"><use href="#arrow"/></svg></a><a className="dialog-page" id="dialog-page" href="#metiers">Consulter la page métier ↗</a></dialog>
+</div>;
+}

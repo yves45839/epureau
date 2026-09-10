@@ -133,7 +133,7 @@ export const realisations = [
     client: "Client : EUROLAIT — Abidjan",
     texte:
       "Traitement des eaux usées d'un site industriel à forte charge, par procédé physico-chimique. Études, installation des équipements et mise en service opérationnelle.",
-    image: "/images/proj-eurolait.jpg",
+    image: "/maquette/images/projets/eurolait.jpg",
   },
   {
     slug: "chr-adzope",
@@ -144,7 +144,7 @@ export const realisations = [
     client: "Client : AGENTIS / SEG — Adzopé",
     texte:
       "Traitement des eaux usées hospitalières d'un établissement de 200 lits, dimensionné pour répondre aux exigences sanitaires et environnementales du site.",
-    image: "/images/proj-chr.jpg",
+    image: "/maquette/images/projets/chr-adzope.jpg",
   },
   {
     slug: "pisam",
@@ -155,7 +155,7 @@ export const realisations = [
     client: "Client : PISAM — Abidjan",
     texte:
       "Station modulaire à procédé biologique Moving Bed Biofilm Reactor, reconnu pour sa performance et sa compacité. Études, travaux préparatoires, installation et mise en service.",
-    image: "/images/proj-pisam.jpg",
+    image: "/maquette/images/projets/pisam.jpg",
   },
   {
     slug: "mipa",
@@ -166,7 +166,7 @@ export const realisations = [
     client: "Client : MIPA — Abidjan",
     texte:
       "Procédé biologique Sequencing Batch Reactor, adapté aux effluents variables d'un site de production. Études, génie civil, équipements et mise en service.",
-    image: "/images/proj-mipa.jpg",
+    image: "/maquette/images/projets/mipa.jpg",
   },
   {
     slug: "garden-center",
@@ -177,7 +177,7 @@ export const realisations = [
     client: "Client : GARDEN Center — Abidjan",
     texte:
       "Ouvrages de prétraitement et de dessablage, conçus et installés pour sécuriser le rejet et faciliter l'exploitation du site.",
-    image: "/images/proj-garden.jpg",
+    image: "/maquette/images/projets/garden-center.jpg",
   },
 ];
 

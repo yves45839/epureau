@@ -77,7 +77,6 @@ export default function Hero() {
           <button className="photo-pause" type="button" aria-label="Photo suivante" onClick={() => aller(index + 1)}><Icon name="arrow" /></button>
         </div>
       </div>
-      <span className="image-disclosure">Illustrations générées</span>
     </section>
   );
 }

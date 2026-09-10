@@ -7,8 +7,7 @@ export default function PhotoBanner() {
   return (
     <section className="photo-banner process-banner" aria-labelledby="banner-title">
       <div className="photo-banner-frame">
-        <Image src="/images/illustrations/panorama-eau.webp" alt="Illustration générée : infrastructures de traitement d’eau dans un paysage tropical ouest-africain" fill sizes="100vw" />
-        <span className="image-disclosure">Illustration générée</span>
+        <Image src="/images/illustrations/panorama-eau.webp" alt="infrastructures de traitement d’eau dans un paysage tropical ouest-africain" fill sizes="100vw" />
       </div>
       <div className="wrap journey-layout">
         <div className="process-banner-heading">

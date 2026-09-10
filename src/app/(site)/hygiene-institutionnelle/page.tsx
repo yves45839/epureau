@@ -63,12 +63,12 @@ export default function Hygiene() {
             <figure className="photo illustrated-photo rv">
               <Image
                 src="/images/illustrations/hygiene.webp"
-                alt="Illustration générée : technicienne ouest-africaine dans une buanderie professionnelle"
+                alt="technicienne ouest-africaine dans une buanderie professionnelle"
                 width={640}
                 height={480}
                 style={{ objectPosition: "70% 50%" }}
               />
-              <figcaption>Entretien du linge · illustration générée</figcaption>
+              <figcaption>Entretien du linge</figcaption>
             </figure>
           </div>
 

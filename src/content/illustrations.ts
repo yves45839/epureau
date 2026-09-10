@@ -2,17 +2,17 @@
 export const illustrations = {
   ingenierie: {
     src: "/images/illustrations/ingenierie.webp",
-    alt: "Illustration générée : ingénieurs ouest-africains sur une installation de traitement de l'eau",
+    alt: "ingénieurs ouest-africains sur une installation de traitement de l'eau",
     position: "62% 50%",
   },
   industrie: {
     src: "/images/illustrations/industrie.webp",
-    alt: "Illustration générée : technicienne ouest-africaine et équipements industriels en inox",
+    alt: "technicienne ouest-africaine et équipements industriels en inox",
     position: "62% 50%",
   },
   hygiene: {
     src: "/images/illustrations/hygiene.webp",
-    alt: "Illustration générée : entretien du linge dans une buanderie professionnelle en contexte ouest-africain",
+    alt: "entretien du linge dans une buanderie professionnelle en contexte ouest-africain",
     position: "62% 50%",
   },
 } as const;

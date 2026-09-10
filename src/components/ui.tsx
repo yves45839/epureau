@@ -55,7 +55,6 @@ export function PageHeader({
         <h1>{titre}</h1>
         <p>{lead}</p>
       </div>
-      {image && <span className="image-disclosure">Illustration générée</span>}
     </section>
   );
 }
