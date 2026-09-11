@@ -118,15 +118,18 @@ servicesSection.addEventListener('focusin', queueServices);
 servicesSection.addEventListener('focusout', queueServices);
 layoutServices();
 
-const companyLogos = [...document.querySelectorAll('.company-logo')];
 function closeLogoNames() {
-  companyLogos.forEach(logo => { logo.classList.remove('show-name'); logo.setAttribute('aria-pressed', 'false'); });
+  document.querySelectorAll('.company-logo').forEach(logo => { logo.classList.remove('show-name'); logo.setAttribute('aria-pressed', 'false'); });
 }
-companyLogos.forEach(logo => logo.addEventListener('click', () => {
+document.addEventListener('click', event => {
+  const logo = event.target.closest('.company-logo');
+  if (!logo) { closeLogoNames(); return; }
   const open = !logo.classList.contains('show-name');
   closeLogoNames();
-  logo.classList.toggle('show-name', open);
-  logo.setAttribute('aria-pressed', String(open));
-}));
-document.addEventListener('click', event => { if (!event.target.closest('.company-logo')) closeLogoNames(); });
+  document.querySelectorAll('.company-logo').forEach(item => {
+    if (item.getAttribute('aria-label') === logo.getAttribute('aria-label')) {
+      item.classList.toggle('show-name', open); item.setAttribute('aria-pressed', String(open));
+    }
+  });
+});
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeLogoNames(); });

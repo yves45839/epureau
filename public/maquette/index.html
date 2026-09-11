@@ -8,8 +8,8 @@
   </style>
 </head>
 <body>
-  <header class="review-bar"><div class="review-title">EPUREAU <span class="badge">Maquette d’accueil</span></div><div class="switcher" aria-label="Format de la maquette"><button type="button" data-mode="desktop" aria-pressed="true">Ordinateur</button><button type="button" data-mode="mobile" aria-pressed="false">Mobile</button></div><a class="review-link" href="accueil.html?v=3" target="_blank" rel="noopener">Ouvrir en plein écran ↗</a></header>
-  <div class="canvas"><iframe src="accueil.html?v=3" title="Maquette interactive de l’accueil EPUREAU"></iframe></div>
+  <header class="review-bar"><div class="review-title">EPUREAU <span class="badge">Maquette d’accueil</span></div><div class="switcher" aria-label="Format de la maquette"><button type="button" data-mode="desktop" aria-pressed="true">Ordinateur</button><button type="button" data-mode="mobile" aria-pressed="false">Mobile</button></div><a class="review-link" href="accueil.html?v=4" target="_blank" rel="noopener">Ouvrir en plein écran ↗</a></header>
+  <div class="canvas"><iframe src="accueil.html?v=4" title="Maquette interactive de l’accueil EPUREAU"></iframe></div>
   <script>document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{document.querySelector('.canvas').classList.toggle('mobile',button.dataset.mode==='mobile');document.querySelectorAll('[data-mode]').forEach(other=>other.setAttribute('aria-pressed',String(other===button)));}));</script>
 </body>
 </html>

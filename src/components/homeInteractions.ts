@@ -132,11 +132,16 @@ export function mountHomeInteractions(root: HTMLElement) {
   document.fonts.ready.then(layoutServices);
   layoutServices();
 
-  const logos = qa<HTMLButtonElement>(".company-logo");
-  const closeLogos = () => logos.forEach(logo => { logo.classList.remove("show-name"); logo.setAttribute("aria-pressed", "false"); });
-  logos.forEach(logo => on(logo, "click", () => {
-    const open = !logo.classList.contains("show-name"); closeLogos(); logo.classList.toggle("show-name", open); logo.setAttribute("aria-pressed", String(open));
-  }));
+  const closeLogos = () => qa(".company-logo").forEach(logo => { logo.classList.remove("show-name"); logo.setAttribute("aria-pressed", "false"); });
+  on(root, "click", event => {
+    const logo = event.target instanceof Element ? event.target.closest(".company-logo") : null;
+    if (!logo) return;
+    const open = !logo.classList.contains("show-name");
+    closeLogos();
+    qa(".company-logo").filter(item => item.getAttribute("aria-label") === logo.getAttribute("aria-label")).forEach(item => {
+      item.classList.toggle("show-name", open); item.setAttribute("aria-pressed", String(open));
+    });
+  });
   on(document, "click", event => { if (event.target instanceof Element && !event.target.closest(".company-logo")) closeLogos(); });
   on(document, "keydown", event => { if ((event as KeyboardEvent).key === "Escape") closeLogos(); });
 
