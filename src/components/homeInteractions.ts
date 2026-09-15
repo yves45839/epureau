@@ -40,6 +40,41 @@ export function mountHomeInteractions(root: HTMLElement) {
   on(document, "keydown", event => { if ((event as KeyboardEvent).key === "Escape" && !mobileMenu.hidden) { closeMenu(); menuToggle.focus(); } });
   on(window.matchMedia("(min-width:701px)"), "change", closeMenu);
 
+  const story = q(".proof-story");
+  const cases = qa("[data-case]");
+  const casePhotos = qa("[data-case-image]");
+  const titles = cases.map(card => card.querySelector("h3")!);
+  let caseFrame = 0;
+  let caseInView = false;
+  const updateCase = () => {
+    caseFrame = 0;
+    if (!story.classList.contains("proof-motion")) return;
+    // Déclencher à l'entrée du titre, et non une fois arrivé au milieu de l'écran.
+    let active = 0;
+    const bounds = titles.map(title => title.getBoundingClientRect());
+    bounds.forEach((rect, index) => { if (rect.top <= window.innerHeight * .88) active = index; });
+    const focused = cases.findIndex(card => card.contains(document.activeElement));
+    if (focused !== -1) active = focused;
+    cases.forEach((card, index) => card.classList.toggle("active", index === active));
+    casePhotos.forEach((photo, index) => photo.classList.toggle("active", index === active));
+    q(".stage-rail i").style.width = `${cases.length ? (active + 1) / cases.length * 100 : 0}%`;
+  };
+  const queueCase = () => { if (caseInView && !caseFrame) caseFrame = requestAnimationFrame(updateCase); };
+  const layoutCases = () => {
+    if (!alive) return;
+    story.classList.toggle("proof-motion", !motion.matches && window.innerWidth > 700 && cases.length > 1);
+    updateCase();
+  };
+  const caseObserver = new IntersectionObserver(([entry]) => { caseInView = entry.isIntersecting; queueCase(); }, {rootMargin:"100px 0px"});
+  caseObserver.observe(story);
+  on(window, "scroll", queueCase, {passive:true});
+  on(window, "resize", layoutCases, {passive:true});
+  on(motion, "change", layoutCases);
+  on(story, "focusin", queueCase);
+  on(story, "focusout", queueCase);
+  document.fonts.ready.then(layoutCases);
+  layoutCases();
+
   const serviceKeys = ["ingenierie", "industries", "hygiene", "produits"];
   const points = [["Conception", "Réalisation", "Mise en service"], ["Produits formulés", "Utilités industrielles", "Nettoyage industriel"], ["Entretien du linge", "Hygiène des locaux", "Cuisines professionnelles"], ["NALCO", "ECOLAB", "Commodités & réactifs"]];
   const dialog = q<HTMLDialogElement>("#service-dialog");
@@ -145,8 +180,9 @@ export function mountHomeInteractions(root: HTMLElement) {
   return () => {
     alive = false;
     cleanupCarousels();
-    lifecycle.abort(); revealObserver.disconnect(); serviceObserver.disconnect();
-    cancelAnimationFrame(servicesFrame);
+    lifecycle.abort(); revealObserver.disconnect(); serviceObserver.disconnect(); caseObserver.disconnect();
+    cancelAnimationFrame(servicesFrame); cancelAnimationFrame(caseFrame);
+    story.classList.remove("proof-motion");
     if (dialog.open) { document.body.style.overflow = previousOverflow; dialog.close(); }
     root.classList.remove("motion-ready");
   };
