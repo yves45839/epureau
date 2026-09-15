@@ -1,0 +1,1831 @@
+[
+  {
+    "key": "a-propos",
+    "title": "À propos",
+    "path": "/a-propos",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — Experts en ingénierie de l'eau, au service de l'industrie ivoirie",
+        "type": "text",
+        "value": "Experts en ingénierie de l'eau, au service de l'industrie ivoirienne"
+      },
+      {
+        "key": "f002",
+        "label": "lead — Une société ivoirienne, une ingénierie prouvée en potabilisation ",
+        "type": "long",
+        "value": "Une société ivoirienne, une ingénierie prouvée en potabilisation et en épuration, et le savoir-faire de deux références mondiales du traitement de l'eau et de l'hygiène."
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Qui sommes-nous ?",
+        "type": "text",
+        "value": "Qui sommes-nous ?"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Une SAS ivoirienne, membre du groupe YANGONDI",
+        "type": "text",
+        "value": "Une SAS ivoirienne, membre du groupe YANGONDI"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — EPUREAU Côte d’Ivoire est une Société par Actions Simplifiée (SAS",
+        "type": "long",
+        "value": "EPUREAU Côte d’Ivoire est une Société par Actions Simplifiée (SAS), créée et basée en Côte d'Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société française, elle a rejoint "
+      },
+      {
+        "key": "f006",
+        "label": "Texte — YANGONDI HOLDING",
+        "type": "text",
+        "value": "YANGONDI HOLDING"
+      },
+      {
+        "key": "f007",
+        "label": "Texte — .",
+        "type": "text",
+        "value": "."
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Spécialisée dans le traitement des eaux (potable, usée, industrie",
+        "type": "long",
+        "value": "Spécialisée dans le traitement des eaux (potable, usée, industrielle), EPUREAU Côte d’Ivoire associe à son ingénierie prouvée en potabilisation et épuration des eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des utilités, l'hygiène, la désinfection de vos installations et la protection de vos marques."
+      },
+      {
+        "key": "f009",
+        "label": "src — /images/apropos-1.jpg",
+        "type": "image",
+        "value": "/images/apropos-1.jpg"
+      },
+      {
+        "key": "f010",
+        "label": "alt — Local technique d'une station EPUREAU Côte d’Ivoire",
+        "type": "text",
+        "value": "Local technique d'une station EPUREAU Côte d’Ivoire"
+      },
+      {
+        "key": "f011",
+        "label": "Texte — STEP EUROLAIT · 270 m³/j",
+        "type": "text",
+        "value": "STEP EUROLAIT · 270 m³/j"
+      },
+      {
+        "key": "f012",
+        "label": "src — /images/apropos-2.jpg",
+        "type": "image",
+        "value": "/images/apropos-2.jpg"
+      },
+      {
+        "key": "f013",
+        "label": "alt — Unité de traitement, CHR D’ADZOPÉ",
+        "type": "text",
+        "value": "Unité de traitement, CHR D’ADZOPÉ"
+      },
+      {
+        "key": "f014",
+        "label": "Texte — CHR D’ADZOPÉ · 90 m³/j",
+        "type": "text",
+        "value": "CHR D’ADZOPÉ · 90 m³/j"
+      },
+      {
+        "key": "f015",
+        "label": "src — /images/apropos-3.jpg",
+        "type": "image",
+        "value": "/images/apropos-3.jpg"
+      },
+      {
+        "key": "f016",
+        "label": "alt — Bassins de traitement, GARDEN CENTER",
+        "type": "text",
+        "value": "Bassins de traitement, GARDEN CENTER"
+      },
+      {
+        "key": "f017",
+        "label": "Texte — GARDEN CENTER",
+        "type": "text",
+        "value": "GARDEN CENTER"
+      },
+      {
+        "key": "f018",
+        "label": "Texte — 2015",
+        "type": "text",
+        "value": "2015"
+      },
+      {
+        "key": "f019",
+        "label": "Texte — Côte d'Ivoire",
+        "type": "text",
+        "value": "Côte d'Ivoire"
+      },
+      {
+        "key": "f020",
+        "label": "eyebrow — Nos valeurs",
+        "type": "text",
+        "value": "Nos valeurs"
+      },
+      {
+        "key": "f021",
+        "label": "titre — Ce qui guide chacune de nos interventions",
+        "type": "text",
+        "value": "Ce qui guide chacune de nos interventions"
+      },
+      {
+        "key": "f022",
+        "label": "titre — Envie d'en savoir plus sur nos méthodes ?",
+        "type": "text",
+        "value": "Envie d'en savoir plus sur nos méthodes ?"
+      },
+      {
+        "key": "f023",
+        "label": "texte — Présentez-nous votre site et vos contraintes : nos ingénieurs vou",
+        "type": "long",
+        "value": "Présentez-nous votre site et vos contraintes : nos ingénieurs vous répondent sous 48 h ouvrées."
+      },
+      {
+        "key": "f024",
+        "label": "titre — Développer un environnement toujours plus sain et plus pratique",
+        "type": "text",
+        "value": "Développer un environnement toujours plus sain et plus pratique"
+      },
+      {
+        "key": "f025",
+        "label": "texte — Des solutions respectueuses de l'environnement qui contribuent à ",
+        "type": "long",
+        "value": "Des solutions respectueuses de l'environnement qui contribuent à la préservation du cadre de vie."
+      },
+      {
+        "key": "f026",
+        "label": "titre — Protéger les installations et améliorer la productivité",
+        "type": "text",
+        "value": "Protéger les installations et améliorer la productivité"
+      },
+      {
+        "key": "f027",
+        "label": "texte — Fiabilité des équipements, performance optimisée, efficacité et r",
+        "type": "long",
+        "value": "Fiabilité des équipements, performance optimisée, efficacité et rentabilité pour nos clients."
+      },
+      {
+        "key": "f028",
+        "label": "titre — Fédérer les talents et nourrir une relation de confiance",
+        "type": "text",
+        "value": "Fédérer les talents et nourrir une relation de confiance"
+      },
+      {
+        "key": "f029",
+        "label": "texte — Écoute, transparence et engagement durable aux côtés de nos parte",
+        "type": "text",
+        "value": "Écoute, transparence et engagement durable aux côtés de nos partenaires."
+      },
+      {
+        "key": "f030",
+        "label": "titre — Intégrité",
+        "type": "text",
+        "value": "Intégrité"
+      },
+      {
+        "key": "f031",
+        "label": "texte — Des engagements tenus, des comptes rendus clairs et des interlocu",
+        "type": "text",
+        "value": "Des engagements tenus, des comptes rendus clairs et des interlocuteurs identifiés."
+      },
+      {
+        "key": "f032",
+        "label": "titre — Qualité",
+        "type": "text",
+        "value": "Qualité"
+      },
+      {
+        "key": "f033",
+        "label": "texte — Le respect des normes en vigueur et des performances contractuell",
+        "type": "text",
+        "value": "Le respect des normes en vigueur et des performances contractuelles."
+      },
+      {
+        "key": "f034",
+        "label": "titre — Innovation",
+        "type": "text",
+        "value": "Innovation"
+      },
+      {
+        "key": "f035",
+        "label": "texte — Des procédés éprouvés — SBR, MBBR, physico-chimique — adaptés à c",
+        "type": "text",
+        "value": "Des procédés éprouvés — SBR, MBBR, physico-chimique — adaptés à chaque effluent."
+      },
+      {
+        "key": "f036",
+        "label": "titre — Responsabilité sociétale",
+        "type": "text",
+        "value": "Responsabilité sociétale"
+      },
+      {
+        "key": "f037",
+        "label": "texte — La préservation de la ressource en eau et la sécurité des personn",
+        "type": "text",
+        "value": "La préservation de la ressource en eau et la sécurité des personnes."
+      }
+    ]
+  },
+  {
+    "key": "contact",
+    "title": "Contact",
+    "path": "/contact",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "Texte — Nous contacter",
+        "type": "text",
+        "value": "Nous contacter"
+      },
+      {
+        "key": "f002",
+        "label": "Texte — Une demande de cotation, une question technique ou un projet à ét",
+        "type": "text",
+        "value": "Une demande de cotation, une question technique ou un projet à étudier ?"
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Notre équipe vous répond du lundi au vendredi. Chaque demande est",
+        "type": "long",
+        "value": "Notre équipe vous répond du lundi au vendredi. Chaque demande est transmise à nos équipes et suivie jusqu'à la remise d'une proposition."
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Siège",
+        "type": "text",
+        "value": "Siège"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — · Ouvrir dans Google Maps",
+        "type": "text",
+        "value": " · Ouvrir dans Google Maps"
+      },
+      {
+        "key": "f006",
+        "label": "Texte — Téléphone",
+        "type": "text",
+        "value": "Téléphone"
+      },
+      {
+        "key": "f007",
+        "label": "Texte — E-mail",
+        "type": "text",
+        "value": "E-mail"
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Horaires",
+        "type": "text",
+        "value": "Horaires"
+      }
+    ]
+  },
+  {
+    "key": "hygiene-institutionnelle",
+    "title": "Hygiène institutionnelle",
+    "path": "/hygiene-institutionnelle",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — Hygiène institutionnelle",
+        "type": "text",
+        "value": "Hygiène institutionnelle"
+      },
+      {
+        "key": "f002",
+        "label": "lead — Hôpitaux, hôtels, cuisines professionnelles, buanderies et pressi",
+        "type": "long",
+        "value": "Hôpitaux, hôtels, cuisines professionnelles, buanderies et pressings : produits, dosage et expertise."
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Notre accompagnement",
+        "type": "text",
+        "value": "Notre accompagnement"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Grâce à son partenariat avec les leaders mondiaux de l'hygiène, E",
+        "type": "long",
+        "value": "Grâce à son partenariat avec les leaders mondiaux de l'hygiène, EPUREAU Côte d’Ivoire optimise la propreté, la sécurité sanitaire et alimentaire ainsi que les coûts d'exploitation, tout en garantissant la conformité aux normes les plus exigeantes."
+      },
+      {
+        "key": "f005",
+        "label": "src — /images/illustrations/hygiene.webp",
+        "type": "image",
+        "value": "/images/illustrations/hygiene.webp"
+      },
+      {
+        "key": "f006",
+        "label": "alt — technicienne ouest-africaine dans une buanderie professionnelle",
+        "type": "text",
+        "value": "technicienne ouest-africaine dans une buanderie professionnelle"
+      },
+      {
+        "key": "f007",
+        "label": "Texte — Entretien du linge",
+        "type": "text",
+        "value": "Entretien du linge"
+      },
+      {
+        "key": "f008",
+        "label": "titre — Un plan d'hygiène à mettre en place ou à revoir ?",
+        "type": "text",
+        "value": "Un plan d'hygiène à mettre en place ou à revoir ?"
+      },
+      {
+        "key": "f009",
+        "label": "texte — Nos techniciens réalisent l'audit de vos protocoles et vous propo",
+        "type": "long",
+        "value": "Nos techniciens réalisent l'audit de vos protocoles et vous proposent les équipements de dosage adaptés."
+      },
+      {
+        "key": "f010",
+        "label": "titre — Entretien du linge",
+        "type": "text",
+        "value": "Entretien du linge"
+      },
+      {
+        "key": "f011",
+        "label": "texte — Lavage professionnel, détachage, désinfection, décontamination, a",
+        "type": "text",
+        "value": "Lavage professionnel, détachage, désinfection, décontamination, assouplissants."
+      },
+      {
+        "key": "f012",
+        "label": "titre — Hygiène des locaux",
+        "type": "text",
+        "value": "Hygiène des locaux"
+      },
+      {
+        "key": "f013",
+        "label": "texte — Sols, sanitaires, surfaces et désinfection.",
+        "type": "text",
+        "value": "Sols, sanitaires, surfaces et désinfection."
+      },
+      {
+        "key": "f014",
+        "label": "titre — Hygiène des cuisines et de la restauration",
+        "type": "text",
+        "value": "Hygiène des cuisines et de la restauration"
+      },
+      {
+        "key": "f015",
+        "label": "texte — Vaisselle, surfaces, dégraissants, désinfection.",
+        "type": "text",
+        "value": "Vaisselle, surfaces, dégraissants, désinfection."
+      }
+    ]
+  },
+  {
+    "key": "ingenierie-notre-expertise",
+    "title": "Ingénierie — expertise",
+    "path": "/ingenierie/notre-expertise",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — De la conception à l'exploitation, EPUREAU Côte d’Ivoire assure t",
+        "type": "text",
+        "value": "De la conception à l'exploitation, EPUREAU Côte d’Ivoire assure toute la chaîne"
+      },
+      {
+        "key": "f002",
+        "label": "lead — Nous nous engageons sur les performances, les coûts et le respect",
+        "type": "long",
+        "value": "Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clé en main des unités de traitement."
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Services complémentaires",
+        "type": "text",
+        "value": "Services complémentaires"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Ce que nous prenons en charge",
+        "type": "text",
+        "value": "Ce que nous prenons en charge"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — Voir nos réalisations",
+        "type": "text",
+        "value": "Voir nos réalisations "
+      },
+      {
+        "key": "f006",
+        "label": "titre — Une station à concevoir, à réhabiliter ou à mettre aux normes ?",
+        "type": "text",
+        "value": "Une station à concevoir, à réhabiliter ou à mettre aux normes ?"
+      },
+      {
+        "key": "f007",
+        "label": "texte — Transmettez-nous la nature de l'effluent, le débit et vos contrai",
+        "type": "long",
+        "value": "Transmettez-nous la nature de l'effluent, le débit et vos contraintes de site : nous revenons avec une proposition chiffrée."
+      },
+      {
+        "key": "f008",
+        "label": "titre — Audit et diagnostic",
+        "type": "text",
+        "value": "Audit et diagnostic"
+      },
+      {
+        "key": "f009",
+        "label": "texte — Analyse de l'effluent, mesures sur site et diagnostic des ouvrage",
+        "type": "text",
+        "value": "Analyse de l'effluent, mesures sur site et diagnostic des ouvrages existants."
+      },
+      {
+        "key": "f010",
+        "label": "titre — Études et dimensionnement",
+        "type": "text",
+        "value": "Études et dimensionnement"
+      },
+      {
+        "key": "f011",
+        "label": "texte — Note de calcul, choix du procédé et dimensionnement des ouvrages.",
+        "type": "text",
+        "value": "Note de calcul, choix du procédé et dimensionnement des ouvrages."
+      },
+      {
+        "key": "f012",
+        "label": "titre — Travaux et installation",
+        "type": "text",
+        "value": "Travaux et installation"
+      },
+      {
+        "key": "f013",
+        "label": "texte — Génie civil, montage des équipements et raccordements, sous notre",
+        "type": "text",
+        "value": "Génie civil, montage des équipements et raccordements, sous notre maîtrise."
+      },
+      {
+        "key": "f014",
+        "label": "titre — Mise en service",
+        "type": "text",
+        "value": "Mise en service"
+      },
+      {
+        "key": "f015",
+        "label": "texte — Tests, réglages des procédés et contrôle des performances de reje",
+        "type": "text",
+        "value": "Tests, réglages des procédés et contrôle des performances de rejet."
+      },
+      {
+        "key": "f016",
+        "label": "titre — Exploitation et réactifs",
+        "type": "text",
+        "value": "Exploitation et réactifs"
+      },
+      {
+        "key": "f017",
+        "label": "texte — Fourniture des produits NALCO et des réactifs de laboratoire néce",
+        "type": "text",
+        "value": "Fourniture des produits NALCO et des réactifs de laboratoire nécessaires."
+      },
+      {
+        "key": "f018",
+        "label": "titre — Formation des équipes",
+        "type": "text",
+        "value": "Formation des équipes"
+      },
+      {
+        "key": "f019",
+        "label": "texte — Transfert de compétences aux exploitants du site et suivi analyti",
+        "type": "text",
+        "value": "Transfert de compétences aux exploitants du site et suivi analytique."
+      }
+    ]
+  },
+  {
+    "key": "ingenierie-nos-realisations",
+    "title": "Réalisations",
+    "path": "/ingenierie/nos-realisations",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — Nos réalisations",
+        "type": "text",
+        "value": "Nos réalisations"
+      },
+      {
+        "key": "f002",
+        "label": "lead — Stations conçues, installées et mises en service.",
+        "type": "text",
+        "value": "Stations conçues, installées et mises en service."
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Le projet en détail",
+        "type": "text",
+        "value": "Le projet en détail"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Photos du chantier",
+        "type": "text",
+        "value": "Photos du chantier "
+      },
+      {
+        "key": "f005",
+        "label": "Texte — Votre site",
+        "type": "text",
+        "value": "Votre site"
+      },
+      {
+        "key": "f006",
+        "label": "Texte — La prochaine station est peut-être la vôtre",
+        "type": "text",
+        "value": "La prochaine station est peut-être la vôtre"
+      },
+      {
+        "key": "f007",
+        "label": "Texte — Décrivez-nous l'effluent, le débit et les contraintes du site : n",
+        "type": "long",
+        "value": "Décrivez-nous l'effluent, le débit et les contraintes du site : nous établissons une note de dimensionnement et une proposition chiffrée."
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Demander une cotation",
+        "type": "text",
+        "value": "Demander une cotation "
+      }
+    ]
+  },
+  {
+    "key": "mediatheque",
+    "title": "Médiathèque",
+    "path": "/mediatheque",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — Photos de chantiers, films institutionnels et documentation",
+        "type": "text",
+        "value": "Photos de chantiers, films institutionnels et documentation"
+      },
+      {
+        "key": "f002",
+        "label": "lead — Nos films institutionnels et nos reportages de chantier montrent ",
+        "type": "long",
+        "value": "Nos films institutionnels et nos reportages de chantier montrent concrètement comment nos équipes conçoivent, installent et exploitent les unités de traitement en Côte d'Ivoire."
+      },
+      {
+        "key": "f005",
+        "label": "eyebrow — Galerie photos",
+        "type": "text",
+        "value": "Galerie photos"
+      },
+      {
+        "key": "f006",
+        "label": "titre — Nos chantiers et nos installations",
+        "type": "text",
+        "value": "Nos chantiers et nos installations"
+      },
+      {
+        "key": "f007",
+        "label": "lead — Terrassement, pose des cuves, équipements de process et unités en",
+        "type": "text",
+        "value": "Terrassement, pose des cuves, équipements de process et unités en service."
+      }
+    ]
+  },
+  {
+    "key": "negoce",
+    "title": "Produits chimiques",
+    "path": "/negoce",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — Deux références mondiales, une même équipe technique locale",
+        "type": "text",
+        "value": "Deux références mondiales, une même équipe technique locale"
+      },
+      {
+        "key": "f002",
+        "label": "lead — Dosage, suivi analytique, audits de performance et formation de v",
+        "type": "long",
+        "value": "Dosage, suivi analytique, audits de performance et formation de vos opérateurs. Les produits sont présentés sans tarif : chaque besoin fait l'objet d'une cotation personnalisée après échange avec nos équipes techniques."
+      },
+      {
+        "key": "f003",
+        "label": "Texte — NALCO",
+        "type": "text",
+        "value": "NALCO"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Nalco Water · traitement des eaux industrielles",
+        "type": "text",
+        "value": "Nalco Water · traitement des eaux industrielles"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — EPUREAU Côte d’Ivoire, partenaire de NALCO WATER, accompagne les ",
+        "type": "long",
+        "value": "EPUREAU Côte d’Ivoire, partenaire de NALCO WATER, accompagne les industries avec des solutions chimiques et des services techniques destinés à optimiser les performances des installations, réduire les coûts d'exploitation et améliorer la durabilité des procédés."
+      },
+      {
+        "key": "f006",
+        "label": "Texte — Traitement des eaux industrielles : chaudières, tours de refroidi",
+        "type": "long",
+        "value": "Traitement des eaux industrielles : chaudières, tours de refroidissement, circuits fermés, eaux de process et stations d'eau potable."
+      },
+      {
+        "key": "f007",
+        "label": "Texte — Eaux usées : coagulants, floculants, antimousses, neutralisants e",
+        "type": "long",
+        "value": "Eaux usées : coagulants, floculants, antimousses, neutralisants et optimisation des stations d'épuration."
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Demander les produits NALCO",
+        "type": "text",
+        "value": "Demander les produits NALCO "
+      },
+      {
+        "key": "f009",
+        "label": "Texte — ECOLAB",
+        "type": "text",
+        "value": "ECOLAB"
+      },
+      {
+        "key": "f010",
+        "label": "Texte — Food & Beverage · hygiène et sécurité alimentaire",
+        "type": "text",
+        "value": "Food & Beverage · hygiène et sécurité alimentaire"
+      },
+      {
+        "key": "f011",
+        "label": "Texte — EPUREAU Côte d’Ivoire, distributeur des solutions ECOLAB en Côte ",
+        "type": "long",
+        "value": "EPUREAU Côte d’Ivoire, distributeur des solutions ECOLAB en Côte d'Ivoire, accompagne les industries agroalimentaires et des boissons avec des programmes complets d'hygiène et de nettoyage."
+      },
+      {
+        "key": "f012",
+        "label": "Texte — Hygiène des procédés : CIP, COP, désinfection des surfaces et des",
+        "type": "text",
+        "value": "Hygiène des procédés : CIP, COP, désinfection des surfaces et des circuits."
+      },
+      {
+        "key": "f013",
+        "label": "Texte — Installations et sécurité alimentaire : lavage de bouteilles, lub",
+        "type": "long",
+        "value": "Installations et sécurité alimentaire : lavage de bouteilles, lubrification des convoyeurs."
+      },
+      {
+        "key": "f014",
+        "label": "Texte — Dosage automatique, audits d'hygiène et formation des opérateurs.",
+        "type": "text",
+        "value": "Dosage automatique, audits d'hygiène et formation des opérateurs."
+      },
+      {
+        "key": "f015",
+        "label": "Texte — Demander les produits ECOLAB",
+        "type": "text",
+        "value": "Demander les produits ECOLAB "
+      },
+      {
+        "key": "f016",
+        "label": "Texte — Commodités",
+        "type": "text",
+        "value": "Commodités"
+      },
+      {
+        "key": "f017",
+        "label": "Texte — Matières premières, réactifs & matériel",
+        "type": "text",
+        "value": "Matières premières, réactifs & matériel"
+      },
+      {
+        "key": "f018",
+        "label": "Texte — EPUREAU Côte d’Ivoire propose des réactifs de laboratoire, des ma",
+        "type": "long",
+        "value": "EPUREAU Côte d’Ivoire propose des réactifs de laboratoire, des matières premières et le matériel de mesure nécessaires à l'exploitation quotidienne de vos installations."
+      },
+      {
+        "key": "f019",
+        "label": "Texte — Pas de prix affichés, pas de panier : chaque demande fait l'objet",
+        "type": "long",
+        "value": "Pas de prix affichés, pas de panier : chaque demande fait l'objet d'une cotation établie par nos équipes techniques."
+      },
+      {
+        "key": "f020",
+        "label": "Texte — Demander une cotation",
+        "type": "text",
+        "value": "Demander une cotation "
+      },
+      {
+        "key": "f021",
+        "label": "eyebrow — Marques représentées",
+        "type": "text",
+        "value": "Marques représentées"
+      },
+      {
+        "key": "f022",
+        "label": "titre — Un usage des marques encadré par nos partenaires",
+        "type": "text",
+        "value": "Un usage des marques encadré par nos partenaires"
+      },
+      {
+        "key": "f023",
+        "label": "lead — Les noms et logos NALCO et ECOLAB sont la propriété de leurs titu",
+        "type": "long",
+        "value": "Les noms et logos NALCO et ECOLAB sont la propriété de leurs titulaires. EPUREAU Côte d’Ivoire les présente au titre de sa qualité de distributeur en Côte d'Ivoire et dans la sous-région."
+      },
+      {
+        "key": "f024",
+        "label": "titre — Besoin d'un produit précis ou d'un équivalent ?",
+        "type": "text",
+        "value": "Besoin d'un produit précis ou d'un équivalent ?"
+      },
+      {
+        "key": "f025",
+        "label": "texte — Indiquez-nous la référence, l'usage et les volumes : nous revenon",
+        "type": "long",
+        "value": "Indiquez-nous la référence, l'usage et les volumes : nous revenons avec une cotation et les fiches techniques."
+      }
+    ]
+  },
+  {
+    "key": "service-aux-industries",
+    "title": "Services aux industries",
+    "path": "/service-aux-industries",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "titre — Une équipe technique chevronnée au service de votre production",
+        "type": "text",
+        "value": "Une équipe technique chevronnée au service de votre production"
+      },
+      {
+        "key": "f002",
+        "label": "lead — EPUREAU Côte d’Ivoire est une société de service : nous prenons e",
+        "type": "long",
+        "value": "EPUREAU Côte d’Ivoire est une société de service : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production."
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Application de produits formulés",
+        "type": "text",
+        "value": "Application de produits formulés"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Distributeur des marques ECOLAB et NALCO",
+        "type": "text",
+        "value": "Distributeur des marques ECOLAB et NALCO"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — Nous vous accompagnons dans le bon dosage et les bonnes pratiques",
+        "type": "long",
+        "value": "Nous vous accompagnons dans le bon dosage et les bonnes pratiques afin de réduire vos coûts de production et d'assurer l'hygiène de vos installations et de vos produits."
+      },
+      {
+        "key": "f006",
+        "label": "Texte — Demander une cotation",
+        "type": "text",
+        "value": "Demander une cotation "
+      },
+      {
+        "key": "f007",
+        "label": "Texte — ECOLAB Food & Beverage · services spéciaux",
+        "type": "text",
+        "value": "ECOLAB Food & Beverage · services spéciaux"
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Trois programmes au cœur de vos lignes",
+        "type": "text",
+        "value": "Trois programmes au cœur de vos lignes"
+      },
+      {
+        "key": "f009",
+        "label": "titre — Un poste de consommation à optimiser sur votre site ?",
+        "type": "text",
+        "value": "Un poste de consommation à optimiser sur votre site ?"
+      },
+      {
+        "key": "f010",
+        "label": "texte — Audit de vos utilités, plan de dosage et suivi analytique : parlo",
+        "type": "text",
+        "value": "Audit de vos utilités, plan de dosage et suivi analytique : parlons-en."
+      },
+      {
+        "key": "f011",
+        "label": "titre — Lavage de bouteilles",
+        "type": "text",
+        "value": "Lavage de bouteilles"
+      },
+      {
+        "key": "f012",
+        "label": "texte — Programmes de lavage optimisés pour les lignes de conditionnement",
+        "type": "text",
+        "value": "Programmes de lavage optimisés pour les lignes de conditionnement verre et PET."
+      },
+      {
+        "key": "f013",
+        "label": "image — /images/dom-industries.jpg",
+        "type": "image",
+        "value": "/images/dom-industries.jpg"
+      },
+      {
+        "key": "f014",
+        "label": "alt — Ligne de lavage de bouteilles",
+        "type": "text",
+        "value": "Ligne de lavage de bouteilles"
+      },
+      {
+        "key": "f015",
+        "label": "titre — Lubrification des lignes",
+        "type": "text",
+        "value": "Lubrification des lignes"
+      },
+      {
+        "key": "f016",
+        "label": "texte — Réduction des frottements et de la casse, pour une cadence stable",
+        "type": "long",
+        "value": "Réduction des frottements et de la casse, pour une cadence stable et une consommation d'eau maîtrisée."
+      },
+      {
+        "key": "f017",
+        "label": "image — /images/gal-3.jpg",
+        "type": "image",
+        "value": "/images/gal-3.jpg"
+      },
+      {
+        "key": "f018",
+        "label": "alt — Convoyeur de bouteilles en production",
+        "type": "text",
+        "value": "Convoyeur de bouteilles en production"
+      },
+      {
+        "key": "f019",
+        "label": "titre — Systèmes CIP et COP",
+        "type": "text",
+        "value": "Systèmes CIP et COP"
+      },
+      {
+        "key": "f020",
+        "label": "texte — Nettoyage en place et hors place des cuves, échangeurs et circuit",
+        "type": "text",
+        "value": "Nettoyage en place et hors place des cuves, échangeurs et circuits de fabrication."
+      },
+      {
+        "key": "f021",
+        "label": "image — /images/dom-negoce.jpg",
+        "type": "image",
+        "value": "/images/dom-negoce.jpg"
+      },
+      {
+        "key": "f022",
+        "label": "alt — Cuves et circuits de fabrication",
+        "type": "text",
+        "value": "Cuves et circuits de fabrication"
+      }
+    ]
+  },
+  {
+    "key": "carriere",
+    "title": "Carrière",
+    "path": "/carriere",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "Texte — Carrière",
+        "type": "text",
+        "value": "Carrière"
+      },
+      {
+        "key": "f002",
+        "label": "Texte — Votre talent,",
+        "type": "text",
+        "value": "Votre talent,"
+      },
+      {
+        "key": "f003",
+        "label": "Texte — nos projets de demain",
+        "type": "text",
+        "value": "nos projets de demain"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Rejoignez une équipe de plus de 40 collaborateurs engagés dans le",
+        "type": "long",
+        "value": "Rejoignez une équipe de plus de 40 collaborateurs engagés dans le traitement de l’eau, les services aux industries et l’hygiène institutionnelle en Côte d’Ivoire."
+      },
+      {
+        "key": "f005",
+        "label": "Texte — Proposer ma candidature",
+        "type": "text",
+        "value": "Proposer ma candidature"
+      },
+      {
+        "key": "f006",
+        "label": "src — /images/illustrations/ingenierie.webp",
+        "type": "image",
+        "value": "/images/illustrations/ingenierie.webp"
+      },
+      {
+        "key": "f007",
+        "label": "alt — Illustration de nos métiers : une équipe d’ingénierie sur une ins",
+        "type": "long",
+        "value": "Illustration de nos métiers : une équipe d’ingénierie sur une installation de traitement de l’eau"
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Nos métiers",
+        "type": "text",
+        "value": "Nos métiers"
+      },
+      {
+        "key": "f009",
+        "label": "Texte — Des compétences qui se complètent",
+        "type": "text",
+        "value": "Des compétences qui se complètent"
+      },
+      {
+        "key": "f010",
+        "label": "Texte — Des études au terrain, de l’accompagnement technique à la relatio",
+        "type": "long",
+        "value": "Des études au terrain, de l’accompagnement technique à la relation client, découvrez les activités de "
+      },
+      {
+        "key": "f011",
+        "label": "Texte — .",
+        "type": "text",
+        "value": "."
+      },
+      {
+        "key": "f012",
+        "label": "Texte — 01",
+        "type": "text",
+        "value": "01"
+      },
+      {
+        "key": "f013",
+        "label": "Texte — Ingénierie de l’eau",
+        "type": "text",
+        "value": "Ingénierie de l’eau"
+      },
+      {
+        "key": "f014",
+        "label": "Texte — Études, conception, réalisation et exploitation des ouvrages",
+        "type": "text",
+        "value": "Études, conception, réalisation et exploitation des ouvrages"
+      },
+      {
+        "key": "f015",
+        "label": "Texte — 02",
+        "type": "text",
+        "value": "02"
+      },
+      {
+        "key": "f016",
+        "label": "Texte — Services aux industries",
+        "type": "text",
+        "value": "Services aux industries"
+      },
+      {
+        "key": "f017",
+        "label": "Texte — Optimisation des installations et accompagnement technique",
+        "type": "text",
+        "value": "Optimisation des installations et accompagnement technique"
+      },
+      {
+        "key": "f018",
+        "label": "Texte — 03",
+        "type": "text",
+        "value": "03"
+      },
+      {
+        "key": "f019",
+        "label": "Texte — Hygiène institutionnelle",
+        "type": "text",
+        "value": "Hygiène institutionnelle"
+      },
+      {
+        "key": "f020",
+        "label": "Texte — Solutions d’hygiène, équipements et conseil",
+        "type": "text",
+        "value": "Solutions d’hygiène, équipements et conseil"
+      },
+      {
+        "key": "f021",
+        "label": "Texte — 04",
+        "type": "text",
+        "value": "04"
+      },
+      {
+        "key": "f022",
+        "label": "Texte — Produits chimiques",
+        "type": "text",
+        "value": "Produits chimiques"
+      },
+      {
+        "key": "f023",
+        "label": "Texte — Produits, réactifs et relation client",
+        "type": "text",
+        "value": "Produits, réactifs et relation client"
+      },
+      {
+        "key": "f024",
+        "label": "Texte — Candidature spontanée",
+        "type": "text",
+        "value": "Candidature spontanée"
+      },
+      {
+        "key": "f025",
+        "label": "Texte — Faisons connaissance",
+        "type": "text",
+        "value": "Faisons connaissance"
+      },
+      {
+        "key": "f026",
+        "label": "Texte — Présentez votre parcours, vos compétences et le métier qui vous i",
+        "type": "long",
+        "value": "Présentez votre parcours, vos compétences et le métier qui vous intéresse. Joignez votre CV à votre e-mail et indiquez vos disponibilités."
+      },
+      {
+        "key": "f027",
+        "label": "Texte — Envoyer votre candidature",
+        "type": "text",
+        "value": "Envoyer votre candidature"
+      },
+      {
+        "key": "f028",
+        "label": "Texte — Préparez un CV au format PDF et quelques lignes de présentation.",
+        "type": "text",
+        "value": "Préparez un CV au format PDF et quelques lignes de présentation."
+      },
+      {
+        "key": "f029",
+        "label": "Texte — Candidater par e-mail ↗",
+        "type": "text",
+        "value": "Candidater par e-mail ↗"
+      },
+      {
+        "key": "f030",
+        "label": "Texte — Ce bouton ouvre votre messagerie. Vous pouvez également écrire à",
+        "type": "text",
+        "value": "Ce bouton ouvre votre messagerie. Vous pouvez également écrire à "
+      },
+      {
+        "key": "f031",
+        "label": "Texte — .",
+        "type": "text",
+        "value": "."
+      }
+    ]
+  },
+  {
+    "key": "reclamation-client",
+    "title": "Réclamation client",
+    "path": "/reclamation-client",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "Texte — À votre écoute",
+        "type": "text",
+        "value": "À votre écoute"
+      },
+      {
+        "key": "f002",
+        "label": "Texte — Réclamation client",
+        "type": "text",
+        "value": "Réclamation client"
+      },
+      {
+        "key": "f003",
+        "label": "Texte — Un problème avec un produit, une prestation ou une livraison ? Do",
+        "type": "long",
+        "value": "Un problème avec un produit, une prestation ou une livraison ? Donnez-nous les éléments nécessaires pour comprendre la situation et vous accompagner."
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Décrivez votre demande",
+        "type": "text",
+        "value": "Décrivez votre demande"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — Précisez le produit ou la prestation, le site et les faits consta",
+        "type": "text",
+        "value": "Précisez le produit ou la prestation, le site et les faits constatés."
+      },
+      {
+        "key": "f006",
+        "label": "Texte — Conservez votre référence",
+        "type": "text",
+        "value": "Conservez votre référence"
+      },
+      {
+        "key": "f007",
+        "label": "Texte — Une référence s’affiche après réception de votre réclamation.",
+        "type": "text",
+        "value": "Une référence s’affiche après réception de votre réclamation."
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Échangez avec notre équipe",
+        "type": "text",
+        "value": "Échangez avec notre équipe"
+      },
+      {
+        "key": "f009",
+        "label": "Texte — Nous vous recontactons pour examiner votre demande et la suite à ",
+        "type": "text",
+        "value": "Nous vous recontactons pour examiner votre demande et la suite à donner."
+      },
+      {
+        "key": "f010",
+        "label": "Texte — Besoin de nous joindre ?",
+        "type": "text",
+        "value": "Besoin de nous joindre ?"
+      }
+    ]
+  },
+  {
+    "key": "accueil",
+    "title": "Accueil",
+    "path": "/",
+    "fields": [
+      {
+        "key": "f001",
+        "label": "Texte — Aller au contenu",
+        "type": "text",
+        "value": "Aller au contenu"
+      },
+      {
+        "key": "f002",
+        "label": "src — /images/logo.png",
+        "type": "image",
+        "value": "/images/logo.png"
+      },
+      {
+        "key": "f003",
+        "label": "alt — EPUREAU Côte d’Ivoire",
+        "type": "text",
+        "value": "EPUREAU Côte d’Ivoire"
+      },
+      {
+        "key": "f004",
+        "label": "Texte — Nos métiers",
+        "type": "text",
+        "value": "Nos métiers"
+      },
+      {
+        "key": "f005",
+        "label": "Texte — Produits",
+        "type": "text",
+        "value": "Produits"
+      },
+      {
+        "key": "f006",
+        "label": "Texte — Réalisations",
+        "type": "text",
+        "value": "Réalisations"
+      },
+      {
+        "key": "f007",
+        "label": "Texte — À propos",
+        "type": "text",
+        "value": "À propos"
+      },
+      {
+        "key": "f008",
+        "label": "Texte — Carrière",
+        "type": "text",
+        "value": "Carrière"
+      },
+      {
+        "key": "f009",
+        "label": "Texte — Demander une cotation",
+        "type": "text",
+        "value": "Demander une cotation"
+      },
+      {
+        "key": "f010",
+        "label": "Texte — Nos métiers",
+        "type": "text",
+        "value": "Nos métiers"
+      },
+      {
+        "key": "f011",
+        "label": "Texte — Produits",
+        "type": "text",
+        "value": "Produits"
+      },
+      {
+        "key": "f012",
+        "label": "Texte — Réalisations",
+        "type": "text",
+        "value": "Réalisations"
+      },
+      {
+        "key": "f013",
+        "label": "Texte — À propos",
+        "type": "text",
+        "value": "À propos"
+      },
+      {
+        "key": "f014",
+        "label": "Texte — Carrière",
+        "type": "text",
+        "value": "Carrière"
+      },
+      {
+        "key": "f015",
+        "label": "Texte — Demander une cotation",
+        "type": "text",
+        "value": "Demander une cotation"
+      },
+      {
+        "key": "f016",
+        "label": "Texte — Réclamation client",
+        "type": "text",
+        "value": "Réclamation client"
+      },
+      {
+        "key": "f017",
+        "label": "Texte — Nos métiers",
+        "type": "text",
+        "value": "Nos métiers"
+      },
+      {
+        "key": "f018",
+        "label": "Texte — Voir nos réalisations",
+        "type": "text",
+        "value": "Voir nos réalisations"
+      },
+      {
+        "key": "f019",
+        "label": "Texte — ↓",
+        "type": "text",
+        "value": "↓"
+      },
+      {
+        "key": "f020",
+        "label": "Texte — Découvrir EPUREAU Côte d’Ivoire",
+        "type": "text",
+        "value": " Découvrir EPUREAU Côte d’Ivoire"
+      },
+      {
+        "key": "f021",
+        "label": "Texte — 01 / 04",
+        "type": "text",
+        "value": "01 / 04"
+      },
+      {
+        "key": "f022",
+        "label": "Texte — 40+",
+        "type": "text",
+        "value": "40+"
+      },
+      {
+        "key": "f023",
+        "label": "Texte — collaborateurs au service de vos projets",
+        "type": "text",
+        "value": "collaborateurs au service de vos projets"
+      },
+      {
+        "key": "f024",
+        "label": "Texte — Rejoindre notre équipe ↗",
+        "type": "text",
+        "value": "Rejoindre notre équipe ↗"
+      },
+      {
+        "key": "f025",
+        "label": "Texte — Nos métiers",
+        "type": "text",
+        "value": "Nos métiers"
+      },
+      {
+        "key": "f026",
+        "label": "Texte — Nos domaines",
+        "type": "text",
+        "value": "Nos domaines"
+      },
+      {
+        "key": "f027",
+        "label": "Texte — d’intervention",
+        "type": "text",
+        "value": "d’intervention"
+      },
+      {
+        "key": "f028",
+        "label": "src — /images/illustrations/ingenierie.webp",
+        "type": "image",
+        "value": "/images/illustrations/ingenierie.webp"
+      },
+      {
+        "key": "f029",
+        "label": "alt — Illustration : ingénieurs ouest-africains sur une installation de",
+        "type": "text",
+        "value": "Illustration : ingénieurs ouest-africains sur une installation de traitement"
+      },
+      {
+        "key": "f030",
+        "label": "Texte — 01",
+        "type": "text",
+        "value": "01 "
+      },
+      {
+        "key": "f031",
+        "label": "Texte — Ingénierie",
+        "type": "text",
+        "value": "Ingénierie"
+      },
+      {
+        "key": "f032",
+        "label": "Texte — de l’eau",
+        "type": "text",
+        "value": "de l’eau"
+      },
+      {
+        "key": "f033",
+        "label": "Texte — Études, conception, réalisation et exploitation des ouvrages",
+        "type": "text",
+        "value": "Études, conception, réalisation et exploitation des ouvrages"
+      },
+      {
+        "key": "f034",
+        "label": "Texte — Notre expertise",
+        "type": "text",
+        "value": "Notre expertise"
+      },
+      {
+        "key": "f035",
+        "label": "src — /images/illustrations/industrie.webp",
+        "type": "image",
+        "value": "/images/illustrations/industrie.webp"
+      },
+      {
+        "key": "f036",
+        "label": "alt — Illustration : technicienne ouest-africaine dans une installation",
+        "type": "text",
+        "value": "Illustration : technicienne ouest-africaine dans une installation industrielle"
+      },
+      {
+        "key": "f037",
+        "label": "Texte — 02",
+        "type": "text",
+        "value": "02 "
+      },
+      {
+        "key": "f038",
+        "label": "Texte — Services",
+        "type": "text",
+        "value": "Services"
+      },
+      {
+        "key": "f039",
+        "label": "Texte — aux industries",
+        "type": "text",
+        "value": "aux industries"
+      },
+      {
+        "key": "f040",
+        "label": "Texte — Produits formulés, optimisation des utilités et services ECOLAB",
+        "type": "text",
+        "value": "Produits formulés, optimisation des utilités et services ECOLAB"
+      },
+      {
+        "key": "f041",
+        "label": "Texte — Nos services",
+        "type": "text",
+        "value": "Nos services"
+      },
+      {
+        "key": "f042",
+        "label": "src — /images/illustrations/hygiene.webp",
+        "type": "image",
+        "value": "/images/illustrations/hygiene.webp"
+      },
+      {
+        "key": "f043",
+        "label": "alt — Illustration : entretien du linge dans une buanderie professionne",
+        "type": "text",
+        "value": "Illustration : entretien du linge dans une buanderie professionnelle ouest-africaine"
+      },
+      {
+        "key": "f044",
+        "label": "Texte — 03",
+        "type": "text",
+        "value": "03 "
+      },
+      {
+        "key": "f045",
+        "label": "Texte — Hygiène",
+        "type": "text",
+        "value": "Hygiène"
+      },
+      {
+        "key": "f046",
+        "label": "Texte — institutionnelle",
+        "type": "text",
+        "value": "institutionnelle"
+      },
+      {
+        "key": "f047",
+        "label": "Texte — Produits, équipements de dosage et expertise technique",
+        "type": "text",
+        "value": "Produits, équipements de dosage et expertise technique"
+      },
+      {
+        "key": "f048",
+        "label": "Texte — Nos solutions",
+        "type": "text",
+        "value": "Nos solutions"
+      },
+      {
+        "key": "f049",
+        "label": "src — /maquette/images/produits.webp",
+        "type": "image",
+        "value": "/maquette/images/produits.webp"
+      },
+      {
+        "key": "f050",
+        "label": "alt — Illustration : produits chimiques conditionnés et matériel de lab",
+        "type": "text",
+        "value": "Illustration : produits chimiques conditionnés et matériel de laboratoire"
+      },
+      {
+        "key": "f051",
+        "label": "Texte — 04",
+        "type": "text",
+        "value": "04 "
+      },
+      {
+        "key": "f052",
+        "label": "Texte — Produits",
+        "type": "text",
+        "value": "Produits"
+      },
+      {
+        "key": "f053",
+        "label": "Texte — chimiques",
+        "type": "text",
+        "value": "chimiques"
+      },
+      {
+        "key": "f054",
+        "label": "Texte — NALCO, ECOLAB, commodités, réactifs et matériel de mesure",
+        "type": "text",
+        "value": "NALCO, ECOLAB, commodités, réactifs et matériel de mesure"
+      },
+      {
+        "key": "f055",
+        "label": "Texte — Nos produits",
+        "type": "text",
+        "value": "Nos produits"
+      },
+      {
+        "key": "f056",
+        "label": "Texte — Sur le terrain · Côte d’Ivoire",
+        "type": "text",
+        "value": "Sur le terrain · Côte d’Ivoire"
+      },
+      {
+        "key": "f057",
+        "label": "Texte — Nos réalisations",
+        "type": "text",
+        "value": "Nos réalisations"
+      },
+      {
+        "key": "f058",
+        "label": "Texte — Toutes nos réalisations",
+        "type": "text",
+        "value": "Toutes nos réalisations"
+      },
+      {
+        "key": "f061",
+        "label": "Texte — Voir le projet",
+        "type": "text",
+        "value": "Voir le projet"
+      },
+      {
+        "key": "f083",
+        "label": "Texte — Nos références",
+        "type": "text",
+        "value": "Nos références"
+      },
+      {
+        "key": "f084",
+        "label": "Texte — Ils nous font confiance.",
+        "type": "text",
+        "value": "Ils nous font confiance."
+      },
+      {
+        "key": "f085",
+        "label": "src — /maquette/images/logos/cargill.png",
+        "type": "image",
+        "value": "/maquette/images/logos/cargill.png"
+      },
+      {
+        "key": "f086",
+        "label": "Texte — CARGILL",
+        "type": "text",
+        "value": "CARGILL"
+      },
+      {
+        "key": "f087",
+        "label": "src — /maquette/images/logos/eurolait.png",
+        "type": "image",
+        "value": "/maquette/images/logos/eurolait.png"
+      },
+      {
+        "key": "f088",
+        "label": "Texte — EUROLAIT",
+        "type": "text",
+        "value": "EUROLAIT"
+      },
+      {
+        "key": "f089",
+        "label": "src — /maquette/images/logos/brassivoire.png",
+        "type": "image",
+        "value": "/maquette/images/logos/brassivoire.png"
+      },
+      {
+        "key": "f090",
+        "label": "Texte — BRASSIVOIRE",
+        "type": "text",
+        "value": "BRASSIVOIRE"
+      },
+      {
+        "key": "f091",
+        "label": "src — /maquette/images/logos/nestle.png",
+        "type": "image",
+        "value": "/maquette/images/logos/nestle.png"
+      },
+      {
+        "key": "f092",
+        "label": "Texte — Nestlé",
+        "type": "text",
+        "value": "Nestlé"
+      },
+      {
+        "key": "f093",
+        "label": "src — /maquette/images/logos/palmci.png",
+        "type": "image",
+        "value": "/maquette/images/logos/palmci.png"
+      },
+      {
+        "key": "f094",
+        "label": "Texte — PALMCI",
+        "type": "text",
+        "value": "PALMCI"
+      },
+      {
+        "key": "f095",
+        "label": "src — /maquette/images/logos/pisam.png",
+        "type": "image",
+        "value": "/maquette/images/logos/pisam.png"
+      },
+      {
+        "key": "f096",
+        "label": "Texte — PISAM",
+        "type": "text",
+        "value": "PISAM"
+      },
+      {
+        "key": "f097",
+        "label": "Texte — Marques représentées",
+        "type": "text",
+        "value": "Marques représentées"
+      },
+      {
+        "key": "f098",
+        "label": "src — /maquette/images/logos/nalco-water.svg",
+        "type": "image",
+        "value": "/maquette/images/logos/nalco-water.svg"
+      },
+      {
+        "key": "f099",
+        "label": "Texte — NALCO WATER",
+        "type": "text",
+        "value": "NALCO WATER"
+      },
+      {
+        "key": "f100",
+        "label": "src — /maquette/images/logos/ecolab.webp",
+        "type": "image",
+        "value": "/maquette/images/logos/ecolab.webp"
+      },
+      {
+        "key": "f101",
+        "label": "Texte — ECOLAB",
+        "type": "text",
+        "value": "ECOLAB"
+      },
+      {
+        "key": "f102",
+        "label": "Texte — Traitement de l’eau",
+        "type": "text",
+        "value": "Traitement de l’eau"
+      },
+      {
+        "key": "f103",
+        "label": "Texte — Hygiène et sécurité alimentaire",
+        "type": "text",
+        "value": "Hygiène et sécurité alimentaire"
+      },
+      {
+        "key": "f104",
+        "label": "Texte — Voir les produits",
+        "type": "text",
+        "value": "Voir les produits"
+      },
+      {
+        "key": "f105",
+        "label": "Texte — Contact",
+        "type": "text",
+        "value": "Contact"
+      },
+      {
+        "key": "f106",
+        "label": "Texte — Demander",
+        "type": "text",
+        "value": "Demander"
+      },
+      {
+        "key": "f107",
+        "label": "Texte — une cotation",
+        "type": "text",
+        "value": "une cotation"
+      },
+      {
+        "key": "f108",
+        "label": "Texte — Notre équipe vous accompagne.",
+        "type": "text",
+        "value": "Notre équipe vous accompagne."
+      },
+      {
+        "key": "f109",
+        "label": "Texte — +225 27 22 22 89 05",
+        "type": "text",
+        "value": "+225 27 22 22 89 05"
+      },
+      {
+        "key": "f110",
+        "label": "Texte — epureau@epureau-ci.com",
+        "type": "text",
+        "value": "epureau@epureau-ci.com"
+      },
+      {
+        "key": "f111",
+        "label": "Texte — Cocody, Abidjan · Côte d’Ivoire",
+        "type": "text",
+        "value": "Cocody, Abidjan · Côte d’Ivoire"
+      },
+      {
+        "key": "f112",
+        "label": "Texte — Lundi – Vendredi · 08h30 – 17h30",
+        "type": "text",
+        "value": "Lundi – Vendredi · 08h30 – 17h30"
+      },
+      {
+        "key": "f113",
+        "label": "Texte — Nos métiers",
+        "type": "text",
+        "value": "Nos métiers"
+      },
+      {
+        "key": "f114",
+        "label": "Texte — Contacter notre équipe",
+        "type": "text",
+        "value": "Contacter notre équipe"
+      },
+      {
+        "key": "f115",
+        "label": "Texte — Consulter la page métier ↗",
+        "type": "text",
+        "value": "Consulter la page métier ↗"
+      },
+      {
+        "key": "f116",
+        "label": "title — L’ingénierie de l’eau",
+        "type": "text",
+        "value": "L’ingénierie de l’eau"
+      },
+      {
+        "key": "f117",
+        "label": "caption — Ingénierie de l’eau",
+        "type": "text",
+        "value": "Ingénierie de l’eau"
+      },
+      {
+        "key": "f118",
+        "label": "description — Études, conception, réalisation et exploitation des ouvrages",
+        "type": "text",
+        "value": "Études, conception, réalisation et exploitation des ouvrages"
+      },
+      {
+        "key": "f119",
+        "label": "image — /images/illustrations/panorama-eau.webp",
+        "type": "image",
+        "value": "/images/illustrations/panorama-eau.webp"
+      },
+      {
+        "key": "f120",
+        "label": "alt — Installation de traitement d’eau dans un paysage ouest-africain",
+        "type": "text",
+        "value": "Installation de traitement d’eau dans un paysage ouest-africain"
+      },
+      {
+        "key": "f121",
+        "label": "title — Les services aux industries",
+        "type": "text",
+        "value": "Les services aux industries"
+      },
+      {
+        "key": "f122",
+        "label": "caption — Services aux industries",
+        "type": "text",
+        "value": "Services aux industries"
+      },
+      {
+        "key": "f123",
+        "label": "description — Produits formulés, optimisation des utilités et services ECOLAB",
+        "type": "text",
+        "value": "Produits formulés, optimisation des utilités et services ECOLAB"
+      },
+      {
+        "key": "f124",
+        "label": "image — /images/illustrations/industrie.webp",
+        "type": "image",
+        "value": "/images/illustrations/industrie.webp"
+      },
+      {
+        "key": "f125",
+        "label": "alt — Technicienne ouest-africaine dans une installation industrielle",
+        "type": "text",
+        "value": "Technicienne ouest-africaine dans une installation industrielle"
+      },
+      {
+        "key": "f126",
+        "label": "title — L’hygiène institutionnelle",
+        "type": "text",
+        "value": "L’hygiène institutionnelle"
+      },
+      {
+        "key": "f127",
+        "label": "caption — Hygiène institutionnelle",
+        "type": "text",
+        "value": "Hygiène institutionnelle"
+      },
+      {
+        "key": "f128",
+        "label": "description — Produits, équipements de dosage et expertise technique",
+        "type": "text",
+        "value": "Produits, équipements de dosage et expertise technique"
+      },
+      {
+        "key": "f129",
+        "label": "image — /images/illustrations/hygiene.webp",
+        "type": "image",
+        "value": "/images/illustrations/hygiene.webp"
+      },
+      {
+        "key": "f130",
+        "label": "alt — Hygiène institutionnelle : entretien du linge dans une buanderie ",
+        "type": "text",
+        "value": "Hygiène institutionnelle : entretien du linge dans une buanderie professionnelle"
+      },
+      {
+        "key": "f131",
+        "label": "title — Les produits chimiques",
+        "type": "text",
+        "value": "Les produits chimiques"
+      },
+      {
+        "key": "f132",
+        "label": "caption — Produits chimiques",
+        "type": "text",
+        "value": "Produits chimiques"
+      },
+      {
+        "key": "f133",
+        "label": "description — NALCO, ECOLAB, commodités, réactifs et matériel de mesure",
+        "type": "text",
+        "value": "NALCO, ECOLAB, commodités, réactifs et matériel de mesure"
+      },
+      {
+        "key": "f134",
+        "label": "image — /maquette/images/produits.webp",
+        "type": "image",
+        "value": "/maquette/images/produits.webp"
+      },
+      {
+        "key": "f135",
+        "label": "alt — Produits chimiques conditionnés et matériel de laboratoire",
+        "type": "text",
+        "value": "Produits chimiques conditionnés et matériel de laboratoire"
+      }
+    ]
+  }
+]

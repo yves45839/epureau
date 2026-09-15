@@ -1,0 +1,66 @@
+import "server-only";
+import { cache } from "react";
+import { unstable_cache } from "next/cache";
+import { draftMode } from "next/headers";
+import definitions from "@/content/page-definitions.json";
+import { realisations, galerie, videos, brochures, societe, destinataires } from "@/content/site";
+import type { Document, ContentData, PageDefinition, Project, Media } from "@/content/admin-types";
+import { entries, entry, storeConfigured, type Entry } from "./admin-store";
+import { currentUser } from "./auth";
+import { may } from "./admin-security";
+
+export const pageDefinitions = definitions as PageDefinition[];
+export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audit:"Journal des accès" };
+export const modelFields: Record<string, { key:string; label:string; type?:string }[]> = {
+ projects:[{key:"nom",label:"Nom du projet"},{key:"client",label:"Client et localisation"},{key:"type",label:"Procédé"},{key:"debit",label:"Capacité"},{key:"unite",label:"Unité"},{key:"image",label:"Photo",type:"image"},{key:"texte",label:"Description",type:"long"}],
+ media:[{key:"title",label:"Titre / légende"},{key:"type",label:"Type (photo ou video)",type:"mediaType"},{key:"url",label:"Fichier ou lien vidéo",type:"url"},{key:"image",label:"Image d’aperçu",type:"image"},{key:"album",label:"Album"},{key:"description",label:"Description",type:"long"}],
+ brochures:[{key:"title",label:"Titre"},{key:"url",label:"Fichier PDF",type:"url"},{key:"description",label:"Description",type:"long"}],
+ blog:[{key:"title",label:"Titre"},{key:"image",label:"Image",type:"image"},{key:"description",label:"Résumé",type:"long"},{key:"text",label:"Article",type:"long"}],
+ settings:[...Object.keys(societe).map(key=>({key,label:({nom:"Nom de la société",telephone:"Téléphone affiché",telephoneLien:"Téléphone pour les liens",email:"E-mail de contact",adresse:"Adresse",horaires:"Horaires courts",horairesLong:"Horaires",boitePostale:"Boîte postale",maps:"Lien Google Maps",groupe:"Groupe",site:"Site",slogan:"Slogan"} as Record<string,string>)[key]})),{key:"notificationEmails",label:"Adresses de notification (séparées par des virgules)"},{key:"linkedin",label:"Lien LinkedIn"},{key:"facebook",label:"Lien Facebook"},{key:"youtube",label:"Lien YouTube"},{key:"legal",label:"Mentions légales",type:"long"},{key:"privacy",label:"Politique de confidentialité",type:"long"},{key:"blogEnabled",label:"Blog actif (oui ou non)"}],
+};
+function document(key:string,title:string,data:ContentData,order:number):Entry<Document> { return {key,value:{title,draft:data,published:data,order},revision:0,updated:""}; }
+export function seeds(section:string):Entry<Document>[] {
+ if(section==="pages")return pageDefinitions.map((page,i)=>document(page.key,page.title,Object.fromEntries(page.fields.map(f=>[f.key,f.value])),i));
+ if(section==="projects")return realisations.map((r,i)=>document(r.slug,r.nom,{nom:r.nom,client:r.client,type:r.type,debit:r.debit,unite:r.unite,image:r.image,texte:r.texte},i));
+ if(section==="media")return [
+  ...galerie.map((g,i)=>document("photo-"+(i+1),g.legende,{title:g.legende,type:"photo",url:g.image,image:g.image,album:"Chantiers",description:""},i)),
+  ...videos.map((v,i)=>document("video-"+(i+1),v.titre,{title:v.titre,type:"video",url:"",image:v.vignette,album:"Vidéos",description:v.sous},i+galerie.length)),
+ ];
+ if(section==="brochures")return brochures.map((b,i)=>document("brochure-"+(i+1),b.titre,{title:b.titre,url:b.fichier,description:b.sous},i));
+ if(section==="settings")return [document("societe","Paramètres du site",{...societe,notificationEmails:destinataires.join(", "),linkedin:"",facebook:"",youtube:"",legal:"",privacy:"",blogEnabled:"non"},0)];
+ return [];
+}
+export async function editableDocuments(section:string) {
+ const saved=await entries<Document>(section);
+ const map=new Map(seeds(section).map(doc=>[doc.key,doc]));
+ saved.forEach(doc=>map.set(doc.key,doc));
+ return [...map.values()].sort((a,b)=>a.value.order-b.value.order);
+}
+const cachedDocuments=unstable_cache(editableDocuments,["epureau-content-v1"],{tags:["cms"],revalidate:300});
+const canPreview=cache(async(section:string)=>{
+ if(!storeConfigured() || !(await draftMode()).isEnabled)return false;
+ const user=await currentUser();return Boolean(user&&may(user.role,section));
+});
+export async function publishedDocuments(section:string):Promise<{key:string;data:ContentData}[]> {
+ let docs:Entry<Document>[];
+ try { docs=storeConfigured()?await cachedDocuments(section):seeds(section); }
+ catch { console.error("[cms] Lecture indisponible");docs=seeds(section); }
+ const preview=await canPreview(section);
+ if(preview)docs=await editableDocuments(section);
+ return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>({key:doc.key,data:preview?doc.value.draft:doc.value.published!}));
+}
+export const pageValues=cache(async(key:string):Promise<ContentData>=>{
+ const fallback=seeds("pages").find(doc=>doc.key===key)?.value.draft??{};
+ return {...fallback,...(await publishedDocuments("pages")).find(doc=>doc.key===key)?.data};
+});
+export const company=cache(async()=>{
+ const data=(await publishedDocuments("settings"))[0]?.data;
+ return Object.fromEntries(Object.entries(societe).map(([key,value])=>[key,data?.[key]??value])) as typeof societe;
+});
+export async function notificationEmails() {
+ // Notification routing is never read from drafts.
+ const doc=await entry<Document>("settings","societe");
+ return (doc?.value.published?.notificationEmails??destinataires.join(",")).split(",").map(v=>v.trim()).filter(Boolean);
+}
+export const projectList=cache(async():Promise<Project[]> => (await publishedDocuments("projects")).map(({key,data})=>({...data,slug:key}) as Project));
+export const mediaList=cache(async():Promise<Media[]> => (await publishedDocuments("media")).map(({key,data})=>({...data,id:key}) as Media));

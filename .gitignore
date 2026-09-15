@@ -43,3 +43,8 @@ next-env.d.ts
 # environnement local
 .env.local
 .env*.local
+
+# Données privées du mode local
+/.local/
+
+!.env.example

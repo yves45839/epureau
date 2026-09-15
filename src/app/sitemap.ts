@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/negoce",
     "/mediatheque",
     "/contact",
+    "/carriere",
+    "/reclamation-client",
   ];
   return pages.map((p) => ({
     url: `${BASE}${p}`,

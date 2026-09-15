@@ -12,7 +12,7 @@ export function db() {
   const url = process.env.DATABASE_URL;
   if (!url) return null;
   if (!client) {
-    client = postgres(url, { ssl: "require", max: 1, idle_timeout: 20 });
+    client = postgres(url, { ssl: "require", max: 1, idle_timeout: 20, connect_timeout: 10, prepare: false });
   }
   return client;
 }
@@ -35,6 +35,7 @@ export async function assurerSchema() {
       user_agent   text
     )
   `;
+  await sql`alter table demandes enable row level security`;
   await sql`create index if not exists demandes_cree_le_idx on demandes (cree_le desc)`;
   schemaPret = true;
   return sql;

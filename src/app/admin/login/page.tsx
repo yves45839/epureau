@@ -1,43 +1,9 @@
+import Link from "next/link";
 import type { Metadata } from "next";
-
-export const metadata: Metadata = { title: "Tableau de bord", robots: { index: false } };
-
-export default async function Connexion({
-  searchParams,
-}: {
-  searchParams: Promise<{ e?: string }>;
-}) {
-  const { e } = await searchParams;
-  return (
-    <div className="mx-auto flex min-h-[70vh] max-w-md flex-col justify-center px-6 py-16">
-      <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-[#1B2E78]">
-        Tableau de bord des demandes
-      </h1>
-      <p className="mt-2 text-sm text-[#5A6479]">
-        Accès réservé à l&apos;équipe EPUREAU Côte d&apos;Ivoire.
-      </p>
-      <form action="/api/admin/login" method="post" className="mt-6 grid gap-3">
-        <input
-          type="password"
-          name="motdepasse"
-          required
-          autoFocus
-          placeholder="Mot de passe"
-          className="w-full rounded-[10px] border border-[#E3EAF3] bg-[#F4F7FB] px-4 py-3 text-sm outline-none focus:border-[#1AB5E8]"
-        />
-        <button
-          type="submit"
-          className="rounded-full bg-[#1AB5E8] px-6 py-3 font-[family-name:var(--font-display)] text-sm font-semibold text-[#06122B]"
-        >
-          Se connecter
-        </button>
-      </form>
-      {e === "1" && <p className="mt-4 text-sm text-[#B4232A]">Mot de passe incorrect.</p>}
-      {e === "config" && (
-        <p className="mt-4 text-sm text-[#B4232A]">
-          La variable ADMIN_PASSWORD n&apos;est pas encore définie sur l&apos;hébergement.
-        </p>
-      )}
-    </div>
-  );
+import { storeConfigured,localStore } from "@/lib/admin-store";
+export const metadata:Metadata={title:"Connexion administrateur",robots:{index:false,follow:false}};
+export default async function Login({searchParams}:{searchParams:Promise<{e?:string}>}){
+ const {e}=await searchParams;const configured=storeConfigured();
+ const errors:Record<string,string>={"1":"Identifiants incorrects.",config:"Connectez le stockage gratuit ou activez le mode local pour ouvrir l’administration.",rate:"Trop de tentatives. Réessayez dans 15 minutes.",service:"Le stockage est indisponible. Réessayez dans un instant."};
+ return <main className="admin-login"><div className="admin-login-card"><Link href="/"><img src="/images/logo.png" width="560" height="162" alt="EPUREAU Côte d’Ivoire" /></Link><span className="admin-kicker">ESPACE ADMINISTRATION</span><h1>Bienvenue dans<br />votre espace</h1><p>Gérez les contenus du site et le suivi de vos clients.</p>{localStore()&&<p className="admin-local">Mode local · Données sur cet ordinateur</p>}<form action="/api/admin/login" method="post"><label>Adresse e-mail<input type="email" name="email" required autoComplete="username" maxLength={160} /></label><label>Mot de passe<input type="password" name="motdepasse" required autoComplete="current-password" maxLength={200} /></label><button className="admin-button" disabled={!configured}>Se connecter →</button></form>{(e||!configured)&&<p role="alert" className="admin-error">{errors[e||"config"]||"Connexion impossible."}</p>}<Link className="admin-back" href="/">← Retour au site</Link></div></main>;
 }

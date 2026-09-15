@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./editorial.css";
+import "./customer.css";
+import "./cms-public.css";
 
 // Polices auto-hébergées (fichiers dans src/fonts) : pas d'appel à Google Fonts,
 // donc pas de requête externe côté visiteur ni de dépendance au réseau au build.
@@ -34,16 +36,16 @@ const mono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.epureau-ci.com"),
   title: {
-    default: "EPUREAU Côte d'Ivoire — Ingénierie du traitement de l'eau",
-    template: "%s — EPUREAU Côte d'Ivoire",
+    default: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
+    template: "%s — EPUREAU Côte d’Ivoire",
   },
   description:
     "Conception et réalisation de stations de traitement des eaux, service aux industries, hygiène institutionnelle et négoce des produits NALCO et ECOLAB en Côte d'Ivoire.",
   openGraph: {
     type: "website",
     locale: "fr_CI",
-    siteName: "EPUREAU Côte d'Ivoire",
-    title: "EPUREAU Côte d'Ivoire — Ingénierie du traitement de l'eau",
+    siteName: "EPUREAU Côte d’Ivoire",
+    title: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
     description:
       "Des solutions fiables pour votre satisfaction : stations de traitement des eaux, services aux industries, hygiène institutionnelle.",
   },

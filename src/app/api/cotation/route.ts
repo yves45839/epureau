@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { assurerSchema } from "@/lib/db";
+import { recordRequest } from "@/lib/admin-requests";
 import { envoyerDemande } from "@/lib/mail";
 import { objetsDemande } from "@/content/site";
 
@@ -19,7 +19,9 @@ const Schema = z.object({
 export async function POST(req: Request) {
   let brut: unknown;
   try {
-    brut = await req.json();
+    const text = await req.text();
+    if (text.length > 16000) return NextResponse.json({message:"Votre demande est trop longue."},{status:413});
+    brut = JSON.parse(text);
   } catch {
     return NextResponse.json({ message: "Requête invalide." }, { status: 400 });
   }
@@ -38,21 +40,16 @@ export async function POST(req: Request) {
 
   let enregistre = false;
   try {
-    const sql = await assurerSchema();
-    if (sql) {
-      await sql`
-        insert into demandes (nom, societe, email, telephone, objet, besoin, source, user_agent)
-        values (${d.nom}, ${d.societe}, ${d.email}, ${d.telephone || null}, ${d.objet},
-                ${d.besoin}, 'site', ${req.headers.get("user-agent") ?? ""})
-      `;
-      enregistre = true;
-    }
+    enregistre = await recordRequest({ nom: d.nom, societe: d.societe, email: d.email, telephone: d.telephone, objet: d.objet, besoin: d.besoin, source: "site" });
   } catch (e) {
     console.error("[cotation] enregistrement impossible", e);
   }
 
   try {
-    await envoyerDemande(d);
+    const livraison = await envoyerDemande(d);
+    if (!livraison.envoye && !enregistre) {
+      return NextResponse.json({ message: "Envoi impossible pour le moment." }, { status: 503 });
+    }
   } catch (e) {
     console.error("[cotation] envoi e-mail impossible", e);
     if (!enregistre) {

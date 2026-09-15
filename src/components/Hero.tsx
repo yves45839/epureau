@@ -42,7 +42,7 @@ export default function Hero() {
   }, [index, arrete]);
 
   return (
-    <section ref={section} className={`hero-cinema${arrete ? " paused" : ""}`} id="top" aria-roledescription="carrousel" aria-label="Les métiers EPUREAU"
+    <section ref={section} className={`hero-cinema${arrete ? " paused" : ""}`} id="top" aria-roledescription="carrousel" aria-label="Les métiers EPUREAU Côte d’Ivoire"
       onFocusCapture={() => setFocus(true)}
       onBlurCapture={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setFocus(false); }}
       onKeyDown={(e) => {
@@ -61,7 +61,7 @@ export default function Hero() {
         <article key={d.titre} id={`metier-${i}`} className={`cinema-slide${index === i ? " active" : ""}`} aria-hidden={index !== i} inert={index !== i} aria-roledescription="diapositive" aria-label={`${i + 1} sur ${slides.length}`}>
           <div className="cinema-image"><Image src={d.visuel.src} alt={d.visuel.alt} fill sizes="100vw" preload={i === 0} style={{ objectPosition: d.visuel.position }} /></div>
           <div className="wrap cinema-copy">
-            <span className="eyebrow">EPUREAU Côte d&apos;Ivoire</span>
+            <span className="eyebrow">EPUREAU Côte d’Ivoire</span>
             {i === 0 ? <h1 className="cinema-title">{d.titre}</h1> : <h2 className="cinema-title">{d.titre}</h2>}
             <Link className="btn btn-primary" href={d.lien}>{d.lienTexte}<Icon name="arrow" /></Link>
           </div>

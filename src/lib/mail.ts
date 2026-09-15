@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { destinataires } from "@/content/site";
+import { notificationEmails } from "@/lib/cms";
 
 type Demande = {
   nom: string;
@@ -13,7 +13,7 @@ type Demande = {
 const echapper = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-export async function envoyerDemande(d: Demande) {
+export async function envoyerDemande(d: Demande, type = "Demande de cotation") {
   const cle = process.env.RESEND_API_KEY;
   if (!cle) {
     console.warn("[cotation] RESEND_API_KEY absente : e-mail non envoyé.");
@@ -21,7 +21,7 @@ export async function envoyerDemande(d: Demande) {
   }
 
   const resend = new Resend(cle);
-  const expediteur = process.env.MAIL_FROM ?? "EPUREAU CI <onboarding@resend.dev>";
+  const expediteur = process.env.MAIL_FROM ?? "EPUREAU Côte d’Ivoire <onboarding@resend.dev>";
 
   const lignes: [string, string][] = [
     ["Nom et prénom", d.nom],
@@ -34,7 +34,7 @@ export async function envoyerDemande(d: Demande) {
   const html = `
     <div style="font-family:Arial,Helvetica,sans-serif;color:#0F1A3D;max-width:620px">
       <div style="background:#1B2E78;color:#fff;padding:18px 22px;border-radius:10px 10px 0 0">
-        <strong style="font-size:16px">Nouvelle demande de cotation — www.epureau-ci.com</strong>
+        <strong style="font-size:16px">${echapper(type)} — EPUREAU Côte d’Ivoire</strong>
       </div>
       <table style="width:100%;border-collapse:collapse;border:1px solid #E3EAF3;border-top:0">
         ${lignes
@@ -46,17 +46,18 @@ export async function envoyerDemande(d: Demande) {
         <tr><td style="padding:10px 14px;background:#F4F7FB;font-size:13px;color:#5A6479;vertical-align:top">Besoin exprimé</td><td style="padding:10px 14px;font-size:14px;white-space:pre-wrap">${echapper(d.besoin)}</td></tr>
       </table>
       <p style="font-size:12px;color:#6B7594;margin-top:14px">
-        Demande enregistrée dans le tableau de bord de suivi du site.
+        Demande transmise depuis le site EPUREAU Côte d’Ivoire.
       </p>
     </div>`;
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: expediteur,
-    to: destinataires,
+    to: await notificationEmails(),
     replyTo: d.email,
-    subject: `Demande de cotation — ${d.societe} (${d.objet})`,
+    subject: `${type} — ${d.societe} (${d.objet})`,
     html,
   });
+  if (error) throw new Error("Le service e-mail a refusé la demande.");
 
   return { envoye: true as const };
 }

@@ -1,3 +1,5 @@
+import AdditionalBlocks from "@/components/AdditionalBlocks";
+import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Icon from "@/components/Icon";
@@ -7,63 +9,59 @@ import { chiffres } from "@/content/site";
 export const metadata: Metadata = {
   title: "À propos",
   description:
-    "EPUREAU Côte d'Ivoire, SAS créée en 2015, membre de YANGONDI HOLDING : ingénierie du traitement des eaux et distribution des marques NALCO et ECOLAB.",
+    "EPUREAU Côte d’Ivoire, SAS créée en 2015, membre de YANGONDI HOLDING : ingénierie du traitement des eaux et distribution des marques NALCO et ECOLAB.",
 };
+
+
+
+
+
+export default async function APropos() {
+  const values = await pageValues("a-propos");
+  const t = (id: string, fallback: string) => values[id] ?? fallback;
 
 const mission = [
   {
     icone: "leaf",
-    titre: "Développer un environnement toujours plus sain et plus pratique",
+    titre: t("f024", "Développer un environnement toujours plus sain et plus pratique"),
     texte:
-      "Des solutions respectueuses de l'environnement qui contribuent à la préservation du cadre de vie.",
+      t("f025", "Des solutions respectueuses de l'environnement qui contribuent à la préservation du cadre de vie."),
   },
   {
     icone: "shield",
-    titre: "Protéger les installations et améliorer la productivité",
+    titre: t("f026", "Protéger les installations et améliorer la productivité"),
     texte:
-      "Fiabilité des équipements, performance optimisée, efficacité et rentabilité pour nos clients.",
+      t("f027", "Fiabilité des équipements, performance optimisée, efficacité et rentabilité pour nos clients."),
   },
   {
     icone: "users",
-    titre: "Fédérer les talents et nourrir une relation de confiance",
-    texte: "Écoute, transparence et engagement durable aux côtés de nos partenaires.",
+    titre: t("f028", "Fédérer les talents et nourrir une relation de confiance"),
+    texte: t("f029", "Écoute, transparence et engagement durable aux côtés de nos partenaires."),
   },
 ];
-
 const valeurs = [
-  { titre: "Intégrité", texte: "Des engagements tenus, des comptes rendus clairs et des interlocuteurs identifiés." },
-  { titre: "Qualité", texte: "Le respect des normes en vigueur et des performances contractuelles." },
-  { titre: "Innovation", texte: "Des procédés éprouvés — SBR, MBBR, physico-chimique — adaptés à chaque effluent." },
-  { titre: "Responsabilité sociétale", texte: "La préservation de la ressource en eau et la sécurité des personnes." },
+  { titre: t("f030", "Intégrité"), texte: t("f031", "Des engagements tenus, des comptes rendus clairs et des interlocuteurs identifiés.") },
+  { titre: t("f032", "Qualité"), texte: t("f033", "Le respect des normes en vigueur et des performances contractuelles.") },
+  { titre: t("f034", "Innovation"), texte: t("f035", "Des procédés éprouvés — SBR, MBBR, physico-chimique — adaptés à chaque effluent.") },
+  { titre: t("f036", "Responsabilité sociétale"), texte: t("f037", "La préservation de la ressource en eau et la sécurité des personnes.") },
 ];
 
-export default function APropos() {
-  return (
+  return <> (
     <>
       <PageHeader
         fil={["À propos"]}
-        titre="Experts en ingénierie de l'eau, au service de l'industrie ivoirienne"
-        lead="Une société ivoirienne, une ingénierie prouvée en potabilisation et en épuration, et le savoir-faire de deux références mondiales du traitement de l'eau et de l'hygiène."
+        titre={t("f001", "Experts en ingénierie de l'eau, au service de l'industrie ivoirienne")}
+        lead={t("f002", "Une société ivoirienne, une ingénierie prouvée en potabilisation et en épuration, et le savoir-faire de deux références mondiales du traitement de l'eau et de l'hygiène.")}
       />
 
       <section className="sec">
         <div className="wrap">
           <div className="about">
             <div className="text rv">
-              <span className="eyebrow">Qui sommes-nous ?</span>
-              <h2 className="title">Une SAS ivoirienne, membre du groupe YANGONDI</h2>
-              <p className="lead" style={{ marginTop: 18 }}>
-                EPUREAU CI est une Société par Actions Simplifiée (SAS), créée et basée en Côte
-                d&apos;Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société
-                française, elle a rejoint <strong>YANGONDI HOLDING</strong>.
-              </p>
-              <p className="lead">
-                Spécialisée dans le traitement des eaux (potable, usée, industrielle), EPUREAU CÔTE
-                D&apos;IVOIRE associe à son ingénierie prouvée en potabilisation et épuration des
-                eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des
-                utilités, l&apos;hygiène, la désinfection de vos installations et la protection de
-                vos marques.
-              </p>
+              <span className="eyebrow">{t("f003", "Qui sommes-nous ?")}</span>
+              <h2 className="title">{t("f004", "Une SAS ivoirienne, membre du groupe YANGONDI")}</h2>
+              <p className="lead" style={{ marginTop: 18 }}>{t("f005", "EPUREAU Côte d’Ivoire est une Société par Actions Simplifiée (SAS), créée et basée en Côte d'Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société française, elle a rejoint ")}<strong>{t("f006", "YANGONDI HOLDING")}</strong>{t("f007", ".")}</p>
+              <p className="lead">{t("f008", "Spécialisée dans le traitement des eaux (potable, usée, industrielle), EPUREAU Côte d’Ivoire associe à son ingénierie prouvée en potabilisation et épuration des eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des utilités, l'hygiène, la désinfection de vos installations et la protection de vos marques.")}</p>
               <div className="mission">
                 <ul>
                   {mission.map((m) => (
@@ -83,21 +81,21 @@ export default function APropos() {
 
             <div className="collage rv">
               <figure className="f1">
-                <Image src="/images/apropos-1.jpg" alt="Local technique d'une station EPUREAU" width={640} height={480} />
-                <figcaption>STEP EUROLAIT · 270 m³/j</figcaption>
+                <Image unoptimized src={t("f009", "/images/apropos-1.jpg")} alt={t("f010", "Local technique d'une station EPUREAU Côte d’Ivoire")} width={640} height={480} />
+                <figcaption>{t("f011", "STEP EUROLAIT · 270 m³/j")}</figcaption>
               </figure>
               <figure className="f2">
-                <Image src="/images/apropos-2.jpg" alt="Unité de traitement, CHR d'Adzopé" width={640} height={360} />
-                <figcaption>CHR d&apos;Adzopé · 90 m³/j</figcaption>
+                <Image unoptimized src={t("f012", "/images/apropos-2.jpg")} alt={t("f013", "Unité de traitement, CHR D’ADZOPÉ")} width={640} height={360} />
+                <figcaption>{t("f014", "CHR D’ADZOPÉ · 90 m³/j")}</figcaption>
               </figure>
               <figure className="f3">
-                <Image src="/images/apropos-3.jpg" alt="Bassins de traitement, GARDEN Center" width={640} height={360} />
-                <figcaption>GARDEN Center</figcaption>
+                <Image unoptimized src={t("f015", "/images/apropos-3.jpg")} alt={t("f016", "Bassins de traitement, GARDEN CENTER")} width={640} height={360} />
+                <figcaption>{t("f017", "GARDEN CENTER")}</figcaption>
               </figure>
               <div className="badge" aria-hidden="true">
                 <div>
-                  <b>2015</b>
-                  <small>Côte d&apos;Ivoire</small>
+                  <b>{t("f018", "2015")}</b>
+                  <small>{t("f019", "Côte d'Ivoire")}</small>
                 </div>
               </div>
             </div>
@@ -110,8 +108,8 @@ export default function APropos() {
       <section className="sec alt">
         <div className="wrap">
           <SectionHead
-            eyebrow="Nos valeurs"
-            titre="Ce qui guide chacune de nos interventions"
+            eyebrow={t("f020", "Nos valeurs")}
+            titre={t("f021", "Ce qui guide chacune de nos interventions")}
             style={{ marginBottom: 22 }}
           />
           <div className="values rvs" style={{ marginTop: 0 }}>
@@ -126,9 +124,9 @@ export default function APropos() {
       </section>
 
       <BandeAppel
-        titre="Envie d'en savoir plus sur nos méthodes ?"
-        texte="Présentez-nous votre site et vos contraintes : nos ingénieurs vous répondent sous 48 h ouvrées."
+        titre={t("f022", "Envie d'en savoir plus sur nos méthodes ?")}
+        texte={t("f023", "Présentez-nous votre site et vos contraintes : nos ingénieurs vous répondent sous 48 h ouvrées.")}
       />
     </>
-  );
+  ) <AdditionalBlocks page="a-propos" /></>;
 }

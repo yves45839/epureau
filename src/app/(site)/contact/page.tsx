@@ -1,28 +1,29 @@
+import AdditionalBlocks from "@/components/AdditionalBlocks";
+import { pageValues, company } from "@/lib/cms";
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import QuoteForm from "@/components/QuoteForm";
-import { societe } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Nous contacter",
   description:
-    "Demande de cotation, question technique ou projet à étudier : l'équipe EPUREAU Côte d'Ivoire vous répond du lundi au vendredi.",
+    "Demande de cotation, question technique ou projet à étudier : l'équipe EPUREAU Côte d’Ivoire vous répond du lundi au vendredi.",
 };
 
-export default function Contact() {
-  return (
+export default async function Contact() {
+  const values = await pageValues("contact");
+  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const societe = await company();
+
+
+  return <> (
     <section className="sec" id="contact">
       <div className="wrap">
         <div className="contact">
           <div className="rv">
-            <span className="eyebrow">Nous contacter</span>
-            <h1 className="title">
-              Une demande de cotation, une question technique ou un projet à étudier ?
-            </h1>
-            <p className="lead" style={{ marginTop: 18 }}>
-              Notre équipe vous répond du lundi au vendredi. Chaque demande est transmise à nos
-              équipes et suivie jusqu&apos;à la remise d&apos;une proposition.
-            </p>
+            <span className="eyebrow">{t("f001", "Nous contacter")}</span>
+            <h1 className="title">{t("f002", "Une demande de cotation, une question technique ou un projet à étudier ?")}</h1>
+            <p className="lead" style={{ marginTop: 18 }}>{t("f003", "Notre équipe vous répond du lundi au vendredi. Chaque demande est transmise à nos équipes et suivie jusqu'à la remise d'une proposition.")}</p>
 
             <div className="coords">
               <a className="coord" href={societe.maps} target="_blank" rel="noopener">
@@ -30,12 +31,11 @@ export default function Contact() {
                   <Icon name="pin" />
                 </span>
                 <span>
-                  <small>Siège</small>
+                  <small>{t("f004", "Siège")}</small>
                   <b>{societe.adresse}</b>
                   <br />
                   <span style={{ fontSize: 13, color: "var(--g500)" }}>
-                    {societe.boitePostale} · Ouvrir dans Google Maps
-                  </span>
+                    {societe.boitePostale}{t("f005", " · Ouvrir dans Google Maps")}</span>
                 </span>
               </a>
               <a className="coord" href={`tel:${societe.telephoneLien}`}>
@@ -43,7 +43,7 @@ export default function Contact() {
                   <Icon name="phone" />
                 </span>
                 <span>
-                  <small>Téléphone</small>
+                  <small>{t("f006", "Téléphone")}</small>
                   <b>{societe.telephone}</b>
                 </span>
               </a>
@@ -52,7 +52,7 @@ export default function Contact() {
                   <Icon name="mail" />
                 </span>
                 <span>
-                  <small>E-mail</small>
+                  <small>{t("f007", "E-mail")}</small>
                   <b>{societe.email}</b>
                 </span>
               </a>
@@ -61,7 +61,7 @@ export default function Contact() {
                   <Icon name="clock" />
                 </span>
                 <span>
-                  <small>Horaires</small>
+                  <small>{t("f008", "Horaires")}</small>
                   <b>{societe.horairesLong}</b>
                 </span>
               </div>
@@ -72,5 +72,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  );
+  ) <AdditionalBlocks page="contact" /></>;
 }

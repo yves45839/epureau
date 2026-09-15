@@ -1,0 +1,10 @@
+[build]
+command = "npm run build"
+publish = ".next"
+
+[build.environment]
+NODE_VERSION = "22"
+NEXT_TELEMETRY_DISABLED = "1"
+
+# Next.js is detected automatically by Netlify's OpenNext adapter.
+# Select the Free plan in the account. No paid extension is configured here.

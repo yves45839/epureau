@@ -1,3 +1,4 @@
+import PreviewBanner from "@/components/PreviewBanner";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -10,7 +11,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <a className="skip" href="#contenu">
         Aller au contenu
       </a>
-      <Nav />
+      <PreviewBanner /><Nav />
       <main id="contenu">{children}</main>
       <Footer />
       <ToTop />

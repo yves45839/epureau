@@ -2,7 +2,7 @@
 // (site.en.ts) et brancher la locale : la structure des pages reste identique.
 
 export const societe = {
-  nom: "EPUREAU Côte d'Ivoire",
+  nom: "EPUREAU Côte d’Ivoire",
   slogan: "Des solutions fiables pour votre satisfaction.",
   telephone: "+225 27 22 22 89 05",
   telephoneLien: "+2252722228905",
@@ -29,7 +29,10 @@ export type NavItem = {
 };
 
 export const navigation: NavItem[] = [
-  { label: "À propos", href: "/a-propos" },
+  { label: "À propos", href: "/a-propos", sous: [
+    { label: "Notre société", href: "/a-propos", desc: "Notre histoire et notre équipe" },
+    { label: "Carrière", href: "/carriere", desc: "Rejoindre notre équipe" },
+  ] },
   {
     label: "Ingénierie de l'eau",
     href: "/ingenierie/notre-expertise",
@@ -47,7 +50,7 @@ export const navigation: NavItem[] = [
     ],
   },
   { label: "Industries", href: "/service-aux-industries" },
-  { label: "Hygiène", href: "/hygiene-institutionnelle" },
+  { label: "Hygiène institutionnelle", href: "/hygiene-institutionnelle" },
   {
     label: "Produits",
     href: "/negoce",
@@ -70,12 +73,15 @@ export const navigation: NavItem[] = [
       { label: "Brochures", href: "/mediatheque#brochures", desc: "Flyers et présentation à télécharger" },
     ],
   },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact", sous: [
+    { label: "Nous contacter", href: "/contact", desc: "Demande de cotation ou d’information" },
+    { label: "Réclamation client", href: "/reclamation-client", desc: "Signaler un problème" },
+  ] },
 ];
 
 export const chiffres = [
   { valeur: "2015", exposant: "", legende: "Implantée en Côte d'Ivoire" },
-  { valeur: "20", exposant: "+", legende: "Collaborateurs" },
+  { valeur: "40", exposant: "+", legende: "Collaborateurs" },
   { valeur: "5", exposant: "", legende: "Stations livrées & en service" },
   { valeur: "2", exposant: "", legende: "Marques mondiales représentées" },
 ];
@@ -88,7 +94,7 @@ export const domaines = [
     lien: "/ingenierie/notre-expertise",
     lienTexte: "Notre expertise",
     image: "/images/projets-ci/abidjan-laiterie.jpg",
-    alt: "Station de traitement des eaux à Abidjan, réalisée avec EPUREAU",
+    alt: "Station de traitement des eaux à Abidjan, réalisée avec EPUREAU Côte d’Ivoire",
     icone: "droplet",
   },
   {
@@ -140,7 +146,7 @@ export const realisations = [
     type: "STEP · eaux hospitalières",
     debit: "90",
     unite: "m³ / jour",
-    nom: "CHR d'Adzopé",
+    nom: "CHR D’ADZOPÉ",
     client: "Client : AGENTIS / SEG — Adzopé",
     texte:
       "Traitement des eaux usées hospitalières d'un établissement de 200 lits, dimensionné pour répondre aux exigences sanitaires et environnementales du site.",
@@ -173,8 +179,8 @@ export const realisations = [
     type: "Prétraitement · dessablage",
     debit: "—",
     unite: "sur mesure",
-    nom: "GARDEN Center",
-    client: "Client : GARDEN Center — Abidjan",
+    nom: "GARDEN CENTER",
+    client: "Client : GARDEN CENTER — Abidjan",
     texte:
       "Ouvrages de prétraitement et de dessablage, conçus et installés pour sécuriser le rejet et faciliter l'exploitation du site.",
     image: "/maquette/images/projets/garden-center.jpg",
@@ -182,9 +188,9 @@ export const realisations = [
 ];
 
 export const clients = [
-  "Cargill", "EUROLAIT", "AGROCI", "S.D.T.M", "SUCRIVOIRE", "SANTA", "BRASSIVOIRE",
-  "MIBEM", "CÉMOI", "Nestlé", "GOTRAF", "Olam", "PALMCI", "PISAM", "CHR d'Adzopé",
-  "MIPA", "GARDEN Center",
+  "CARGILL", "EUROLAIT", "AGROCI", "S.D.T.M", "SUCRIVOIRE", "SANTA", "BRASSIVOIRE",
+  "MIBEM", "CÉMOI", "Nestlé", "GOTRAF", "OLAM", "PALMCI", "PISAM", "CHR D’ADZOPÉ",
+  "MIPA", "GARDEN CENTER",
 ];
 
 export const etapes = [
@@ -222,13 +228,13 @@ export const objetsDemande = [
 ];
 
 export const videos = [
-  { titre: "Présentation EPUREAU", sous: "Film institutionnel · 2026", duree: "03:10", vignette: "/images/gal-1.jpg" },
-  { titre: "Travaux EPUREAU — chantiers en cours", sous: "Reportage de chantier · 2026", duree: "02:25", vignette: "/images/gal-2.jpg" },
+  { titre: "Présentation EPUREAU Côte d’Ivoire", sous: "Film institutionnel · 2026", duree: "03:10", vignette: "/images/gal-1.jpg" },
+  { titre: "Travaux EPUREAU Côte d’Ivoire — chantiers en cours", sous: "Reportage de chantier · 2026", duree: "02:25", vignette: "/images/gal-2.jpg" },
   { titre: "Maîtrise de l'entretien textile", sous: "Hygiène et buanderie · 2026", duree: "01:48", vignette: "/images/gal-3.jpg" },
 ];
 
 export const brochures = [
-  { titre: "Présentation EPUREAU CI", sous: "Plaquette institutionnelle complète — 29 pages", taille: "PDF · 1,8 Mo", fichier: "" },
+  { titre: "Présentation EPUREAU Côte d’Ivoire", sous: "Plaquette institutionnelle complète — 29 pages", taille: "PDF · 1,8 Mo", fichier: "" },
   { titre: "Portfolio des réalisations", sous: "Nos stations livrées et mises en service", taille: "PDF · 3,1 Mo", fichier: "" },
   { titre: "Flyer — Secteur industriel", sous: "Solutions et services pour l'industrie", taille: "PDF · 0,5 Mo", fichier: "" },
   { titre: "Flyer — Secteur institutionnel", sous: "Hygiène des établissements et collectivités", taille: "PDF · 0,4 Mo", fichier: "" },
@@ -237,7 +243,7 @@ export const brochures = [
 export const galerie = [
   { image: "/images/gal-1.jpg", legende: "Chantier · terrassement" },
   { image: "/images/gal-2.jpg", legende: "PISAM · pose des cuves" },
-  { image: "/images/gal-4.jpg", legende: "CHR d'Adzopé · unité EPUREAU" },
+  { image: "/images/gal-4.jpg", legende: "CHR D’ADZOPÉ · unité EPUREAU Côte d’Ivoire" },
   { image: "/images/gal-5.jpg", legende: "MIPA · équipements de process" },
   { image: "/images/gal-6.jpg", legende: "PISAM · espaces paysagers" },
   { image: "/images/gal-3.jpg", legende: "EUROLAIT · local technique" },
@@ -251,7 +257,7 @@ export const diapositives = [
     texte:
       "Conception et réalisation de stations de traitement des eaux, service aux industries et hygiène institutionnelle. Distributeur des marques NALCO et ECOLAB en Côte d'Ivoire et dans la sous-région.",
     image: "/images/hero-1.jpg",
-    alt: "Station de traitement des eaux réalisée par EPUREAU",
+    alt: "Station de traitement des eaux réalisée par EPUREAU Côte d’Ivoire",
     actions: [
       { label: "Demander une cotation", href: "/contact", primaire: true, icone: "arrow" },
       { label: "Notre présentation", href: "/mediatheque#brochures", primaire: false, icone: "download" },
@@ -287,7 +293,7 @@ export const diapositives = [
     texte:
       "Hôpitaux, buanderies, pressings, hôtels, cuisines professionnelles et restaurants : produits haute performance, équipements de dosage et expertise technique.",
     image: "/images/hero-4.jpg",
-    alt: "Buanderie professionnelle équipée par EPUREAU",
+    alt: "Buanderie professionnelle équipée par EPUREAU Côte d’Ivoire",
     actions: [{ label: "Nos solutions", href: "/hygiene-institutionnelle", primaire: true, icone: "arrow" }],
   },
 ];

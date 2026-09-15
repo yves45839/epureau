@@ -1,0 +1,47 @@
+.customer-page{background:linear-gradient(145deg,#edf9fe,white 65%)}
+.customer-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
+.customer-intro .lead{margin:24px 0}
+.customer-steps{padding-left:24px;margin:32px 0;display:grid;gap:24px}
+.customer-steps li{padding-left:8px;color:var(--marine)}
+.customer-steps b,.customer-steps span{display:block}
+.customer-steps span{color:var(--g500);font-size:15px;margin-top:4px}
+.customer-contact{display:grid;gap:8px;padding-top:24px;border-top:1px solid var(--g200)}
+.customer-contact a{color:var(--marine);overflow-wrap:anywhere}
+.customer-contact span{font-size:13px;color:var(--g500)}
+.customer-form{padding:36px;background:white;border:1px solid #c9e2ed;border-radius:16px;box-shadow:0 14px 48px #123d7010;position:relative}
+.customer-form h2{font-size:28px}
+.customer-form>p{font-size:13px;color:var(--g500);margin:12px 0 24px}
+.customer-form fieldset{padding:0;margin:0;min-width:0;border:0}
+.customer-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.customer-fields label{display:grid;gap:8px;font-size:14px;font-weight:500}
+.customer-fields .full{grid-column:1/-1}
+.customer-fields input,.customer-fields select,.customer-fields textarea{font:inherit;font-weight:400;width:100%;min-width:0;min-height:48px;border:1px solid #aebfcf;border-radius:7px;background:#fcfeff;padding:12px;color:var(--g700)}
+.customer-fields textarea{resize:vertical}
+.customer-fields input:focus,.customer-fields textarea:focus,.customer-fields select:focus{outline:2px solid #1687b9;outline-offset:2px}
+.customer-note{font-size:13px;color:var(--g500);margin:24px 0;line-height:1.7}
+.customer-note a,.customer-feedback a{text-decoration:underline}
+.form-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.customer-feedback{padding:18px;border-radius:8px;margin-top:24px;overflow-wrap:anywhere}
+.customer-feedback.success{color:#13583a;background:#e3f7eb}
+.customer-feedback.error{color:#8b2920;background:#fff0eb}
+.customer-form fieldset:disabled{opacity:.7}
+.career-hero{padding:76px 0;background:#0c3377;color:white}
+.career-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px}
+.career-grid h1{font-size:clamp(36px,4.4vw,62px);color:white;margin:20px 0 24px}
+.career-grid p{color:#e0f2fc;margin-bottom:30px;max-width:50ch}
+.career-grid .eyebrow{color:#86e3ff}
+.career-grid img{width:100%;height:auto;border-radius:12px}
+.career-grid .btn{background:#22cbed;color:#08264a}
+.career-domains{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.career-domains>a{padding:28px;border:1px solid #cbdfea;border-radius:12px;border-top:4px solid #18b4df;transition:background .2s}
+.career-domains>a:hover{background:#effaff}
+.career-domains span{color:#156995;font-size:13px}
+.career-domains h3{font-size:23px;margin:24px 0 18px}
+.career-domains p{font-size:15px;color:var(--g500)}
+.career-application{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.career-application .lead{margin-top:24px}
+.career-apply-card{background:white;border-radius:12px;padding:36px;border:1px solid #cee1ed}
+.career-apply-card>p{margin:20px 0}
+@media(max-width:1050px){.customer-layout{gap:32px}.career-domains{grid-template-columns:repeat(2,minmax(0,1fr))}.career-grid{gap:32px}}
+@media(max-width:760px){.customer-layout,.career-grid,.career-application{grid-template-columns:1fr}.customer-form{padding:24px}.career-hero{padding:44px 0}.career-application{gap:32px}}
+@media(max-width:480px){.customer-fields,.career-domains{grid-template-columns:1fr}.customer-form{padding:20px}.career-apply-card{padding:24px}.customer-fields .full{grid-column:auto}}

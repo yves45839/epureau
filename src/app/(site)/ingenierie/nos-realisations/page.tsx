@@ -1,23 +1,31 @@
+import AdditionalBlocks from "@/components/AdditionalBlocks";
+import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
-import { realisations } from "@/content/site";
+import { projectList } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Nos réalisations",
   description:
-    "Stations d'épuration conçues, installées et mises en service par EPUREAU CI : EUROLAIT, CHR d'Adzopé, PISAM, MIPA et GARDEN Center.",
+    "Stations d'épuration conçues, installées et mises en service par EPUREAU Côte d’Ivoire : EUROLAIT, CHR D’ADZOPÉ, PISAM, MIPA et GARDEN CENTER.",
 };
 
-export default function NosRealisations() {
-  return (
+export default async function NosRealisations() {
+  const realisations = await projectList();
+  const values = await pageValues("ingenierie-nos-realisations");
+  const t = (id: string, fallback: string) => values[id] ?? fallback;
+
+
+
+  return <> (
     <>
       <PageHeader
         fil={["Ingénierie de l'eau", "Nos réalisations"]}
-        titre="Nos réalisations"
-        lead="Stations conçues, installées et mises en service."
+        titre={t("f001", "Nos réalisations")}
+        lead={t("f002", "Stations conçues, installées et mises en service.")}
       />
 
       <section className="sec">
@@ -26,7 +34,7 @@ export default function NosRealisations() {
             {realisations.map((r) => (
               <article className="proj" key={r.slug} id={r.slug}>
                 <div className="im">
-                  <Image src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
+                  <Image unoptimized src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
                   </div>
                   <div className="cap">
                     <span className="t">{r.type}</span>
@@ -37,23 +45,18 @@ export default function NosRealisations() {
                   </div><div className="bd">
                   <h3>{r.nom}</h3>
                   <span className="cl">{r.client}</span>
-                  <details className="project-details"><summary>Le projet en détail</summary><p>{r.texte}</p></details>
-                  <Link className="arrow-link more" href="/mediatheque#photos">
-                    Photos du chantier <Icon name="arrow" />
+                  <details className="project-details"><summary>{t("f003", "Le projet en détail")}</summary><p>{r.texte}</p></details>
+                  <Link className="arrow-link more" href="/mediatheque#photos">{t("f004", "Photos du chantier ")}<Icon name="arrow" />
                   </Link>
                 </div>
               </article>
             ))}
 
             <div className="proj-end">
-              <span className="eyebrow">Votre site</span>
-              <h3>La prochaine station est peut-être la vôtre</h3>
-              <p>
-                Décrivez-nous l&apos;effluent, le débit et les contraintes du site : nous établissons
-                une note de dimensionnement et une proposition chiffrée.
-              </p>
-              <Link className="btn btn-light" href="/contact">
-                Demander une cotation <Icon name="arrow" />
+              <span className="eyebrow">{t("f005", "Votre site")}</span>
+              <h3>{t("f006", "La prochaine station est peut-être la vôtre")}</h3>
+              <p>{t("f007", "Décrivez-nous l'effluent, le débit et les contraintes du site : nous établissons une note de dimensionnement et une proposition chiffrée.")}</p>
+              <Link className="btn btn-light" href="/contact">{t("f008", "Demander une cotation ")}<Icon name="arrow" />
               </Link>
             </div>
           </div>
@@ -62,5 +65,5 @@ export default function NosRealisations() {
 
       <BandeAppel />
     </>
-  );
+  ) <AdditionalBlocks page="ingenierie-nos-realisations" /></>;
 }

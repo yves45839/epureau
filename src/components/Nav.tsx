@@ -9,6 +9,10 @@ import { navigation } from "@/content/site";
 
 export default function Nav() {
   const pathname = usePathname();
+  return <NavigationContent key={pathname} pathname={pathname} />;
+}
+
+function NavigationContent({ pathname }: { pathname: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [progres, setProgres] = useState(0);
   const [menuMobile, setMenuMobile] = useState(false);
@@ -26,10 +30,7 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuMobile(false);
-    setOuvert(null);
-  }, [pathname]);
+
 
   useEffect(() => {
     document.body.style.overflow = menuMobile ? "hidden" : "";
@@ -48,10 +49,10 @@ export default function Nav() {
       <header className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
         <div className="wrap">
           <div className="nav-bar">
-            <Link className="logo" href="/" aria-label="EPUREAU Côte d'Ivoire — accueil">
+            <Link className="logo" href="/" aria-label="EPUREAU Côte d’Ivoire — accueil">
               <Image
                 src="/images/logo.png"
-                alt="EPUREAU Côte d'Ivoire"
+                alt="EPUREAU Côte d’Ivoire"
                 width={560}
                 height={162}
                 priority

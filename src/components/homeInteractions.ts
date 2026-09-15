@@ -40,23 +40,6 @@ export function mountHomeInteractions(root: HTMLElement) {
   on(document, "keydown", event => { if ((event as KeyboardEvent).key === "Escape" && !mobileMenu.hidden) { closeMenu(); menuToggle.focus(); } });
   on(window.matchMedia("(min-width:701px)"), "change", closeMenu);
 
-  const casePhotos = qa("[data-case-image]");
-  const cases = qa("[data-case]");
-  let caseFrame = 0;
-  const updateCase = () => {
-    caseFrame = 0;
-    let active = 0;
-    cases.forEach((card, index) => { if (card.getBoundingClientRect().top < window.innerHeight * .57) active = index; });
-    casePhotos.forEach((photo, index) => photo.classList.toggle("active", index === active));
-    q(".stage-rail i").style.width = `${(active + 1) / cases.length * 100}%`;
-  };
-  let caseInView = false;
-  const queueCase = () => { if (caseInView && !caseFrame) caseFrame = requestAnimationFrame(updateCase); };
-  const caseObserver = new IntersectionObserver(([entry]) => { caseInView = entry.isIntersecting; if (caseInView) queueCase(); });
-  caseObserver.observe(q(".proof-story"));
-  on(window, "scroll", queueCase, { passive: true });
-  on(window, "resize", queueCase, { passive: true });
-
   const serviceKeys = ["ingenierie", "industries", "hygiene", "produits"];
   const points = [["Conception", "Réalisation", "Mise en service"], ["Produits formulés", "Utilités industrielles", "Nettoyage industriel"], ["Entretien du linge", "Hygiène des locaux", "Cuisines professionnelles"], ["NALCO", "ECOLAB", "Commodités & réactifs"]];
   const dialog = q<HTMLDialogElement>("#service-dialog");
@@ -104,14 +87,25 @@ export function mountHomeInteractions(root: HTMLElement) {
   const clamp = (value: number) => Math.min(1, Math.max(0, value));
   let servicesFrame = 0;
   let servicesInView = false;
-  const animateServices = () => {
+  const displayedProgress = serviceCards.map(() => 0);
+  let lastServiceTime = 0;
+  const animateServices = (time = performance.now()) => {
     servicesFrame = 0;
     if (!servicesSection.classList.contains("scroll-staging")) return;
     const progress = clamp((q(".site-header").offsetHeight + 24 - servicesSection.getBoundingClientRect().top) / (window.innerHeight * .55));
+    const dt = lastServiceTime ? Math.min(time - lastServiceTime, 64) : 16;
+    lastServiceTime = time;
+    const blend = 1 - Math.exp(-dt / 85);
+    let moving = false;
     serviceCards.forEach((card, index) => {
       const local = card.contains(document.activeElement) ? 1 : clamp((progress - index * .15) / .55);
-      card.style.setProperty("--card-progress", (1 - Math.pow(1 - local, 2)).toFixed(4));
+      const target = 1 - Math.pow(1 - local, 3);
+      displayedProgress[index] += (target - displayedProgress[index]) * blend;
+      if (Math.abs(target - displayedProgress[index]) < .001) displayedProgress[index] = target;
+      else moving = true;
+      card.style.setProperty("--card-progress", displayedProgress[index].toFixed(4));
     });
+    if (moving && servicesInView) servicesFrame = requestAnimationFrame(animateServices);
   };
   const queueServices = () => { if (servicesInView && !servicesFrame) servicesFrame = requestAnimationFrame(animateServices); };
   const layoutServices = () => {
@@ -120,6 +114,9 @@ export function mountHomeInteractions(root: HTMLElement) {
     servicesSection.classList.toggle("scroll-staging", candidate);
     if (candidate && servicesShell.offsetHeight + q(".site-header").offsetHeight + 48 > window.innerHeight) servicesSection.classList.remove("scroll-staging");
     if (!servicesSection.classList.contains("scroll-staging")) serviceCards.forEach(card => card.style.removeProperty("--card-progress"));
+    cancelAnimationFrame(servicesFrame);
+    servicesFrame = 0;
+    lastServiceTime = 0;
     animateServices();
   };
   const serviceObserver = new IntersectionObserver(([entry]) => { servicesInView = entry.isIntersecting; queueServices(); }, { rootMargin: "100px 0px" });
@@ -148,8 +145,8 @@ export function mountHomeInteractions(root: HTMLElement) {
   return () => {
     alive = false;
     cleanupCarousels();
-    lifecycle.abort(); revealObserver.disconnect(); caseObserver.disconnect(); serviceObserver.disconnect();
-    cancelAnimationFrame(caseFrame); cancelAnimationFrame(servicesFrame);
+    lifecycle.abort(); revealObserver.disconnect(); serviceObserver.disconnect();
+    cancelAnimationFrame(servicesFrame);
     if (dialog.open) { document.body.style.overflow = previousOverflow; dialog.close(); }
     root.classList.remove("motion-ready");
   };
