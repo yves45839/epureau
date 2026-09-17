@@ -40,7 +40,9 @@ export function mountHomeInteractions(root: HTMLElement) {
   on(document, "keydown", event => { if ((event as KeyboardEvent).key === "Escape" && !mobileMenu.hidden) { closeMenu(); menuToggle.focus(); } });
   on(window.matchMedia("(min-width:701px)"), "change", closeMenu);
 
+  const cleanupCases = (() => {
   const story = q(".proof-story");
+  if (!story) return () => {};
   const cases = qa("[data-case]");
   const casePhotos = qa("[data-case-image]");
   const titles = cases.map(card => card.querySelector("h3")!);
@@ -74,6 +76,9 @@ export function mountHomeInteractions(root: HTMLElement) {
   on(story, "focusout", queueCase);
   document.fonts.ready.then(layoutCases);
   layoutCases();
+
+  return () => { caseObserver.disconnect(); cancelAnimationFrame(caseFrame); story.classList.remove("proof-motion"); };
+  })();
 
   const serviceKeys = ["ingenierie", "industries", "hygiene", "produits"];
   const points = [["Conception", "Réalisation", "Mise en service"], ["Produits formulés", "Utilités industrielles", "Nettoyage industriel"], ["Entretien du linge", "Hygiène des locaux", "Cuisines professionnelles"], ["NALCO", "ECOLAB", "Commodités & réactifs"]];
@@ -113,10 +118,14 @@ export function mountHomeInteractions(root: HTMLElement) {
     event.preventDefault();
     root.dispatchEvent(new CustomEvent("epureau:service", { detail: selectedService }));
     focusAfterClose = q<HTMLInputElement>("#need"); dialog.close();
-    q("#contact").scrollIntoView({ behavior: motion.matches ? "instant" : "smooth" });
+    const contact = q("#contact");
+    if (contact) contact.scrollIntoView({ behavior: motion.matches ? "instant" : "smooth" });
+    else window.location.assign("/contact");
   });
 
+  const cleanupServices = (() => {
   const servicesSection = q(".services-section");
+  if (!servicesSection) return () => {};
   const servicesShell = q(".services-shell");
   const serviceCards = qa(".service-card");
   const clamp = (value: number) => Math.min(1, Math.max(0, value));
@@ -164,6 +173,9 @@ export function mountHomeInteractions(root: HTMLElement) {
   document.fonts.ready.then(layoutServices);
   layoutServices();
 
+  return () => { serviceObserver.disconnect(); cancelAnimationFrame(servicesFrame); };
+  })();
+
   const closeLogos = () => qa(".company-logo").forEach(logo => { logo.classList.remove("show-name"); logo.setAttribute("aria-pressed", "false"); });
   on(root, "click", event => {
     const logo = event.target instanceof Element ? event.target.closest(".company-logo") : null;
@@ -180,9 +192,7 @@ export function mountHomeInteractions(root: HTMLElement) {
   return () => {
     alive = false;
     cleanupCarousels();
-    lifecycle.abort(); revealObserver.disconnect(); serviceObserver.disconnect(); caseObserver.disconnect();
-    cancelAnimationFrame(servicesFrame); cancelAnimationFrame(caseFrame);
-    story.classList.remove("proof-motion");
+    lifecycle.abort(); revealObserver.disconnect(); cleanupServices(); cleanupCases();
     if (dialog.open) { document.body.style.overflow = previousOverflow; dialog.close(); }
     root.classList.remove("motion-ready");
   };

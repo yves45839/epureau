@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues, company } from "@/lib/cms";
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
@@ -16,8 +16,8 @@ export default async function Contact() {
   const societe = await company();
 
 
-  return <> (
-    <section className="sec" id="contact">
+  return <PageSections page="contact" values={values}>
+<section className="sec" id="contact">
       <div className="wrap">
         <div className="contact">
           <div className="rv">
@@ -72,5 +72,5 @@ export default async function Contact() {
         </div>
       </div>
     </section>
-  ) <AdditionalBlocks page="contact" /></>;
+</PageSections>;
 }

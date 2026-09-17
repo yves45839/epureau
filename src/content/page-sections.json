@@ -1,0 +1,456 @@
+{
+  "a-propos": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Présentation et mission",
+      "fields": [
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007",
+        "f008",
+        "f009",
+        "f010",
+        "f011",
+        "f012",
+        "f013",
+        "f014",
+        "f015",
+        "f016",
+        "f017",
+        "f018",
+        "f019"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Chiffres clés",
+      "fields": []
+    },
+    {
+      "id": "section-4",
+      "label": "Nos valeurs",
+      "fields": [
+        "f020",
+        "f021"
+      ]
+    },
+    {
+      "id": "section-5",
+      "label": "Appel à contact",
+      "fields": [
+        "f022",
+        "f023"
+      ]
+    }
+  ],
+  "contact": [
+    {
+      "id": "section-1",
+      "label": "Coordonnées et formulaire",
+      "fields": [
+        "f001",
+        "f002",
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007",
+        "f008"
+      ]
+    }
+  ],
+  "hygiene-institutionnelle": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Solutions d’hygiène",
+      "fields": [
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Appel à contact",
+      "fields": [
+        "f008",
+        "f009"
+      ]
+    }
+  ],
+  "ingenierie-notre-expertise": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Notre expertise",
+      "fields": []
+    },
+    {
+      "id": "section-3",
+      "label": "Nos procédés",
+      "fields": [
+        "f003",
+        "f004",
+        "f005"
+      ]
+    },
+    {
+      "id": "section-4",
+      "label": "Appel à contact",
+      "fields": [
+        "f006",
+        "f007"
+      ]
+    }
+  ],
+  "ingenierie-nos-realisations": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Catalogue des réalisations",
+      "fields": [
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007",
+        "f008"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Appel à contact",
+      "fields": []
+    }
+  ],
+  "mediatheque": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Photos et vidéos",
+      "fields": []
+    },
+    {
+      "id": "section-3",
+      "label": "Brochures",
+      "fields": [
+        "f005",
+        "f006",
+        "f007"
+      ]
+    },
+    {
+      "id": "section-4",
+      "label": "Appel à contact",
+      "fields": []
+    }
+  ],
+  "negoce": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Produits et marques",
+      "fields": [
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007",
+        "f008",
+        "f009",
+        "f010",
+        "f011",
+        "f012",
+        "f013",
+        "f014",
+        "f015",
+        "f016",
+        "f017",
+        "f018",
+        "f019",
+        "f020"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Commodités et réactifs",
+      "fields": [
+        "f021",
+        "f022",
+        "f023"
+      ]
+    },
+    {
+      "id": "section-4",
+      "label": "Appel à contact",
+      "fields": [
+        "f024",
+        "f025"
+      ]
+    }
+  ],
+  "service-aux-industries": [
+    {
+      "id": "section-1",
+      "label": "En-tête",
+      "fields": [
+        "f001",
+        "f002"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Nos services",
+      "fields": [
+        "f003",
+        "f004",
+        "f005",
+        "f006"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Accompagnement technique",
+      "fields": [
+        "f007",
+        "f008"
+      ]
+    },
+    {
+      "id": "section-4",
+      "label": "Appel à contact",
+      "fields": [
+        "f009",
+        "f010"
+      ]
+    }
+  ],
+  "carriere": [
+    {
+      "id": "section-1",
+      "label": "En-tête carrière",
+      "fields": [
+        "f001",
+        "f002",
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Nos métiers",
+      "fields": [
+        "f008",
+        "f009",
+        "f010",
+        "f011",
+        "f012",
+        "f013",
+        "f014",
+        "f015",
+        "f016",
+        "f017",
+        "f018",
+        "f019",
+        "f020",
+        "f021",
+        "f022",
+        "f023"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Candidature spontanée",
+      "fields": [
+        "f024",
+        "f025",
+        "f026",
+        "f027",
+        "f028",
+        "f029",
+        "f030",
+        "f031"
+      ]
+    }
+  ],
+  "reclamation-client": [
+    {
+      "id": "section-1",
+      "label": "Introduction et formulaire de réclamation",
+      "fields": [
+        "f001",
+        "f002",
+        "f003",
+        "f004",
+        "f005",
+        "f006",
+        "f007",
+        "f008",
+        "f009",
+        "f010"
+      ]
+    }
+  ],
+  "accueil": [
+    {
+      "id": "section-1",
+      "label": "Carrousel principal",
+      "fields": [
+        "f017",
+        "f018",
+        "f019",
+        "f020",
+        "f021"
+      ]
+    },
+    {
+      "id": "section-2",
+      "label": "Notre équipe",
+      "fields": [
+        "f022",
+        "f023",
+        "f024"
+      ]
+    },
+    {
+      "id": "section-3",
+      "label": "Domaines d’intervention",
+      "fields": [
+        "f025",
+        "f026",
+        "f027",
+        "f028",
+        "f029",
+        "f030",
+        "f031",
+        "f032",
+        "f033",
+        "f034",
+        "f035",
+        "f036",
+        "f037",
+        "f038",
+        "f039",
+        "f040",
+        "f041",
+        "f042",
+        "f043",
+        "f044",
+        "f045",
+        "f046",
+        "f047",
+        "f048",
+        "f049",
+        "f050",
+        "f051",
+        "f052",
+        "f053",
+        "f054",
+        "f055"
+      ]
+    },
+    {
+      "id": "section-4",
+      "label": "Réalisations animées",
+      "fields": [
+        "f056",
+        "f057",
+        "f058",
+        "f061"
+      ]
+    },
+    {
+      "id": "section-5",
+      "label": "Clients et partenaires",
+      "fields": [
+        "f083",
+        "f084",
+        "f085",
+        "f086",
+        "f087",
+        "f088",
+        "f089",
+        "f090",
+        "f091",
+        "f092",
+        "f093",
+        "f094",
+        "f095",
+        "f096",
+        "f097",
+        "f098",
+        "f099",
+        "f100",
+        "f101",
+        "f102",
+        "f103",
+        "f104"
+      ]
+    },
+    {
+      "id": "section-6",
+      "label": "Formulaire de cotation",
+      "fields": [
+        "f105",
+        "f106",
+        "f107",
+        "f108",
+        "f109",
+        "f110",
+        "f111",
+        "f112"
+      ]
+    }
+  ]
+}

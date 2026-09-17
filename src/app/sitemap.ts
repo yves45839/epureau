@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
+import { publishedDocuments } from "@/lib/cms";
+import { customPagePath } from "@/content/page-builder";
 
 const BASE = "https://www.epureau-ci.com";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = [
     "",
     "/a-propos",
@@ -16,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/carriere",
     "/reclamation-client",
   ];
+  for(const page of await publishedDocuments("pages",false)){const path=customPagePath(page.key);if(path)pages.push(path);}
   return pages.map((p) => ({
     url: `${BASE}${p}`,
     lastModified: new Date(),

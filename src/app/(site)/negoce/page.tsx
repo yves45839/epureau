@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -23,15 +23,13 @@ const commodites = [
   "Analyseurs portatifs", "Matériel de laboratoire",
 ];
 
-  return <> (
-    <>
-      <PageHeader
+  return <PageSections page="negoce" values={values}>
+<PageHeader
         fil={["Négoce de produits chimiques"]}
         titre={t("f001", "Deux références mondiales, une même équipe technique locale")}
         lead={t("f002", "Dosage, suivi analytique, audits de performance et formation de vos opérateurs. Les produits sont présentés sans tarif : chaque besoin fait l'objet d'une cotation personnalisée après échange avec nos équipes techniques.")}
       />
-
-      <section className="sec">
+<section className="sec">
         <div className="wrap">
           <div className="partners rvs">
             <div className="pan" id="nalco" style={{ ["--g" as string]: "linear-gradient(90deg,#1B2E78,#1AB5E8)" }}>
@@ -83,8 +81,7 @@ const commodites = [
           </div>
         </div>
       </section>
-
-      <section className="sec alt">
+<section className="sec alt">
         <div className="wrap">
           <SectionHead
             center
@@ -94,11 +91,9 @@ const commodites = [
           />
         </div>
       </section>
-
-      <BandeAppel
+<BandeAppel
         titre={t("f024", "Besoin d'un produit précis ou d'un équivalent ?")}
         texte={t("f025", "Indiquez-nous la référence, l'usage et les volumes : nous revenons avec une cotation et les fiches techniques.")}
       />
-    </>
-  ) <AdditionalBlocks page="negoce" /></>;
+</PageSections>;
 }

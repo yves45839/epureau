@@ -101,3 +101,15 @@ Avant de pousser le code sur main, renseigner dans les variables de production V
 Le push sur main déclenche le déploiement GitHub/Vercel. Attendre le statut Ready, puis vérifier le site et la connexion administrateur. La commande node scripts/verify-supabase.mjs --production teste l’accès administrateur et le téléversement sur epureau.vercel.app avec les accès locaux ; elle retire son image de contrôle et n’envoie aucun e-mail.
 
 Aucun changement de forfait n’est effectué par cette procédure. Le plan Hobby de Vercel est réservé à un usage personnel non commercial : pour un site d’entreprise sans abonnement, la solution Netlify Free décrite ci-dessus reste l’alternative.
+
+## Éditeur visuel des pages
+
+Dans Pages du site, choisir une page puis utiliser Composition de la page. La poignée permet de déplacer une section à la souris ; les boutons Monter et Descendre permettent la même opération au clavier ou sur mobile. Retirer la section agit sur le brouillon ; les sections d’origine restent disponibles dans Réinsérer une section d’origine. Les animations de ces sections restent celles du site existant.
+
+Sept composants peuvent être ajoutés : texte et image, grande image, appel à l’action, cartes, galerie, carrousel et questions fréquentes. Les éléments des galeries, cartes, carrousels et FAQ sont modifiables et réordonnables. Les carrousels disposent de commandes manuelles et d’une lecture automatique optionnelle, suspendue hors écran, au survol et lorsque les mouvements sont réduits. Aucun code HTML ou JavaScript libre n’est accepté.
+
+Créer une page demande un titre et une adresse telle que notre-engagement. L’adresse ne peut pas remplacer une route réservée et reste fixe après enregistrement. Les pages créées peuvent être publiées, dépubliées, supprimées dans la corbeille et restaurées en brouillon. Les onze pages principales restent disponibles ; leurs sections peuvent être retirées ou réorganisées. Une option permet d’afficher un lien vers une nouvelle page dans le pied de page. Seules les pages publiées apparaissent dans le sitemap public.
+
+Enregistrer le brouillon, ouvrir Aperçu, puis Publier. L’aperçu exige une session administrateur ou éditeur ; partager son URL ne rend pas le brouillon public. Une modification simultanée est refusée pour éviter de remplacer le travail d’un autre éditeur. Les compositions acceptent au maximum 40 sections par page et 20 éléments par composant. Les anciens blocs supplémentaires sont repris sans perte.
+
+Tests : npm test. La suite scripts/page-builder-integration.mjs est réservée au serveur local de vérification sur 127.0.0.1:3002 avec ADMIN_LOCAL_STORE=1, ADMIN_LOCAL_DATASET=builder-test, DATABASE_URL vide et une configuration privée .local/builder-test-env.json. Elle utilise .local/builder-test.json, séparé des données locales habituelles et de Supabase. EPUREAU_BUILD_DIR permet d’isoler la compilation de test dans .local.

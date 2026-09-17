@@ -3,7 +3,8 @@ import { z } from "zod";
 import { currentUser, sameOrigin } from "@/lib/auth";
 import { may, hashPassword, roles, safePublicUrl, type Account, csvCell } from "@/lib/admin-security";
 import { entries, entry, save, remove, Conflict } from "@/lib/admin-store";
-import { editableDocuments, modelFields, pageDefinitions, sectionNames } from "@/lib/cms";
+import { editableDocuments, editablePageDefinitions, customPageFields, modelFields, pageDefinitions, sectionNames } from "@/lib/cms";
+import {customPagePath,validatePageLayout} from "@/content/page-builder";
 import { requestList, type CustomerRequest } from "@/lib/admin-requests";
 import type { Document } from "@/content/admin-types";
 export const runtime="nodejs";
@@ -27,10 +28,10 @@ export async function GET(req:Request) {
  }
  if(section==="users")return response({user,data:(await entries<Account>("users")).map(r=>({...r,value:{...r.value,password:undefined}}))});
  if(section==="audit")return response({user,data:(await entries("audit")).sort((a,b)=>b.updated.localeCompare(a.updated)).slice(0,300)});
- return response({user,data:await editableDocuments(section),fields:modelFields[section]||[],pages:section==="pages"?pageDefinitions:undefined});
+ return response({user,data:await editableDocuments(section),fields:modelFields[section]||[],pages:section==="pages"?await editablePageDefinitions():undefined});
  }catch{return response({message:"Lecture indisponible. Vérifiez la connexion au stockage."},503);}
 }
-const payloadSchema=z.object({section:z.string(),key:z.string().min(1).max(100).regex(/^[a-zA-Z0-9@._-]+$/),action:z.enum(["save","publish","unpublish","delete"]),revision:z.number().int().nonnegative(),title:z.string().trim().max(200).optional(),order:z.number().int().min(0).max(9999).optional(),data:z.record(z.string().max(80),z.string().max(24000)).optional()});
+const payloadSchema=z.object({section:z.string(),key:z.string().min(1).max(100).regex(/^[a-zA-Z0-9@._-]+$/),action:z.enum(["save","publish","unpublish","delete","restore"]),revision:z.number().int().nonnegative(),title:z.string().trim().max(200).optional(),order:z.number().int().min(0).max(9999).optional(),data:z.record(z.string().max(80),z.string().max(180000)).optional()});
 export async function POST(req:Request){
  if(!sameOrigin(req))return response({message:"Origine refusée."},403);
  try {
@@ -63,12 +64,20 @@ export async function POST(req:Request){
  }
  const old=(await editableDocuments(p.section)).find(r=>r.key===p.key);
  if((old?.revision??0)!==p.revision)throw new Conflict();
- if(p.section==="pages"&&!pageDefinitions.some(page=>page.key===p.key))return response({message:"Page inconnue."},422);
+ const builtIn=pageDefinitions.find(page=>page.key===p.key);
+ const customPage=p.section==="pages"&&Boolean(customPagePath(p.key));
+ if(p.section==="pages"&&!builtIn&&!customPage)return response({message:"Adresse de page invalide ou réservée."},422);
  if(p.section==="settings"&&p.key!=="societe")return response({message:"Paramètre inconnu."},422);
- const fields=p.section==="pages"?pageDefinitions.find(page=>page.key===p.key)!.fields:modelFields[p.section]||[];
- const allowed=new Set([...fields.map(f=>f.key),"__blocks"]);
+ const fields=p.section==="pages"?(builtIn?.fields||customPageFields):modelFields[p.section]||[];
+ const allowed=new Set([...fields.map(f=>f.key),"__blocks",...(p.section==="pages"?["__layout","__navigation"]:[])]);
  const data=p.data??old?.value.draft??{};
  if(Object.keys(data).some(key=>!allowed.has(key)))return response({message:"Champ inconnu."},422);
+ if(Object.entries(data).some(([key,value])=>key!=="__layout"&&value.length>24000))return response({message:"Champ trop long."},422);
+ if(p.section==="pages"){
+  if(data.__navigation&&!['oui','non'].includes(data.__navigation))return response({message:"Option de navigation invalide."},422);
+  if(data.__layout){try{validatePageLayout(p.key,data.__layout);}catch{return response({message:"Composition invalide : vérifiez les sections, les liens et leurs limites."},422);}}
+  if(customPage&&(!data.title?.trim()||!data.__layout))return response({message:"Renseignez le titre et la composition de la page."},422);
+ }
  for(const field of fields)if(["image","url"].includes(field.type||"")&&data[field.key]&&!safePublicUrl(data[field.key]))return response({message:"Utilisez un fichier du site ou un lien HTTPS pour "+field.label+"."},422);
  if(p.section==="media"&&!["photo","video"].includes(data.type))return response({message:"Choisissez photo ou video."},422);
  if(data.__blocks){
@@ -80,11 +89,13 @@ export async function POST(req:Request){
   for(const k of ["maps","linkedin","facebook","youtube"])if(data[k]&&!/^https:\/\//.test(data[k]))return response({message:"Les liens doivent utiliser HTTPS."},422);
   if(!["oui","non"].includes(data.blogEnabled))return response({message:"Le réglage Blog doit être oui ou non."},422);
  }
- if(["pages","settings"].includes(p.section)&&p.action==="delete")return response({message:"Cette rubrique ne peut pas être supprimée."},422);
+ if((p.section==="settings"||(p.section==="pages"&&!customPage))&&["delete","unpublish"].includes(p.action))return response({message:"Cette page principale reste disponible. Vous pouvez modifier ou retirer ses sections."},422);
+ if(p.action==="restore"&&(!customPage||!old?.value.deleted))return response({message:"Cette page n’est pas dans la corbeille."},422);
  const doc:Document={title:p.title||old?.value.title||data.nom||data.title||p.key,draft:data,published:old?.value.published??null,order:p.order??old?.value.order??999};
  if(p.action==="publish")doc.published=data;
  if(p.action==="unpublish")doc.published=null;
  if(p.action==="delete")doc.deleted=true;
+ if(p.action==="restore")doc.published=null;
  const result=await save(p.section,p.key,doc,p.revision);
  revalidateTag("cms",{expire:0});await audit(user.email,p.action+" : "+p.section+"/"+p.key);
  return response({record:result});

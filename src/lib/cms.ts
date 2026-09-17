@@ -8,6 +8,8 @@ import type { Document, ContentData, PageDefinition, Project, Media } from "@/co
 import { entries, entry, storeConfigured, type Entry } from "./admin-store";
 import { currentUser } from "./auth";
 import { may } from "./admin-security";
+import { notFound } from "next/navigation";
+import { customPagePath } from "@/content/page-builder";
 
 export const pageDefinitions = definitions as PageDefinition[];
 export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audit:"Journal des accès" };
@@ -41,18 +43,24 @@ const canPreview=cache(async(section:string)=>{
  if(!storeConfigured() || !(await draftMode()).isEnabled)return false;
  const user=await currentUser();return Boolean(user&&may(user.role,section));
 });
-export async function publishedDocuments(section:string):Promise<{key:string;data:ContentData}[]> {
+export async function publishedDocuments(section:string,allowPreview=true):Promise<{key:string;data:ContentData}[]> {
  let docs:Entry<Document>[];
  try { docs=storeConfigured()?await cachedDocuments(section):seeds(section); }
  catch { console.error("[cms] Lecture indisponible");docs=seeds(section); }
- const preview=await canPreview(section);
+ const preview=allowPreview&&await canPreview(section);
  if(preview)docs=await editableDocuments(section);
  return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>({key:doc.key,data:preview?doc.value.draft:doc.value.published!}));
 }
 export const pageValues=cache(async(key:string):Promise<ContentData>=>{
  const fallback=seeds("pages").find(doc=>doc.key===key)?.value.draft??{};
- return {...fallback,...(await publishedDocuments("pages")).find(doc=>doc.key===key)?.data};
+ const doc=(await publishedDocuments("pages")).find(doc=>doc.key===key);
+ if(!doc)notFound();
+ return {...fallback,...doc.data};
 });
+export const customPageFields=[{key:"title",label:"Titre de la page",type:"text" as const,value:""},{key:"description",label:"Description pour les moteurs de recherche",type:"long" as const,value:""}];
+export async function editablePageDefinitions():Promise<PageDefinition[]> {
+ return [...pageDefinitions,...(await editableDocuments("pages")).filter(d=>customPagePath(d.key)).map(d=>({key:d.key,title:d.value.title,path:customPagePath(d.key)!,fields:customPageFields}))];
+}
 export const company=cache(async()=>{
  const data=(await publishedDocuments("settings"))[0]?.data;
  return Object.fromEntries(Object.entries(societe).map(([key,value])=>[key,data?.[key]??value])) as typeof societe;

@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -48,16 +48,14 @@ const speciaux = [
   },
 ];
 
-  return <> (
-    <>
-      <PageHeader
+  return <PageSections page="service-aux-industries" values={values}>
+<PageHeader
         image="/images/illustrations/industrie.webp"
         fil={["Service aux industries"]}
         titre={t("f001", "Une équipe technique chevronnée au service de votre production")}
         lead={t("f002", "EPUREAU Côte d’Ivoire est une société de service : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production.")}
       />
-
-      <section className="sec">
+<section className="sec">
         <div className="wrap">
           <div className="sec-head rv">
             <span className="eyebrow">{t("f003", "Application de produits formulés")}</span>
@@ -77,8 +75,7 @@ const speciaux = [
           </div>
         </div>
       </section>
-
-      <section className="sec alt">
+<section className="sec alt">
         <div className="wrap">
           <div className="sec-head rv">
             <span className="eyebrow vert">{t("f007", "ECOLAB Food & Beverage · services spéciaux")}</span>
@@ -99,11 +96,9 @@ const speciaux = [
           </div>
         </div>
       </section>
-
-      <BandeAppel
+<BandeAppel
         titre={t("f009", "Un poste de consommation à optimiser sur votre site ?")}
         texte={t("f010", "Audit de vos utilités, plan de dosage et suivi analytique : parlons-en.")}
       />
-    </>
-  ) <AdditionalBlocks page="service-aux-industries" /></>;
+</PageSections>;
 }

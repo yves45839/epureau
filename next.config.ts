@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Permet les vérifications locales sans interrompre un aperçu déjà ouvert.
+  distDir: process.env.EPUREAU_BUILD_DIR || ".next",
 };
 
 export default nextConfig;

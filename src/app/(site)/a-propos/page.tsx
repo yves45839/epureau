@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -46,15 +46,13 @@ const valeurs = [
   { titre: t("f036", "Responsabilité sociétale"), texte: t("f037", "La préservation de la ressource en eau et la sécurité des personnes.") },
 ];
 
-  return <> (
-    <>
-      <PageHeader
+  return <PageSections page="a-propos" values={values}>
+<PageHeader
         fil={["À propos"]}
         titre={t("f001", "Experts en ingénierie de l'eau, au service de l'industrie ivoirienne")}
         lead={t("f002", "Une société ivoirienne, une ingénierie prouvée en potabilisation et en épuration, et le savoir-faire de deux références mondiales du traitement de l'eau et de l'hygiène.")}
       />
-
-      <section className="sec">
+<section className="sec">
         <div className="wrap">
           <div className="about">
             <div className="text rv">
@@ -102,10 +100,8 @@ const valeurs = [
           </div>
         </div>
       </section>
-
-      <ChiffresCles items={chiffres} />
-
-      <section className="sec alt">
+<ChiffresCles items={chiffres} />
+<section className="sec alt">
         <div className="wrap">
           <SectionHead
             eyebrow={t("f020", "Nos valeurs")}
@@ -122,11 +118,9 @@ const valeurs = [
           </div>
         </div>
       </section>
-
-      <BandeAppel
+<BandeAppel
         titre={t("f022", "Envie d'en savoir plus sur nos méthodes ?")}
         texte={t("f023", "Présentez-nous votre site et vos contraintes : nos ingénieurs vous répondent sous 48 h ouvrées.")}
       />
-    </>
-  ) <AdditionalBlocks page="a-propos" /></>;
+</PageSections>;
 }

@@ -1,5 +1,4 @@
 import { pageValues, projectList, company } from "@/lib/cms";
-import AdditionalBlocks from "@/components/AdditionalBlocks";
 import PreviewBanner from "@/components/PreviewBanner";
 import HomeLanding from "@/components/HomeLanding";
 import Footer from "@/components/Footer";
@@ -11,7 +10,7 @@ import "../../public/maquette/carousels.css";
 export default async function HomePage() {
   return (
     <>
-      <PreviewBanner /><HomeLanding content={await pageValues("accueil")} realisations={await projectList()} societe={await company()} /><AdditionalBlocks page="accueil" />
+      <PreviewBanner /><HomeLanding content={await pageValues("accueil")} realisations={await projectList()} societe={await company()} />
       <Footer />
       <ToTop />
       <script

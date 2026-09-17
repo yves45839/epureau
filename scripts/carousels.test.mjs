@@ -29,7 +29,7 @@ class ElementStub extends EventTarget {
   closest() { return null; }
 }
 
-function fixture() {
+function fixture({heroVisible=true,logosVisible=true}={}) {
   const element = () => new ElementStub();
   const root = element(), hero = element(), rail = element(), clients = element();
   const motion = element(), document = element();
@@ -58,8 +58,8 @@ function fixture() {
   const logoRotation = clients.querySelector('[data-logo-rotation]');
   logoRotation.nodes.set('[data-pause-icon]', element());
   logoRotation.nodes.set('[data-play-icon]', element());
-  root.nodes.set('[data-hero-carousel]', hero);
-  root.nodes.set('[data-logo-carousel]', clients);
+  if(heroVisible)root.nodes.set('[data-hero-carousel]', hero);
+  if(logosVisible)root.nodes.set('[data-logo-carousel]', clients);
   const globals = {
     AbortController,
     document,
@@ -152,3 +152,5 @@ test('boucle de logos sans retour visible, pause au survol, mode réduit et retr
   assert.equal(f.rail.childNodes.length, 18);
   f.cleanup(); assert.equal(f.rail.childNodes.length, 6); assert.equal(f.frames.size, 0);
 });
+
+test('retirer le carrousel principal ou les références ne casse pas les autres sections',()=>{for(const options of [{heroVisible:false},{logosVisible:false},{heroVisible:false,logosVisible:false}]){const f=fixture(options);f.cleanup();assert.equal(f.timers.size,0);assert.equal(f.frames.size,0);assert.ok(f.observers.every(o=>o.disconnected));}});

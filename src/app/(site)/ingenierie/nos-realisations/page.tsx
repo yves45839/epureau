@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -20,15 +20,13 @@ export default async function NosRealisations() {
 
 
 
-  return <> (
-    <>
-      <PageHeader
+  return <PageSections page="ingenierie-nos-realisations" values={values}>
+<PageHeader
         fil={["Ingénierie de l'eau", "Nos réalisations"]}
         titre={t("f001", "Nos réalisations")}
         lead={t("f002", "Stations conçues, installées et mises en service.")}
       />
-
-      <section className="sec">
+<section className="sec">
         <div className="wrap">
           <div className="projects rvs">
             {realisations.map((r) => (
@@ -62,8 +60,6 @@ export default async function NosRealisations() {
           </div>
         </div>
       </section>
-
-      <BandeAppel />
-    </>
-  ) <AdditionalBlocks page="ingenierie-nos-realisations" /></>;
+<BandeAppel />
+</PageSections>;
 }

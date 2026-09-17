@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -48,15 +48,13 @@ const etablissements = [
   "Buanderies & pressings",
 ];
 
-  return <> (
-    <>
-      <PageHeader
+  return <PageSections page="hygiene-institutionnelle" values={values}>
+<PageHeader
         fil={["Hygiène institutionnelle"]}
         titre={t("f001", "Hygiène institutionnelle")}
         lead={t("f002", "Hôpitaux, hôtels, cuisines professionnelles, buanderies et pressings : produits, dosage et expertise.")}
       />
-
-      <section className="sec">
+<section className="sec">
         <div className="wrap">
           <div className="split" style={{ marginBottom: "clamp(36px,4vw,56px)" }}>
             <div className="sec-head rv" style={{ margin: 0 }}>
@@ -93,11 +91,9 @@ const etablissements = [
           </div>
         </div>
       </section>
-
-      <BandeAppel
+<BandeAppel
         titre={t("f008", "Un plan d'hygiène à mettre en place ou à revoir ?")}
         texte={t("f009", "Nos techniciens réalisent l'audit de vos protocoles et vous proposent les équipements de dosage adaptés.")}
       />
-    </>
-  ) <AdditionalBlocks page="hygiene-institutionnelle" /></>;
+</PageSections>;
 }

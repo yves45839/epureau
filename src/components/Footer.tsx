@@ -2,10 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Icon from "./Icon";
 import { company, publishedDocuments } from "@/lib/cms";
+import { customPagePath } from "@/content/page-builder";
 
 export default async function Footer() {
   const societe = await company();
   const settings = (await publishedDocuments("settings"))[0]?.data;
+  const extraPages = (await publishedDocuments("pages")).filter(p=>customPagePath(p.key)&&p.data.__navigation==="oui");
   return (
     <footer>
       <div className="wrap">
@@ -65,6 +67,7 @@ export default async function Footer() {
           </div>
         </div>
 
+        {extraPages.length>0&&<nav className="footer-extra-pages" aria-label="Autres pages">{extraPages.map(p=><Link key={p.key} href={customPagePath(p.key)!}>{p.data.title}</Link>)}</nav>}
         <div className="fbot">
           <span>© {new Date().getFullYear()} {societe.nom} — Tous droits réservés</span>
           <span>{societe.site}</span>

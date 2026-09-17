@@ -1,4 +1,4 @@
-import AdditionalBlocks from "@/components/AdditionalBlocks";
+import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -28,16 +28,14 @@ const services = [
   { icone: "users", titre: t("f018", "Formation des équipes"), texte: t("f019", "Transfert de compétences aux exploitants du site et suivi analytique.") },
 ];
 
-  return <> (
-    <>
-      <PageHeader
+  return <PageSections page="ingenierie-notre-expertise" values={values}>
+<PageHeader
         image="/images/illustrations/ingenierie.webp"
         fil={["Ingénierie de l'eau", "Notre expertise"]}
         titre={t("f001", "De la conception à l'exploitation, EPUREAU Côte d’Ivoire assure toute la chaîne")}
         lead={t("f002", "Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clé en main des unités de traitement.")}
       />
-
-      <section className="sec">
+<section className="sec">
         <div className="wrap">
           <div className="process">
             <div className="steps">
@@ -59,8 +57,7 @@ const services = [
           </div>
         </div>
       </section>
-
-      <section className="sec alt">
+<section className="sec alt">
         <div className="wrap">
           <div className="sec-head rv">
             <span className="eyebrow">{t("f003", "Services complémentaires")}</span>
@@ -85,11 +82,9 @@ const services = [
           </div>
         </div>
       </section>
-
-      <BandeAppel
+<BandeAppel
         titre={t("f006", "Une station à concevoir, à réhabiliter ou à mettre aux normes ?")}
         texte={t("f007", "Transmettez-nous la nature de l'effluent, le débit et vos contraintes de site : nous revenons avec une proposition chiffrée.")}
       />
-    </>
-  ) <AdditionalBlocks page="ingenierie-notre-expertise" /></>;
+</PageSections>;
 }

@@ -4,6 +4,7 @@ export function mountCarousels(root) {
   const on = (target, name, listener, options = {}) => target.addEventListener(name, listener, { ...options, signal: lifecycle.signal });
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const hero = root.querySelector('[data-hero-carousel]');
+  if (!hero) { const cleanup = mountLogoLoop(root, on, motion); return () => { lifecycle.abort(); cleanup(); }; }
   const slides = [...hero.querySelectorAll('[data-hero-slide]')];
   const dots = [...hero.querySelectorAll('[data-hero-dot]')];
   const controls = hero.querySelector('[data-hero-controls]');
@@ -88,6 +89,7 @@ export function mountCarousels(root) {
 
 function mountLogoLoop(root, on, motion) {
   const clients = root.querySelector('[data-logo-carousel]');
+  if (!clients) return () => {};
   const rail = clients.querySelector('[data-logo-rail]');
   const logos = [...rail.querySelectorAll('.company-logo')];
   const rotation = clients.querySelector('[data-logo-rotation]');
