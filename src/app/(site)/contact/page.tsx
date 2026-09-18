@@ -1,5 +1,7 @@
 import PageSections from "@/components/PageSections";
-import { pageValues, company } from "@/lib/cms";
+import { pageValues, company, publishedDocuments } from "@/lib/cms";
+import { lieuGoogle, reseaux } from "@/content/site";
+import MapEmbed from "@/components/MapEmbed";
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import QuoteForm from "@/components/QuoteForm";
@@ -14,6 +16,12 @@ export default async function Contact() {
   const values = await pageValues("contact");
   const t = (id: string, fallback: string) => values[id] ?? fallback;
   const societe = await company();
+  const parametres = (await publishedDocuments("settings"))[0]?.data ?? {};
+  const social = ([
+    ["linkedin", "LinkedIn"],
+    ["facebook", "Facebook"],
+    ["youtube", "YouTube"],
+  ] as const).map(([cle, libelle]) => ({ cle, libelle, url: parametres[cle] || reseaux[cle] })).filter(r => r.url);
 
 
   return <PageSections page="contact" values={values}>
@@ -66,6 +74,20 @@ export default async function Contact() {
                 </span>
               </div>
             </div>
+
+            {social.length > 0 && (
+              <div className="reseaux">
+                <span className="reseaux-titre">{t("f009", "Nous suivre")}</span>
+                {social.map(r => (
+                  <a key={r.cle} href={r.url} target="_blank" rel="noopener">
+                    <Icon name={r.cle} />
+                    {r.libelle}
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <MapEmbed lieu={lieuGoogle} adresse={societe.adresse} />
           </div>
 
           <QuoteForm />

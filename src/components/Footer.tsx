@@ -3,6 +3,7 @@ import Image from "next/image";
 import Icon from "./Icon";
 import { company, publishedDocuments } from "@/lib/cms";
 import { customPagePath } from "@/content/page-builder";
+import CookieLink from "./CookieLink";
 
 export default async function Footer() {
   const societe = await company();
@@ -47,6 +48,7 @@ export default async function Footer() {
 {settings?.blogEnabled === "oui" && <li><Link href="/blog">Blog</Link></li>}
 {settings?.legal && <li><Link href="/mentions-legales">Mentions légales</Link></li>}
 {settings?.privacy && <li><Link href="/confidentialite">Confidentialité</Link></li>}
+<li><CookieLink /></li>
 {(["linkedin","facebook","youtube"] as const).map(key => settings?.[key] && <li key={key}><a href={settings[key]} target="_blank" rel="noreferrer">{key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube"}</a></li>)}
             </ul>
           </div>

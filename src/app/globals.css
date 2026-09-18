@@ -91,3 +91,41 @@
 /* Taille par défaut des pictogrammes : :where() garde une spécificité nulle,
    donc toutes les règles contextuelles de la charte continuent de primer. */
 :where(svg.ic) { width: 18px; height: 18px; flex: none; }
+
+/* ---------- Bandeau de consentement (EF-29) ---------- */
+.cookie-bar{position:fixed;inset:auto 0 0 0;z-index:80;padding:14px;display:flex;justify-content:center;pointer-events:none}
+.cookie-card{pointer-events:auto;width:min(980px,100%);background:#fff;border:1px solid #DCE5F2;border-top:3px solid #1AB5E8;border-radius:14px;box-shadow:0 18px 50px rgba(15,26,61,.18);padding:18px 20px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.cookie-texte{flex:1 1 380px}
+.cookie-card h2{font-family:var(--ff-outfit),sans-serif;font-size:16px;font-weight:700;color:#1B2E78;margin:0 0 6px}
+.cookie-card p{font-size:13.5px;line-height:1.55;color:#4A5673;margin:0}
+.cookie-liste{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.cookie-liste li{background:#F4F7FB;border-radius:10px;padding:10px 12px;display:flex;gap:14px;align-items:center;justify-content:space-between}
+.cookie-liste label{display:flex;gap:14px;align-items:center;justify-content:space-between;flex:1 1 auto;margin:0;cursor:pointer}
+.cookie-liste b{display:block;font-size:13.5px;color:#0F1A3D}
+.cookie-liste small{display:block;font-size:12.5px;color:#5A6479;margin-top:2px}
+.cookie-liste input[type=checkbox]{width:18px;height:18px;accent-color:#1AB5E8;flex:none}
+.cookie-fixe{font-size:12px;color:#2BB673;font-weight:600;white-space:nowrap}
+.cookie-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cookie-lien{background:none;border:0;color:#1B2E78;text-decoration:underline;font-size:13px;cursor:pointer;padding:6px}
+.footer-cookie{background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left;text-decoration:underline}
+.cookie-btn{font-family:var(--ff-outfit),system-ui,sans-serif;font-weight:600;font-size:13.5px;line-height:1;padding:12px 18px;border-radius:9px;border:1px solid transparent;cursor:pointer;transition:background .15s ease,color .15s ease}
+.cookie-accepte{background:#1B2E78;color:#fff}
+.cookie-accepte:hover{background:#14215A}
+.cookie-refuse{background:#fff;color:#1B2E78;border-color:#C7D4E8}
+.cookie-refuse:hover{background:#F4F7FB}
+.cookie-btn:focus-visible,.cookie-lien:focus-visible,.footer-cookie:focus-visible{outline:2px solid #1AB5E8;outline-offset:2px}
+@media (max-width:700px){.cookie-card{padding:16px}.cookie-actions{width:100%}.cookie-btn{flex:1 1 auto}}
+
+/* ---------- Carte de contact et réseaux sociaux (EF-21) ---------- */
+.carte{margin-top:22px;border:1px solid #DCE5F2;border-radius:14px;overflow:hidden;background:#F4F7FB}
+.carte iframe{display:block;width:100%;height:340px;border:0}
+.carte-attente{padding:22px}
+.carte-attente .ic{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:#fff;border:1px solid #DCE5F2;color:#1B2E78;margin-bottom:12px}
+.carte-attente b{display:block;font-size:14.5px;color:#0F1A3D}
+.carte-attente p{font-size:13px;color:#5A6479;margin:8px 0 16px;line-height:1.55;max-width:56ch}
+.carte-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.reseaux{display:flex;gap:10px;align-items:center;margin-top:20px;flex-wrap:wrap}
+.reseaux span.reseaux-titre{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#6B7594;margin-right:4px}
+.reseaux a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid #DCE5F2;border-radius:999px;background:#fff;color:#1B2E78;font-size:13.5px;font-weight:500;text-decoration:none;transition:border-color .15s ease,color .15s ease}
+.reseaux a:hover{border-color:#1AB5E8;color:#1AB5E8}
+.reseaux a svg{width:16px;height:16px}

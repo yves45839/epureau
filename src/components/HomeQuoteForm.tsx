@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { objetsDemande } from "@/content/site";
+import { mesurerConversion } from "./audience-client";
 
 type Domain = "" | "ingenierie" | "industries" | "hygiene" | "produits" | "autre";
 const placeholders: Record<Domain, string> = {
@@ -61,6 +62,7 @@ export default function HomeQuoteForm() {
       form.reset();
       setDomain("");
       setStatus("success");
+      mesurerConversion("Demande de cotation");
     } catch (reason) {
       if (controller.signal.aborted) return;
       setError(reason instanceof Error ? reason.message : "Envoi impossible pour le moment.");

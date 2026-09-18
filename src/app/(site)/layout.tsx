@@ -1,4 +1,6 @@
 import PreviewBanner from "@/components/PreviewBanner";
+import Audience from "@/components/Audience";
+import CookieBanner from "@/components/CookieBanner";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -16,6 +18,8 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Footer />
       <ToTop />
       <Reveal />
+      <Audience />
+      <CookieBanner />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

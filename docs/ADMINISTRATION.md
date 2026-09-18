@@ -11,6 +11,8 @@
 - Comptes administrateur, éditeur et commercial ; activation/désactivation, changement de mot de passe.
 - Paramètres : coordonnées, destinataires des notifications, liens sociaux, textes légaux et activation du blog.
 - Journal des connexions et modifications. Sessions révocables avec expiration serveur à 12 heures.
+- Inscription des collaborateurs réservée aux adresses @epureau-ci.com, avec activation par un administrateur.
+- Audience : fréquentation, provenance, localisation, appareils et conversions, mesurées par le site lui-même.
 
 ## Essayer gratuitement sur cet ordinateur
 
@@ -43,6 +45,33 @@ Les photos et PDF sont limités à 4 Mo chacun pour maîtriser le stockage et re
 - Commercial : demandes, affectations, notes, statuts et export.
 
 Le compte principal est défini par ADMIN_EMAIL et ADMIN_PASSWORD. Il ne peut pas être supprimé dans l’interface. Les autres mots de passe sont salés et hachés avec scrypt. La désactivation prend effet sur les requêtes suivantes ; un changement de mot de passe révoque les sessions du compte.
+
+### Inscription des collaborateurs
+
+La page /admin/inscription permet à un collaborateur de créer lui-même son compte. Les règles appliquées côté serveur :
+
+- Seules les adresses du domaine **@epureau-ci.com** sont acceptées, ainsi que la ou les adresses de super administration listées dans ADMIN_SUPER_EMAILS (par défaut roland@label-ci.com).
+- Le compte est créé **inactif**, avec le rôle **Commercial** : il n’ouvre l’administration qu’après passage de « Compte actif » à « oui » par un administrateur, dans la rubrique Utilisateurs.
+- Mot de passe de 12 caractères minimum, salé et haché ; jamais stocké en clair, jamais envoyé par e-mail.
+- Cinq demandes par heure et par adresse au maximum. Une adresse déjà enregistrée reçoit la même réponse qu’une nouvelle, pour ne pas révéler l’existence d’un compte.
+- Chaque demande est tracée dans le Journal des accès.
+
+### Super administrateur
+
+Les adresses de ADMIN_SUPER_EMAILS sont les propriétaires du site :
+
+- La première inscription d’une de ces adresses, tant qu’aucun compte administrateur actif n’existe, crée directement un compte **Administrateur actif** : c’est la mise en service initiale. Ensuite, une nouvelle demande de ce type repasse par la file d’attente comme les autres.
+- Leur compte ne peut être ni modifié ni désactivé par un autre administrateur.
+- Elles peuvent aussi ouvrir une session de secours avec ADMIN_PASSWORD tant qu’aucun compte ne leur est associé.
+
+## Audience (mesure de fréquentation)
+
+La rubrique **Audience** de l’administration répond aux exigences ET-19 et EF-30 du cahier des charges, sans outil tiers ni abonnement.
+
+- Ce qui est mesuré : pages vues, visiteurs, sessions, durée moyenne, pages par session, taux de rebond, pages d’entrée et de sortie, sources de trafic (accès direct, recherche, réseaux sociaux, sites référents), pays et ville, appareil, navigateur, système, et les conversions (demande de cotation, réclamation, téléchargement de brochure). Périodes : 7, 30, 90 ou 365 jours.
+- Ce qui n’est pas conservé : **aucune adresse IP**. L’IP et l’agent du navigateur servent uniquement à calculer une empreinte anonyme avec un sel tiré au hasard et **renouvelé chaque jour** ; le sel de la veille est détruit, donc deux visites séparées par un jour ne peuvent plus être reliées. Aucun cookie n’est déposé et aucune donnée ne sort du site.
+- Les robots d’indexation sont exclus du comptage. Les visiteurs peuvent refuser la mesure depuis le bandeau de consentement, et modifier leur choix à tout moment par le lien « Gérer les cookies » du pied de page. L’en-tête « Do Not Track » du navigateur est respecté.
+- Les données sont stockées dans la table audience_events de la base du site et purgées automatiquement au-delà de 400 jours.
 
 ## Budget : zéro abonnement, sous quotas
 

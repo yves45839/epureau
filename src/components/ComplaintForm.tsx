@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { societe } from "@/content/site";
+import { mesurerConversion } from "./audience-client";
 
 export default function ComplaintForm() {
   const pending = useRef(false);
@@ -25,6 +26,7 @@ export default function ComplaintForm() {
       if (!response.ok) throw new Error(result.message || "Envoi impossible pour le moment.");
       setMessage(`Votre réclamation a été reçue. Référence à conserver : ${result.reference}. Notre équipe vous recontactera aux coordonnées indiquées.`);
       setState("success");
+      mesurerConversion("Réclamation client");
       form.reset();
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Envoi impossible pour le moment.");

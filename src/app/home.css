@@ -90,18 +90,8 @@
 .home-experience .home-eyebrow{color:#166385}
 .home-experience .home-eyebrow.light{color:#a9eafa}
 .home-experience .brand-name{text-transform:none;letter-spacing:.06em}
-.home-experience .home-team{background:#e7f8fe;border-bottom:1px solid #b5e5f6;padding:21px 0}
-.home-experience .home-team .shell{display:flex;align-items:center;gap:20px}
-.home-experience .home-team strong{font:600 40px/1 var(--font-display);color:var(--blue)}
-.home-experience .home-team span{font-size:15px}
-.home-experience .home-team a{margin-left:auto;font-size:14px;font-weight:500;color:var(--blue)}
 
 @media(max-width:980px){.home-experience .desktop-nav{gap:18px}}
-@media(max-width:700px){
-  .home-experience .home-team .shell{flex-wrap:wrap;gap:12px}
-  .home-experience .home-team span{flex:1;min-width:180px}
-  .home-experience .home-team a{margin-left:0}
-}
 
 /* Même transition pour le texte et la photo du projet actif. */
 @media(min-width:701px) and (prefers-reduced-motion:no-preference){

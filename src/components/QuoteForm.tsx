@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Icon from "./Icon";
 import { objetsDemande } from "@/content/site";
+import { mesurerConversion } from "./audience-client";
 
 type Etat = "repos" | "envoi" | "ok" | "erreur";
 
@@ -24,6 +25,7 @@ export default function QuoteForm() {
       const j = await r.json();
       if (!r.ok) throw new Error(j?.message ?? "Envoi impossible");
       setEtat("ok");
+      mesurerConversion("Demande de cotation");
       form.reset();
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "Envoi impossible");

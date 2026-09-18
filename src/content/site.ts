@@ -11,9 +11,19 @@ export const societe = {
   horairesLong: "Lundi – Vendredi · 08h30 – 17h30",
   adresse: "424 Rue Koffi N'Guessan, Cité des Cadres — Cocody, Abidjan",
   boitePostale: "30 BP 835 Abidjan 30",
-  maps: "https://www.google.com/maps/search/?api=1&query=424+Rue+Koffi+N%27Guessan+Cocody+Abidjan",
+  maps: "https://www.google.com/maps/search/?api=1&query=Epureau+CI%2C+Abidjan",
   groupe: "SAS · Groupe YANGONDI",
   site: "www.epureau-ci.com",
+};
+
+/** Fiche d'établissement Google : l'entreprise y est référencée sous « Epureau CI ». */
+export const lieuGoogle = "Epureau CI, Abidjan";
+
+/** Comptes officiels d'EPUREAU Côte d'Ivoire, modifiables depuis Paramètres. */
+export const reseaux = {
+  linkedin: "https://www.linkedin.com/company/epureau-c%C3%B4te-d-ivore",
+  facebook: "https://www.facebook.com/people/Epureau-CI/100067092456207/",
+  youtube: "",
 };
 
 export const destinataires = [

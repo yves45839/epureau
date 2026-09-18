@@ -2,27 +2,36 @@ import "server-only";
 import { randomBytes, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { entry, save, remove, prune, storeConfigured } from "./admin-store";
-import { hashToken, checkPassword, type Account, type Role } from "./admin-security";
+import { hashToken, checkPassword, estSuperAdmin, superAdmins, type Account, type Role } from "./admin-security";
 export const COOKIE = "epureau_admin";
 export type Identity = { id: string; name: string; email: string; role: Role };
-type Session = { user: string; expires: number; bootstrap: string | null };
+type Session = { user: string; expires: number; bootstrap: string | null; email?: string };
 export function verifierMotDePasse(value: string) {
   const password = process.env.ADMIN_PASSWORD;
   if (!password) return false;
   const a = Buffer.from(value), b = Buffer.from(password);
   return a.length === b.length && timingSafeEqual(a,b);
 }
+/** Adresses pouvant ouvrir une session de secours avec ADMIN_PASSWORD, tant qu'aucun compte ne leur est associé. */
+export function comptesDeSecours() {
+  return [(process.env.ADMIN_EMAIL || "admin@epureau-ci.com").toLowerCase(), ...superAdmins()];
+}
 export async function authenticate(email: string, password: string): Promise<Identity | null> {
-  const bootstrapEmail = (process.env.ADMIN_EMAIL || "admin@epureau-ci.com").toLowerCase();
-  if (email === bootstrapEmail && verifierMotDePasse(password)) return { id: "owner", email, name: "Administrateur principal", role: "admin" };
-  const account = await entry<Account>("users", email);
-  if (!account?.value.active || !(await checkPassword(password, account.value.password))) return null;
-  return { id: email, name: account.value.name, email, role: account.value.role };
+  const cle = email.trim().toLowerCase();
+  const account = await entry<Account>("users", cle);
+  if (account) {
+    if (!account.value.active || !(await checkPassword(password, account.value.password))) return null;
+    return { id: cle, name: account.value.name, email: cle, role: account.value.role };
+  }
+  if (comptesDeSecours().includes(cle) && verifierMotDePasse(password)) {
+    return { id: "owner", email: cle, name: estSuperAdmin(cle) ? "Super administrateur" : "Administrateur principal", role: "admin" };
+  }
+  return null;
 }
 export async function startSession(identity: Identity) {
   const token = randomBytes(32).toString("hex");
   await prune("sessions", new Date(Date.now() - 12 * 3600000).toISOString());
-  await save("sessions", hashToken(token), { user: identity.id, expires: Date.now() + 12 * 3600000, bootstrap: identity.id === "owner" ? hashToken(process.env.ADMIN_PASSWORD || "") : null });
+  await save("sessions", hashToken(token), { user: identity.id, email: identity.email, expires: Date.now() + 12 * 3600000, bootstrap: identity.id === "owner" ? hashToken(process.env.ADMIN_PASSWORD || "") : null });
   return token;
 }
 export async function currentUser(): Promise<Identity | null> {
@@ -33,7 +42,8 @@ export async function currentUser(): Promise<Identity | null> {
   if (!session || session.value.expires <= Date.now()) return null;
   if (session.value.user === "owner") {
     if (!process.env.ADMIN_PASSWORD || session.value.bootstrap !== hashToken(process.env.ADMIN_PASSWORD)) return null;
-    return { id: "owner", name: "Administrateur principal", role: "admin", email: process.env.ADMIN_EMAIL || "admin@epureau-ci.com" };
+    const adresse = session.value.email || process.env.ADMIN_EMAIL || "admin@epureau-ci.com";
+    return { id: "owner", name: estSuperAdmin(adresse) ? "Super administrateur" : "Administrateur principal", role: "admin", email: adresse };
   }
   const account = await entry<Account>("users", session.value.user);
   return account?.value.active ? { id: account.key, name: account.value.name, email: account.value.email, role: account.value.role } : null;

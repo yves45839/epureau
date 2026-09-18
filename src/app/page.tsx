@@ -1,5 +1,7 @@
 import { pageValues, projectList, company } from "@/lib/cms";
 import PreviewBanner from "@/components/PreviewBanner";
+import Audience from "@/components/Audience";
+import CookieBanner from "@/components/CookieBanner";
 import HomeLanding from "@/components/HomeLanding";
 import Footer from "@/components/Footer";
 import ToTop from "@/components/ToTop";
@@ -13,6 +15,8 @@ export default async function HomePage() {
       <PreviewBanner /><HomeLanding content={await pageValues("accueil")} realisations={await projectList()} societe={await company()} />
       <Footer />
       <ToTop />
+      <Audience />
+      <CookieBanner />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({

@@ -3,7 +3,7 @@ import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import definitions from "@/content/page-definitions.json";
-import { realisations, galerie, videos, brochures, societe, destinataires } from "@/content/site";
+import { realisations, galerie, videos, brochures, societe, destinataires, reseaux } from "@/content/site";
 import type { Document, ContentData, PageDefinition, Project, Media } from "@/content/admin-types";
 import { entries, entry, storeConfigured, type Entry } from "./admin-store";
 import { currentUser } from "./auth";
@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 import { customPagePath } from "@/content/page-builder";
 
 export const pageDefinitions = definitions as PageDefinition[];
-export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audit:"Journal des accès" };
+export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès" };
 export const modelFields: Record<string, { key:string; label:string; type?:string }[]> = {
  projects:[{key:"nom",label:"Nom du projet"},{key:"client",label:"Client et localisation"},{key:"type",label:"Procédé"},{key:"debit",label:"Capacité"},{key:"unite",label:"Unité"},{key:"image",label:"Photo",type:"image"},{key:"texte",label:"Description",type:"long"}],
  media:[{key:"title",label:"Titre / légende"},{key:"type",label:"Type (photo ou video)",type:"mediaType"},{key:"url",label:"Fichier ou lien vidéo",type:"url"},{key:"image",label:"Image d’aperçu",type:"image"},{key:"album",label:"Album"},{key:"description",label:"Description",type:"long"}],
@@ -29,7 +29,7 @@ export function seeds(section:string):Entry<Document>[] {
   ...videos.map((v,i)=>document("video-"+(i+1),v.titre,{title:v.titre,type:"video",url:"",image:v.vignette,album:"Vidéos",description:v.sous},i+galerie.length)),
  ];
  if(section==="brochures")return brochures.map((b,i)=>document("brochure-"+(i+1),b.titre,{title:b.titre,url:b.fichier,description:b.sous},i));
- if(section==="settings")return [document("societe","Paramètres du site",{...societe,notificationEmails:destinataires.join(", "),linkedin:"",facebook:"",youtube:"",legal:"",privacy:"",blogEnabled:"non"},0)];
+ if(section==="settings")return [document("societe","Paramètres du site",{...societe,notificationEmails:destinataires.join(", "),...reseaux,legal:"",privacy:"",blogEnabled:"non"},0)];
  return [];
 }
 export async function editableDocuments(section:string) {

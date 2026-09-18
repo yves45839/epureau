@@ -1,7 +1,8 @@
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { currentUser, sameOrigin } from "@/lib/auth";
-import { may, hashPassword, roles, safePublicUrl, type Account, csvCell } from "@/lib/admin-security";
+import { may, hashPassword, roles, safePublicUrl, emailAutorise, estSuperAdmin, type Account, csvCell } from "@/lib/admin-security";
+import { rapport } from "@/lib/audience";
 import { entries, entry, save, remove, Conflict } from "@/lib/admin-store";
 import { editableDocuments, editablePageDefinitions, customPageFields, modelFields, pageDefinitions, sectionNames } from "@/lib/cms";
 import {customPagePath,validatePageLayout} from "@/content/page-builder";
@@ -27,6 +28,7 @@ export async function GET(req:Request) {
   return response({user,data,team});
  }
  if(section==="users")return response({user,data:(await entries<Account>("users")).map(r=>({...r,value:{...r.value,password:undefined}}))});
+ if(section==="audience")return response({user,data:[],audience:await rapport(Number(url.searchParams.get("jours"))||30)});
  if(section==="audit")return response({user,data:(await entries("audit")).sort((a,b)=>b.updated.localeCompare(a.updated)).slice(0,300)});
  return response({user,data:await editableDocuments(section),fields:modelFields[section]||[],pages:section==="pages"?await editablePageDefinitions():undefined});
  }catch{return response({message:"Lecture indisponible. Vérifiez la connexion au stockage."},503);}
@@ -56,9 +58,11 @@ export async function POST(req:Request){
   if(p.action!=="save"||!parsedUser.success)return response({message:"Renseignez les champs du compte."},422);
   const u=parsedUser.data;
   if(p.key!==u.email.toLowerCase()||p.key===(process.env.ADMIN_EMAIL||"admin@epureau-ci.com").toLowerCase())return response({message:"Cette adresse est réservée ou ne correspond pas au compte."},422);
+  if(!emailAutorise(u.email))return response({message:"Adresse non autorisée : utilisez une adresse @epureau-ci.com."},422);
+  if(estSuperAdmin(p.key)&&!estSuperAdmin(user.email))return response({message:"Ce compte appartient au super administrateur du site."},422);
   if(user.id===p.key&&(u.role!==user.role||u.active!=="oui"))return response({message:"Vous ne pouvez pas retirer vos propres droits."},422);
   if((!old||u.password)&&u.password.length<12)return response({message:"Choisissez un mot de passe d’au moins 12 caractères."},422);
-  const result=await save("users",p.key,{email:u.email.toLowerCase(),name:u.name,role:u.role,active:u.active==="oui",password:u.password?await hashPassword(u.password):old!.value.password},p.revision);
+  const result=await save("users",p.key,{...old?.value,email:u.email.toLowerCase(),name:u.name,role:u.role,active:u.active==="oui",password:u.password?await hashPassword(u.password):old!.value.password,demande:u.active==="oui"?false:old?.value.demande??false},p.revision);
   if(u.password)for(const session of await entries<{user:string}>("sessions"))if(session.value.user===p.key)await remove("sessions",session.key);
   await audit(user.email,"Compte mis à jour : "+p.key);return response({record:{...result,value:{...result.value,password:undefined}}});
  }
