@@ -49,7 +49,7 @@ export default async function Footer() {
 {settings?.legal && <li><Link href="/mentions-legales">Mentions légales</Link></li>}
 {settings?.privacy && <li><Link href="/confidentialite">Confidentialité</Link></li>}
 <li><CookieLink /></li>
-{(["linkedin","facebook","youtube"] as const).map(key => settings?.[key] && <li key={key}><a href={settings[key]} target="_blank" rel="noreferrer">{key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube"}</a></li>)}
+{(["linkedin","facebook","youtube"] as const).some(key => settings?.[key]) && <li className="footer-reseaux">{(["linkedin","facebook","youtube"] as const).map(key => settings?.[key] && <a key={key} className={"reseau-logo " + key} href={settings[key]} target="_blank" rel="noreferrer" aria-label={(key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube") + " — EPUREAU Côte d’Ivoire"} title={key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube"}><Icon name={key} /></a>)}</li>}
             </ul>
           </div>
 

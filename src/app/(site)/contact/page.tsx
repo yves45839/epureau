@@ -79,9 +79,8 @@ export default async function Contact() {
               <div className="reseaux">
                 <span className="reseaux-titre">{t("f009", "Nous suivre")}</span>
                 {social.map(r => (
-                  <a key={r.cle} href={r.url} target="_blank" rel="noopener">
+                  <a key={r.cle} className={"reseau-logo " + r.cle} href={r.url} target="_blank" rel="noopener" aria-label={r.libelle + " — EPUREAU Côte d’Ivoire"} title={r.libelle}>
                     <Icon name={r.cle} />
-                    {r.libelle}
                   </a>
                 ))}
               </div>

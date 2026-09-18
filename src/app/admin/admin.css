@@ -25,3 +25,145 @@
 .audience-journal{display:grid;gap:2px}
 .audience-journal .admin-list-line p{font-size:12.5px;color:#6B7594;margin:2px 0 0}
 .admin-pending{border-left:3px solid #1AB5E8;background:#F4F7FB;padding:10px 12px;border-radius:0 8px 8px 0}
+
+/* ============================================================
+   Tableau de bord — refonte de l'enveloppe (navigation, en-tête,
+   indicateurs). Ce bloc vient après les règles historiques : à
+   spécificité égale, il fait autorité.
+   ============================================================ */
+.admin-app{
+ --marine:#1B2E78;--marine-fonce:#14215A;--cyan:#1AB5E8;--vert:#2BB673;
+ --encre:#0F1A3D;--gris:#5A6479;--bord:#E3EAF3;--fond:#F4F7FB;
+ background:var(--fond);color:var(--encre);grid-template-columns:264px minmax(0,1fr)
+}
+.admin-app h1{font-size:26px;letter-spacing:-.02em;margin:2px 0}
+.admin-app h2{font-size:21px}
+.admin-app h3{font-size:15px;margin:0}
+
+/* ---------- Barre latérale ---------- */
+.admin-sidebar{background:linear-gradient(180deg,var(--marine-fonce),var(--marine) 62%,#1a3690);padding:22px 16px 20px;gap:0}
+.admin-brand{padding:12px 14px;margin-bottom:22px;border-radius:10px}
+.admin-brand img{width:150px}
+.admin-caption{font-size:9.5px;letter-spacing:.16em;color:#9FC4E4;margin:0 10px 18px}
+.admin-sidebar nav{display:grid;gap:22px}
+.admin-groupe{display:grid;gap:3px}
+.admin-groupe-titre{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7FA6D8;padding:0 10px 6px}
+.admin-sidebar nav button{position:relative;display:flex;gap:11px;align-items:center;color:#D7E3F5;min-height:42px;padding:10px 12px;border-radius:9px;font-size:13.5px;font-weight:500;background:none;border:0;width:100%;transition:background .15s ease,color .15s ease}
+.admin-sidebar nav button svg{width:18px;height:18px;flex:none;opacity:.85}
+.admin-sidebar nav button:hover{background:rgba(255,255,255,.08);color:#fff}
+.admin-sidebar nav button[aria-current]{background:rgba(255,255,255,.14);color:#fff;box-shadow:none}
+.admin-sidebar nav button[aria-current]::before{content:"";position:absolute;left:-16px;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:var(--cyan)}
+.admin-sidebar nav button[aria-current] svg{opacity:1;color:var(--cyan)}
+.admin-sidebar nav button em{margin-left:auto;font-style:normal;font-size:11px;font-weight:700;min-width:21px;height:21px;padding:0 6px;border-radius:999px;background:var(--cyan);color:#06243A;display:inline-flex;align-items:center;justify-content:center}
+.admin-sidebar nav button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.admin-account{border-top:1px solid rgba(255,255,255,.14);margin-top:24px;padding:18px 10px 0}
+.admin-account b{font-size:13.5px}
+.admin-account small{color:#9FC4E4;font-size:11.5px}
+
+/* ---------- En-tête ---------- */
+.admin-main{padding:0 clamp(20px,3vw,40px) 72px}
+.admin-top{position:sticky;top:0;z-index:20;margin:0 clamp(-20px,-3vw,-40px) 26px;padding:16px clamp(20px,3vw,40px);background:rgba(244,247,251,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bord);align-items:center}
+.admin-top-titre{display:flex;align-items:center;gap:12px;min-width:0}
+.admin-top-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.admin-kicker{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#7C8AA5}
+.admin-burger{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--bord);background:#fff;border-radius:10px;color:var(--marine);cursor:pointer}
+.admin-button{background:var(--marine);border-color:var(--marine);border-radius:9px;font-weight:600}
+.admin-button:hover{background:var(--marine-fonce)}
+.admin-button svg{width:16px;height:16px}
+.admin-button.secondary{color:var(--marine);border-color:#CBD9EC}
+.admin-button.secondary:hover{background:#EAF4FB}
+.admin-card{border-color:#E6EDF6;border-radius:14px;box-shadow:0 1px 2px rgba(15,26,61,.04)}
+
+/* ---------- Accueil du tableau de bord ---------- */
+.dash-hello{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:22px}
+.dash-date{font-size:12px;color:#7C8AA5}
+.dash-date::first-letter{text-transform:uppercase}
+.admin-voile{display:none}
+.dash-hello h2{font-family:var(--font-display);font-size:28px;margin:4px 0 4px;color:var(--encre)}
+.dash-hello p{font-size:13.5px;color:var(--gris);margin:0}
+.dash-hello-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+.dash-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.dash-kpi{position:relative;background:#fff;border:1px solid #E6EDF6;border-radius:14px;padding:18px 20px 16px;display:grid;gap:2px;box-shadow:0 1px 2px rgba(15,26,61,.04)}
+.dash-kpi-icone{position:absolute;right:16px;top:16px;width:34px;height:34px;border-radius:10px;background:#EEF4FC;color:var(--marine);display:inline-flex;align-items:center;justify-content:center}
+.dash-kpi-icone svg{width:17px;height:17px}
+.dash-kpi-libelle{font-size:12px;color:#7C8AA5;padding-right:44px}
+.dash-kpi strong{font-family:var(--font-display);font-size:32px;line-height:1.1;color:var(--encre);font-weight:700}
+.dash-kpi small{font-size:12px;color:var(--gris)}
+.dash-kpi.urgent .dash-kpi-icone{background:#FFF1DC;color:#9A5B00}
+.dash-kpi.urgent strong{color:#9A5B00}
+.dash-kpi.positif .dash-kpi-icone{background:#E4F6EC;color:#15794E}
+
+.dash-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:20px;align-items:start}
+.dash-colonne{display:grid;gap:20px;min-width:0}
+.dash-colonne .admin-card{margin:0}
+.dash-card-tete{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:6px}
+.dash-lien{background:none;border:0;color:var(--marine);font-size:12.5px;font-weight:600;cursor:pointer;padding:4px;border-radius:6px}
+.dash-lien:hover{color:var(--cyan)}
+.dash-sources{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.dash-sources li{display:flex;gap:8px;align-items:baseline;background:#F4F7FB;border-radius:999px;padding:6px 12px;font-size:12.5px;color:var(--gris)}
+.dash-sources b{color:var(--encre)}
+
+.dash-demande{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;text-align:left;background:none;border:0;border-top:1px solid #EEF2F8;padding:13px 6px;cursor:pointer;border-radius:8px}
+.dash-demande:first-of-type{border-top:0}
+.dash-demande:hover{background:#F7FAFD}
+.dash-demande-corps{display:grid;gap:2px;min-width:0}
+.dash-demande-corps b{font-size:13.5px;color:var(--encre)}
+.dash-demande-corps small{font-size:12px;color:var(--gris);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:46ch}
+.dash-demande-fin{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.dash-demande-fin time{font-size:11.5px;color:#7C8AA5}
+
+.dash-alertes{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.dash-alertes button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#F7FAFD;border:1px solid #E6EDF6;border-radius:11px;padding:12px;cursor:pointer}
+.dash-alertes button:hover{border-color:#C6DCF2;background:#F1F7FD}
+.dash-alertes b{display:block;font-size:13px;color:var(--encre)}
+.dash-alertes small{display:block;font-size:12px;color:var(--gris)}
+.dash-alertes>li>button>svg:last-child{margin-left:auto;width:16px;height:16px;color:#9AA8C0;transform:rotate(-90deg)}
+.dash-alerte-icone{width:34px;height:34px;border-radius:10px;background:#EEF4FC;color:var(--marine);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.dash-alerte-icone svg{width:16px;height:16px}
+.dash-alerte-icone.urgent{background:#FFF1DC;color:#9A5B00}
+.dash-alerte-icone.attention{background:#E9F1FF;color:#1B4FA8}
+.dash-ok{display:flex;align-items:center;gap:8px;color:#15794E;font-size:13px;margin:10px 0 0}
+.dash-ok svg{width:16px;height:16px}
+
+.dash-contenus,.dash-journal{list-style:none;margin:8px 0 0;padding:0;display:grid}
+.dash-contenus button{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;border-top:1px solid #EEF2F8;padding:11px 4px;font-size:13px;color:var(--encre);cursor:pointer;border-radius:6px}
+.dash-contenus li:first-child button{border-top:0}
+.dash-contenus button:hover{background:#F7FAFD;color:var(--marine)}
+.dash-contenus b{font-family:var(--font-display);font-size:15px}
+.dash-journal li{border-top:1px solid #EEF2F8;padding:10px 0}
+.dash-journal li:first-child{border-top:0}
+.dash-journal b{display:block;font-size:12.5px;font-weight:500;color:var(--encre);overflow-wrap:anywhere}
+.dash-journal small{font-size:11.5px;color:#7C8AA5}
+
+.dash-raccourcis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}
+.dash-raccourcis button{display:grid;gap:4px;background:#fff;border:1px solid #E6EDF6;border-radius:14px;padding:18px;text-align:left;cursor:pointer;transition:border-color .15s ease,transform .15s ease}
+.dash-raccourcis button:hover{border-color:#C6DCF2;transform:translateY(-2px)}
+.dash-raccourci-icone{width:36px;height:36px;border-radius:10px;background:#EEF4FC;color:var(--marine);display:inline-flex;align-items:center;justify-content:center;margin-bottom:6px}
+.dash-raccourcis b{font-size:14px;color:var(--encre)}
+.dash-raccourcis small{font-size:12px;color:var(--gris)}
+
+/* ---------- Adaptations écran ---------- */
+@media(max-width:1200px){.dash-kpis,.dash-raccourcis{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:900px){
+ .admin-app{grid-template-columns:minmax(0,1fr)}
+ .admin-sidebar{position:fixed;inset:0 auto 0 0;width:270px;height:100svh;padding:22px 16px;transform:translateX(-100%);transition:transform .22s ease;z-index:60;box-shadow:0 0 60px rgba(9,20,50,.35)}
+ .admin-sidebar.ouvert{transform:none}
+ .admin-sidebar nav{display:grid;overflow:visible}
+ .admin-sidebar nav button{white-space:normal}
+ .admin-caption,.admin-account small{display:block}
+ .admin-account{display:grid}
+ .admin-burger{display:inline-flex}
+ .admin-voile{display:block;position:fixed;inset:0;background:rgba(9,20,50,.45);border:0;z-index:55;cursor:pointer}
+ .admin-main{padding:0 18px 60px}
+ .admin-top{margin:0 -18px 20px;padding:12px 18px}
+ .admin-app h1{font-size:21px}
+ .dash-hello h2{font-size:24px}
+}
+@media(max-width:560px){
+ .dash-kpis,.dash-raccourcis{grid-template-columns:minmax(0,1fr)}
+ .dash-hello-actions{width:100%}
+ .dash-hello-actions .admin-button{flex:1 1 auto}
+ .admin-top-actions .admin-button{font-size:12px;padding:9px 12px;min-height:38px}
+ .dash-demande{flex-wrap:wrap;gap:8px}
+}

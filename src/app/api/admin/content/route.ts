@@ -3,9 +3,11 @@ import { z } from "zod";
 import { currentUser, sameOrigin } from "@/lib/auth";
 import { may, hashPassword, roles, safePublicUrl, emailAutorise, estSuperAdmin, type Account, csvCell } from "@/lib/admin-security";
 import { rapport } from "@/lib/audience";
+import { buildOverview } from "@/lib/admin-overview";
 import { entries, entry, save, remove, Conflict } from "@/lib/admin-store";
 import { editableDocuments, editablePageDefinitions, customPageFields, modelFields, pageDefinitions, sectionNames } from "@/lib/cms";
 import {customPagePath,validatePageLayout} from "@/content/page-builder";
+import {marqueValide} from "@/content/products";
 import { requestList, type CustomerRequest } from "@/lib/admin-requests";
 import type { Document } from "@/content/admin-types";
 export const runtime="nodejs";
@@ -25,7 +27,7 @@ export async function GET(req:Request) {
    return new Response(text,{headers:{"Content-Type":"text/csv; charset=utf-8","Content-Disposition":'attachment; filename="demandes.csv"',"Cache-Control":"no-store"}});
   }
   const team=(await entries<Account>("users")).filter(r=>r.value.active).map(r=>({id:r.key,name:r.value.name}));
-  return response({user,data,team});
+  return response({user,data,team,overview:section==="dashboard"?await buildOverview(user):undefined});
  }
  if(section==="users")return response({user,data:(await entries<Account>("users")).map(r=>({...r,value:{...r.value,password:undefined}}))});
  if(section==="audience")return response({user,data:[],audience:await rapport(Number(url.searchParams.get("jours"))||30)});
@@ -84,6 +86,10 @@ export async function POST(req:Request){
  }
  for(const field of fields)if(["image","url"].includes(field.type||"")&&data[field.key]&&!safePublicUrl(data[field.key]))return response({message:"Utilisez un fichier du site ou un lien HTTPS pour "+field.label+"."},422);
  if(p.section==="media"&&!["photo","video"].includes(data.type))return response({message:"Choisissez photo ou video."},422);
+ if(p.section==="products"){
+  if(!data.nom?.trim())return response({message:"Renseignez le nom du produit."},422);
+  if(!marqueValide(data.marque))return response({message:"Choisissez une marque parmi celles proposées."},422);
+ }
  if(data.__blocks){
   const blocks=z.array(z.object({title:z.string().max(200),text:z.string().max(10000),image:z.string().max(2000).refine(v=>!v||safePublicUrl(v))})).max(20).safeParse(JSON.parse(data.__blocks));
   if(!blocks.success)return response({message:"Les blocs sont invalides."},422);

@@ -1,5 +1,7 @@
 import PageSections from "@/components/PageSections";
-import { pageValues } from "@/lib/cms";
+import { pageValues, productList } from "@/lib/cms";
+import ProductCards from "@/components/ProductCards";
+import { marquesProduits, ancreMarque } from "@/content/products";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Icon from "@/components/Icon";
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 
 export default async function Negoce() {
   const values = await pageValues("negoce");
+  const produits = await productList();
   const t = (id: string, fallback: string) => values[id] ?? fallback;
 
 const commodites = [
@@ -81,6 +84,18 @@ const commodites = [
           </div>
         </div>
       </section>
+{marquesProduits.filter(marque => produits.some(p => p.marque === marque)).map((marque, index) => (
+  <section className={"sec" + (index % 2 ? " alt" : "")} key={marque} id={"produits-" + ancreMarque[marque]}>
+    <div className="wrap">
+      <SectionHead
+        eyebrow={marque === "Commodités & Réactifs" ? "Commodités & réactifs" : "Produits " + marque}
+        titre={marque === "Commodités & Réactifs" ? "Matières premières, réactifs et matériel de mesure" : "Les solutions " + marque + " que nous distribuons"}
+        lead="Chaque fiche décrit l'usage, les secteurs concernés et le conditionnement. Les prix ne sont pas affichés : chaque demande fait l'objet d'une cotation établie par nos équipes techniques."
+      />
+      <ProductCards produits={produits} marque={marque} />
+    </div>
+  </section>
+))}
 <section className="sec alt">
         <div className="wrap">
           <SectionHead

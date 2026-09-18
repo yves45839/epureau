@@ -3,6 +3,8 @@ import Link from "next/link";
 import ContentField from "./AdminContentField";
 import PageBuilder from "./PageBuilder";
 import AdminAudience from "./AdminAudience";
+import AdminDashboard from "./AdminDashboard";
+import Icon from "./Icon";
 import {customPagePath,validPageSlug,emptyBlock} from "@/content/page-builder";
 import { useEffect, useState } from "react";
 import type { Identity } from "@/lib/auth";
@@ -10,12 +12,21 @@ import type { Entry } from "@/lib/admin-store";
 import type { CustomerRequest } from "@/lib/admin-requests";
 import type { ContentData, Document, PageDefinition } from "@/content/admin-types";
 import type { Rapport } from "@/lib/audience";
+import type { Overview } from "@/lib/admin-overview";
 import { may } from "@/content/admin-access";
 type Field={key:string;label:string;type?:string};
-type Payload={data:unknown[];fields?:Field[];pages?:PageDefinition[];team?:{id:string;name:string}[];audience?:Rapport};
-const sections:Record<string,string>={dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès"};
+type Payload={data:unknown[];fields?:Field[];pages?:PageDefinition[];team?:{id:string;name:string}[];audience?:Rapport;overview?:Overview};
+const sections:Record<string,string>={dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès"};
 const labels:Record<string,string>={nouvelle:"Nouvelle",en_cours:"En cours",traitee:"Traitée"};
 const roleNames:Record<string,string>={admin:"Administrateur",editeur:"Éditeur",commercial:"Commercial"};
+const groupes:{titre:string;cles:string[]}[]=[
+ {titre:"Pilotage",cles:["dashboard","audience"]},
+ {titre:"Relation client",cles:["requests"]},
+ {titre:"Contenus du site",cles:["pages","projects","products","media","brochures","blog"]},
+ {titre:"Administration",cles:["settings","users","audit"]},
+];
+const icones:Record<string,string>={dashboard:"grid",audience:"chart",requests:"mail",pages:"layout",projects:"factory",products:"tag",media:"image",brochures:"file",blog:"pen",settings:"gear",users:"users",audit:"list"};
+const creations:Record<string,string>={pages:"Créer une page",projects:"Ajouter une réalisation",products:"Ajouter un produit",media:"Ajouter un média",brochures:"Ajouter une brochure",blog:"Ajouter un article",users:"Ajouter un compte"};
 async function request(url:string,body?:unknown){
  const result=await fetch(url,{method:body?"POST":"GET",headers:body?{"Content-Type":"application/json"}:undefined,body:body?JSON.stringify(body):undefined,cache:"no-store"});
  const json=await result.json();if(!result.ok)throw new Error(json.message||"Opération impossible.");return json;
@@ -23,7 +34,9 @@ async function request(url:string,body?:unknown){
 export default function AdminConsole({user,initial,local}:{user:Identity;initial:Payload;local:boolean}){
  const [creatingPage,setCreatingPage]=useState(false);
  const [section,setSection]=useState("dashboard"),[payload,setPayload]=useState(initial),[selected,setSelected]=useState<Entry<Document>|null>(null);
+ const [menu,setMenu]=useState(false);
  const [loading,setLoading]=useState(false),[error,setError]=useState(""),[search,setSearch]=useState(""),[status,setStatus]=useState(""),[month,setMonth]=useState(""),[dirty,setDirty]=useState(false),[jours,setJours]=useState(30);
+ useEffect(()=>{document.body.style.overflow=menu?"hidden":"";return()=>{document.body.style.overflow="";};},[menu]);
  async function open(next:string,saved=false){
   if(dirty&&!saved&&!confirm("Quitter sans enregistrer vos modifications ?"))return;
   setLoading(true);setError("");setDirty(false);setSelected(null);setSearch("");
@@ -39,18 +52,48 @@ export default function AdminConsole({user,initial,local}:{user:Identity;initial
   choose({key,revision:0,updated:"",value:{title:"Nouveau contenu",draft:section==="media"?{type:"photo"}:{},published:null,order:rows.length}});
  }
  return <div className="admin-app">
-  <aside className="admin-sidebar"><Link className="admin-brand" href="/"><img src="/images/logo.png" width="560" height="162" alt="EPUREAU Côte d’Ivoire" /></Link><span className="admin-caption">ESPACE ADMINISTRATION</span><nav aria-label="Administration">{Object.entries(sections).filter(([key])=>may(user.role,key)).map(([key,name],i)=><button type="button" key={key} aria-current={section===key?"page":undefined} onClick={()=>open(key)} disabled={loading}><span>{String(i+1).padStart(2,"0")}</span>{name}</button>)}</nav><div className="admin-account"><b>{user.name}</b><small>{roleNames[user.role]}</small><form action="/api/admin/login" method="post"><input type="hidden" name="_method" value="delete" /><button type="submit">Se déconnecter ↗</button></form></div></aside>
-  <main className="admin-main"><header className="admin-top"><div><span className="admin-kicker">EPUREAU Côte d’Ivoire</span><h1>{sections[section]}</h1></div><a className="admin-button secondary" href="/" target="_blank" rel="noreferrer">Voir le site ↗</a></header>
+  <aside className={"admin-sidebar"+(menu?" ouvert":"")} id="admin-nav">
+   <Link className="admin-brand" href="/"><img src="/images/logo.png" width="560" height="162" alt="EPUREAU Côte d’Ivoire" /></Link>
+   <span className="admin-caption">ESPACE ADMINISTRATION</span>
+   <nav aria-label="Administration">
+    {groupes.map(groupe=>{
+     const items=groupe.cles.filter(cle=>sections[cle]&&may(user.role,cle));
+     if(!items.length)return null;
+     return <div className="admin-groupe" key={groupe.titre}>
+      <span className="admin-groupe-titre">{groupe.titre}</span>
+      {items.map(cle=>{
+       const compteur=cle==="requests"?payload.overview?.demandes.nouvelles??0:cle==="users"?payload.overview?.comptes?.enAttente??0:0;
+       return <button type="button" key={cle} aria-current={section===cle?"page":undefined} onClick={()=>{setMenu(false);open(cle);}} disabled={loading}>
+        <Icon name={icones[cle]||"grid"} />{sections[cle]}{compteur>0&&<em aria-label={compteur+" en attente"}>{compteur}</em>}
+       </button>;
+      })}
+     </div>;
+    })}
+   </nav>
+   <div className="admin-account"><b>{user.name}</b><small>{roleNames[user.role]}</small><form action="/api/admin/login" method="post"><input type="hidden" name="_method" value="delete" /><button type="submit">Se déconnecter ↗</button></form></div>
+  </aside>
+  {menu&&<button type="button" className="admin-voile" aria-label="Fermer le menu" onClick={()=>setMenu(false)} />}
+  <main className="admin-main">
+   <header className="admin-top">
+    <div className="admin-top-titre">
+     <button type="button" className="admin-burger" aria-expanded={menu} aria-controls="admin-nav" aria-label={menu?"Fermer le menu":"Ouvrir le menu"} onClick={()=>setMenu(v=>!v)}><Icon name={menu?"x":"menu"} /></button>
+     <div><span className="admin-kicker">EPUREAU Côte d’Ivoire</span><h1>{sections[section]}</h1></div>
+    </div>
+    <div className="admin-top-actions">
+     {creations[section]&&may(user.role,section)&&<button type="button" className="admin-button" onClick={create} disabled={loading}><Icon name="plus" />{creations[section]}</button>}
+     <a className="admin-button secondary" href="/" target="_blank" rel="noreferrer">Voir le site ↗</a>
+    </div>
+   </header>
    {local&&<p className="admin-local">Version locale · Les données sont conservées sur cet ordinateur. Aucune publication sur Internet.</p>}
    {error&&<p role="alert" className="admin-error">{error}</p>}
    {loading?<p role="status">Chargement…</p>:<>
-   {section==="dashboard"&&<><div className="admin-welcome"><div><span>Bienvenue</span><h2>Votre site, à jour<br />et entre vos mains</h2><p>Modifiez vos contenus, préparez vos publications et suivez les demandes de vos clients.</p></div><div className="admin-watermark">E</div></div>{may(user.role,"requests")&&<><div className="admin-stats">{[["Ce mois",requests.filter(r=>r.value.cree_le.startsWith(new Date().toISOString().slice(0,7))).length],["À traiter",requests.filter(r=>r.value.statut==="nouvelle").length],["En cours",requests.filter(r=>r.value.statut==="en_cours").length],["Traitées",requests.filter(r=>r.value.statut==="traitee").length]].map(([label,value])=><article key={label}><span>{label}</span><strong>{value}</strong></article>)}</div><div className="admin-card"><h2>Dernières demandes</h2>{requests.length?requests.slice(0,5).map(r=><div className="admin-list-line" key={r.key}><div><b>{r.value.societe}</b><p>{r.value.objet}</p></div><span className={"admin-badge "+r.value.statut}>{labels[r.value.statut]}</span></div>):<p className="admin-empty">Les nouvelles cotations et réclamations apparaîtront ici.</p>}<button className="admin-button" onClick={()=>open("requests")}>Consulter les demandes</button></div></>}<div className="admin-quick">{["pages","projects","media"].filter(key=>may(user.role,key)).map(key=><button key={key} onClick={()=>open(key)}><span>{sections[key]}</span><b>Ouvrir →</b></button>)}</div></>}
+   {section==="dashboard"&&<AdminDashboard user={user} overview={payload.overview} requests={requests} onOpen={open} />}
    {section==="requests"&&<><div className="admin-filters"><label>Rechercher<input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Nom, société, objet…" /></label><label>Statut<select value={status} onChange={e=>setStatus(e.target.value)}><option value="">Tous les statuts</option>{Object.entries(labels).map(([v,l])=><option key={v} value={v}>{l}</option>)}</select></label><label>Mois<input type="month" value={month} onChange={e=>setMonth(e.target.value)} /></label><a className="admin-button secondary" href={"/api/admin/content?section=requests&format=csv&status="+status+"&month="+month}>Exporter CSV</a></div><p>{filtered.length} demande(s)</p><div className="admin-request-list">{filtered.map(row=><RequestCard key={row.key+row.revision} row={row} team={payload.team||[]} onSaved={()=>open("requests")} />)}{!filtered.length&&<div className="admin-card admin-empty">Aucune demande ne correspond à ces critères.</div>}</div></>}
    {section==="audit"&&<div className="admin-card">{(payload.data as Entry<{actor:string;action:string;date:string}>[]).map(r=><div className="admin-list-line" key={r.key}><div><b>{r.value.action}</b><p>{r.value.actor}</p></div><time>{new Date(r.value.date).toLocaleString("fr-FR")}</time></div>)}</div>}
    {section==="audience"&&<AdminAudience rapport={payload.audience} jours={jours} onJours={async valeur=>{setJours(valeur);setLoading(true);setError("");try{const data=await request("/api/admin/content?section=audience&jours="+valeur);setPayload(data);}catch(e){setError((e as Error).message);}finally{setLoading(false);}}} />}
    {!["dashboard","requests","audit","audience"].includes(section)&&<>
     {section==="blog"&&<p className="admin-info">Le blog reste masqué tant que « Blog actif » n’est pas réglé sur « oui » dans les paramètres publiés.</p>}
-    <div className="admin-content-grid"><div className="admin-content-list"><label className="admin-search">Rechercher<input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Rechercher un contenu" /></label>{section!=="settings"&&<button className="admin-button" onClick={create}>+ {section==="users"?"Ajouter un compte":section==="pages"?"Créer une page":"Ajouter un contenu"}</button>}
+    <div className="admin-content-grid"><div className="admin-content-list"><label className="admin-search">Rechercher<input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Rechercher un contenu" /></label>{section!=="settings"&&<button className="admin-button" onClick={create}>+ {section==="users"?"Ajouter un compte":section==="pages"?"Créer une page":section==="products"?"Ajouter un produit":"Ajouter un contenu"}</button>}
     {section==="pages"&&creatingPage&&<NewPageForm existing={rows.map(r=>r.key)} onCancel={()=>setCreatingPage(false)} onCreate={(slug,title)=>{choose({key:"custom-"+slug,revision:0,updated:"",value:{title,draft:{title,description:"",__navigation:"oui",__layout:JSON.stringify({version:1,sections:[{...emptyBlock("text",crypto.randomUUID()),title:"Bienvenue",text:"Présentez votre contenu ici."}]})},published:null,order:rows.length}});setCreatingPage(false);}} />}
     {section==="pages"&&rows.some(r=>r.value.deleted)&&<details className="builder-trash"><summary>Corbeille</summary>{rows.filter(r=>r.value.deleted).map(r=><div key={r.key}><span>{r.value.title}</span><button type="button" onClick={async()=>{try{await request("/api/admin/content",{section:"pages",key:r.key,revision:r.revision,action:"restore"});await open("pages");}catch(e){setError((e as Error).message);}}}>Restaurer en brouillon</button></div>)}</details>}
     {section==="users"&&rows.some(r=>(r.value as unknown as {active?:boolean}).active===false)&&<p className="admin-info">Des demandes d’accès attendent une activation : ouvrez le compte, vérifiez le rôle puis passez « Compte actif » à « oui ».</p>}
@@ -78,7 +121,7 @@ function DocumentEditor({section,row,fields,page,onSaved,onDeleted,onDirty}:{sec
   catch(e){setError((e as Error).message);}finally{setBusy(false);}
  }
 
- const preview=page||customPagePath(row.key)||({projects:"/ingenierie/nos-realisations",media:"/mediatheque",brochures:"/mediatheque",blog:"/blog",settings:"/"} as Record<string,string>)[section];
+ const preview=page||customPagePath(row.key)||({projects:"/ingenierie/nos-realisations",products:"/negoce",media:"/mediatheque",brochures:"/mediatheque",blog:"/blog",settings:"/"} as Record<string,string>)[section];
  return <div className="admin-card admin-editor"><div className="admin-row"><h2>{row.value.title}</h2><span className="admin-badge">{dirty?"Non enregistré":row.value.published?"Version publiée":"Brouillon"}</span></div><p className="admin-info">Enregistrez votre brouillon, vérifiez l’aperçu, puis publiez.</p><div className="admin-editor-actions"><button className="admin-button secondary" disabled={busy} onClick={()=>act("save")}>Enregistrer le brouillon</button><a className={"admin-button secondary "+(dirty?"disabled":"")} aria-disabled={dirty} onClick={e=>{if(dirty)e.preventDefault();}} href={"/api/admin/preview?path="+encodeURIComponent(preview)} target="_blank" rel="noreferrer">Aperçu ↗</a><button className="admin-button" disabled={busy} onClick={()=>act("publish")}>Publier</button></div>{message&&<p role="status" className="admin-success">{message}</p>}{error&&<p role="alert" className="admin-error">{error}</p>}
  <fieldset disabled={busy}><div className="admin-filters"><label>Titre dans la liste<input value={title} onChange={e=>{setTitle(e.target.value);setDirty(true);onDirty(true);}} maxLength={200} /></label>{!["pages","settings"].includes(section)&&<label>Ordre d’affichage<input type="number" min="0" max="9999" value={order} onChange={e=>{setOrder(Number(e.target.value));setDirty(true);onDirty(true);}} /></label>}</div>
  {section!=="pages"&&fields.length>15&&<label>Filtrer les champs<input value={filter} onChange={e=>setFilter(e.target.value)} placeholder="Titre, texte, image…" /></label>}

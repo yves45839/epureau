@@ -3,8 +3,8 @@ import { cache } from "react";
 import { unstable_cache } from "next/cache";
 import { draftMode } from "next/headers";
 import definitions from "@/content/page-definitions.json";
-import { realisations, galerie, videos, brochures, societe, destinataires, reseaux } from "@/content/site";
-import type { Document, ContentData, PageDefinition, Project, Media } from "@/content/admin-types";
+import { realisations, galerie, videos, brochures, produits, societe, destinataires, reseaux } from "@/content/site";
+import type { Document, ContentData, PageDefinition, Project, Media, Product } from "@/content/admin-types";
 import { entries, entry, storeConfigured, type Entry } from "./admin-store";
 import { currentUser } from "./auth";
 import { may } from "./admin-security";
@@ -12,9 +12,10 @@ import { notFound } from "next/navigation";
 import { customPagePath } from "@/content/page-builder";
 
 export const pageDefinitions = definitions as PageDefinition[];
-export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès" };
+export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès" };
 export const modelFields: Record<string, { key:string; label:string; type?:string }[]> = {
  projects:[{key:"nom",label:"Nom du projet"},{key:"client",label:"Client et localisation"},{key:"type",label:"Procédé"},{key:"debit",label:"Capacité"},{key:"unite",label:"Unité"},{key:"image",label:"Photo",type:"image"},{key:"texte",label:"Description",type:"long"}],
+ products:[{key:"nom",label:"Nom du produit"},{key:"marque",label:"Marque",type:"brand"},{key:"gamme",label:"Gamme ou famille"},{key:"usage",label:"Application principale",type:"long"},{key:"secteurs",label:"Secteurs concernés"},{key:"forme",label:"Forme et conditionnement"},{key:"points",label:"Points clés (un par ligne)",type:"long"},{key:"image",label:"Visuel",type:"image"},{key:"texte",label:"Description",type:"long"}],
  media:[{key:"title",label:"Titre / légende"},{key:"type",label:"Type (photo ou video)",type:"mediaType"},{key:"url",label:"Fichier ou lien vidéo",type:"url"},{key:"image",label:"Image d’aperçu",type:"image"},{key:"album",label:"Album"},{key:"description",label:"Description",type:"long"}],
  brochures:[{key:"title",label:"Titre"},{key:"url",label:"Fichier PDF",type:"url"},{key:"description",label:"Description",type:"long"}],
  blog:[{key:"title",label:"Titre"},{key:"image",label:"Image",type:"image"},{key:"description",label:"Résumé",type:"long"},{key:"text",label:"Article",type:"long"}],
@@ -24,6 +25,7 @@ function document(key:string,title:string,data:ContentData,order:number):Entry<D
 export function seeds(section:string):Entry<Document>[] {
  if(section==="pages")return pageDefinitions.map((page,i)=>document(page.key,page.title,Object.fromEntries(page.fields.map(f=>[f.key,f.value])),i));
  if(section==="projects")return realisations.map((r,i)=>document(r.slug,r.nom,{nom:r.nom,client:r.client,type:r.type,debit:r.debit,unite:r.unite,image:r.image,texte:r.texte},i));
+ if(section==="products")return produits.map((p,i)=>document(p.slug,p.nom,{nom:p.nom,marque:p.marque,gamme:p.gamme,usage:p.usage,secteurs:p.secteurs,forme:p.forme,points:p.points,image:p.image,texte:p.texte},i));
  if(section==="media")return [
   ...galerie.map((g,i)=>document("photo-"+(i+1),g.legende,{title:g.legende,type:"photo",url:g.image,image:g.image,album:"Chantiers",description:""},i)),
   ...videos.map((v,i)=>document("video-"+(i+1),v.titre,{title:v.titre,type:"video",url:"",image:v.vignette,album:"Vidéos",description:v.sous},i+galerie.length)),
@@ -71,4 +73,5 @@ export async function notificationEmails() {
  return (doc?.value.published?.notificationEmails??destinataires.join(",")).split(",").map(v=>v.trim()).filter(Boolean);
 }
 export const projectList=cache(async():Promise<Project[]> => (await publishedDocuments("projects")).map(({key,data})=>({...data,slug:key}) as Project));
+export const productList=cache(async():Promise<Product[]> => (await publishedDocuments("products")).map(({key,data})=>({...data,slug:key}) as unknown as Product));
 export const mediaList=cache(async():Promise<Media[]> => (await publishedDocuments("media")).map(({key,data})=>({...data,id:key}) as Media));

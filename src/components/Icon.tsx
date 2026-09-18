@@ -1,6 +1,16 @@
 // Jeu d'icônes repris de la maquette v5 (trait 1,8 px, grille 24).
 const PATHS: Record<string, string> = {
   arrow: "<path d=\"M5 12h14\"/><path d=\"m13 6 6 6-6 6\"/>",
+  grid: "<rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"/>",
+  layout: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M3 9h18\"/><path d=\"M9 9v11\"/>",
+  tag: "<path d=\"M20.6 12.6 12.5 20.7a2 2 0 0 1-2.8 0l-6.4-6.4a2 2 0 0 1 0-2.8L11.4 3.4a2 2 0 0 1 1.4-.6H19a2 2 0 0 1 2 2v6.2a2 2 0 0 1-.4 1.6z\"/><circle cx=\"16\" cy=\"8\" r=\"1.2\"/>",
+  image: "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><circle cx=\"8.5\" cy=\"9.5\" r=\"1.5\"/><path d=\"m4 18 5-5 4 4 3-3 4 4\"/>",
+  file: "<path d=\"M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z\"/><path d=\"M14 3v5h5\"/><path d=\"M9 14h6\"/><path d=\"M9 17h4\"/>",
+  pen: "<path d=\"M12.5 6.5 17 11 7.5 20.5 3 21l.5-4.5z\"/><path d=\"m15 4 5 5\"/>",
+  gear: "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7.9 19.4l-.1.1A2 2 0 1 1 5 16.7l.1-.1A1.6 1.6 0 0 0 4 13.9H3a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 4.6 7.9l-.1-.1A2 2 0 1 1 7.3 5l.1.1a1.6 1.6 0 0 0 1.8.3H9.3A1.6 1.6 0 0 0 10.3 3.9V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1A2 2 0 1 1 19.9 7l-.1.1a1.6 1.6 0 0 0-.3 1.8v.1a1.6 1.6 0 0 0 1.5 1h.1a2 2 0 1 1 0 4H21a1.6 1.6 0 0 0-1.5 1z\"/>",
+  list: "<path d=\"M8 6h13\"/><path d=\"M8 12h13\"/><path d=\"M8 18h13\"/><path d=\"M3.5 6h.01\"/><path d=\"M3.5 12h.01\"/><path d=\"M3.5 18h.01\"/>",
+  bell: "<path d=\"M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8\"/><path d=\"M13.7 21a2 2 0 0 1-3.4 0\"/>",
+  plus: "<path d=\"M12 5v14\"/><path d=\"M5 12h14\"/>",
   download: "<path d=\"M12 3v12\"/><path d=\"m7 10 5 5 5-5\"/><path d=\"M4 20h16\"/>",
   menu: "<path d=\"M4 7h16\"/><path d=\"M4 12h16\"/><path d=\"M4 17h16\"/>",
   x: "<path d=\"M18 6 6 18\"/><path d=\"m6 6 12 12\"/>",
