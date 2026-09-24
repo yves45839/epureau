@@ -1,3 +1,4 @@
+import UiText from "@/components/UiText";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import PreviewBanner from "@/components/PreviewBanner";
 import Audience from "@/components/Audience";
@@ -12,7 +13,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   return (
     <>
       <a className="skip" href="#contenu">
-        Aller au contenu
+        <UiText text="Aller au contenu" />
       </a>
       <LanguageSwitch /><PreviewBanner /><Nav />
       <main id="contenu">{children}</main>

@@ -1,3 +1,4 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
@@ -6,7 +7,7 @@ import Icon from "@/components/Icon";
 import { PageHeader, SectionHead, BandeAppel, ChiffresCles } from "@/components/ui";
 import { chiffres } from "@/content/site";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "À propos",
   description:
     "EPUREAU Côte d’Ivoire, SAS créée en 2015, membre de YANGONDI HOLDING : ingénierie du traitement des eaux et distribution des marques NALCO et ECOLAB.",
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
 
 export default async function APropos() {
   const values = await pageValues("a-propos");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
 
 const mission = [
   {
@@ -124,3 +126,5 @@ const valeurs = [
       />
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

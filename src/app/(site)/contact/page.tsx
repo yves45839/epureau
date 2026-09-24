@@ -1,3 +1,4 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues, company, publishedDocuments, productList } from "@/lib/cms";
 import { lieuGoogle, reseaux } from "@/content/site";
@@ -6,7 +7,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import QuoteForm from "@/components/QuoteForm";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Nous contacter",
   description:
     "Demande de cotation, question technique ou projet à étudier : l'équipe EPUREAU Côte d’Ivoire vous répond du lundi au vendredi.",
@@ -18,7 +19,8 @@ export default async function Contact({searchParams}:{searchParams:Promise<{prod
   const produit=typeof query.produit==="string"?query.produit.slice(0,200):"";
   const productBrand=produit?(await productList()).find(p=>p.nom===produit)?.marque:"";
   const values = await pageValues("contact");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
   const societe = await company();
   const parametres = (await publishedDocuments("settings"))[0]?.data ?? {};
   const social = ([
@@ -99,3 +101,5 @@ export default async function Contact({searchParams}:{searchParams:Promise<{prod
     </section>
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

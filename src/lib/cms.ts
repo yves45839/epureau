@@ -1,4 +1,5 @@
 import {productSamples} from "@/content/product-samples";
+import {publicEnglish} from "@/content/public-english";
 import {englishContent} from "@/content/translations";
 import {siteLanguage} from "./site-language";
 import "server-only";
@@ -55,13 +56,19 @@ export async function publishedDocuments(section:string,allowPreview=true):Promi
  const preview=allowPreview&&await canPreview(section);
  if(preview)docs=await editableDocuments(section);
  const language=await siteLanguage();
- return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>({key:doc.key,data:language==="en"?englishContent(preview?doc.value.draft:doc.value.published!):preview?doc.value.draft:doc.value.published!}));
+ return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>{
+  const data=preview?doc.value.draft:doc.value.published!;
+  if(language!=="en")return {key:doc.key,data};
+  // HomeLanding translates its split headings by field id to preserve English word order.
+  const translate=section==="pages"&&doc.key==="accueil"?englishContent:publicEnglish;
+  return {key:doc.key,data:translate(data)};
+ });
 }
 export const pageValues=cache(async(key:string):Promise<ContentData>=>{
  const fallback=seeds("pages").find(doc=>doc.key===key)?.value.draft??{};
  const doc=(await publishedDocuments("pages")).find(doc=>doc.key===key);
  if(!doc)notFound();
- return {...fallback,...doc.data};
+ return {...(await siteLanguage()==="en"&&key!=="accueil"?publicEnglish(fallback):fallback),...doc.data};
 });
 export const customPageFields=[{key:"title",label:"Titre de la page",type:"text" as const,value:""},{key:"description",label:"Description pour les moteurs de recherche",type:"long" as const,value:""}];
 export async function editablePageDefinitions():Promise<PageDefinition[]> {

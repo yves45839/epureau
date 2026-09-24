@@ -1,3 +1,5 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
+import UiText from "@/components/UiText";
 import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
@@ -6,7 +8,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Service aux industries",
   description:
     "Application de produits formulés, optimisation des utilités et services spéciaux ECOLAB Food & Beverage : lavage de bouteilles, lubrification des lignes, CIP et COP.",
@@ -18,7 +20,8 @@ export const metadata: Metadata = {
 
 export default async function Industries() {
   const values = await pageValues("service-aux-industries");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
 
 const secteurs = [
   "Agroalimentaire et boissons",
@@ -65,7 +68,7 @@ const speciaux = [
 
           <div className="chips rv">
             {secteurs.map((s) => (
-              <span key={s}>{s}</span>
+              <span key={s}><UiText text={s} /></span>
             ))}
           </div>
 
@@ -102,3 +105,5 @@ const speciaux = [
       />
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

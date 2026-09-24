@@ -1,3 +1,5 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
+import UiText from "@/components/UiText";
 import {siteLanguage} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues, productList } from "@/lib/cms";
@@ -8,7 +10,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { PageHeader, SectionHead, BandeAppel } from "@/components/ui";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Négoce de produits chimiques",
   description:
     "Produits NALCO WATER, gamme ECOLAB Food & Beverage, commodités et réactifs de laboratoire : chaque besoin fait l'objet d'une cotation personnalisée.",
@@ -20,7 +22,8 @@ export default async function Negoce() {
   const values = await pageValues("negoce");
   const produits = await productList();
   const prefix="/"+await siteLanguage();
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
 
 const commodites = [
   "Sel en pastilles", "Acide citrique", "Acide sulfurique", "Acide nitrique",
@@ -74,7 +77,7 @@ const commodites = [
               <p>{t("f018", "EPUREAU Côte d’Ivoire propose des réactifs de laboratoire, des matières premières et le matériel de mesure nécessaires à l'exploitation quotidienne de vos installations.")}</p>
               <div className="chips">
                 {commodites.map((c) => (
-                  <span key={c}>{c}</span>
+                  <span key={c}><UiText text={c} /></span>
                 ))}
               </div>
               <div className="note">
@@ -103,3 +106,5 @@ const commodites = [
       />
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

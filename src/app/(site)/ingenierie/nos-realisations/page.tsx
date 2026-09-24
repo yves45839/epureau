@@ -1,3 +1,4 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
@@ -7,7 +8,7 @@ import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
 import { projectList } from "@/lib/cms";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Nos réalisations",
   description:
     "Stations d'épuration conçues, installées et mises en service par EPUREAU Côte d’Ivoire : EUROLAIT, CHR D’ADZOPÉ, PISAM, MIPA et GARDEN CENTER.",
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
 export default async function NosRealisations() {
   const realisations = await projectList();
   const values = await pageValues("ingenierie-nos-realisations");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
 
 
 
@@ -32,7 +34,7 @@ export default async function NosRealisations() {
             {realisations.map((r) => (
               <article className="proj" key={r.slug} id={r.slug}>
                 <div className="im">
-                  <Image unoptimized src={r.image} alt={`Réalisation ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
+                  <Image unoptimized src={r.image} alt={`${ui("Projet")} ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
                   </div>
                   <div className="cap">
                     <span className="t">{r.type}</span>
@@ -63,3 +65,5 @@ export default async function NosRealisations() {
 <BandeAppel />
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

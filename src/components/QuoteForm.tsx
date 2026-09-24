@@ -87,7 +87,7 @@ export default function QuoteForm({product="",productBrand="",sector=""}:{produc
 
       {etat === "erreur" && (
         <p role="alert" style={{ marginTop: 14, fontSize: 13.5, color: "#B4232A" }}>
-          {message}<UiText text={" — vous pouvez aussi nous écrire directement à"} />{" "}
+          {ui(message)}<UiText text={" — vous pouvez aussi nous écrire directement à"} />{" "}
           <a href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a>.
         </p>
       )}

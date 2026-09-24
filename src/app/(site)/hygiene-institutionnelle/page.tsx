@@ -1,3 +1,5 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
+import UiText from "@/components/UiText";
 import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
@@ -5,7 +7,7 @@ import Image from "next/image";
 import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Hygiène institutionnelle",
   description:
     "Hôpitaux, buanderies, pressings, hôtels, cuisines professionnelles et restaurants : produits haute performance, équipements de dosage et expertise technique.",
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
 
 export default async function Hygiene() {
   const values = await pageValues("hygiene-institutionnelle");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
 
 const tuiles = [
   {
@@ -86,7 +89,7 @@ const etablissements = [
 
           <div className="clients rv">
             {etablissements.map((e) => (
-              <span key={e}>{e}</span>
+              <span key={e}><UiText text={e} /></span>
             ))}
           </div>
         </div>
@@ -97,3 +100,5 @@ const etablissements = [
       />
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

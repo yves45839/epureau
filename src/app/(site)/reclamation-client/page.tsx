@@ -1,16 +1,18 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues, company } from "@/lib/cms";
 import type { Metadata } from "next";
 import ComplaintForm from "@/components/ComplaintForm";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Réclamation client",
   description: "Signalez un problème concernant un produit, une prestation ou une livraison à EPUREAU Côte d’Ivoire.",
 };
 
 export default async function ComplaintPage() {
   const values = await pageValues("reclamation-client");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
   const societe = await company();
 
 
@@ -23,3 +25,5 @@ export default async function ComplaintPage() {
   </div></section>
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

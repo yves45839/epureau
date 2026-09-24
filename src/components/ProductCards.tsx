@@ -1,4 +1,5 @@
-import UiText from "./UiText";
+"use client";
+import UiText, {useUi} from "./UiText";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "./Icon";
@@ -8,6 +9,7 @@ const ICONES: Record<string, string> = { "NALCO": "droplet", "ECOLAB": "flask", 
 
 /** Fiches produits d'une marque, alimentées depuis l'administration (rubrique Produits). */
 export default function ProductCards({ produits, marque, prefix = "" }: { produits: Product[]; marque?: string; prefix?: string }) {
+  const ui=useUi();
   const liste = marque ? produits.filter(p => p.marque === marque) : produits;
   if (!liste.length) return null;
 
@@ -20,9 +22,9 @@ export default function ProductCards({ produits, marque, prefix = "" }: { produi
           <article className="produit" key={p.slug}>
             <div className={"produit-visuel" + (p.image ? "" : " sans-visuel")}>
               {p.image
-                ? <Image unoptimized src={p.image} alt={"Produit " + p.nom} width={640} height={380} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+                ? <Image unoptimized src={p.image} alt={ui("Produit")+" " + p.nom} width={640} height={380} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" />
                 : <Icon name={ICONES[p.marque] || "droplet"} />}
-              <span className="produit-marque">{p.marque}</span>
+              <span className="produit-marque">{ui(p.marque)}</span>
             </div>
             <div className="produit-corps">
               {p.gamme && <span className="produit-gamme">{p.gamme}</span>}

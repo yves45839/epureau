@@ -1,6 +1,6 @@
 "use client";
 
-import UiText from "./UiText";
+import UiText, {useUi,useLanguage} from "./UiText";
 import { useState } from "react";
 import Icon from "./Icon";
 
@@ -10,6 +10,7 @@ import Icon from "./Icon";
  * n'a pas demandé l'affichage — cohérent avec le bandeau de consentement.
  */
 export default function MapEmbed({ lieu, adresse }: { lieu: string; adresse: string }) {
+  const ui=useUi(),language=useLanguage();
   const [affichee, setAffichee] = useState(false);
   const lien = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(lieu);
 
@@ -17,8 +18,8 @@ export default function MapEmbed({ lieu, adresse }: { lieu: string; adresse: str
     <div className="carte rv">
       {affichee ? (
         <iframe
-          title={"Localisation d’EPUREAU Côte d’Ivoire (" + lieu + ") sur Google Maps"}
-          src={"https://www.google.com/maps?q=" + encodeURIComponent(lieu) + "&hl=fr&z=16&output=embed"}
+          title={ui("Localisation sur Google Maps")+" — "+lieu}
+          src={"https://www.google.com/maps?q=" + encodeURIComponent(lieu) + "&hl="+language+"&z=16&output=embed"}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           allowFullScreen

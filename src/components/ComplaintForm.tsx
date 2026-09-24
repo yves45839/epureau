@@ -1,11 +1,12 @@
 "use client";
 
-import UiText from "./UiText";
+import UiText, {useUi} from "./UiText";
 import { useRef, useState } from "react";
 import { societe } from "@/content/site";
 import { mesurerConversion } from "./audience-client";
 
 export default function ComplaintForm() {
+  const ui=useUi();
   const pending = useRef(false);
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -25,7 +26,7 @@ export default function ComplaintForm() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.message || "Envoi impossible pour le moment.");
-      setMessage(`Votre réclamation a été reçue. Référence à conserver : ${result.reference}. Notre équipe vous recontactera aux coordonnées indiquées.`);
+      setMessage(`${ui("Votre réclamation a été reçue. Référence à conserver :")} ${result.reference}. ${ui("Notre équipe vous recontactera aux coordonnées indiquées.")}`);
       setState("success");
       mesurerConversion("Réclamation client");
       form.reset();
@@ -37,7 +38,7 @@ export default function ComplaintForm() {
     }
   }
 
-  return <form className="customer-form" onSubmit={submit} aria-label="Formulaire de réclamation client" aria-busy={state === "sending"}>
+  return <form className="customer-form" onSubmit={submit} aria-label={ui("Formulaire de réclamation client")} aria-busy={state === "sending"}>
     <h2><UiText text={"Votre réclamation"} /></h2>
     <p><UiText text={"Les champs marqués d’un astérisque sont obligatoires."} /></p>
     <fieldset disabled={state === "sending"}>
@@ -59,6 +60,6 @@ export default function ComplaintForm() {
       <button className="btn btn-primary" type="submit"><UiText text={state === "sending" ? "Envoi en cours…" : "Envoyer ma réclamation"} /></button>
     </fieldset>
     <div aria-live="polite" aria-atomic="true">{state === "success" && <p className="customer-feedback success">{message}</p>}</div>
-    {state === "error" && <p className="customer-feedback error" role="alert">{message}<UiText text={" Vous pouvez nous écrire à "} /><a href={`mailto:${societe.email}`}>{societe.email}</a><UiText text={". Les informations saisies ont été conservées dans le formulaire."} /></p>}
+    {state === "error" && <p className="customer-feedback error" role="alert">{ui(message)}<UiText text={" Vous pouvez nous écrire à "} /><a href={`mailto:${societe.email}`}>{societe.email}</a><UiText text={". Les informations saisies ont été conservées dans le formulaire."} /></p>}
   </form>;
 }

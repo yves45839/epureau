@@ -1,3 +1,5 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
+import UiText from "@/components/UiText";
 import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
@@ -7,7 +9,7 @@ import Schema from "@/components/Schema";
 import { PageHeader, BandeAppel } from "@/components/ui";
 import { etapes } from "@/content/site";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Notre expertise — Ingénierie du traitement de l'eau",
   description:
     "Bureau d'études, réalisation et mise en service : EPUREAU Côte d’Ivoire conçoit et livre des unités de traitement des eaux clé en main en Côte d'Ivoire.",
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
 
 export default async function NotreExpertise() {
   const values = await pageValues("ingenierie-notre-expertise");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
 
 const services = [
   { icone: "search", titre: t("f008", "Audit et diagnostic"), texte: t("f009", "Analyse de l'effluent, mesures sur site et diagnostic des ouvrages existants.") },
@@ -42,12 +45,12 @@ const services = [
               <span className="line" />
               {etapes.map((e, i) => (
                 <article className={`step${i === 0 ? " on" : ""}`} key={e.titre} data-stage={i + 1}>
-                  <span className="k">{e.cle}</span>
-                  <h3>{e.titre}</h3>
-                  <p>{e.texte}</p>
+                  <span className="k"><UiText text={e.cle} /></span>
+                  <h3><UiText text={e.titre} /></h3>
+                  <p><UiText text={e.texte} /></p>
                   <ul>
                     {e.points.map((p) => (
-                      <li key={p}>{p}</li>
+                      <li key={p}><UiText text={p} /></li>
                     ))}
                   </ul>
                 </article>
@@ -88,3 +91,5 @@ const services = [
       />
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

@@ -56,12 +56,12 @@ export function pruneEnglish(data: ContentData, fields: TranslationField[], sect
   return { ...data, __en: JSON.stringify(Object.fromEntries(Object.entries(readEnglish(data)).filter(([key]) => allowed.has(key)))) };
 }
 /** Never display a translation of an older French source. Draft/public separation stays in the CMS. */
-export function englishContent(data: ContentData): ContentData {
+export function englishContent(data: ContentData, fallback: (source: string, key: string) => string = source => source): ContentData {
   const translations = readEnglish(data);
   const result = { ...data };
   const translated = (key: string, source: string) => {
     const entry = translations[key];
-    return entry && entry.source === source && entry.text.trim() ? entry.text : source;
+    return entry && entry.source === source && entry.text.trim() ? entry.text : fallback(source, key);
   };
   for (const [key, source] of Object.entries(data)) if (!key.startsWith("__")) result[key] = translated("field:" + key, source);
   if (data.__layout) {

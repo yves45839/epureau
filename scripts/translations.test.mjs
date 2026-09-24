@@ -60,3 +60,26 @@ test('le moteur local découpe les longs textes, préserve les paragraphes et ac
  const abort=new AbortController();abort.abort();await assert.rejects(translateText(translator,'Bonjour',abort.signal),{name:'AbortError'});
  await assert.rejects(translateText({translate:async()=>'',destroy(){}},'Bonjour',new AbortController().signal),/vide/);
 });
+
+const {uiText}=load('src/content/ui-english.ts',{
+ './home-english.json':require('../src/content/home-english.json'),
+ './pages-english.json':require('../src/content/pages-english.json'),
+ './secondary-english.json':require('../src/content/secondary-english.json'),
+});
+const {publicEnglish}=load('src/content/public-english.ts',{'./translations':{englishContent},'./ui-english':{uiText}});
+test('les contenus publics connus ont un anglais de secours sans écraser une traduction CMS ni modifier le français',()=>{
+ const data={title:'Nos réalisations',texte:'Stations conçues, installées et mises en service.',unite:'m³ / jour',url:'/ingenierie/nos-realisations'};
+ const before=JSON.stringify(data);
+ assert.equal(publicEnglish(data).title,'Our projects');assert.equal(publicEnglish(data).unite,'m³ / day');
+ assert.equal(publicEnglish(data).url,data.url);assert.equal(JSON.stringify(data),before);
+ const manual=withEnglish(data,{'field:title':{source:data.title,text:'Completed projects',manual:true}});
+ assert.equal(publicEnglish(manual).title,'Completed projects');
+ assert.equal(publicEnglish({...manual,title:'Un nouveau titre client'}).title,'Un nouveau titre client');
+ assert.equal(publicEnglish({...manual,title:'Nos valeurs'}).title,'Our values');
+});
+test('les valeurs techniques des produits restent françaises tandis que leurs libellés sont traduits',()=>{
+ const data={marque:'Commodités & Réactifs',documentType:'Brochure fabricant',documentLangue:'FR',reference:'REF-123',fiche:'https://example.com/fiche.pdf',gamme:'Utilités vapeur'};
+ const result=publicEnglish(data);
+ for(const field of ['marque','documentType','documentLangue','reference','fiche'])assert.equal(result[field],data[field]);
+ assert.equal(result.gamme,'Steam utilities');assert.equal(uiText(result.documentType,'en'),'Manufacturer brochure');
+});

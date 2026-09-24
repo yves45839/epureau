@@ -1,16 +1,18 @@
+import {siteText, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues, company } from "@/lib/cms";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Carrière",
   description: "Rejoignez les plus de 40 collaborateurs d’EPUREAU Côte d’Ivoire. Découvrez nos métiers et proposez votre candidature spontanée.",
 };
 
 export default async function CareerPage() {
   const values = await pageValues("carriere");
-  const t = (id: string, fallback: string) => values[id] ?? fallback;
+  const ui=await siteText();
+  const t = (id: string, fallback: string) => ui(values[id] ?? fallback);
   const societe = await company();
 
 
@@ -22,6 +24,8 @@ export default async function CareerPage() {
       <Link href="/hygiene-institutionnelle"><span>{t("f018", "03")}</span><h3>{t("f019", "Hygiène institutionnelle")}</h3><p>{t("f020", "Solutions d’hygiène, équipements et conseil")}</p></Link>
       <Link href="/negoce"><span>{t("f021", "04")}</span><h3>{t("f022", "Produits chimiques")}</h3><p>{t("f023", "Produits, réactifs et relation client")}</p></Link>
     </div></div></section>
-<section className="sec alt" id="candidature"><div className="wrap career-application"><div><span className="eyebrow">{t("f024", "Candidature spontanée")}</span><h2 className="title">{t("f025", "Faisons connaissance")}</h2><p className="lead">{t("f026", "Présentez votre parcours, vos compétences et le métier qui vous intéresse. Joignez votre CV à votre e-mail et indiquez vos disponibilités.")}</p></div><div className="career-apply-card"><h3>{t("f027", "Envoyer votre candidature")}</h3><p>{t("f028", "Préparez un CV au format PDF et quelques lignes de présentation.")}</p><a className="btn btn-primary" href={`mailto:${societe.email}?subject=${encodeURIComponent("Candidature spontanée — EPUREAU Côte d’Ivoire")}`}>{t("f029", "Candidater par e-mail ↗")}</a><p className="customer-note">{t("f030", "Ce bouton ouvre votre messagerie. Vous pouvez également écrire à ")}<a href={`mailto:${societe.email}`}>{societe.email}</a>{t("f031", ".")}</p></div></div></section>
+<section className="sec alt" id="candidature"><div className="wrap career-application"><div><span className="eyebrow">{t("f024", "Candidature spontanée")}</span><h2 className="title">{t("f025", "Faisons connaissance")}</h2><p className="lead">{t("f026", "Présentez votre parcours, vos compétences et le métier qui vous intéresse. Joignez votre CV à votre e-mail et indiquez vos disponibilités.")}</p></div><div className="career-apply-card"><h3>{t("f027", "Envoyer votre candidature")}</h3><p>{t("f028", "Préparez un CV au format PDF et quelques lignes de présentation.")}</p><a className="btn btn-primary" href={`mailto:${societe.email}?subject=${encodeURIComponent(ui("Candidature spontanée — EPUREAU Côte d’Ivoire"))}`}>{t("f029", "Candidater par e-mail ↗")}</a><p className="customer-note">{t("f030", "Ce bouton ouvre votre messagerie. Vous pouvez également écrire à ")}<a href={`mailto:${societe.email}`}>{societe.email}</a>{t("f031", ".")}</p></div></div></section>
 </PageSections>;
 }
+
+export async function generateMetadata(){return localizedMetadata(baseMetadata);}

@@ -1,6 +1,6 @@
 "use client";
 
-import UiText from "./UiText";
+import UiText, {useUi} from "./UiText";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,6 +14,7 @@ export default function Nav() {
 }
 
 function NavigationContent({ pathname }: { pathname: string }) {
+  const ui=useUi();
   const [scrolled, setScrolled] = useState(false);
   const [progres, setProgres] = useState(0);
   const [menuMobile, setMenuMobile] = useState(false);
@@ -50,7 +51,7 @@ function NavigationContent({ pathname }: { pathname: string }) {
       <header className={`nav${scrolled ? " scrolled" : ""}`} id="nav">
         <div className="wrap">
           <div className="nav-bar">
-            <Link className="logo" href="/" aria-label="EPUREAU Côte d’Ivoire — accueil">
+            <Link className="logo" href="/" aria-label={ui("EPUREAU Côte d’Ivoire — accueil")}>
               <Image
                 src="/images/logo.png"
                 alt="EPUREAU Côte d’Ivoire"
@@ -106,7 +107,7 @@ function NavigationContent({ pathname }: { pathname: string }) {
             <button
               type="button"
               className="burger"
-              aria-label="Ouvrir le menu"
+              aria-label={ui(menuMobile?"Fermer le menu":"Ouvrir le menu")}
               aria-expanded={menuMobile}
               onClick={() => setMenuMobile((v) => !v)}
             >

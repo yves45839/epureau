@@ -81,7 +81,7 @@ const slides = [
           </article>)}
         </div>
       </div>
-<div className="shell catalogue-grid">{realisations.slice(2).map((project,index)=><article className="catalogue-card reveal" key={project.slug}><div className="catalogue-photo"><img src={project.image} width="640" height="245" alt={ui("Réalisation")+" "+project.nom} loading="lazy" /></div><div className="catalogue-body"><span className="case-number">{String(index+3).padStart(2,"0")} / {String(realisations.length).padStart(2,"0")}</span><h3>{project.nom}</h3><span className="catalogue-location">{ui(project.type)}</span><p>{ui(project.texte)}</p><a className="text-link" href={"/ingenierie/nos-realisations#"+project.slug}><UiText text={"Voir le projet"} /><svg aria-hidden="true"><use href="#diagonal" /></svg></a></div></article>)}</div>
+<div className="shell catalogue-grid">{realisations.slice(2).map((project,index)=><article className="catalogue-card reveal" key={project.slug}><div className="catalogue-photo"><img src={project.image} width="640" height="245" alt={ui("Projet")+" "+project.nom} loading="lazy" /></div><div className="catalogue-body"><span className="case-number">{String(index+3).padStart(2,"0")} / {String(realisations.length).padStart(2,"0")}</span><h3>{project.nom}</h3><span className="catalogue-location">{ui(project.type)}</span><p>{ui(project.texte)}</p><a className="text-link" href={"/ingenierie/nos-realisations#"+project.slug}><UiText text={"Voir le projet"} /><svg aria-hidden="true"><use href="#diagonal" /></svg></a></div></article>)}</div>
     </section>
 <section className="section references-section">
       <div className="shell references-grid">
