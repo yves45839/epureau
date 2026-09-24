@@ -1825,6 +1825,162 @@
         "label": "alt — Produits chimiques conditionnés et matériel de laboratoire",
         "type": "text",
         "value": "Produits chimiques conditionnés et matériel de laboratoire"
+      },
+      {
+        "key": "map_title",
+        "label": "Carte interactive — titre",
+        "type": "text",
+        "value": "À chaque environnement, sa solution."
+      },
+      {
+        "key": "map_intro",
+        "label": "Carte interactive — introduction",
+        "type": "long",
+        "value": "Explorez nos domaines d’intervention. Sélectionnez un lieu pour découvrir les solutions EPUREAU adaptées à votre activité."
+      },
+      {
+        "key": "map_btp_title",
+        "label": "Carte · BTP & infrastructures — Titre",
+        "type": "text",
+        "value": "BTP & infrastructures"
+      },
+      {
+        "key": "map_btp_text",
+        "label": "Carte · BTP & infrastructures — Description",
+        "type": "long",
+        "value": "Des solutions pour la potabilisation de l’eau et l’épuration des eaux usées domestiques de vos infrastructures."
+      },
+      {
+        "key": "map_btp_points",
+        "label": "Carte · BTP & infrastructures — Solutions (une par ligne)",
+        "type": "long",
+        "value": "Études et conception des installations\nRéalisation des ouvrages\nSuivi et maintenance"
+      },
+      {
+        "key": "map_btp_link",
+        "label": "Carte · BTP & infrastructures — Lien métier",
+        "type": "url",
+        "value": "/ingenierie/notre-expertise"
+      },
+      {
+        "key": "map_industries_title",
+        "label": "Carte · Industries — Titre",
+        "type": "text",
+        "value": "Industries"
+      },
+      {
+        "key": "map_industries_text",
+        "label": "Carte · Industries — Description",
+        "type": "long",
+        "value": "De l’eau de process au traitement des effluents, nous accompagnons les performances de vos installations et l’hygiène de vos lignes de production."
+      },
+      {
+        "key": "map_industries_points",
+        "label": "Carte · Industries — Solutions (une par ligne)",
+        "type": "long",
+        "value": "Traitement des utilités : chaudières et refroidissement\nNettoyage CIP / COP et lavage des bouteilles\nLubrification des convoyeurs"
+      },
+      {
+        "key": "map_industries_link",
+        "label": "Carte · Industries — Lien métier",
+        "type": "url",
+        "value": "/service-aux-industries"
+      },
+      {
+        "key": "map_hotellerie_title",
+        "label": "Carte · Hôtellerie & services — Titre",
+        "type": "text",
+        "value": "Hôtellerie & services"
+      },
+      {
+        "key": "map_hotellerie_text",
+        "label": "Carte · Hôtellerie & services — Description",
+        "type": "long",
+        "value": "Une eau de qualité, des établissements propres et une gestion efficace des consommations au service de votre accueil."
+      },
+      {
+        "key": "map_hotellerie_points",
+        "label": "Carte · Hôtellerie & services — Solutions (une par ligne)",
+        "type": "long",
+        "value": "Qualité de l’eau\nHygiène des établissements et des cuisines\nAccompagnement des équipes"
+      },
+      {
+        "key": "map_hotellerie_link",
+        "label": "Carte · Hôtellerie & services — Lien métier",
+        "type": "url",
+        "value": "/hygiene-institutionnelle"
+      },
+      {
+        "key": "map_hopitaux_title",
+        "label": "Carte · Établissements hospitaliers — Titre",
+        "type": "text",
+        "value": "Établissements hospitaliers"
+      },
+      {
+        "key": "map_hopitaux_text",
+        "label": "Carte · Établissements hospitaliers — Description",
+        "type": "long",
+        "value": "Des solutions pour la qualité de l’eau, l’hygiène hospitalière et la gestion des effluents, dans le respect des exigences de votre établissement."
+      },
+      {
+        "key": "map_hopitaux_points",
+        "label": "Carte · Établissements hospitaliers — Solutions (une par ligne)",
+        "type": "long",
+        "value": "Traitement de l’eau\nHygiène hospitalière\nGestion des effluents"
+      },
+      {
+        "key": "map_hopitaux_link",
+        "label": "Carte · Établissements hospitaliers — Lien métier",
+        "type": "url",
+        "value": "/hygiene-institutionnelle"
+      },
+      {
+        "key": "map_collectivites_title",
+        "label": "Carte · Collectivités & institutions — Titre",
+        "type": "text",
+        "value": "Collectivités & institutions"
+      },
+      {
+        "key": "map_collectivites_text",
+        "label": "Carte · Collectivités & institutions — Description",
+        "type": "long",
+        "value": "Nous accompagnons les projets publics de potabilisation, d’assainissement et d’hygiène, de l’étude au suivi des installations."
+      },
+      {
+        "key": "map_collectivites_points",
+        "label": "Carte · Collectivités & institutions — Solutions (une par ligne)",
+        "type": "long",
+        "value": "Potabilisation de l’eau\nAssainissement et traitement des eaux usées\nAccompagnement des projets publics"
+      },
+      {
+        "key": "map_collectivites_link",
+        "label": "Carte · Collectivités & institutions — Lien métier",
+        "type": "url",
+        "value": "/ingenierie/notre-expertise"
+      },
+      {
+        "key": "map_buanderies_title",
+        "label": "Carte · Buanderies professionnelles — Titre",
+        "type": "text",
+        "value": "Buanderies professionnelles"
+      },
+      {
+        "key": "map_buanderies_text",
+        "label": "Carte · Buanderies professionnelles — Description",
+        "type": "long",
+        "value": "Des solutions pour l’hygiène du linge, le traitement de l’eau et l’optimisation des équipements de buanderie."
+      },
+      {
+        "key": "map_buanderies_points",
+        "label": "Carte · Buanderies professionnelles — Solutions (une par ligne)",
+        "type": "long",
+        "value": "Hygiène du linge\nTraitement de l’eau\nOptimisation des équipements"
+      },
+      {
+        "key": "map_buanderies_link",
+        "label": "Carte · Buanderies professionnelles — Lien métier",
+        "type": "url",
+        "value": "/hygiene-institutionnelle"
       }
     ]
   }

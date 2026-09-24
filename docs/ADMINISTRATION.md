@@ -165,3 +165,32 @@ Les visiteurs choisissent FR / EN. Les adresses `/fr/...` et `/en/...` servent l
 - La validation du téléchargement et de la qualité réelle du modèle exige Chrome sur ordinateur : ce contrôle ne peut pas être remplacé par un moteur simulé.
 
 Documentation du moteur : https://developer.chrome.com/docs/ai/translator-api
+
+
+### Catalogue et fiches produits
+
+La page `/negoce` regroupe les produits par catégorie, avec recherche, filtre de marque et filtre de catégorie. Chaque produit publié dispose d’une page `/negoce/<identifiant>`. Un brouillon reste visible uniquement dans l’aperçu administrateur. Les boutons « Demander un devis » ouvrent le formulaire avec le produit renseigné.
+
+Dans **Produits**, renseignez la catégorie, la référence fabricant et, si disponible, un document PDF HTTPS (ou importez un PDF). Choisissez **Fiche technique** ou **Brochure fabricant** et sa langue. Aucun prix n’est affiché. Les textes peuvent être traduits depuis le panneau Version anglaise ; les références et liens ne sont pas traduits.
+
+Le lien documentaire est révélé après saisie d’un e-mail valide et enregistrement réussi dans **Demandes & réclamations**, source `fiche-produit`. Il n’est pas inclus dans le HTML ni les données initiales envoyées au navigateur. Supabase/DATABASE_URL ou le stockage local doit fonctionner ; une panne ne produit pas un faux succès. Il s’agit d’un formulaire de collecte, sans vérification de propriété de l’e-mail ni abonnement marketing. Le document s’ouvre sur le site fabricant ; aucun e-mail automatique n’est envoyé au demandeur.
+
+Sans PDF, la demande reste enregistrée pour traitement par l’équipe. Pour une brochure, elle est disponible immédiatement et le suivi demande explicitement la fiche technique complémentaire. Les fichiers publics du fabricant ou du stockage restent des fichiers publics : ce parcours n’est pas un système de protection de documents confidentiels.
+
+Quatre exemples réels sont ajoutés sans remplacer les contenus déjà enregistrés : 3D TRASAR 3DT230, 3D TRASAR Boiler Premium, MAXX Magic2 et Topax Duo. Leurs textes FR/EN sont préremplis. Documents régionaux : disponibilité locale et conditionnements à confirmer avant toute offre. Sources fabricant vérifiées le 24 septembre 2026 :
+
+- [NALCO 3DT230 — bulletin produit](https://www.ecolab.com/-/media/Ecolab/Ecolab-Home/Documents/DocumentLibrary/Asia-Pacific/Korea/Product-pages/3DT230-pdf.pdf?la=en)
+- [NALCO Boiler Premium — spécifications](https://assets.pim.ecolab.com/media/Original/10000/SPEC-772%203D_TRASAR_Boilers_Premium.pdf)
+- [ECOLAB MAXX Magic2 — fiche produit](https://en-uk.ecolab.com/-/media/Widen/Institutional/Buildings--Facilities/MAXX_MAGIC2_Sellsheet_EU-EN_pdf.pdf)
+- [ECOLAB Topax Duo — présentation fabricant](https://en-sg.ecolab.com/offerings/topax-duo-and-topax-duo-plus) et [brochure](https://en-sg.ecolab.com/-/media/Ecolab/Ecolab-Home/Documents/DocumentLibrary/F-and-B/Topax-Duo-Sell-Sheet-pdf.pdf).
+
+
+### Carte interactive de l’accueil
+
+Dans **Pages du site → Accueil → Carte interactive des secteurs**, modifiez le titre, l’introduction et, pour chacun des six secteurs, le titre, le descriptif, les solutions et le lien métier. La section occupe l’ancien emplacement `section-2` sous le carrousel, sans décaler les autres sections. Si elle avait été retirée dans une composition enregistrée, réajoutez « Carte interactive des secteurs » dans le constructeur de pages. Les brouillons et traductions suivent le fonctionnement habituel de l’administration.
+
+Les six secteurs et leurs contenus sont adaptés des pages 2 et 3 de la plaquette fournie. La ville est une illustration vectorielle schématique, sans géolocalisation ni service de cartographie externe. La sélection fonctionne au clic, au toucher et au clavier. Le bouton « Parler de mon projet » préremplit le secteur dans le formulaire de contact.
+
+Le PDF original de quatre pages est conservé sans modification dans `public/brochures/epureau-plaquette.pdf` : consultation intégrée à la demande, ouverture dans un nouvel onglet et téléchargement. Le PDF reste en français ; les contenus interactifs ont une version anglaise. Il ne se charge qu’à l’ouverture du lecteur.
+
+La carte propose des microanimations SVG/CSS (grues, fumée, bassins, tambours), un bouton de pause et des réactions au survol. Les boucles sont suspendues hors écran et désactivées si le visiteur préfère réduire les mouvements. Aucun moteur 3D ni service externe supplémentaire n’est chargé.

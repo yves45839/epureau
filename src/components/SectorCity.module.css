@@ -1,0 +1,17 @@
+.city{isolation:isolate}
+.craneArm{animation:crane-swing 11s ease-in-out infinite;transform-origin:0 0}
+.trolley{animation:trolley-travel 9s ease-in-out infinite}
+.cable{animation:cable-lift 9s ease-in-out infinite;transform-origin:-69px 5px}
+.load{animation:load-lift 9s ease-in-out infinite}
+.smoke{opacity:0;animation:smoke-rise 6s linear infinite;pointer-events:none}
+.ripple{animation:water-ripple 4s ease-out infinite;transform-origin:0 0}
+.drum{animation:drum-turn 5s linear infinite;transform-origin:0 0}
+@keyframes crane-swing{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(3deg)}}
+@keyframes trolley-travel{0%,15%,100%{transform:translateX(0)}50%,65%{transform:translateX(29px)}}
+@keyframes cable-lift{0%,15%,100%{transform:scaleY(1)}50%,65%{transform:scaleY(.65)}}
+@keyframes load-lift{0%,15%,100%{transform:translateY(0)}50%,65%{transform:translateY(-19px)}}
+@keyframes smoke-rise{0%{opacity:0;transform:translate(0,0) scale(.65)}15%{opacity:.42}65%{opacity:.22}100%{opacity:0;transform:translate(30px,-80px) scale(2.1)}}
+@keyframes water-ripple{0%{opacity:0;transform:scale(.5)}25%{opacity:.8}100%{opacity:0;transform:scale(1.45)}}
+@keyframes drum-turn{to{transform:rotate(360deg)}}
+:global([data-motion="paused"]) .city *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.city *{animation:none!important}.smoke{display:none}.ripple{opacity:.5}}

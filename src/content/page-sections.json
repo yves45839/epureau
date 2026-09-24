@@ -356,11 +356,34 @@
     },
     {
       "id": "section-2",
-      "label": "Notre équipe",
+      "label": "Carte interactive des secteurs",
       "fields": [
-        "f022",
-        "f023",
-        "f024"
+        "map_title",
+        "map_intro",
+        "map_btp_title",
+        "map_btp_text",
+        "map_btp_points",
+        "map_btp_link",
+        "map_industries_title",
+        "map_industries_text",
+        "map_industries_points",
+        "map_industries_link",
+        "map_hotellerie_title",
+        "map_hotellerie_text",
+        "map_hotellerie_points",
+        "map_hotellerie_link",
+        "map_hopitaux_title",
+        "map_hopitaux_text",
+        "map_hopitaux_points",
+        "map_hopitaux_link",
+        "map_collectivites_title",
+        "map_collectivites_text",
+        "map_collectivites_points",
+        "map_collectivites_link",
+        "map_buanderies_title",
+        "map_buanderies_text",
+        "map_buanderies_points",
+        "map_buanderies_link"
       ]
     },
     {

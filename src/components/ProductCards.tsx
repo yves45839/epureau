@@ -7,12 +7,12 @@ import type { Product } from "@/content/admin-types";
 const ICONES: Record<string, string> = { "NALCO": "droplet", "ECOLAB": "flask", "Commodités & Réactifs": "boxes" };
 
 /** Fiches produits d'une marque, alimentées depuis l'administration (rubrique Produits). */
-export default function ProductCards({ produits, marque }: { produits: Product[]; marque: string }) {
-  const liste = produits.filter(p => p.marque === marque);
+export default function ProductCards({ produits, marque, prefix = "" }: { produits: Product[]; marque?: string; prefix?: string }) {
+  const liste = marque ? produits.filter(p => p.marque === marque) : produits;
   if (!liste.length) return null;
 
   return (
-    <div className="produits rvs">
+    <div className="produits">
       {liste.map(p => {
         const points = (p.points || "").split("\n").map(v => v.trim()).filter(Boolean).slice(0, 6);
         const attributs = ([["Application", p.usage], ["Secteurs", p.secteurs], ["Conditionnement", p.forme]] as const).filter(([, valeur]) => valeur);
@@ -26,7 +26,7 @@ export default function ProductCards({ produits, marque }: { produits: Product[]
             </div>
             <div className="produit-corps">
               {p.gamme && <span className="produit-gamme">{p.gamme}</span>}
-              <h3>{p.nom}</h3>
+              <h3><Link href={`${prefix}/negoce/${encodeURIComponent(p.slug)}`}>{p.nom}</Link></h3>
               {p.texte && <p className="produit-texte">{p.texte}</p>}
               {attributs.length > 0 && (
                 <dl className="produit-attributs">
@@ -40,7 +40,8 @@ export default function ProductCards({ produits, marque }: { produits: Product[]
                   {points.map(point => <li key={point}><Icon name="check" />{point}</li>)}
                 </ul>
               )}
-              <Link className="arrow-link" href="/contact"><UiText text={"Demander une cotation "} /><Icon name="arrow" /></Link>
+              <Link className="arrow-link" href={`${prefix}/negoce/${encodeURIComponent(p.slug)}`}><UiText text="Voir le produit" /><Icon name="arrow" /></Link>
+              <Link className="product-quote" href={`${prefix}/contact?produit=${encodeURIComponent(p.nom)}#form`}><UiText text="Demander un devis" /></Link>
             </div>
           </article>
         );

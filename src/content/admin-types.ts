@@ -3,5 +3,5 @@ export type PageDefinition = { key: string; title: string; path: string; fields:
 export type ContentData = Record<string, string>;
 export type Document = { title: string; draft: ContentData; published: ContentData | null; deleted?: boolean; order: number };
 export type Project = { slug:string; nom:string; client:string; type:string; debit:string; unite:string; texte:string; image:string };
-export type Product = { slug:string; nom:string; marque:string; gamme:string; usage:string; secteurs:string; forme:string; points:string; image:string; texte:string };
+export type Product = { slug:string; nom:string; marque:string; gamme:string; usage:string; secteurs:string; forme:string; points:string; image:string; texte:string; categorie?:string; reference?:string; fiche?:string; documentType?:string; documentLangue?:string; sourceUrl?:string };
 export type Media = { id:string; title:string; description:string; url:string; image:string; type:string; album:string };

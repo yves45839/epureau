@@ -1,5 +1,6 @@
 "use client";
 import UiText from "./UiText";
+import HomeSectorMap from "./HomeSectorMap";
 import PageSections from "@/components/PageSections";
 import {pageLayout} from "@/content/page-builder";
 
@@ -50,8 +51,7 @@ const slides = [
       </div>
       <div className="hero-bottom shell"><a href={sectionLink("metiers","section-3","/ingenierie/notre-expertise")} className="scroll-link"><span>{t("f019", "↓")}</span>{t("f020", " Découvrir EPUREAU Côte d’Ivoire")}</a><div className="carousel-controls" data-hero-controls hidden><button className="carousel-button carousel-prev" type="button" data-hero-prev aria-label="Photo précédente"><svg aria-hidden="true"><use href="#arrow"/></svg></button><div className="carousel-dots">{slides.map((slide, index) => <button key={slide.caption} className="carousel-dot" type="button" data-hero-dot aria-label={`Afficher la photo ${index + 1} : ${slide.caption}`} aria-pressed={index === 0} />)}</div><span className="carousel-count" data-hero-count aria-hidden="true">{t("f021", "01 / 04")}</span><button className="carousel-button" type="button" data-hero-rotation aria-label="Mettre le défilement en pause"><span data-pause-icon><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></span><span data-play-icon hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 4 12 8-12 8Z"/></svg></span></button><button className="carousel-button" type="button" data-hero-next aria-label="Photo suivante"><svg aria-hidden="true"><use href="#arrow"/></svg></button></div><span className="carousel-announcement" data-hero-announcement role="status" aria-live="polite" aria-atomic="true"></span></div>
     </section>
-{/* Conserve la position de section-2 pour les mises en page déjà enregistrées dans le CMS. */}
-<span hidden aria-hidden="true" />
+<HomeSectorMap content={content} />
 <section id="metiers" className="section services-section">
       <div className="shell services-shell">
         <div className="section-heading reveal"><div><span className="home-eyebrow">{t("f025", "Nos métiers")}</span><h2>{t("f026", "Nos domaines")}<br />{t("f027", "d’intervention")}</h2></div></div>

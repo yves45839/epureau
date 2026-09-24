@@ -1,5 +1,5 @@
 import PageSections from "@/components/PageSections";
-import { pageValues, company, publishedDocuments } from "@/lib/cms";
+import { pageValues, company, publishedDocuments, productList } from "@/lib/cms";
 import { lieuGoogle, reseaux } from "@/content/site";
 import MapEmbed from "@/components/MapEmbed";
 import type { Metadata } from "next";
@@ -12,7 +12,11 @@ export const metadata: Metadata = {
     "Demande de cotation, question technique ou projet à étudier : l'équipe EPUREAU Côte d’Ivoire vous répond du lundi au vendredi.",
 };
 
-export default async function Contact() {
+export default async function Contact({searchParams}:{searchParams:Promise<{produit?:string;secteur?:string}>}) {
+  const query=await searchParams;
+  const secteur=typeof query.secteur==="string"?query.secteur.slice(0,200):"";
+  const produit=typeof query.produit==="string"?query.produit.slice(0,200):"";
+  const productBrand=produit?(await productList()).find(p=>p.nom===produit)?.marque:"";
   const values = await pageValues("contact");
   const t = (id: string, fallback: string) => values[id] ?? fallback;
   const societe = await company();
@@ -89,7 +93,7 @@ export default async function Contact() {
             <MapEmbed lieu={lieuGoogle} adresse={societe.adresse} />
           </div>
 
-          <QuoteForm />
+          <QuoteForm product={produit} productBrand={productBrand} sector={secteur} />
         </div>
       </div>
     </section>

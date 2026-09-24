@@ -8,6 +8,7 @@ import { buildOverview } from "@/lib/admin-overview";
 import { entries, entry, save, remove, Conflict } from "@/lib/admin-store";
 import { editableDocuments, editablePageDefinitions, customPageFields, modelFields, pageDefinitions, sectionNames } from "@/lib/cms";
 import {customPagePath,validatePageLayout} from "@/content/page-builder";
+import {validProductDocument} from "@/content/product-catalog";
 import {marqueValide} from "@/content/products";
 import { requestList, type CustomerRequest } from "@/lib/admin-requests";
 import type { Document } from "@/content/admin-types";
@@ -89,6 +90,8 @@ export async function POST(req:Request){
  for(const field of fields)if(["image","url"].includes(field.type||"")&&data[field.key]&&!safePublicUrl(data[field.key]))return response({message:"Utilisez un fichier du site ou un lien HTTPS pour "+field.label+"."},422);
  if(p.section==="media"&&!["photo","video"].includes(data.type))return response({message:"Choisissez photo ou video."},422);
  if(p.section==="products"){
+  if(data.fiche&&!validProductDocument(data.fiche))return response({message:"Le document doit être un lien HTTPS vers un PDF."},422);
+  if(data.documentType&&!["Fiche technique","Brochure fabricant"].includes(data.documentType))return response({message:"Choisissez Fiche technique ou Brochure fabricant."},422);
   if(!data.nom?.trim())return response({message:"Renseignez le nom du produit."},422);
   if(!marqueValide(data.marque))return response({message:"Choisissez une marque parmi celles proposées."},422);
  }

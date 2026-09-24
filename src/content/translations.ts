@@ -9,7 +9,7 @@ export type TranslationUnit = { key: string; label: string; source: string; limi
 const translationsSchema = z.record(z.string().max(240), z.object({
   source: z.string().max(24000), text: z.string().max(24000), manual: z.boolean(),
 }).strict()).refine(value => Object.keys(value).length <= 1200);
-const protectedFields = new Set(["email", "notificationEmails", "telephone", "telephoneLien", "adresse", "boitePostale", "maps", "site", "groupe", "linkedin", "facebook", "youtube", "blogEnabled", "marque", "client", "debit", "unite"]);
+const protectedFields = new Set(["email", "notificationEmails", "telephone", "telephoneLien", "adresse", "boitePostale", "maps", "site", "groupe", "linkedin", "facebook", "youtube", "blogEnabled", "marque", "reference", "documentType", "documentLangue", "fiche", "sourceUrl", "client", "debit", "unite"]);
 export function isTranslatable(field: TranslationField, section: string) {
   return !["image", "url", "brand", "mediaType"].includes(field.type || "") &&
     !protectedFields.has(field.key) && !(section === "settings" && field.key === "nom") && !field.key.startsWith("__");

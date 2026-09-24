@@ -1,6 +1,6 @@
 "use client";
 
-import UiText from "./UiText";
+import UiText, {useUi} from "./UiText";
 import { useState } from "react";
 import Icon from "./Icon";
 import { objetsDemande } from "@/content/site";
@@ -8,7 +8,8 @@ import { mesurerConversion } from "./audience-client";
 
 type Etat = "repos" | "envoi" | "ok" | "erreur";
 
-export default function QuoteForm() {
+export default function QuoteForm({product="",productBrand="",sector=""}:{product?:string;productBrand?:string;sector?:string}) {
+  const ui=useUi();
   const [etat, setEtat] = useState<Etat>("repos");
   const [message, setMessage] = useState("");
 
@@ -57,7 +58,7 @@ export default function QuoteForm() {
           <label htmlFor="f4"><UiText text={"Téléphone"} /></label>
         </div>
         <div className="fld full">
-          <select id="f5" name="objet" defaultValue={objetsDemande[0]}>
+          <select id="f5" name="objet" defaultValue={product ? productBrand==="NALCO"?"Produits NALCO":productBrand==="ECOLAB"?"Produits ECOLAB":"Autre demande" : objetsDemande[0]}>
             {objetsDemande.map((o) => (
               <option key={o} value={o}><UiText text={o} /></option>
             ))}
@@ -65,7 +66,7 @@ export default function QuoteForm() {
           <label htmlFor="f5"><UiText text={"Objet de la demande"} /></label>
         </div>
         <div className="fld full">
-          <textarea id="f6" name="besoin" placeholder=" " required />
+          <textarea key={product+sector} id="f6" name="besoin" placeholder=" " required defaultValue={product ? ui("Demande de devis pour")+" : "+product+"\n" : sector ? ui("Projet pour le secteur")+" : "+sector+"\n" : ""} />
           <label htmlFor="f6"><UiText text={"Votre besoin (effluent, débit, site, contraintes…) *"} /></label>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import {productSamples} from "@/content/product-samples";
 import {englishContent} from "@/content/translations";
 import {siteLanguage} from "./site-language";
 import "server-only";
@@ -17,7 +18,7 @@ export const pageDefinitions = definitions as PageDefinition[];
 export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès" };
 export const modelFields: Record<string, { key:string; label:string; type?:string }[]> = {
  projects:[{key:"nom",label:"Nom du projet"},{key:"client",label:"Client et localisation"},{key:"type",label:"Procédé"},{key:"debit",label:"Capacité"},{key:"unite",label:"Unité"},{key:"image",label:"Photo",type:"image"},{key:"texte",label:"Description",type:"long"}],
- products:[{key:"nom",label:"Nom du produit"},{key:"marque",label:"Marque",type:"brand"},{key:"gamme",label:"Gamme ou famille"},{key:"usage",label:"Application principale",type:"long"},{key:"secteurs",label:"Secteurs concernés"},{key:"forme",label:"Forme et conditionnement"},{key:"points",label:"Points clés (un par ligne)",type:"long"},{key:"image",label:"Visuel",type:"image"},{key:"texte",label:"Description",type:"long"}],
+ products:[{key:"reference",label:"Référence fabricant"},{key:"categorie",label:"Catégorie (regroupement du catalogue)"},{key:"fiche",label:"Document fabricant PDF (lien HTTPS, accessible après e-mail)",type:"url"},{key:"documentType",label:"Type : Fiche technique ou Brochure fabricant",type:"documentType"},{key:"documentLangue",label:"Langue du document (FR, EN…)"},{key:"sourceUrl",label:"Page fabricant de référence",type:"url"},{key:"nom",label:"Nom du produit"},{key:"marque",label:"Marque",type:"brand"},{key:"gamme",label:"Gamme ou famille"},{key:"usage",label:"Application principale",type:"long"},{key:"secteurs",label:"Secteurs concernés"},{key:"forme",label:"Forme et conditionnement"},{key:"points",label:"Points clés (un par ligne)",type:"long"},{key:"image",label:"Visuel",type:"image"},{key:"texte",label:"Description",type:"long"}],
  media:[{key:"title",label:"Titre / légende"},{key:"type",label:"Type (photo ou video)",type:"mediaType"},{key:"url",label:"Fichier ou lien vidéo",type:"url"},{key:"image",label:"Image d’aperçu",type:"image"},{key:"album",label:"Album"},{key:"description",label:"Description",type:"long"}],
  brochures:[{key:"title",label:"Titre"},{key:"url",label:"Fichier PDF",type:"url"},{key:"description",label:"Description",type:"long"}],
  blog:[{key:"title",label:"Titre"},{key:"image",label:"Image",type:"image"},{key:"description",label:"Résumé",type:"long"},{key:"text",label:"Article",type:"long"}],
@@ -27,7 +28,7 @@ function document(key:string,title:string,data:ContentData,order:number):Entry<D
 export function seeds(section:string):Entry<Document>[] {
  if(section==="pages")return pageDefinitions.map((page,i)=>document(page.key,page.title,Object.fromEntries(page.fields.map(f=>[f.key,f.value])),i));
  if(section==="projects")return realisations.map((r,i)=>document(r.slug,r.nom,{nom:r.nom,client:r.client,type:r.type,debit:r.debit,unite:r.unite,image:r.image,texte:r.texte},i));
- if(section==="products")return produits.map((p,i)=>document(p.slug,p.nom,{nom:p.nom,marque:p.marque,gamme:p.gamme,usage:p.usage,secteurs:p.secteurs,forme:p.forme,points:p.points,image:p.image,texte:p.texte},i));
+ if(section==="products")return [...productSamples.map((p,i)=>document(p.slug,p.data.nom,p.data,i)),...produits.map((p,i)=>document(p.slug,p.nom,{nom:p.nom,marque:p.marque,gamme:p.gamme,usage:p.usage,secteurs:p.secteurs,forme:p.forme,points:p.points,image:p.image,texte:p.texte},i+productSamples.length))];
  if(section==="media")return [
   ...galerie.map((g,i)=>document("photo-"+(i+1),g.legende,{title:g.legende,type:"photo",url:g.image,image:g.image,album:"Chantiers",description:""},i)),
   ...videos.map((v,i)=>document("video-"+(i+1),v.titre,{title:v.titre,type:"video",url:"",image:v.vignette,album:"Vidéos",description:v.sous},i+galerie.length)),
