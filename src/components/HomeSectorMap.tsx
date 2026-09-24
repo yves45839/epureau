@@ -21,12 +21,14 @@ export default function HomeSectorMap({content}:{content:Record<string,string>})
   const [selected,setSelected]=useState(0);
   const [documentOpen,setDocumentOpen]=useState(false);
   const value=(key:string,fallback:string)=>ui(content[key]??fallback);
+  const savedTitle=content.map_title;
+  const mapTitle=!savedTitle || ["À chaque environnement, sa solution.", "The right solution for every environment."].includes(savedTitle.trim()) ? ui("Nos domaines d’intervention") : ui(savedTitle);
   const sectors=sectorMap.map(s=>({...s,title:value(`map_${s.id}_title`,s.title),text:value(`map_${s.id}_text`,s.text),points:value(`map_${s.id}_points`,s.points),href:content[`map_${s.id}_link`]||s.href}));
   const active=sectors[selected];
   const href=safeBuilderUrl(active.href)?active.href:sectorMap[selected].href;
   return <section ref={root} className={styles.section} data-motion={visible&&!paused?"running":"paused"} id="secteurs" aria-labelledby="sector-map-title">
     <div className="shell">
-      <div className={styles.heading}><div><span className="home-eyebrow">{ui("Nos solutions, vos secteurs")}</span><h2 id="sector-map-title">{value("map_title","À chaque environnement, sa solution.")}</h2></div><p>{value("map_intro","Explorez nos domaines d’intervention. Sélectionnez un lieu pour découvrir les solutions EPUREAU adaptées à votre activité.")}</p></div>
+      <div className={styles.heading}><div><span className="home-eyebrow">{ui("Nos solutions, vos secteurs")}</span><h2 id="sector-map-title">{mapTitle}</h2></div><p>{value("map_intro","Explorez nos domaines d’intervention. Sélectionnez un lieu pour découvrir les solutions EPUREAU adaptées à votre activité.")}</p></div>
       <div className={styles.explorer}>
         <div className={styles.map}>
           <div className={styles.mapToolbar}><div className={styles.mapLegend}><span className={styles.dot}/>{ui("Une ville, six secteurs d’intervention")}</div><button className={styles.motionToggle} type="button" onClick={()=>setPaused(!paused)} aria-pressed={paused}>{ui(paused?"Activer les animations":"Mettre les animations en pause")}</button></div>
