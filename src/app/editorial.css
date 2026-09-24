@@ -208,3 +208,12 @@ html.js .visual-domains>*.in{clip-path:inset(0 round 10px)}
  .journey-cards{gap:24px}
  .visual-domain:hover .im img,.visual-domain:focus-visible .im img{transform:none}
 }
+
+/* Public prose: language-aware hyphenation keeps narrow columns readable. */
+main#contenu p, .home-experience p, footer p {
+  text-align: justify;
+  text-align-last: start;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+.projects .proj:target { outline: 2px solid var(--cyan, #00a9ce); outline-offset: 5px; }

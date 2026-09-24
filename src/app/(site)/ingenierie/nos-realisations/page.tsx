@@ -1,8 +1,9 @@
-import {siteText, localizedMetadata} from "@/lib/site-language";
+import {siteText, siteLanguage, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues } from "@/lib/cms";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/SiteImage";
+import ProjectAnchor from "@/components/ProjectAnchor";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
@@ -15,6 +16,7 @@ const baseMetadata: Metadata = {
 };
 
 export default async function NosRealisations() {
+  const language = await siteLanguage();
   const realisations = await projectList();
   const values = await pageValues("ingenierie-nos-realisations");
   const ui=await siteText();
@@ -28,13 +30,13 @@ export default async function NosRealisations() {
         titre={t("f001", "Nos réalisations")}
         lead={t("f002", "Stations conçues, installées et mises en service.")}
       />
-<section className="sec">
+<section className="sec"><ProjectAnchor />
         <div className="wrap">
           <div className="projects rvs">
             {realisations.map((r) => (
               <article className="proj" key={r.slug} id={r.slug}>
                 <div className="im">
-                  <Image unoptimized src={r.image} alt={`${ui("Projet")} ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
+                  <Image src={r.image} alt={`${ui("Projet")} ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
                   </div>
                   <div className="cap">
                     <span className="t">{r.type}</span>
@@ -46,7 +48,7 @@ export default async function NosRealisations() {
                   <h3>{r.nom}</h3>
                   <span className="cl">{r.client}</span>
                   <details className="project-details"><summary>{t("f003", "Le projet en détail")}</summary><p>{r.texte}</p></details>
-                  <Link className="arrow-link more" href="/mediatheque#photos">{t("f004", "Photos du chantier ")}<Icon name="arrow" />
+                  <Link className="arrow-link more" href={`${language === "en" ? "/en" : ""}/mediatheque?projet=${encodeURIComponent(r.slug)}#photos`}>{t("f004", "Photos du chantier ")}<Icon name="arrow" />
                   </Link>
                 </div>
               </article>

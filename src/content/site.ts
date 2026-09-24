@@ -22,7 +22,7 @@ export const lieuGoogle = "Epureau CI, Abidjan";
 /** Comptes officiels d'EPUREAU Côte d'Ivoire, modifiables depuis Paramètres. */
 export const reseaux = {
   linkedin: "https://www.linkedin.com/company/epureau-c%C3%B4te-d-ivore",
-  facebook: "https://www.facebook.com/people/Epureau-CI/100067092456207/",
+  facebook: "https://www.facebook.com/profile.php?id=61591198373988",
   youtube: "",
 };
 

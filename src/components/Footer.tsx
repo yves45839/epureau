@@ -1,3 +1,4 @@
+import {socialLinks} from "@/content/social-links";
 import {siteLanguage} from "@/lib/site-language";
 import {uiText} from "@/content/ui-english";
 import UiText from "./UiText";
@@ -13,6 +14,7 @@ export default async function Footer() {
   const ui=(text:string)=>uiText(text,language);
   const societe = await company();
   const settings = (await publishedDocuments("settings"))[0]?.data;
+  const socials = socialLinks(settings);
   const extraPages = (await publishedDocuments("pages")).filter(p=>customPagePath(p.key)&&p.data.__navigation==="oui");
   return (
     <footer>
@@ -50,7 +52,7 @@ export default async function Footer() {
 {settings?.legal && <li><Link href="/mentions-legales"><UiText text={"Mentions légales"} /></Link></li>}
 {settings?.privacy && <li><Link href="/confidentialite"><UiText text={"Confidentialité"} /></Link></li>}
 <li><CookieLink /></li>
-{(["linkedin","facebook","youtube"] as const).some(key => settings?.[key]) && <li className="footer-reseaux">{(["linkedin","facebook","youtube"] as const).map(key => settings?.[key] && <a key={key} className={"reseau-logo " + key} href={settings[key]} target="_blank" rel="noreferrer" aria-label={(key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube") + " — EPUREAU Côte d’Ivoire"} title={key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube"}><Icon name={key} /></a>)}</li>}
+{(["linkedin","facebook","youtube"] as const).some(key => socials[key]) && <li className="footer-reseaux">{(["linkedin","facebook","youtube"] as const).map(key => socials[key] && <a key={key} className={"reseau-logo " + key} href={socials[key]} target="_blank" rel="noreferrer" aria-label={(key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube") + " — EPUREAU Côte d’Ivoire"} title={key === "linkedin" ? "LinkedIn" : key === "facebook" ? "Facebook" : "YouTube"}><Icon name={key} /></a>)}</li>}
             </ul>
           </div>
 

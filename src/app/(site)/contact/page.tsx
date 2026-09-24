@@ -1,7 +1,8 @@
+import {socialLinks} from "@/content/social-links";
 import {siteText, localizedMetadata} from "@/lib/site-language";
 import PageSections from "@/components/PageSections";
 import { pageValues, company, publishedDocuments, productList } from "@/lib/cms";
-import { lieuGoogle, reseaux } from "@/content/site";
+import { lieuGoogle } from "@/content/site";
 import MapEmbed from "@/components/MapEmbed";
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
@@ -27,7 +28,7 @@ export default async function Contact({searchParams}:{searchParams:Promise<{prod
     ["linkedin", "LinkedIn"],
     ["facebook", "Facebook"],
     ["youtube", "YouTube"],
-  ] as const).map(([cle, libelle]) => ({ cle, libelle, url: parametres[cle] || reseaux[cle] })).filter(r => r.url);
+  ] as const).map(([cle, libelle]) => ({ cle, libelle, url: socialLinks(parametres)[cle] })).filter(r => r.url);
 
 
   return <PageSections page="contact" values={values}>
