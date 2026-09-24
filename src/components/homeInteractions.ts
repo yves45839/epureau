@@ -1,9 +1,11 @@
 import { mountCarousels } from "../../public/maquette/carousels.js";
+import {uiText} from "@/content/ui-english";
 import { domaines } from "@/content/site";
 
 /** Interactions de la maquette validée, limitées à l'accueil et nettoyées au départ. */
-export function mountHomeInteractions(root: HTMLElement) {
-  const cleanupCarousels = mountCarousels(root);
+export function mountHomeInteractions(root: HTMLElement, language:"fr"|"en"="fr") {
+  const ui=(text:string)=>uiText(text,language);
+  const cleanupCarousels = mountCarousels(root,ui);
   const lifecycle = new AbortController();
   const { signal } = lifecycle;
   let alive = true;
@@ -30,11 +32,11 @@ export function mountHomeInteractions(root: HTMLElement) {
   const menuToggle = q<HTMLButtonElement>(".menu-toggle");
   const mobileMenu = q("#mobile-menu");
   const closeMenu = () => {
-    mobileMenu.hidden = true; menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+    mobileMenu.hidden = true; menuToggle.setAttribute("aria-expanded", "false"); menuToggle.setAttribute("aria-label", ui("Ouvrir le menu"));
   };
   on(menuToggle, "click", () => {
     const open = menuToggle.getAttribute("aria-expanded") !== "true";
-    mobileMenu.hidden = !open; menuToggle.setAttribute("aria-expanded", String(open)); menuToggle.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    mobileMenu.hidden = !open; menuToggle.setAttribute("aria-expanded", String(open)); menuToggle.setAttribute("aria-label", ui(open ? "Fermer le menu" : "Ouvrir le menu"));
   });
   on(mobileMenu, "click", event => { if (event.target instanceof Element && event.target.closest("a")) closeMenu(); });
   on(document, "keydown", event => { if ((event as KeyboardEvent).key === "Escape" && !mobileMenu.hidden) { closeMenu(); menuToggle.focus(); } });
@@ -93,10 +95,10 @@ export function mountHomeInteractions(root: HTMLElement) {
     const service = domaines[index];
     if (!service) return;
     focusAfterClose = link;
-    q("#dialog-title").textContent = service.titre;
-    q("#dialog-description").textContent = service.texte;
-    q("#dialog-points").replaceChildren(...points[index].map(text => { const span = document.createElement("span"); span.textContent = text; return span; }));
-    q<HTMLAnchorElement>("#dialog-page").href = service.lien;
+    q("#dialog-title").textContent = ui(service.titre);
+    q("#dialog-description").textContent = ui(service.texte);
+    q("#dialog-points").replaceChildren(...points[index].map(text => { const span = document.createElement("span"); span.textContent = ui(text); return span; }));
+    q<HTMLAnchorElement>("#dialog-page").href = "/"+language+service.lien;
     dialog.setAttribute("aria-labelledby", "dialog-title");
     previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -120,7 +122,7 @@ export function mountHomeInteractions(root: HTMLElement) {
     focusAfterClose = q<HTMLInputElement>("#need"); dialog.close();
     const contact = q("#contact");
     if (contact) contact.scrollIntoView({ behavior: motion.matches ? "instant" : "smooth" });
-    else window.location.assign("/contact");
+    else window.location.assign("/"+language+"/contact");
   });
 
   const cleanupServices = (() => {

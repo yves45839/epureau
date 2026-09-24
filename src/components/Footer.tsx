@@ -1,3 +1,5 @@
+import {siteLanguage} from "@/lib/site-language";
+import {uiText} from "@/content/ui-english";
 import UiText from "./UiText";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +9,8 @@ import { customPagePath } from "@/content/page-builder";
 import CookieLink from "./CookieLink";
 
 export default async function Footer() {
+  const language=await siteLanguage();
+  const ui=(text:string)=>uiText(text,language);
   const societe = await company();
   const settings = (await publishedDocuments("settings"))[0]?.data;
   const extraPages = (await publishedDocuments("pages")).filter(p=>customPagePath(p.key)&&p.data.__navigation==="oui");
@@ -15,12 +19,12 @@ export default async function Footer() {
       <div className="wrap">
         <div className="fgrid">
           <div>
-            <Link className="flogo" href="/" aria-label="EPUREAU Côte d’Ivoire — accueil">
+            <Link className="flogo" href="/" aria-label={ui("EPUREAU Côte d’Ivoire — accueil")}>
               <Image src="/images/logo.png" alt="EPUREAU Côte d’Ivoire" width={560} height={162} />
             </Link>
             <p><UiText text={" Experts en ingénierie du traitement de l'eau : conception et réalisation de stations, service aux industries, hygiène institutionnelle et négoce des produits NALCO et ECOLAB. "} /></p>
             <p style={{ fontSize: 13, opacity: 0.75 }}>
-              {societe.groupe} · {societe.adresse}
+              <UiText text={societe.groupe} /> · {societe.adresse}
             </p>
           </div>
 
@@ -56,7 +60,7 @@ export default async function Footer() {
               <li><a href={`tel:${societe.telephoneLien}`}>{societe.telephone}</a></li>
               <li><a href={`mailto:${societe.email}`}>{societe.email}</a></li>
               <li><Link href="/reclamation-client"><UiText text={"Réclamation client"} /></Link></li>
-              <li><span style={{ fontSize: 14, color: "rgba(255,255,255,.85)" }}>{societe.horaires}</span></li>
+              <li><span style={{ fontSize: 14, color: "rgba(255,255,255,.85)" }}><UiText text={societe.horaires} /></span></li>
               <li>
                 <Link className="arrow-link" href="/contact" style={{ color: "var(--cyan-2)" }}><UiText text={" Formulaire de cotation "} /><Icon name="arrow" />
                 </Link>
@@ -65,7 +69,7 @@ export default async function Footer() {
           </div>
         </div>
 
-        {extraPages.length>0&&<nav className="footer-extra-pages" aria-label="Autres pages">{extraPages.map(p=><Link key={p.key} href={customPagePath(p.key)!}>{p.data.title}</Link>)}</nav>}
+        {extraPages.length>0&&<nav className="footer-extra-pages" aria-label={ui("Autres pages")}>{extraPages.map(p=><Link key={p.key} href={customPagePath(p.key)!}>{p.data.title}</Link>)}</nav>}
         <div className="fbot">
           <span>© {new Date().getFullYear()} {societe.nom}<UiText text={" — Tous droits réservés"} /></span>
           <span>{societe.site}</span>

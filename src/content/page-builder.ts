@@ -24,11 +24,22 @@ export type BuilderBlock=z.infer<typeof block>;
 export type BuilderSection=z.infer<typeof layoutSchema>["sections"][number];
 export type PageLayout=z.infer<typeof layoutSchema>;
 export function emptyBlock(type:BlockType,id:string):BuilderBlock {return {id,type,title:blockNames[type],text:"",image:"",alt:"",href:"",buttonLabel:"En savoir plus",theme:"light",items:[]};}
+function homeMapOrder(page:string,layout:PageLayout):PageLayout {
+ if(page!=="accueil")return layout;
+ // Keep section identities and CMS fields stable when moving the map below the métiers.
+ const map=layout.sections.findIndex(s=>s.type==="builtin"&&s.source==="section-2");
+ const trades=layout.sections.findIndex(s=>s.type==="builtin"&&s.source==="section-3");
+ if(map<0||trades<0||map>trades)return layout;
+ const sections=[...layout.sections];
+ const [section]=sections.splice(map,1);
+ sections.splice(trades,0,section);
+ return {...layout,sections};
+}
 export function pageLayout(page:string,data:Record<string,string>):PageLayout {
- if(data.__layout){try{const result=layoutSchema.safeParse(JSON.parse(data.__layout));if(result.success)return result.data;}catch{}}
+ if(data.__layout){try{const result=layoutSchema.safeParse(JSON.parse(data.__layout));if(result.success)return homeMapOrder(page,result.data);}catch{}}
  const sections:BuilderSection[]=(sectionCatalog[page]||[]).map(s=>({id:s.id,type:"builtin",source:s.id}));
  try{const legacy=JSON.parse(data.__blocks||"[]") as {title:string;text:string;image:string}[];legacy.forEach((b,i)=>sections.push({...emptyBlock("text","legacy-"+i),...b}));}catch{}
- return {version:1,sections};
+ return homeMapOrder(page,{version:1,sections});
 }
 export function validatePageLayout(page:string,text:string) {
  const layout=layoutSchema.parse(JSON.parse(text));

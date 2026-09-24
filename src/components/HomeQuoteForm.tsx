@@ -1,6 +1,6 @@
 "use client";
 
-import UiText from "./UiText";
+import UiText, {useUi} from "./UiText";
 import { useEffect, useRef, useState } from "react";
 import { objetsDemande } from "@/content/site";
 import { mesurerConversion } from "./audience-client";
@@ -16,6 +16,7 @@ const placeholders: Record<Domain, string> = {
 };
 
 export default function HomeQuoteForm() {
+  const ui=useUi();
   const formRef = useRef<HTMLFormElement>(null);
   const request = useRef<AbortController | null>(null);
   const [domain, setDomain] = useState<Domain>("");
@@ -91,11 +92,11 @@ export default function HomeQuoteForm() {
       </div>
       <label htmlFor="email"><UiText text={"E-mail professionnel"} /></label><input id="email" name="email" type="email" autoComplete="email" maxLength={160} required />
       <label htmlFor="telephone"><UiText text={"Téléphone (facultatif)"} /></label><input id="telephone" name="telephone" type="tel" autoComplete="tel" maxLength={40} />
-      <label htmlFor="message"><UiText text={"Votre besoin"} /></label><textarea id="message" name="besoin" rows={3} placeholder={placeholders[domain]} minLength={10} maxLength={4000} required />
+      <label htmlFor="message"><UiText text={"Votre besoin"} /></label><textarea id="message" name="besoin" rows={3} placeholder={ui(placeholders[domain])} minLength={10} maxLength={4000} required />
       <input name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1, height: 1 }} />
       <button className="button" type="submit" disabled={status === "sending"}><UiText text={status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"} /><svg aria-hidden="true"><use href="#arrow" /></svg></button>
       {status === "success" && <p className="form-feedback success" role="status"><UiText text={"Votre demande a été prise en compte. Notre équipe reviendra vers vous."} /></p>}
-      {status === "error" && <p className="form-feedback error" role="alert">{error}<UiText text={" Vous pouvez aussi écrire à "} /><a href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a>.</p>}
+      {status === "error" && <p className="form-feedback error" role="alert">{ui(error)}<UiText text={" Vous pouvez aussi écrire à "} /><a href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a>.</p>}
     </form>
   );
 }

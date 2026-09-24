@@ -1,10 +1,10 @@
 /** Carrousels partagés entre l’accueil React et sa maquette interactive. */
-export function mountCarousels(root) {
+export function mountCarousels(root, translate = text => text) {
   const lifecycle = new AbortController();
   const on = (target, name, listener, options = {}) => target.addEventListener(name, listener, { ...options, signal: lifecycle.signal });
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const hero = root.querySelector('[data-hero-carousel]');
-  if (!hero) { const cleanup = mountLogoLoop(root, on, motion); return () => { lifecycle.abort(); cleanup(); }; }
+  if (!hero) { const cleanup = mountLogoLoop(root, on, motion, translate); return () => { lifecycle.abort(); cleanup(); }; }
   const slides = [...hero.querySelectorAll('[data-hero-slide]')];
   const dots = [...hero.querySelectorAll('[data-hero-dot]')];
   const controls = hero.querySelector('[data-hero-controls]');
@@ -22,7 +22,7 @@ export function mountCarousels(root) {
     window.clearTimeout(timer);
     const running = !paused && !hovered && !motion.matches && inView && !document.hidden;
     rotation.hidden = motion.matches;
-    rotation.setAttribute('aria-label', paused ? 'Reprendre le défilement automatique' : 'Mettre le défilement en pause');
+    rotation.setAttribute('aria-label', translate(paused ? 'Reprendre le défilement automatique' : 'Mettre le défilement en pause'));
     rotation.querySelector('[data-pause-icon]').toggleAttribute('hidden', paused);
     rotation.querySelector('[data-play-icon]').toggleAttribute('hidden', !paused);
     hero.classList.toggle('carousel-playing', running);
@@ -40,7 +40,7 @@ export function mountCarousels(root) {
     hero.querySelector('[data-hero-count]').textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
     hero.querySelector('[data-hero-title]').textContent = slides[index].dataset.title;
     hero.querySelector('[data-hero-description]').textContent = slides[index].dataset.description;
-    if (manual) announcement.textContent = `Photo ${index + 1} sur ${slides.length} : ${slides[index].dataset.caption}`;
+    if (manual) announcement.textContent = `${translate("Photo")} ${index + 1} ${translate("sur")} ${slides.length} : ${slides[index].dataset.caption}`;
     schedule();
   }
 
@@ -77,7 +77,7 @@ export function mountCarousels(root) {
   heroObserver.observe(hero);
   show(0);
 
-  const cleanupLogos = mountLogoLoop(root, on, motion);
+  const cleanupLogos = mountLogoLoop(root, on, motion, translate);
 
   return () => {
     lifecycle.abort();
@@ -87,7 +87,7 @@ export function mountCarousels(root) {
   };
 }
 
-function mountLogoLoop(root, on, motion) {
+function mountLogoLoop(root, on, motion, translate) {
   const clients = root.querySelector('[data-logo-carousel]');
   if (!clients) return () => {};
   const rail = clients.querySelector('[data-logo-rail]');
@@ -123,7 +123,7 @@ function mountLogoLoop(root, on, motion) {
     window.clearTimeout(settleTimer);
     running = !paused && !hovered && !motion.matches && inView && !document.hidden && cycle > 0;
     rotation.hidden = motion.matches;
-    rotation.setAttribute('aria-label', paused ? 'Reprendre le défilement des logos' : 'Mettre le défilement des logos en pause');
+    rotation.setAttribute('aria-label', translate(paused ? 'Reprendre le défilement des logos' : 'Mettre le défilement des logos en pause'));
     rotation.querySelector('[data-pause-icon]').toggleAttribute('hidden', paused);
     rotation.querySelector('[data-play-icon]').toggleAttribute('hidden', !paused);
     if (running) { position = normalize(rail.scrollLeft); frame = requestAnimationFrame(advance); }

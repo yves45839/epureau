@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
+import {useUi} from "./UiText";
 
 export default function ToTop() {
+  const ui=useUi();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export default function ToTop() {
     <button
       type="button"
       className={`totop${visible ? " show" : ""}`}
-      aria-label="Revenir en haut de la page"
+      aria-label={ui("Revenir en haut de la page")}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
       <Icon name="up" />
