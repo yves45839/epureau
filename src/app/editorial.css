@@ -209,11 +209,24 @@ html.js .visual-domains>*.in{clip-path:inset(0 round 10px)}
  .visual-domain:hover .im img,.visual-domain:focus-visible .im img{transform:none}
 }
 
-/* Public prose: language-aware hyphenation keeps narrow columns readable. */
+/* Natural spacing for short copy, cards and narrow screens. */
 main#contenu p, .home-experience p, footer p {
-  text-align: justify;
+  text-align: start;
   text-align-last: start;
   hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
   overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+/* Justify editorial prose only when its actual column is wide enough. */
+main#contenu .text, main#contenu .cms-blocks > article {
+  container: editorial-prose / inline-size;
+}
+@media (min-width: 1024px) {
+  @container editorial-prose (min-width: 36rem) {
+    main#contenu .text p, main#contenu .cms-blocks > article p {
+      text-align: justify;
+    }
+  }
 }
 .projects .proj:target { outline: 2px solid var(--cyan, #00a9ce); outline-offset: 5px; }
