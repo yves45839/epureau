@@ -10,7 +10,7 @@ export const localStore = () => process.env.ADMIN_LOCAL_STORE === "1" && !proces
 export const storeConfigured = () => localStore() || Boolean(process.env.DATABASE_URL);
 let ready: Promise<void> | undefined;
 let queue: Promise<unknown> = Promise.resolve();
-const localPath = () => path.join(process.cwd(), ".local", process.env.ADMIN_LOCAL_DATASET === "builder-test" ? "builder-test.json" : "admin.json");
+const localPath = () => path.join(process.cwd(), ".local", process.env.ADMIN_LOCAL_DATASET === "builder-test" ? "builder-test.json" : process.env.ADMIN_LOCAL_DATASET === "translation-test" ? "translation-test.json" : "admin.json");
 
 async function localRows(): Promise<Stored[]> {
   try { return JSON.parse(await readFile(localPath(), "utf8")); }

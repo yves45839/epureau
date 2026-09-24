@@ -1,4 +1,5 @@
 "use client";
+import UiText from "./UiText";
 import PageSections from "@/components/PageSections";
 import {pageLayout} from "@/content/page-builder";
 
@@ -65,7 +66,7 @@ const slides = [
 <section id="realisations" className="proof-section">
       <div className="shell section-heading reveal"><div><span className="home-eyebrow light">{t("f056", "Sur le terrain · Côte d’Ivoire")}</span><h2>{t("f057", "Nos réalisations")}</h2></div><a href="/ingenierie/nos-realisations" className="text-link">{t("f058", "Toutes nos réalisations")}<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div>
       <div className="proof-story">
-        <div className="proof-stage" aria-hidden="true"><div className="shell stage-inner"><div className="stage-rail"><span>01</span><div><i /></div><span>{String(Math.min(2,realisations.length)).padStart(2,"0")}</span></div><div className="stage-images">{realisations.slice(0,2).map((project,index)=><img key={project.slug} className={index===0?"active":""} data-case-image={index} src={project.image} alt="" width="640" height="245" loading="eager" />)}</div><span className="stage-caption">Photographies de réalisations</span></div></div>
+        <div className="proof-stage" aria-hidden="true"><div className="shell stage-inner"><div className="stage-rail"><span>01</span><div><i /></div><span>{String(Math.min(2,realisations.length)).padStart(2,"0")}</span></div><div className="stage-images">{realisations.slice(0,2).map((project,index)=><img key={project.slug} className={index===0?"active":""} data-case-image={index} src={project.image} alt="" width="640" height="245" loading="eager" />)}</div><span className="stage-caption"><UiText text={"Photographies de réalisations"} /></span></div></div>
         <div className="shell case-list">
           {realisations.slice(0,2).map((project,index)=><article className={`case-card${index===0?" active":""}`} data-case={index} key={project.slug} aria-labelledby={`project-${project.slug}`}>
             <img className="case-mobile-photo" src={project.image} alt={`Installation de traitement des eaux — ${project.nom}`} width="640" height="245" loading="lazy" />
@@ -73,7 +74,7 @@ const slides = [
           </article>)}
         </div>
       </div>
-<div className="shell catalogue-grid">{realisations.slice(2).map((project,index)=><article className="catalogue-card reveal" key={project.slug}><div className="catalogue-photo"><img src={project.image} width="640" height="245" alt={"Réalisation "+project.nom} loading="lazy" /></div><div className="catalogue-body"><span className="case-number">{String(index+3).padStart(2,"0")} / {String(realisations.length).padStart(2,"0")}</span><h3>{project.nom}</h3><span className="catalogue-location">{project.type}</span><p>{project.texte}</p><a className="text-link" href={"/ingenierie/nos-realisations#"+project.slug}>Voir le projet<svg aria-hidden="true"><use href="#diagonal" /></svg></a></div></article>)}</div>
+<div className="shell catalogue-grid">{realisations.slice(2).map((project,index)=><article className="catalogue-card reveal" key={project.slug}><div className="catalogue-photo"><img src={project.image} width="640" height="245" alt={"Réalisation "+project.nom} loading="lazy" /></div><div className="catalogue-body"><span className="case-number">{String(index+3).padStart(2,"0")} / {String(realisations.length).padStart(2,"0")}</span><h3>{project.nom}</h3><span className="catalogue-location">{project.type}</span><p>{project.texte}</p><a className="text-link" href={"/ingenierie/nos-realisations#"+project.slug}><UiText text={"Voir le projet"} /><svg aria-hidden="true"><use href="#diagonal" /></svg></a></div></article>)}</div>
     </section>
 <section className="section references-section">
       <div className="shell references-grid">

@@ -1,3 +1,5 @@
+import {PublicLanguage} from "@/components/UiText";
+import {siteLanguage} from "@/lib/site-language";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -33,7 +35,7 @@ const mono = localFont({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   metadataBase: new URL("https://www.epureau-ci.com"),
   title: {
     default: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
@@ -52,14 +54,24 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  if (await siteLanguage() !== "en") return baseMetadata;
+  return {
+    ...baseMetadata,
+    title: {default: "EPUREAU Côte d’Ivoire — Water treatment engineering", template: "%s — EPUREAU Côte d’Ivoire"},
+    description: "Water treatment plant design and construction, industrial services, institutional hygiene and supply of NALCO and ECOLAB products in Côte d’Ivoire.",
+    openGraph: {...baseMetadata.openGraph, locale: "en_US", title: "EPUREAU Côte d’Ivoire — Water treatment engineering", description: "Reliable solutions for water treatment, industrial services and institutional hygiene."},
+  };
+}
+
 export const viewport: Viewport = {
   themeColor: "#1B2E78",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`js ${outfit.variable} ${inter.variable} ${mono.variable}`}>
-      <body>{children}</body>
+    <html lang={await siteLanguage()} className={`js ${outfit.variable} ${inter.variable} ${mono.variable}`}>
+      <body><PublicLanguage language={await siteLanguage()}>{children}</PublicLanguage></body>
     </html>
   );
 }

@@ -1,5 +1,5 @@
-// Contenu du site — source unique. Pour la version anglaise, dupliquer ce fichier
-// (site.en.ts) et brancher la locale : la structure des pages reste identique.
+// Contenu français par défaut. Les traductions anglaises des contenus administrables
+// sont enregistrées dans le CMS avec la source française correspondante.
 
 export const societe = {
   nom: "EPUREAU Côte d’Ivoire",

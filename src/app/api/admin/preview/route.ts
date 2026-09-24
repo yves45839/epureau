@@ -10,5 +10,5 @@ export async function GET(req:Request) {
  const target=url.searchParams.get("path")||"/";
  const allowed=[...(await editablePageDefinitions()).map(p=>p.path),"/blog","/mentions-legales","/confidentialite"];
  if(!allowed.includes(target))return new Response("Page inconnue",{status:400});
- (await draftMode()).enable();return NextResponse.redirect(new URL(target,requestOrigin(req)));
+ (await draftMode()).enable();return NextResponse.redirect(new URL((url.searchParams.get("lang")==="en"?"/en":"/fr")+(target==="/"?"":target),requestOrigin(req)));
 }

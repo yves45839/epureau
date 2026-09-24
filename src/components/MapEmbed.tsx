@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import { useState } from "react";
 import Icon from "./Icon";
 
@@ -26,10 +27,10 @@ export default function MapEmbed({ lieu, adresse }: { lieu: string; adresse: str
         <div className="carte-attente">
           <span className="ic"><Icon name="pin" /></span>
           <b>{adresse}</b>
-          <p>Notre établissement est référencé <b>Epureau CI</b> sur Google Maps. La carte est fournie par Google : en l’affichant, vous acceptez le dépôt de ses cookies.</p>
+          <p><UiText text={"Notre établissement est référencé "} /><b><UiText text={"Epureau CI"} /></b><UiText text={" sur Google Maps. La carte est fournie par Google : en l’affichant, vous acceptez le dépôt de ses cookies."} /></p>
           <div className="carte-actions">
-            <button type="button" className="btn btn-primary btn-sm" onClick={() => setAffichee(true)}>Afficher la carte</button>
-            <a className="arrow-link" href={lien} target="_blank" rel="noopener">Ouvrir dans Google Maps <Icon name="arrow" /></a>
+            <button type="button" className="btn btn-primary btn-sm" onClick={() => setAffichee(true)}><UiText text={"Afficher la carte"} /></button>
+            <a className="arrow-link" href={lien} target="_blank" rel="noopener"><UiText text={"Ouvrir dans Google Maps "} /><Icon name="arrow" /></a>
           </div>
         </div>
       )}

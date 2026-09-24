@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import { useState } from "react";
 import Icon from "./Icon";
 import { objetsDemande } from "@/content/site";
@@ -35,39 +36,37 @@ export default function QuoteForm() {
 
   return (
     <form className="form rv" id="form" onSubmit={envoyer} noValidate>
-      <h3>Demande de cotation ou d&apos;information</h3>
-      <p className="sub">
-        Décrivez-nous votre installation : nous revenons vers vous avec une proposition chiffrée.
-      </p>
+      <h3><UiText text={"Demande de cotation ou d'information"} /></h3>
+      <p className="sub"><UiText text={" Décrivez-nous votre installation : nous revenons vers vous avec une proposition chiffrée. "} /></p>
 
       <div className="fg">
         <div className="fld">
           <input id="f1" name="nom" type="text" placeholder=" " required autoComplete="name" />
-          <label htmlFor="f1">Nom et prénom *</label>
+          <label htmlFor="f1"><UiText text={"Nom et prénom *"} /></label>
         </div>
         <div className="fld">
           <input id="f2" name="societe" type="text" placeholder=" " required autoComplete="organization" />
-          <label htmlFor="f2">Société / établissement *</label>
+          <label htmlFor="f2"><UiText text={"Société / établissement *"} /></label>
         </div>
         <div className="fld">
           <input id="f3" name="email" type="email" placeholder=" " required autoComplete="email" />
-          <label htmlFor="f3">E-mail professionnel *</label>
+          <label htmlFor="f3"><UiText text={"E-mail professionnel *"} /></label>
         </div>
         <div className="fld">
           <input id="f4" name="telephone" type="tel" placeholder=" " autoComplete="tel" />
-          <label htmlFor="f4">Téléphone</label>
+          <label htmlFor="f4"><UiText text={"Téléphone"} /></label>
         </div>
         <div className="fld full">
           <select id="f5" name="objet" defaultValue={objetsDemande[0]}>
             {objetsDemande.map((o) => (
-              <option key={o}>{o}</option>
+              <option key={o} value={o}><UiText text={o} /></option>
             ))}
           </select>
-          <label htmlFor="f5">Objet de la demande</label>
+          <label htmlFor="f5"><UiText text={"Objet de la demande"} /></label>
         </div>
         <div className="fld full">
           <textarea id="f6" name="besoin" placeholder=" " required />
-          <label htmlFor="f6">Votre besoin (effluent, débit, site, contraintes…) *</label>
+          <label htmlFor="f6"><UiText text={"Votre besoin (effluent, débit, site, contraintes…) *"} /></label>
         </div>
       </div>
 
@@ -82,12 +81,12 @@ export default function QuoteForm() {
       />
 
       <button className="btn btn-primary" type="submit" disabled={etat === "envoi"}>
-        {etat === "envoi" ? "Envoi en cours…" : "Envoyer ma demande"} <Icon name="send" />
+        <UiText text={etat === "envoi" ? "Envoi en cours…" : "Envoyer ma demande"} /> <Icon name="send" />
       </button>
 
       {etat === "erreur" && (
         <p role="alert" style={{ marginTop: 14, fontSize: 13.5, color: "#B4232A" }}>
-          {message} — vous pouvez aussi nous écrire directement à{" "}
+          {message}<UiText text={" — vous pouvez aussi nous écrire directement à"} />{" "}
           <a href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a>.
         </p>
       )}
@@ -97,11 +96,8 @@ export default function QuoteForm() {
           <span className="ck">
             <Icon name="check" />
           </span>
-          <b>Demande envoyée</b>
-          <p>
-            Copie transmise à nos équipes et enregistrée dans le tableau de bord de suivi. Nous vous
-            répondons sous 48 h ouvrées.
-          </p>
+          <b><UiText text={"Demande envoyée"} /></b>
+          <p><UiText text={" Copie transmise à nos équipes et enregistrée dans le tableau de bord de suivi. Nous vous répondons sous 48 h ouvrées. "} /></p>
         </div>
       </div>
     </form>

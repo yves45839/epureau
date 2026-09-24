@@ -1,3 +1,4 @@
+import LanguageSwitch from "@/components/LanguageSwitch";
 import PreviewBanner from "@/components/PreviewBanner";
 import Audience from "@/components/Audience";
 import CookieBanner from "@/components/CookieBanner";
@@ -13,7 +14,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <a className="skip" href="#contenu">
         Aller au contenu
       </a>
-      <PreviewBanner /><Nav />
+      <LanguageSwitch /><PreviewBanner /><Nav />
       <main id="contenu">{children}</main>
       <Footer />
       <ToTop />

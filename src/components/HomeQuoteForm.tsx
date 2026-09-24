@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import { useEffect, useRef, useState } from "react";
 import { objetsDemande } from "@/content/site";
 import { mesurerConversion } from "./audience-client";
@@ -74,27 +75,27 @@ export default function HomeQuoteForm() {
 
   return (
     <form id="quote-form" className="quote-form reveal" ref={formRef} onSubmit={send}>
-      <label htmlFor="need">Votre demande concerne</label>
+      <label htmlFor="need"><UiText text={"Votre demande concerne"} /></label>
       <select id="need" value={domain} onChange={event => setDomain(event.target.value as Domain)} required>
-        <option value="" disabled>Choisir un domaine</option>
-        <option value="ingenierie">Ingénierie du traitement de l’eau</option>
-        <option value="industries">Service aux industries</option>
-        <option value="hygiene">Hygiène institutionnelle</option>
-        <option value="produits">Produits chimiques</option>
-        <option value="autre">Autre demande</option>
+        <option value="" disabled><UiText text={"Choisir un domaine"} /></option>
+        <option value="ingenierie"><UiText text={"Ingénierie du traitement de l’eau"} /></option>
+        <option value="industries"><UiText text={"Service aux industries"} /></option>
+        <option value="hygiene"><UiText text={"Hygiène institutionnelle"} /></option>
+        <option value="produits"><UiText text={"Produits chimiques"} /></option>
+        <option value="autre"><UiText text={"Autre demande"} /></option>
       </select>
-      {domain === "produits" && <><label htmlFor="product-range">Gamme de produits</label><select id="product-range" name="gamme" defaultValue="" required><option value="" disabled>Choisir une gamme</option>{objetsDemande.slice(3, 6).map(object => <option key={object}>{object}</option>)}</select></>}
+      {domain === "produits" && <><label htmlFor="product-range"><UiText text={"Gamme de produits"} /></label><select id="product-range" name="gamme" defaultValue="" required><option value="" disabled><UiText text={"Choisir une gamme"} /></option>{objetsDemande.slice(3, 6).map(object => <option key={object} value={object}><UiText text={object} /></option>)}</select></>}
       <div className="field-row">
-        <div><label htmlFor="name">Nom et prénom</label><input id="name" name="nom" autoComplete="name" minLength={2} maxLength={120} required /></div>
-        <div><label htmlFor="company">Société / établissement</label><input id="company" name="societe" autoComplete="organization" minLength={2} maxLength={160} required /></div>
+        <div><label htmlFor="name"><UiText text={"Nom et prénom"} /></label><input id="name" name="nom" autoComplete="name" minLength={2} maxLength={120} required /></div>
+        <div><label htmlFor="company"><UiText text={"Société / établissement"} /></label><input id="company" name="societe" autoComplete="organization" minLength={2} maxLength={160} required /></div>
       </div>
-      <label htmlFor="email">E-mail professionnel</label><input id="email" name="email" type="email" autoComplete="email" maxLength={160} required />
-      <label htmlFor="telephone">Téléphone (facultatif)</label><input id="telephone" name="telephone" type="tel" autoComplete="tel" maxLength={40} />
-      <label htmlFor="message">Votre besoin</label><textarea id="message" name="besoin" rows={3} placeholder={placeholders[domain]} minLength={10} maxLength={4000} required />
+      <label htmlFor="email"><UiText text={"E-mail professionnel"} /></label><input id="email" name="email" type="email" autoComplete="email" maxLength={160} required />
+      <label htmlFor="telephone"><UiText text={"Téléphone (facultatif)"} /></label><input id="telephone" name="telephone" type="tel" autoComplete="tel" maxLength={40} />
+      <label htmlFor="message"><UiText text={"Votre besoin"} /></label><textarea id="message" name="besoin" rows={3} placeholder={placeholders[domain]} minLength={10} maxLength={4000} required />
       <input name="site" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: -9999, width: 1, height: 1 }} />
-      <button className="button" type="submit" disabled={status === "sending"}>{status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}<svg aria-hidden="true"><use href="#arrow" /></svg></button>
-      {status === "success" && <p className="form-feedback success" role="status">Votre demande a été prise en compte. Notre équipe reviendra vers vous.</p>}
-      {status === "error" && <p className="form-feedback error" role="alert">{error} Vous pouvez aussi écrire à <a href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a>.</p>}
+      <button className="button" type="submit" disabled={status === "sending"}><UiText text={status === "sending" ? "Envoi en cours…" : "Envoyer ma demande"} /><svg aria-hidden="true"><use href="#arrow" /></svg></button>
+      {status === "success" && <p className="form-feedback success" role="status"><UiText text={"Votre demande a été prise en compte. Notre équipe reviendra vers vous."} /></p>}
+      {status === "error" && <p className="form-feedback error" role="alert">{error}<UiText text={" Vous pouvez aussi écrire à "} /><a href="mailto:epureau@epureau-ci.com">epureau@epureau-ci.com</a>.</p>}
     </form>
   );
 }

@@ -159,3 +159,9 @@
 .produit-points svg{width:15px;height:15px;color:#2BB673;flex:none;margin-top:2px}
 .produit-corps .arrow-link{margin-top:auto;padding-top:12px}
 @media (max-width:540px){.produit-attributs>div{grid-template-columns:1fr;gap:2px}}
+
+.site-languages{position:fixed;left:22px;bottom:22px;z-index:90;display:flex;gap:3px;padding:5px;border:1px solid #d5e3f0;background:#fff;border-radius:30px;box-shadow:0 3px 18px #12305b18;font-family:Arial,sans-serif;font-size:12px}
+.site-languages a{padding:7px 10px;border-radius:24px;color:#1b2e78;text-decoration:none;font-weight:600}
+.site-languages a[aria-current=page]{background:#1b2e78;color:#fff}
+.site-languages a:focus-visible{outline:2px solid #00aceb;outline-offset:3px}
+@media(max-width:700px){.site-languages{left:12px;bottom:12px}.language-name{display:none}}

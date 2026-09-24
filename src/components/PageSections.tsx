@@ -1,3 +1,4 @@
+import UiText from "./UiText";
 import {Children,Fragment,isValidElement,type ReactNode} from "react";
 import {pageLayout,type BuilderBlock} from "@/content/page-builder";
 import BuilderCarousel from "./BuilderCarousel";
@@ -7,7 +8,7 @@ export function BuilderSectionView({block}:{block:BuilderBlock}){
   <div className="builder-wrap">
    {block.title&&<h2>{block.title}</h2>}{block.text&&<p className="builder-intro">{block.text}</p>}
    {block.image&&<img className="builder-main-image" src={block.image} alt={block.alt} width="1200" height="650" loading="lazy" />}
-   {block.type==="carousel"?<BuilderCarousel block={block} />:block.type==="faq"?<div className="builder-faq">{block.items.map(item=><details key={item.id}><summary>{item.title}</summary><p>{item.text}</p></details>)}</div>:<div className="builder-items">{block.items.map(item=><article key={item.id}>{item.image&&<img src={item.image} alt={item.alt} width="700" height="450" loading="lazy" />}<h3>{item.title}</h3><p>{item.text}</p>{item.href&&<a href={item.href}>En savoir plus →</a>}</article>)}</div>}
+   {block.type==="carousel"?<BuilderCarousel block={block} />:block.type==="faq"?<div className="builder-faq">{block.items.map(item=><details key={item.id}><summary>{item.title}</summary><p>{item.text}</p></details>)}</div>:<div className="builder-items">{block.items.map(item=><article key={item.id}>{item.image&&<img src={item.image} alt={item.alt} width="700" height="450" loading="lazy" />}<h3>{item.title}</h3><p>{item.text}</p>{item.href&&<a href={item.href}><UiText text={"En savoir plus →"} /></a>}</article>)}</div>}
    {block.href&&<a className="builder-button" href={block.href}>{block.buttonLabel||"En savoir plus"} →</a>}
   </div>
  </section>;

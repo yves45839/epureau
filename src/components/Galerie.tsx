@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
@@ -23,7 +24,7 @@ export default function Galerie({ items = galerie }: { items?: { image: string; 
 
   return (
     <>
-      <label className="gallery-filter">Album<select value={album} onChange={event => { setOuvert(null); setAlbum(event.target.value); }}><option value="">Tous les albums</option>{[...new Set(items.map(item => item.album).filter(Boolean))].map(name => <option key={name} value={name}>{name}</option>)}</select></label><div className="gal rvs" id="photos">
+      <label className="gallery-filter"><UiText text={"Album"} /><select value={album} onChange={event => { setOuvert(null); setAlbum(event.target.value); }}><option value=""><UiText text={"Tous les albums"} /></option>{[...new Set(items.map(item => item.album).filter(Boolean))].map(name => <option key={name} value={name}>{name}</option>)}</select></label><div className="gal rvs" id="photos">
         {photos.map((g, i) => (
           <figure key={g.legende}>
             <button className="gallery-open" type="button" onClick={() => setOuvert(i)} aria-label={`Voir : ${g.legende}`}>

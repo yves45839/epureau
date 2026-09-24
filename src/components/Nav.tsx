@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -41,7 +42,7 @@ function NavigationContent({ pathname }: { pathname: string }) {
 
   const actif = (href: string) => {
     const base = href.split("#")[0];
-    return base !== "/" && pathname.startsWith(base);
+    return base !== "/" && pathname.replace(/^\/(?:en|fr)(?=\/|$)/, "").startsWith(base);
   };
 
   return (
@@ -77,20 +78,20 @@ function NavigationContent({ pathname }: { pathname: string }) {
                         }
                       }}
                     >
-                      {item.label}
+                      <UiText text={item.label} />
                       <Icon name="chev" />
                     </a>
                   ) : (
                     <Link href={item.href} className={actif(item.href) ? "on" : ""}>
-                      {item.label}
+                      <UiText text={item.label} />
                     </Link>
                   )}
                   {item.sous && (
                     <div className="sub">
                       {item.sous.map((s) => (
                         <Link key={s.href} href={s.href}>
-                          <b>{s.label}</b>
-                          <span>{s.desc}</span>
+                          <b><UiText text={s.label} /></b>
+                          <span><UiText text={s.desc} /></span>
                         </Link>
                       ))}
                     </div>
@@ -99,8 +100,7 @@ function NavigationContent({ pathname }: { pathname: string }) {
               ))}
             </ul>
 
-            <Link className="btn btn-primary btn-sm" href="/contact">
-              Demander une cotation <Icon name="arrow" />
+            <Link className="btn btn-primary btn-sm" href="/contact"><UiText text={" Demander une cotation "} /><Icon name="arrow" />
             </Link>
 
             <button
@@ -124,14 +124,12 @@ function NavigationContent({ pathname }: { pathname: string }) {
           {navigation.map((item, i) => (
             <li key={item.label} style={{ ["--i" as string]: i }}>
               <Link href={item.href} onClick={() => setMenuMobile(false)}>
-                {item.label}
+                <UiText text={item.label} />
               </Link>
             </li>
           ))}
           <li style={{ ["--i" as string]: navigation.length }}>
-            <Link href="/contact" onClick={() => setMenuMobile(false)}>
-              Demander une cotation
-            </Link>
+            <Link href="/contact" onClick={() => setMenuMobile(false)}><UiText text={" Demander une cotation "} /></Link>
           </li>
         </ul>
       </div>

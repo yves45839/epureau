@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -61,7 +62,7 @@ export default function Hero() {
         <article key={d.titre} id={`metier-${i}`} className={`cinema-slide${index === i ? " active" : ""}`} aria-hidden={index !== i} inert={index !== i} aria-roledescription="diapositive" aria-label={`${i + 1} sur ${slides.length}`}>
           <div className="cinema-image"><Image src={d.visuel.src} alt={d.visuel.alt} fill sizes="100vw" preload={i === 0} style={{ objectPosition: d.visuel.position }} /></div>
           <div className="wrap cinema-copy">
-            <span className="eyebrow">EPUREAU Côte d’Ivoire</span>
+            <span className="eyebrow"><UiText text={"EPUREAU Côte d’Ivoire"} /></span>
             {i === 0 ? <h1 className="cinema-title">{d.titre}</h1> : <h2 className="cinema-title">{d.titre}</h2>}
             <Link className="btn btn-primary" href={d.lien}>{d.lienTexte}<Icon name="arrow" /></Link>
           </div>

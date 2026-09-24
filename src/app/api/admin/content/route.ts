@@ -1,3 +1,4 @@
+import {validateEnglish} from "@/content/translations";
 import { revalidateTag } from "next/cache";
 import { z } from "zod";
 import { currentUser, sameOrigin } from "@/lib/auth";
@@ -75,10 +76,11 @@ export async function POST(req:Request){
  if(p.section==="pages"&&!builtIn&&!customPage)return response({message:"Adresse de page invalide ou réservée."},422);
  if(p.section==="settings"&&p.key!=="societe")return response({message:"Paramètre inconnu."},422);
  const fields=p.section==="pages"?(builtIn?.fields||customPageFields):modelFields[p.section]||[];
- const allowed=new Set([...fields.map(f=>f.key),"__blocks",...(p.section==="pages"?["__layout","__navigation"]:[])]);
+ const allowed=new Set([...fields.map(f=>f.key),"__blocks","__en",...(p.section==="pages"?["__layout","__navigation"]:[])]);
  const data=p.data??old?.value.draft??{};
  if(Object.keys(data).some(key=>!allowed.has(key)))return response({message:"Champ inconnu."},422);
- if(Object.entries(data).some(([key,value])=>key!=="__layout"&&value.length>24000))return response({message:"Champ trop long."},422);
+ if(Object.entries(data).some(([key,value])=>!["__layout","__en"].includes(key)&&value.length>24000))return response({message:"Champ trop long."},422);
+ try{validateEnglish(data,fields,p.section);}catch{return response({message:"Traductions invalides : vérifiez les textes et leurs longueurs."},422);}
  if(p.section==="pages"){
   if(data.__navigation&&!['oui','non'].includes(data.__navigation))return response({message:"Option de navigation invalide."},422);
   if(data.__layout){try{validatePageLayout(p.key,data.__layout);}catch{return response({message:"Composition invalide : vérifiez les sections, les liens et leurs limites."},422);}}

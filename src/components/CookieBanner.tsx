@@ -1,5 +1,6 @@
 "use client";
 
+import UiText from "./UiText";
 import { useEffect, useState } from "react";
 import { CLE_CONSENTEMENT } from "./audience-client";
 
@@ -32,21 +33,17 @@ export default function CookieBanner() {
     <div className="cookie-bar" role="dialog" aria-modal="false" aria-labelledby="cookie-titre">
       <div className="cookie-card">
         <div className="cookie-texte">
-          <h2 id="cookie-titre">Votre vie privée</h2>
-          <p>
-            Ce site ne dépose aucun cookie publicitaire. Seule une mesure de fréquentation interne est réalisée,
-            sans cookie et sans conserver votre adresse IP. Aucune donnée n’est transmise à un service tiers, sauf si
-            vous demandez vous-même l’affichage de la carte Google Maps sur la page contact.
-          </p>
+          <h2 id="cookie-titre"><UiText text={"Votre vie privée"} /></h2>
+          <p><UiText text={" Ce site ne dépose aucun cookie publicitaire. Seule une mesure de fréquentation interne est réalisée, sans cookie et sans conserver votre adresse IP. Aucune donnée n’est transmise à un service tiers, sauf si vous demandez vous-même l’affichage de la carte Google Maps sur la page contact. "} /></p>
           {details && (
             <ul className="cookie-liste">
               <li>
-                <span><b>Fonctionnement du site</b><small>Sécurité des formulaires et affichage. Nécessaires, toujours actifs.</small></span>
-                <span className="cookie-fixe">Toujours actifs</span>
+                <span><b><UiText text={"Fonctionnement du site"} /></b><small><UiText text={"Sécurité des formulaires et affichage. Nécessaires, toujours actifs."} /></small></span>
+                <span className="cookie-fixe"><UiText text={"Toujours actifs"} /></span>
               </li>
               <li>
                 <label>
-                  <span><b>Mesure de fréquentation</b><small>Pages consultées, provenance et type d’appareil, de façon anonyme.</small></span>
+                  <span><b><UiText text={"Mesure de fréquentation"} /></b><small><UiText text={"Pages consultées, provenance et type d’appareil, de façon anonyme."} /></small></span>
                   <input type="checkbox" checked={mesure} onChange={event => setMesure(event.target.checked)} />
                 </label>
               </li>
@@ -55,12 +52,12 @@ export default function CookieBanner() {
         </div>
         <div className="cookie-actions">
           {details ? (
-            <button type="button" className="cookie-btn cookie-accepte" onClick={() => decider(mesure)}>Enregistrer mes choix</button>
+            <button type="button" className="cookie-btn cookie-accepte" onClick={() => decider(mesure)}><UiText text={"Enregistrer mes choix"} /></button>
           ) : (
             <>
-              <button type="button" className="cookie-btn cookie-accepte" onClick={() => decider(true)}>Tout accepter</button>
-              <button type="button" className="cookie-btn cookie-refuse" onClick={() => decider(false)}>Refuser</button>
-              <button type="button" className="cookie-lien" onClick={() => setDetails(true)}>Personnaliser</button>
+              <button type="button" className="cookie-btn cookie-accepte" onClick={() => decider(true)}><UiText text={"Tout accepter"} /></button>
+              <button type="button" className="cookie-btn cookie-refuse" onClick={() => decider(false)}><UiText text={"Refuser"} /></button>
+              <button type="button" className="cookie-lien" onClick={() => setDetails(true)}><UiText text={"Personnaliser"} /></button>
             </>
           )}
         </div>

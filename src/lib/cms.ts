@@ -1,3 +1,5 @@
+import {englishContent} from "@/content/translations";
+import {siteLanguage} from "./site-language";
 import "server-only";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
@@ -51,7 +53,8 @@ export async function publishedDocuments(section:string,allowPreview=true):Promi
  catch { console.error("[cms] Lecture indisponible");docs=seeds(section); }
  const preview=allowPreview&&await canPreview(section);
  if(preview)docs=await editableDocuments(section);
- return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>({key:doc.key,data:preview?doc.value.draft:doc.value.published!}));
+ const language=await siteLanguage();
+ return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>({key:doc.key,data:language==="en"?englishContent(preview?doc.value.draft:doc.value.published!):preview?doc.value.draft:doc.value.published!}));
 }
 export const pageValues=cache(async(key:string):Promise<ContentData>=>{
  const fallback=seeds("pages").find(doc=>doc.key===key)?.value.draft??{};

@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import {randomUUID} from 'node:crypto';
+// Dedicated local server: ADMIN_LOCAL_DATASET=translation-test. Never run against production.
+const base=process.env.TRANSLATION_TEST_BASE||'http://localhost:3118';
+assert(['http://localhost:3118','http://127.0.0.1:3118'].includes(base),'Only the isolated local test server is allowed');
+const key='custom-translation-qa-'+randomUUID().slice(0,8),path='/'+key.slice(7);
+const login=await fetch(base+'/api/admin/login',{method:'POST',redirect:'manual',headers:{Origin:base},body:new URLSearchParams({email:'translation-test@epureau-ci.com',motdepasse:'Translation-local-test-2026!'})});
+assert.equal(login.status,303);
+assert.equal(login.headers.get('location'),base+'/admin');
+const cookie=login.headers.getSetCookie().map(value=>value.split(';')[0]).join('; ');
+async function api(body){const r=await fetch(base+'/api/admin/content',{method:'POST',headers:{Origin:base,Cookie:cookie,'Content-Type':'application/json'},body:JSON.stringify({section:'pages',key,...body})});return {status:r.status,...await r.json()};}
+const data={title:'Bonjour le monde',description:'Description française',__layout:JSON.stringify({version:1,sections:[{id:'intro',type:'text',title:'Bonjour le monde',text:'Une eau propre',image:'',alt:'',href:'',buttonLabel:'',theme:'light',items:[]}]}),__en:JSON.stringify({'field:title':{source:'Bonjour le monde',text:'Hello world',manual:true},'block:intro:title':{source:'Bonjour le monde',text:'Hello world',manual:true},'block:intro:text':{source:'Une eau propre',text:'Clean water',manual:false}})};
+let saved=await api({action:'save',revision:0,title:'Translation QA',data});assert.equal(saved.status,200,JSON.stringify(saved));
+const body=async(url,cookies='')=>{const r=await fetch(base+url,{headers:{Cookie:cookies}});return {status:r.status,html:await r.text(),url:r.url};};
+assert.equal((await body('/en'+path)).status,404,'Draft must remain private');
+const preview=await fetch(base+'/api/admin/preview?lang=en&path='+encodeURIComponent(path),{headers:{Cookie:cookie},redirect:'manual'});
+assert.equal(preview.status,307);assert.equal(preview.headers.get('location'),base+'/en'+path);
+const draftCookie=preview.headers.getSetCookie().map(value=>value.split(';')[0]).join('; ');
+const draft=await body('/en'+path,cookie+'; '+draftCookie);
+assert.equal(draft.status,200);assert.match(draft.html,/<h2>Hello world<\/h2>/);assert.match(draft.html,/<html[^>]*lang="en"/);
+assert.equal((await body('/en'+path,draftCookie)).status,404,'Draft cookie without admin session must not expose content');
+saved=await api({action:'publish',revision:saved.record.revision,title:'Translation QA',data});assert.equal(saved.status,200);
+const english=await body('/en'+path);assert.match(english.html,/<h2>Hello world<\/h2>/);assert.match(english.html,/Clean water/);assert.match(english.html,/About us/);assert.match(english.html,/Request a quote/);
+const french=await body('/fr'+path);assert.match(french.html,/<h2>Bonjour le monde<\/h2>/);assert.match(french.html,/<html[^>]*lang="fr"/);
+const sourceChanged={...data,__layout:data.__layout.replace('Une eau propre','Une eau très propre')};
+saved=await api({action:'publish',revision:saved.record.revision,title:'Translation QA',data:sourceChanged});assert.equal(saved.status,200);
+assert.match((await body('/en'+path)).html,/Une eau très propre/,'Stale English must not hide the latest French');
+const bad=await api({action:'save',revision:saved.record.revision,data:{...data,__en:JSON.stringify({'field:email':{source:'a@example.com',text:'bad@example.com',manual:false}})}});assert.equal(bad.status,422);
+const stale=await api({action:'save',revision:0,data});assert.equal(stale.status,409);
+const follow=await fetch(base+path,{redirect:'manual',headers:{Cookie:'epureau-language=en'}});assert.equal(follow.status,307);assert.equal(new URL(follow.headers.get('location'),base).href,base+'/en'+path);
+const admin=await fetch(base+'/en/admin/login',{redirect:'manual'});assert.equal(admin.status,307);assert.equal(new URL(admin.headers.get('location'),base).href,base+'/admin/login');
+const complaint=await body('/en/reclamation-client');assert.equal(complaint.status,200);assert.match(complaint.html,/Your complaint/);assert.match(complaint.html,/value="Ingénierie de l’eau"/);
+const home=await body('/en');assert.equal(home.status,200);assert.match(home.html,/<html[^>]*lang="en"/);assert.match(home.html,/Your enquiry concerns/);
+const editor=await body('/admin',cookie);assert.equal(editor.status,200);
+const unpublish=await api({action:'unpublish',revision:saved.record.revision});assert.equal(unpublish.status,200);
+assert.equal((await body('/en'+path)).status,404);
+console.log('PASS: private draft, English preview, FR/EN publication, stale translation fallback, server validation, revision conflicts, locale navigation and unpublish.');

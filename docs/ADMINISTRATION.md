@@ -142,3 +142,26 @@ Créer une page demande un titre et une adresse telle que notre-engagement. L’
 Enregistrer le brouillon, ouvrir Aperçu, puis Publier. L’aperçu exige une session administrateur ou éditeur ; partager son URL ne rend pas le brouillon public. Une modification simultanée est refusée pour éviter de remplacer le travail d’un autre éditeur. Les compositions acceptent au maximum 40 sections par page et 20 éléments par composant. Les anciens blocs supplémentaires sont repris sans perte.
 
 Tests : npm test. La suite scripts/page-builder-integration.mjs est réservée au serveur local de vérification sur 127.0.0.1:3002 avec ADMIN_LOCAL_STORE=1, ADMIN_LOCAL_DATASET=builder-test, DATABASE_URL vide et une configuration privée .local/builder-test-env.json. Elle utilise .local/builder-test.json, séparé des données locales habituelles et de Supabase. EPUREAU_BUILD_DIR permet d’isoler la compilation de test dans .local.
+
+## Traduction français → anglais dans Chrome
+
+Dans un contenu de l’administration (page, produit, réalisation, média, brochure, article ou paramètres), le panneau **Version anglaise** permet de :
+
+1. Cliquer sur **Traduire les textes nouveaux ou modifiés** dans Chrome sur ordinateur, avec une connexion HTTPS (ou localhost en développement).
+2. Attendre le téléchargement initial du modèle FR → EN et la fin de la traduction. Aucun abonnement, clé API ni moteur serveur n’est nécessaire. Chrome peut refuser la fonctionnalité selon sa version, les politiques du poste et la disponibilité du modèle ; le panneau indique alors la saisie manuelle.
+3. Ouvrir **Relire et corriger l’anglais**, puis **Enregistrer le brouillon**.
+4. Consulter **Aperçu EN**, puis **Publier** pour rendre les traductions accessibles aux visiteurs. Le bouton de traduction ne publie rien.
+
+Le moteur ne traduit que les champs textuels et les textes des blocs. Les liens, images, numéros de téléphone, e-mails, adresses et identifiants des blocs restent inchangés. La traduction se fait sur l’ordinateur ; les textes français et anglais sont ensuite envoyés au stockage habituel du site lors de l’enregistrement. Aucune modification du schéma Supabase n’est nécessaire.
+
+Les traductions sont conservées dans `__en` au sein des données brouillon/publiées existantes. Chaque entrée conserve le français correspondant et indique si l’anglais a été corrigé manuellement. Une correction manuelle n’est jamais remplacée par le bouton automatique. Si son français change, elle est signalée à relire : valider la correction ou l’effacer pour autoriser une nouvelle traduction. Les traductions attachées aux blocs suivent leurs identifiants, même lorsque les blocs sont déplacés.
+
+Les visiteurs choisissent FR / EN. Les adresses `/fr/...` et `/en/...` servent les mêmes pages dans la langue choisie. Un cookie fonctionnel `epureau-language` mémorise le choix pendant un an. Les API et l’administration ne changent pas de langue. Seuls les textes anglais publiés et correspondant encore au français actuel sont affichés ; les textes manquants ou obsolètes restent en français. Il faut donc traduire et publier les contenus existants une première fois. Les principaux libellés fixes de navigation et de formulaire disposent d’un dictionnaire anglais local (`src/content/ui-english.ts`).
+
+### Vérification locale des traductions
+
+- `node --test scripts/translations.test.mjs` : filtrage des champs, blocs, corrections manuelles, données invalides, textes longs et annulation avec moteur simulé.
+- `node scripts/translations-integration.mjs` : instance **locale uniquement** sur `http://localhost:3118`, démarrée avec `ADMIN_LOCAL_STORE=1`, `ADMIN_LOCAL_DATASET=translation-test`, `ADMIN_EMAIL=translation-test@epureau-ci.com`, `ADMIN_PASSWORD=Translation-local-test-2026!`, `DATABASE_URL` et `RESEND_API_KEY` vides. Ces identifiants de test ne doivent jamais être utilisés pour un déploiement. Le test crée uniquement des données dans `.local/translation-test.json` : brouillon privé, aperçu EN, publication FR/EN, langue mémorisée, conflit de révision et dépublication.
+- La validation du téléchargement et de la qualité réelle du modèle exige Chrome sur ordinateur : ce contrôle ne peut pas être remplacé par un moteur simulé.
+
+Documentation du moteur : https://developer.chrome.com/docs/ai/translator-api

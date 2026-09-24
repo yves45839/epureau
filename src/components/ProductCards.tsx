@@ -1,3 +1,4 @@
+import UiText from "./UiText";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "./Icon";
@@ -30,7 +31,7 @@ export default function ProductCards({ produits, marque }: { produits: Product[]
               {attributs.length > 0 && (
                 <dl className="produit-attributs">
                   {attributs.map(([libelle, valeur]) => (
-                    <div key={libelle}><dt>{libelle}</dt><dd>{valeur}</dd></div>
+                    <div key={libelle}><dt><UiText text={libelle} /></dt><dd>{valeur}</dd></div>
                   ))}
                 </dl>
               )}
@@ -39,7 +40,7 @@ export default function ProductCards({ produits, marque }: { produits: Product[]
                   {points.map(point => <li key={point}><Icon name="check" />{point}</li>)}
                 </ul>
               )}
-              <Link className="arrow-link" href="/contact">Demander une cotation <Icon name="arrow" /></Link>
+              <Link className="arrow-link" href="/contact"><UiText text={"Demander une cotation "} /><Icon name="arrow" /></Link>
             </div>
           </article>
         );

@@ -36,6 +36,6 @@ export function validatePageLayout(page:string,text:string) {
  if(layout.sections.some(s=>s.type==="builtin"&&!allowed.has(s.source)))throw new Error("Section d’origine inconnue.");
  return layout;
 }
-const reserved=new Set(["admin","api","blog","ingenierie","images","maquette","fonts","_next","favicon","robots","sitemap","mentions-legales","confidentialite",...Object.keys(sectionCatalog)]);
+const reserved=new Set(["fr","en","admin","api","blog","ingenierie","images","maquette","fonts","_next","favicon","robots","sitemap","mentions-legales","confidentialite",...Object.keys(sectionCatalog)]);
 export function validPageSlug(slug:string){return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)&&slug.length<=70&&!reserved.has(slug);}
 export function customPagePath(key:string){return key.startsWith("custom-")&&validPageSlug(key.slice(7))?"/"+key.slice(7):undefined;}
