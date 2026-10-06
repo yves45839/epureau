@@ -1,7 +1,7 @@
 "use client";
 import UiText, {useUi} from "./UiText";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "./SiteImage";
 import Icon from "./Icon";
 import type { Product } from "@/content/admin-types";
 
@@ -22,7 +22,7 @@ export default function ProductCards({ produits, marque, prefix = "" }: { produi
           <article className="produit" key={p.slug}>
             <div className={"produit-visuel" + (p.image ? "" : " sans-visuel")}>
               {p.image
-                ? <Image unoptimized src={p.image} alt={ui("Produit")+" " + p.nom} width={640} height={380} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" />
+                ? <Image src={p.image} alt={ui("Produit")+" " + p.nom} width={640} height={380} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw" />
                 : <Icon name={ICONES[p.marque] || "droplet"} />}
               <span className="produit-marque">{ui(p.marque)}</span>
             </div>

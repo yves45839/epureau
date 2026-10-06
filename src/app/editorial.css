@@ -230,3 +230,8 @@ main#contenu .text, main#contenu .cms-blocks > article {
   }
 }
 .projects .proj:target { outline: 2px solid var(--cyan, #00a9ce); outline-offset: 5px; }
+
+/* Product packshots must remain complete and legible. */
+.produit-visuel:not(.sans-visuel){background:#f7f9fc}
+.produit-visuel img{object-fit:contain;padding:18px}
+.product-detail-visual img{padding:28px}

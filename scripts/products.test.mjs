@@ -16,7 +16,7 @@ const produitsModule = charger("../src/content/products.ts");
 const site = charger("../src/content/site.ts");
 
 test("seules les marques prévues sont acceptées pour une fiche produit", () => {
-  assert.deepEqual([...produitsModule.marquesProduits], ["NALCO", "ECOLAB", "Commodités & Réactifs"]);
+  assert.deepEqual([...produitsModule.marquesProduits], ["NALCO", "ECOLAB", "LOVIBOND", "Autres marques", "Commodités & Réactifs"]);
   assert.equal(produitsModule.marqueValide("NALCO"), true);
   assert.equal(produitsModule.marqueValide("ECOLAB"), true);
   assert.equal(produitsModule.marqueValide("Commodités & Réactifs"), true);

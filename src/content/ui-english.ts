@@ -2,6 +2,10 @@ import pagesEnglish from "./pages-english.json";
 import secondaryEnglish from "./secondary-english.json";
 import homeEnglish from "./home-english.json";
 export const englishUi: Record<string,string> = {
+ "Autres marques":"Other brands",
+ "Compatibilité des matériaux":"Material compatibility",
+ "Afficher plus de produits":"Show more products",
+ "Visuel indicatif : le conditionnement fourni peut différer.":"Illustrative image: supplied packaging may differ.",
  ...homeEnglish,
  ...pagesEnglish,
  ...secondaryEnglish,

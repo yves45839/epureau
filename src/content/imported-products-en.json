@@ -1,0 +1,1370 @@
+{
+  "ecolab-p3-oxypak-s": {
+    "categorie": "Aseptic packaging",
+    "gamme": "Aseptic packaging",
+    "usage": "Liquid hydrogen peroxide-based oxidising disinfectant for packaging treatment.",
+    "texte": "Liquid hydrogen peroxide-based oxidising disinfectant for packaging treatment.",
+    "compatibilite": "Stainless steel (DIN 1.4301 / AISI 304), plastics (PTFE, PE) and Viton seals.",
+    "forme": "62 kg"
+  },
+  "ecolab-dryexx-sf": {
+    "categorie": "Conveyor lubrication",
+    "gamme": "Conveyor lubrication",
+    "usage": "Ready-to-use silicone-free lubricant for dry conveyor lubrication. Polymer-based lubricant for PET, HDPE, glass, metal cans and cartons.",
+    "texte": "Ready-to-use silicone-free lubricant for dry conveyor lubrication. Polymer-based lubricant for PET, HDPE, glass, metal cans and cartons.",
+    "compatibilite": "Aluminium, stainless steel, copper, PTFE, PP, HDPE, PVC, POM, PVDF and seals (EPDM, FPM and Viton B).",
+    "forme": "210 kg"
+  },
+  "ecolab-dryexx-gf": {
+    "categorie": "Conveyor lubrication",
+    "gamme": "Conveyor lubrication",
+    "usage": "Amine-based semi-dry lubricant for glass bottles.",
+    "texte": "Amine-based semi-dry lubricant for glass bottles.",
+    "compatibilite": "Stainless steel (DIN 1.4301 / AISI 304), aluminium, plastics (PVC, HDPE, LDPE, PP, PTHE and POM) and seals (NBR, EPDM).",
+    "forme": "210 kg"
+  },
+  "ecolab-lubodrive-at": {
+    "categorie": "Conveyor lubrication",
+    "gamme": "Conveyor lubrication",
+    "usage": "Soap-free wet chain lubricant for conveyors.",
+    "texte": "Soap-free wet chain lubricant for conveyors.",
+    "compatibilite": "Austenitic CrNi steels (AISI 304; 1.4301; 1.4551).",
+    "forme": "200 kg"
+  },
+  "ecolab-alcodes-gf": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Alcohol-based disinfectant for no-rinse applications.",
+    "texte": "Alcohol-based disinfectant for no-rinse applications.",
+    "compatibilite": "Metals (stainless steel, aluminium and aluminium alloys, copper and brass), plastics and seals (PVDF, PVC, HDPE, PP, POM, EPDOM, FKM, HFFKM and NBR).",
+    "forme": "5 L"
+  },
+  "ecolab-drysan-oxy": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Liquid oxidising cleaner and disinfectant for undiluted, no-rinse application to dry surfaces.",
+    "texte": "Liquid oxidising cleaner and disinfectant for undiluted, no-rinse application to dry surfaces.",
+    "forme": "5 L"
+  },
+  "ecolab-ansep-z": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Non-foaming chlorinated powder detergent for degreasing surfaces.",
+    "texte": "Non-foaming chlorinated powder detergent for degreasing surfaces.",
+    "compatibilite": "Stainless steel (AISI 304), tin-plated surfaces, aluminium and aluminium alloys; polymer plastics and seals resistant to alkaline pH and chlorine.",
+    "forme": "25 kg"
+  },
+  "ecolab-topactive-la": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Foam cleaner for semi-automatic processes with or without ventilation, and manual general-purpose cleaning.",
+    "texte": "Foam cleaner for semi-automatic processes with or without ventilation, and manual general-purpose cleaning.",
+    "forme": "21 kg"
+  },
+  "ecolab-p3-topax-66": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Foaming chlorinated alkaline cleaner and disinfectant for hygiene programmes.",
+    "texte": "Foaming chlorinated alkaline cleaner and disinfectant for hygiene programmes.",
+    "compatibilite": "P3-Topax 66 solutions must not be used on light metals such as aluminium and its alloys.",
+    "forme": "22 kg"
+  },
+  "ecolab-topaz-md3": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Moderately alkaline, chelating liquid foam cleaner without EDTA for food processing.",
+    "texte": "Moderately alkaline, chelating liquid foam cleaner without EDTA for food processing.",
+    "compatibilite": "Under normal conditions of use: stainless steel (DIN 1.4301 / AISI 304), HDPE, PP, rigid PVC, EPDM seals and ceramic surfaces.",
+    "forme": "24 kg"
+  },
+  "ecolab-topaz-ld1": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "General-purpose detergent for manual cleaning and semi-automatic foam cleaning with or without ventilation.",
+    "texte": "General-purpose detergent for manual cleaning and semi-automatic foam cleaning with or without ventilation.",
+    "forme": "21 kg"
+  },
+  "ecolab-p3-topax-990": {
+    "categorie": "Open plant cleaning (COP)",
+    "gamme": "Open plant cleaning (COP)",
+    "usage": "Neutral cleaner and disinfectant for manual soaking or foam cleaning and degreasing.",
+    "texte": "Neutral cleaner and disinfectant for manual soaking or foam cleaning and degreasing.",
+    "forme": "20 kg"
+  },
+  "ecolab-mip-ca": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Foaming liquid detergent based on sodium hydroxide.",
+    "texte": "Foaming liquid detergent based on sodium hydroxide.",
+    "compatibilite": "Steel, austenitic CrNi stainless steel (AISI 304) and plastics (PE, PP, PVC, PTFE).",
+    "forme": "290 kg"
+  },
+  "ecolab-p3-horolith-v": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Acid cleaner and descaler for neutralising alkaline residues and removing mineral deposits, including scale, milkstone and beerstone.",
+    "texte": "Acid cleaner and descaler for neutralising alkaline residues and removing mineral deposits, including scale, milkstone and beerstone.",
+    "compatibilite": "Heavy metals, as indicated in the supplied product list.",
+    "forme": "24 kg\n250 kg"
+  },
+  "ecolab-p3-oxonia-active": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Peracetic acid-based oxidising disinfectant for CIP disinfection after alkaline cleaning or a final acidic rinse.",
+    "texte": "Peracetic acid-based oxidising disinfectant for CIP disinfection after alkaline cleaning or a final acidic rinse.",
+    "compatibilite": "Common CIP materials, including stainless steel, aluminium and plastics, subject to the recommended concentrations.",
+    "forme": "21 kg"
+  },
+  "ecolab-mip-sc": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Strong alkaline liquid detergent based on sodium hydroxide, with surfactants and antifoaming agents. Intended for heavily soiled surfaces, with strong antifoaming action above 40°C and use across water hardness levels.",
+    "texte": "Strong alkaline liquid detergent based on sodium hydroxide, with surfactants and antifoaming agents. Intended for heavily soiled surfaces, with strong antifoaming action above 40°C and use across water hardness levels.",
+    "compatibilite": "Under the specified application conditions: steel, austenitic CrNi stainless steel (AISI 304) and plastics (PTFE, PE, PP, PVC).",
+    "forme": "24 kg\n290 kg"
+  },
+  "ecolab-trimeta-cd": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Acid cleaner and disinfectant for single-stage cleaning and disinfection.",
+    "texte": "Acid cleaner and disinfectant for single-stage cleaning and disinfection.",
+    "compatibilite": "Stainless steel and Munkadur tanks.",
+    "forme": "245 kg"
+  },
+  "ecolab-p3-hypochloran": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Chlorinated disinfectant based on sodium hypochlorite.",
+    "texte": "Chlorinated disinfectant based on sodium hypochlorite.",
+    "compatibilite": "Stainless steel (DIN 1.4301 / AISI 304), PE, PP, rigid PVC, PTFE, PVDF, PS and epoxy coatings.",
+    "forme": "23 kg"
+  },
+  "ecolab-p3-steril": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Mildly alkaline cleaner and disinfectant based on surfactants and quaternary ammonium. The supplied list specifies bactericidal approval at 1% for POA and 0.5% for POV.",
+    "texte": "Mildly alkaline cleaner and disinfectant based on surfactants and quaternary ammonium. The supplied list specifies bactericidal approval at 1% for POA and 0.5% for POV.",
+    "forme": "21 kg"
+  },
+  "ecolab-nodsan-eas": {
+    "categorie": "Cleaning in place (CIP)",
+    "gamme": "Cleaning in place (CIP)",
+    "usage": "Non-foaming, non-oxidising liquid disinfectant for circuits and equipment soaking.",
+    "texte": "Non-foaming, non-oxidising liquid disinfectant for circuits and equipment soaking.",
+    "forme": "20kg"
+  },
+  "ecolab-manosoft": {
+    "categorie": "Hand hygiene",
+    "gamme": "Hand hygiene",
+    "usage": "Soap and detergent for manual handwashing.",
+    "texte": "Soap and detergent for manual handwashing.",
+    "forme": "5 L"
+  },
+  "ecolab-manodes-li": {
+    "categorie": "Hand hygiene",
+    "gamme": "Hand hygiene",
+    "usage": "Ready-to-use liquid hand disinfectant.",
+    "texte": "Ready-to-use liquid hand disinfectant.",
+    "forme": "5 L"
+  },
+  "ecolab-dermanios-scrub-cg": {
+    "categorie": "Hand hygiene",
+    "gamme": "Hand hygiene",
+    "usage": "Chlorhexidine digluconate-based handwashing and disinfecting solution, product type TP01.",
+    "texte": "Chlorhexidine digluconate-based handwashing and disinfecting solution, product type TP01.",
+    "forme": "5 L"
+  },
+  "ecolab-p3-stabulon-plus": {
+    "categorie": "Cleaning additives",
+    "gamme": "Cleaning additives",
+    "usage": "Process cleaner for semi-open cleaning in food processing.",
+    "texte": "Process cleaner for semi-open cleaning in food processing.",
+    "forme": "220 kg"
+  },
+  "ecolab-stabicip-oxy": {
+    "categorie": "Cleaning additives",
+    "gamme": "Cleaning additives",
+    "usage": "Cleaning booster for food processing and cleaning in place (CIP).",
+    "texte": "Cleaning booster for food processing and cleaning in place (CIP).",
+    "forme": "21 kg"
+  },
+  "ecolab-p3-polix-xt": {
+    "categorie": "Cleaning additives",
+    "gamme": "Cleaning additives",
+    "usage": "Preservation and sanitation agent for drinking water, swimming pools and process water.",
+    "texte": "Preservation and sanitation agent for drinking water, swimming pools and process water.",
+    "forme": "22 kg"
+  },
+  "ecolab-neomax-bmr": {
+    "categorie": "Cleaning additives",
+    "gamme": "Cleaning additives",
+    "usage": "Concentrated floor stripper for removing rubber marks from floors.",
+    "texte": "Concentrated floor stripper for removing rubber marks from floors.",
+    "forme": "10 kg"
+  },
+  "ecolab-ne-o-dor": {
+    "categorie": "Cleaning additives",
+    "gamme": "Cleaning additives",
+    "usage": "Air deodoriser and drain cleaner for manual application.",
+    "texte": "Air deodoriser and drain cleaner for manual application.",
+    "forme": "750 ml"
+  },
+  "lovibond-indicateur-heliantine": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Methyl orange indicator",
+    "forme": "65 ml"
+  },
+  "lovibond-mixte-pour-tac": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Total alkalinity mixed indicator",
+    "forme": "1 l"
+  },
+  "lovibond-phenolphtaleine-liquide-et-poudre": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Phenolphthalein (liquid and powder)",
+    "forme": "65 ml"
+  },
+  "lovibond-n-10-soln-alcalimetrique": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N/10 alkalimetric solution",
+    "forme": "pack of 100"
+  },
+  "lovibond-n-25-soln-alcalimetrique": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N/25 alkalimetric solution",
+    "forme": "pack of 100"
+  },
+  "lovibond-vario-chlorine-total-dpd-t": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-chlorine-free-dpd-f": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-n-10-soln-argentimetrique": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N/10 argentimetric solution"
+  },
+  "lovibond-n-25-soln-argentimetrique": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N/25 argentimetric solution"
+  },
+  "lovibond-n-25-soln-acidimetrique": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N/25 acidimetric solution"
+  },
+  "lovibond-soln-3000-us-cm-std": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "3000 µS/cm standard solution"
+  },
+  "lovibond-soln-micromho-standard": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Micromho standard solution"
+  },
+  "lovibond-soln-1l-40-micromho-standard": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "40 micromho standard solution, 1 L"
+  },
+  "lovibond-microkit-hardness-total": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-microkit-hardness-total-lr": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-n-25-soln-complexon": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N/25 Complexon solution"
+  },
+  "lovibond-solution-tampon-pour-th": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Total hardness buffer solution"
+  },
+  "lovibond-hardness-2-test-solution": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "65 ml"
+  },
+  "lovibond-hardness-reagent-20-gr": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-vario-ferro": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-mo-1-reagent": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-mo-2-reagent": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 ml"
+  },
+  "lovibond-mo-3-reagent": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-soln-ph-4-0-buffer": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "pH 4.0 buffer solution"
+  },
+  "lovibond-ks9-ph-buffer-7-00-25c": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-ks3-ph10-buffer-solution": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "1 l"
+  },
+  "lovibond-pc300-pc450-probe-ph": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PC300/PC450 pH probe"
+  },
+  "lovibond-phosver-3-pp-plus": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-microkit-ortho-phospate": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-vario-silica-hr-acid-rgt": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-vario-silica-hr-citric-acid": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-vario-silica-hr-molybdate": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-vario-molybdate-3-reagent-solution": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "50 ml"
+  },
+  "lovibond-vario-lr-silica-amino-acid-fpp": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "10 ml"
+  },
+  "lovibond-sulphite-strips-10-1000-mg-l": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-soln-50-gm-h-3-total-hardness-indic": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "H-3 total hardness indicator, 50 g"
+  },
+  "lovibond-microkit-iron-hr": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "lovibond-microkit-sillica": {
+    "categorie": "Lovibond reagents",
+    "gamme": "Lovibond reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote."
+  },
+  "commodites-reactifs-sodium-hydroxyde-1n": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium hydroxide 1N",
+    "forme": "1 l"
+  },
+  "commodites-reactifs-hypochlorure-de-sodium": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium hypochlorite"
+  },
+  "commodites-reactifs-acide-sulfurique": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sulphuric acid"
+  },
+  "commodites-reactifs-acide-chlorydrique": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Hydrochloric acid"
+  },
+  "commodites-reactifs-hydroxyde-de-sodium-0-1n": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium hydroxide 0.1N",
+    "forme": "1 l"
+  },
+  "commodites-reactifs-solution-tampon-pour-ph-4-7-9-2-10": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Buffer solutions for pH 4, 7, 9, 2 and 10"
+  },
+  "commodites-reactifs-saccharose": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sucrose",
+    "forme": "1 kg"
+  },
+  "commodites-reactifs-eau-distillee": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Distilled water"
+  },
+  "commodites-reactifs-reactif-dpd-chlore-total": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Total chlorine DPD reagent"
+  },
+  "commodites-reactifs-reactif-dpd-chlore-libre": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Free chlorine DPD reagent"
+  },
+  "commodites-reactifs-liqueur-alcanimetrique-1-10": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "1/10 alkalimetric solution"
+  },
+  "commodites-reactifs-methyl-orange": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Methyl orange"
+  },
+  "commodites-reactifs-indicateur-net-h-3": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "NET H-3 indicator"
+  },
+  "commodites-reactifs-sodium-thyosulfate": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium thiosulphate",
+    "forme": "1 kg"
+  },
+  "commodites-reactifs-sable-de-mer": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sea sand",
+    "forme": "5 kg"
+  },
+  "commodites-reactifs-amidon-soluble": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Soluble starch"
+  },
+  "commodites-reactifs-iso-octane": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Iso-octane",
+    "forme": "2,5 l"
+  },
+  "commodites-reactifs-ether-diethylique": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Diethyl ether",
+    "forme": "5 l"
+  },
+  "commodites-reactifs-catalyseur-de-mineralisation-kjeldah": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Kjeldahl digestion catalyst"
+  },
+  "commodites-reactifs-iodure-de-potassium": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Potassium iodide"
+  },
+  "commodites-reactifs-hydroxyde-de-potassium": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Potassium hydroxide"
+  },
+  "commodites-reactifs-carbonate-de-potassium": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Potassium carbonate"
+  },
+  "commodites-reactifs-nitrate-d-argent-0-1n": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Silver nitrate 0.1N"
+  },
+  "commodites-reactifs-noir-eriochrome": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Eriochrome Black",
+    "forme": "100 g"
+  },
+  "commodites-reactifs-gant-nitrile": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Nitrile gloves"
+  },
+  "commodites-reactifs-n-hexane": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "N-hexane"
+  },
+  "commodites-reactifs-verrerie": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Laboratory glassware"
+  },
+  "commodites-reactifs-balance": {
+    "categorie": "Laboratory reagents",
+    "gamme": "Laboratory reagents",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Laboratory balance"
+  },
+  "commodites-reactifs-sel-en-pastilles": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Salt tablets",
+    "forme": "25 kg"
+  },
+  "commodites-reactifs-acide-chlorhidrique-38": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Hydrochloric acid 38%",
+    "forme": "1L"
+  },
+  "commodites-reactifs-soude-caustique-perlee": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Caustic soda pearls",
+    "forme": "25 kg"
+  },
+  "commodites-reactifs-carbonate-de-soude-leger-soduim": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Light sodium carbonate",
+    "forme": "25 kg"
+  },
+  "commodites-reactifs-hypochlorite-de-sodium-javel": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium hypochlorite (bleach)",
+    "forme": "1200 kg"
+  },
+  "commodites-reactifs-chaux-vive": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Quicklime",
+    "forme": "1200 kg"
+  },
+  "commodites-reactifs-sulfate-d-aluminium-solevo": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "SOLEVO aluminium sulphate",
+    "forme": "50 kg"
+  },
+  "commodites-reactifs-sulfate-d-aluminium-17-18-0-2mm": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Aluminium sulphate 17–18%, 0–2 mm",
+    "forme": "25 kg"
+  },
+  "commodites-reactifs-acide-nitrique-68": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Nitric acid 68%",
+    "forme": "35 kg"
+  },
+  "commodites-reactifs-hydroxyde-de-calcium": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Calcium hydroxide"
+  },
+  "commodites-reactifs-sulfate-d-alumine": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Aluminium sulphate"
+  },
+  "commodites-reactifs-lessive-de-soude": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium hydroxide solution"
+  },
+  "commodites-reactifs-acide-acetique-80": {
+    "categorie": "Commodity chemicals",
+    "gamme": "Commodity chemicals",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Acetic acid 80%",
+    "forme": "30 kg"
+  },
+  "nalco-synerpon-scp": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-19-puvl": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-77216": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nexguard-22-372": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-2813": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "20 kg"
+  },
+  "nalco-solerpon-csv": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-trasar-3dt222": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-7330": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-stabrex-st40": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-71213": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "1150 kg"
+  },
+  "nalco-nalco-71661": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-8735": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-permaclean-pc-77": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-permaclean-pc-33": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-7408": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-permaclean-pc-67": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "20 kg"
+  },
+  "nalco-optimer-9901": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-trac-102-nalcool2000": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nexguard-22310": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-77-225-antitartre-anticorrosion": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-trac100": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-9916": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-2510": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-77393": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-9909": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco72215": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "210 kg"
+  },
+  "nalco-permatreat-pc-191t": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-3dt250": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-77213": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco71218": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "1368 kg"
+  },
+  "nalco-nalco-3dt-426": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-naco-77400": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "250 kg"
+  },
+  "nalco-77401-plus": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "250 kg"
+  },
+  "nalco-nalco-77451": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "250 kg"
+  },
+  "nalco-nalco-750-plus": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-core-shel-71308": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "nalco-nalco-71428": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "26 kg"
+  },
+  "nalco-nalco-8172-pulv": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "27 kg"
+  },
+  "nalco-nalco-71771": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "28 kg"
+  },
+  "nalco-ultrion-8187": {
+    "categorie": "Industrial water treatment",
+    "gamme": "Industrial water treatment",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "forme": "25 kg"
+  },
+  "autres-marques-desinfectant-fruit-et-legume": {
+    "categorie": "Fruit and vegetable disinfection",
+    "gamme": "Fruit and vegetable disinfection",
+    "usage": "Fruit and vegetable disinfection.",
+    "texte": "Fruit and vegetable disinfection.",
+    "nom": "Fruit and vegetable disinfectant",
+    "forme": "Container of 5 L"
+  },
+  "ecolab-epicare-1": {
+    "categorie": "Hand hygiene",
+    "gamme": "Hand hygiene",
+    "usage": "Soap for hand hygiene.",
+    "texte": "Soap for hand hygiene.",
+    "forme": "Container 5L"
+  },
+  "autres-marques-liquide-vaisselle": {
+    "categorie": "Manual dishwashing",
+    "gamme": "Manual dishwashing",
+    "usage": "Unscented liquid detergent for manual dishwashing.",
+    "texte": "Unscented liquid detergent for manual dishwashing.",
+    "nom": "Dishwashing liquid",
+    "forme": "Container 20L"
+  },
+  "ecolab-solide-hero": {
+    "categorie": "Automatic dishwashing",
+    "gamme": "Automatic dishwashing",
+    "usage": "Solid detergent for automatic dishwashing machines.",
+    "texte": "Solid detergent for automatic dishwashing machines.",
+    "forme": "Case of 4,5kg"
+  },
+  "ecolab-toprinse-clean": {
+    "categorie": "Automatic dishwashing",
+    "gamme": "Automatic dishwashing",
+    "usage": "Rinse additive for automatic dishwashing machines.",
+    "texte": "Rinse additive for automatic dishwashing machines.",
+    "forme": "Container of 20 L"
+  },
+  "autres-marques-lave-verre": {
+    "categorie": "Automatic glasswashing",
+    "gamme": "Automatic glasswashing",
+    "usage": "Liquid cleaner for glasses and cups.",
+    "texte": "Liquid cleaner for glasses and cups.",
+    "nom": "Glasswashing liquid",
+    "forme": "Container 01L"
+  },
+  "autres-marques-adm": {
+    "categorie": "Kitchen cleaning",
+    "gamme": "Kitchen cleaning",
+    "usage": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
+    "texte": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
+    "forme": "Container 20L"
+  },
+  "autres-marques-c-simple": {
+    "categorie": "Kitchen cleaning",
+    "gamme": "Kitchen cleaning",
+    "usage": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
+    "texte": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
+    "forme": "Container 05L"
+  },
+  "autres-marques-desinfectant-alimentaire-sans-rincage": {
+    "categorie": "Kitchen cleaning",
+    "gamme": "Kitchen cleaning",
+    "usage": "Self-drying, no-rinse, multi-surface disinfectant.",
+    "texte": "Self-drying, no-rinse, multi-surface disinfectant.",
+    "nom": "No-rinse food-area disinfectant",
+    "forme": "Container 01L"
+  },
+  "autres-marques-decapant-liquide": {
+    "categorie": "Oven and grill cleaning",
+    "gamme": "Oven and grill cleaning",
+    "usage": "Universal liquid oven cleaner.",
+    "texte": "Universal liquid oven cleaner.",
+    "nom": "Liquid oven cleaner",
+    "forme": "Container 05L"
+  },
+  "ecolab-helios-brillant": {
+    "categorie": "Stainless steel and metal care",
+    "gamme": "Stainless steel and metal care",
+    "usage": "Cleaner, restorer and protector for stainless steel and other metals.",
+    "texte": "Cleaner, restorer and protector for stainless steel and other metals.",
+    "forme": "Container 500mL"
+  },
+  "ecolab-polish-cleaner": {
+    "categorie": "Stainless steel and metal care",
+    "gamme": "Stainless steel and metal care",
+    "usage": "Polish cleaner for stainless steel.",
+    "texte": "Polish cleaner for stainless steel.",
+    "forme": "Case of 6*500mL"
+  },
+  "autres-marques-sanicid-100": {
+    "categorie": "Washroom hygiene",
+    "gamme": "Washroom hygiene",
+    "usage": "Mild acidic multi-purpose descaler for bathroom walls and sanitary fixtures.",
+    "texte": "Mild acidic multi-purpose descaler for bathroom walls and sanitary fixtures.",
+    "forme": "Container 05L"
+  },
+  "autres-marques-spado-gel": {
+    "categorie": "Washroom hygiene",
+    "gamme": "Washroom hygiene",
+    "usage": "Toilet bowl descaler, cleaner and disinfectant.",
+    "texte": "Toilet bowl descaler, cleaner and disinfectant.",
+    "forme": "Container of 750 mL"
+  },
+  "ecolab-nettoclar-rapid": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Crystalliser for marble and limestone.",
+    "texte": "Crystalliser for marble and limestone.",
+    "forme": "Container 05L"
+  },
+  "autres-marques-nettoyant-ecolabel": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Daily cleaner for washable floors and surfaces, including glass, marble, plastics and doors.",
+    "texte": "Daily cleaner for washable floors and surfaces, including glass, marble, plastics and doors.",
+    "nom": "Ecolabel cleaner",
+    "forme": "Container 05L"
+  },
+  "autres-marques-st-wandrille-antiquaire": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Protects and preserves wood flooring.",
+    "texte": "Protects and preserves wood flooring.",
+    "forme": "Tin of 05L"
+  },
+  "ecolab-carpet-a": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Carpet stain remover for water-soluble stains, including fruit, soft drinks, tea, coffee and ice cream.",
+    "texte": "Carpet stain remover for water-soluble stains, including fruit, soft drinks, tea, coffee and ice cream.",
+    "forme": "Case of 6*500mL"
+  },
+  "ecolab-carpet-shampoo": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Deep carpet and rug cleaning with a single-disc machine or spray extraction. Dry-foam shampoo for different types of soiling.",
+    "texte": "Deep carpet and rug cleaning with a single-disc machine or spray extraction. Dry-foam shampoo for different types of soiling.",
+    "forme": "Container 05L"
+  },
+  "ecolab-carpet-freeze": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Removes chewing gum without leaving marks.",
+    "texte": "Removes chewing gum without leaving marks.",
+    "forme": "Case of 6*500mL"
+  },
+  "ecolab-xense-orange-fresh": {
+    "categorie": "Floor and carpet care",
+    "gamme": "Floor and carpet care",
+    "usage": "Deodoriser for toilets, urinals, sinks and waste areas.",
+    "texte": "Deodoriser for toilets, urinals, sinks and waste areas.",
+    "forme": "Case of 6*500mL"
+  },
+  "autres-marques-neo-sp": {
+    "categorie": "Laundry detergents",
+    "gamme": "Laundry detergents",
+    "usage": "Phosphate-free laundry powder for all fabrics, wash programmes and temperatures.",
+    "texte": "Phosphate-free laundry powder for all fabrics, wash programmes and temperatures.",
+    "forme": "Bag of 20 kg"
+  },
+  "autres-marques-leli-pro": {
+    "categorie": "Laundry detergents",
+    "gamme": "Laundry detergents",
+    "usage": "Liquid laundry detergent active from 30°C for all fabric types, with stain-removing ingredients.",
+    "texte": "Liquid laundry detergent active from 30°C for all fabric types, with stain-removing ingredients.",
+    "forme": "Container 20 kg"
+  },
+  "ecolab-ecobrite-delicate": {
+    "categorie": "Laundry detergents",
+    "gamme": "Laundry detergents",
+    "usage": "Detergent for delicate fabrics, including wool and silk.",
+    "texte": "Detergent for delicate fabrics, including wool and silk.",
+    "forme": "Container 20 kg"
+  },
+  "ecolab-dermasil-plus": {
+    "categorie": "Laundry stain removal",
+    "gamme": "Laundry stain removal",
+    "usage": "Non-foaming degreaser, emulsifier and stain remover for laundry.",
+    "texte": "Non-foaming degreaser, emulsifier and stain remover for laundry.",
+    "forme": "Container 20kg"
+  },
+  "autres-marques-pro-moullant-enzyme": {
+    "categorie": "Laundry stain removal",
+    "gamme": "Laundry stain removal",
+    "usage": "Wetting and degreasing agent for greasy and protein-based stains.",
+    "texte": "Wetting and degreasing agent for greasy and protein-based stains.",
+    "forme": "Container 20kg"
+  },
+  "ecolab-stain-blaster-multi-purpose": {
+    "categorie": "Laundry stain removal",
+    "gamme": "Laundry stain removal",
+    "usage": "Multi-purpose stain remover for local pretreatment of grease, oil, food residues, ink, lipstick, body fluids and other stains.",
+    "texte": "Multi-purpose stain remover for local pretreatment of grease, oil, food residues, ink, lipstick, body fluids and other stains.",
+    "forme": "Bottle of 500mL"
+  },
+  "ecolab-ecobrite-oxy": {
+    "categorie": "Laundry bleaching",
+    "gamme": "Laundry bleaching",
+    "usage": "Oxygen-based liquid bleach and disinfectant.",
+    "texte": "Oxygen-based liquid bleach and disinfectant.",
+    "forme": "Container 20kg"
+  },
+  "autres-marques-olydoux-assoupissant": {
+    "categorie": "Fabric softeners",
+    "gamme": "Fabric softeners",
+    "usage": "Fabric softener for all types of textiles.",
+    "texte": "Fabric softener for all types of textiles.",
+    "forme": "Container 20L"
+  },
+  "autres-marques-compteur-d-eau-froide-multijet-dn-25": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Multijet cold water meter DN 25"
+  },
+  "autres-marques-paire-de-raccord-dn-25": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Pair of DN 25 fittings"
+  },
+  "autres-marques-pompe-doseuse-concept-2l-10-bars": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Concept Plus dosing pump, 2 L/h, 10 bar"
+  },
+  "autres-marques-dispenser-ss-com-1l": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "SS COM dispenser, 1 L"
+  },
+  "autres-marques-pompe-doseuse-dde-10-bars-6l-h-10-bars-joint-epdm": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "DDE dosing pump, 6 L/h, 10 bar, EPDM seals"
+  },
+  "autres-marques-skid-de-prefiltration": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Prefiltration skid"
+  },
+  "autres-marques-supresseur-distrib-eco-19-m3-h": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "DISTRIB ECO booster, 19 m³/h"
+  },
+  "autres-marques-polycuve-2000-l": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "POLYCUVE tank, 2000 L"
+  },
+  "autres-marques-regulateur-dulcometer-analyseur-de-chlore-en-lig": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "DULCOMETER controller / online chlorine analyser"
+  },
+  "autres-marques-pompe-doseuse-et-accessoires-mipa": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "MIPA dosing pump and accessories"
+  },
+  "autres-marques-hydroxyde-de-sodium-4-5n-1000ml": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Sodium hydroxide 4.5N, 1000 mL"
+  },
+  "autres-marques-microstation-purro-pe-1-5-eh": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PURRO PE-1-5 EH wastewater treatment unit"
+  },
+  "autres-marques-griff-230v-50hz-8bar-incl-accessories": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "GRIFF 230 V / 50 Hz, 8 bar, including accessories"
+  },
+  "autres-marques-griff-trolley-ss-without-can-holders": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "GRIFF stainless steel trolley without can holders"
+  },
+  "autres-marques-can-holder-set-2x20l-for-griff-trolley": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "2 × 20 L can holder set for GRIFF trolley"
+  },
+  "autres-marques-hose-1-2-x-1-5m-putflex": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PUTFLEX hose, 1/2 inch × 1.5 m"
+  },
+  "autres-marques-pompe-dda-7-5-16-ar-pvc-v-c": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "DDA 7.5-16 AR-PVC/V/C dosing pump"
+  },
+  "autres-marques-ethylene-gycol-1000ml": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Ethylene glycol, 1000 mL"
+  },
+  "autres-marques-tamir-cintropur-nw500-650-800": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "CINTROPUR NW500/650/800 screen"
+  },
+  "autres-marques-puromelt-30-1-m": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PUROMELT 30 inch, 1 µm"
+  },
+  "autres-marques-puromelt-30-10-m": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PUROMELT 30 inch, 10 µm"
+  },
+  "autres-marques-poche-25-m-taille-2-pp": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PP filter bag, size 2, 25 µm"
+  },
+  "autres-marques-poche-polyester-5m-taille-2-anneau-polyester": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Polyester filter bag, size 2, 5 µm, polyester ring"
+  },
+  "autres-marques-cva-et-c8m3-cuve-de-remplacement-eurolailt": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "CVA and C8M3 replacement tank for EUROLAIT"
+  },
+  "autres-marques-emp2-pmp-7-2l-h-10bar-pv-ep-e60-230v-lub": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "EMP2 PMP dosing pump, 7.2 L/h, 10 bar, PV/EP E60 230V LUB"
+  },
+  "autres-marques-poire-de-niveau-flygt-13-mm": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "FLYGT float level switch, 13 mm"
+  },
+  "autres-marques-porte-filtrex3-pr-filtrat-dom-pr-triplex": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PR TRIPLEX triple domestic filter housing"
+  },
+  "autres-marques-cartouches-25-10-pr-sws-1025": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PR SWS 1025 cartridge, 10 inch, 25 µm"
+  },
+  "autres-marques-cartouches-1-10-pr-sws-1001": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PR SWS 1001 cartridge, 10 inch, 1 µm"
+  },
+  "autres-marques-cartouche-cag-10-pr-gac-10": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PR GAC 10 activated carbon cartridge, 10 inch"
+  },
+  "autres-marques-membranes-low2-2521": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "LOW2-2521 membranes"
+  },
+  "autres-marques-strainer-with-check": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "Strainer with check valve"
+  },
+  "autres-marques-puromelt-30-5m": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "PUROMELT 30 inch, 5 µm"
+  },
+  "autres-marques-mat-brassivoire-cde-0308": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "BRASSIVOIRE equipment, order 0308"
+  },
+  "autres-marques-mat-covec-adei": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "COVEC ADEI equipment"
+  },
+  "autres-marques-mat-covec-tsurumi": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "COVEC TSURUMI equipment"
+  },
+  "autres-marques-mat-covec-maury": {
+    "categorie": "Equipment and accessories",
+    "gamme": "Equipment and accessories",
+    "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
+    "nom": "COVEC MAURY equipment"
+  }
+}
