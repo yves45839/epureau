@@ -6,6 +6,7 @@ import "./globals.css";
 import "./editorial.css";
 import "./customer.css";
 import "./cms-public.css";
+import "./typography.css";
 
 // Polices auto-hébergées (fichiers dans src/fonts) : pas d'appel à Google Fonts,
 // donc pas de requête externe côté visiteur ni de dépendance au réseau au build.

@@ -1,0 +1,12 @@
+/* Justify prose, with a naturally aligned final line and language-aware hyphens. */
+main#contenu .text p,
+main#contenu .builder-section p,
+main#contenu .builder-intro,
+.home-experience .case-card > p,
+.home-experience .catalogue-body > p {
+ text-align: justify;
+ text-align-last: start;
+ hyphens: auto;
+ overflow-wrap: break-word;
+ text-wrap: wrap;
+}
