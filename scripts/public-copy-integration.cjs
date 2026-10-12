@@ -41,10 +41,13 @@ const english = require('../src/content/imported-products-en.json');
       for(const definition of definitions) {
         await visit(definition.path,language);
         if(definition.key === 'negoce') {
+          await page.waitForLoadState('load');
           const search = page.locator('.catalog-filters input[type=search]');
           await search.fill('DryExx SF');
+          await page.waitForFunction(() => /^1 (produit|product)$/.test(document.querySelector('.catalog-results [role=status]').textContent.trim()));
           assert.equal((await page.locator('.catalog-results [role=status]').innerText()).trim(),language === 'fr' ? '1 produit' : '1 product');
           await search.fill('');
+          await page.waitForFunction(() => /^(?!1 )\d+ (produits|products)$/.test(document.querySelector('.catalog-results [role=status]').textContent.trim()));
           assert.match(await page.locator('.catalog-results [role=status]').innerText(),language === 'fr' ? /\d+ produits$/ : /\d+ products$/);
           assert(await page.locator('.catalog-group .produit').count() > 0);
           assert.equal(await page.locator('.catalog-group .produit-corps > p, .catalog-group .produit-corps > dl, .catalog-group .produit-corps > ul').count(),0,'Compact cards keep descriptions on product pages');
