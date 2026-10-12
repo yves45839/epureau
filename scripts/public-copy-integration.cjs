@@ -24,7 +24,7 @@ const english = require('../src/content/imported-products-en.json');
     const report = [];
     const visit = async (route, language) => {
       console.log(`Checking /${language}${route}`);
-      const response = await page.goto(`${base}/${language}${route === '/' ? '' : route}`, {waitUntil:'networkidle'});
+      const response = await page.goto(`${base}/${language}${route === '/' ? '' : route}`, {waitUntil:'domcontentloaded'});
       assert.equal(response.status(),200,route);
       assert.equal(await page.locator('html').getAttribute('lang'),language);
       const h1 = page.locator('h1');
@@ -46,7 +46,8 @@ const english = require('../src/content/imported-products-en.json');
           assert.equal((await page.locator('.catalog-results [role=status]').innerText()).trim(),language === 'fr' ? '1 produit' : '1 product');
           await search.fill('');
           assert.match(await page.locator('.catalog-results [role=status]').innerText(),language === 'fr' ? /\d+ produits$/ : /\d+ products$/);
-          assert.equal(await page.locator('.produit-card > p').count(),0,'Compact cards keep descriptions on product pages');
+          assert(await page.locator('.catalog-group .produit').count() > 0);
+          assert.equal(await page.locator('.catalog-group .produit-corps > p, .catalog-group .produit-corps > dl, .catalog-group .produit-corps > ul').count(),0,'Compact cards keep descriptions on product pages');
         }
       }
       for(const slug of ['autres-marques-liquide-vaisselle','ecolab-carpet-a','ecolab-ecobrite-oxy','commodites-reactifs-acide-chlorhidrique-38','autres-marques-regulateur-dulcometer-analyseur-de-chlore-en-lig']) {
@@ -56,6 +57,12 @@ const english = require('../src/content/imported-products-en.json');
         assert.equal((await page.locator('.product-detail .lead').innerText()).trim(),language === 'en' ? english[slug].texte : data.texte);
         if(slug === 'autres-marques-liquide-vaisselle') await page.screenshot({path:path.join(output,`product-${language}.png`),fullPage:true});
       }
+    }
+    for(const width of [1280,1100]) {
+      await page.setViewportSize({width,height:800});
+      await visit('/a-propos','fr');
+      assert(await page.locator('.nav .burger').isVisible());
+      assert.equal(await page.locator('.nav .menu').isVisible(),false);
     }
     await page.setViewportSize({width:390,height:844});
     for(const language of ['fr','en']) {

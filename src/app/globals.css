@@ -23,6 +23,16 @@
 }
 .skip:focus { left: 0; }
 
+/* Keep translated navigation labels and the contact action inside the viewport. */
+.nav > .wrap { width: min(1440px, calc(100% - 48px)); }
+.nav .nav-bar { gap: 16px; }
+.nav .menu > li > a { padding-inline: 8px; }
+@media (max-width: 1300px) {
+  .nav .menu { display: none; }
+  .nav .burger { display: grid; }
+  .nav .logo { margin-right: auto; }
+}
+
 /* En-tête des pages internes (repris de la bannière d'accueil, en plus sobre) */
 .pagehead {
   background: var(--grad-profondeur);
