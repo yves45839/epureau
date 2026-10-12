@@ -83,3 +83,16 @@ test('les valeurs techniques des produits restent françaises tandis que leurs l
  for(const field of ['marque','documentType','documentLangue','reference','fiche'])assert.equal(result[field],data[field]);
  assert.equal(result.gamme,'Steam utilities');assert.equal(uiText(result.documentType,'en'),'Manufacturer brochure');
 });
+
+test('les textes relus restent traduits et les horaires anglais gardent leur format',()=>{
+ const definitions=require('../src/content/page-definitions.json');
+ for(const [page,field] of [['a-propos','f005'],['a-propos','f008'],['ingenierie-notre-expertise','f002'],['service-aux-industries','f002']]) {
+  const source=definitions.find(p=>p.key===page).fields.find(f=>f.key===field).value;
+  assert.notEqual(uiText(source,'en'),source,`${page}.${field}`);
+ }
+ const home=require('../src/content/home-english-fields.json');
+ assert.equal(home.f112.source,definitions.find(p=>p.key==='accueil').fields.find(f=>f.key==='f112').value);
+ assert.equal(uiText('Lun – Ven · 08 h 30 – 17 h 30','en'),'Mon – Fri · 08:30 – 17:30');
+ assert.equal(uiText('produit','en'),'product');
+ assert.equal(uiText('produits','en'),'products');
+});

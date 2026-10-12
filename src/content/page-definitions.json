@@ -32,7 +32,7 @@
         "key": "f005",
         "label": "Texte — EPUREAU Côte d’Ivoire est une Société par Actions Simplifiée (SAS",
         "type": "long",
-        "value": "EPUREAU Côte d’Ivoire est une Société par Actions Simplifiée (SAS), créée et basée en Côte d'Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société française, elle a rejoint "
+        "value": "EPUREAU Côte d’Ivoire est une société par actions simplifiée (SAS), créée et basée en Côte d'Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société française, elle a rejoint "
       },
       {
         "key": "f006",
@@ -50,7 +50,7 @@
         "key": "f008",
         "label": "Texte — Spécialisée dans le traitement des eaux (potable, usée, industrie",
         "type": "long",
-        "value": "Spécialisée dans le traitement des eaux (potable, usée, industrielle), EPUREAU Côte d’Ivoire associe à son ingénierie prouvée en potabilisation et épuration des eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des utilités, l'hygiène, la désinfection de vos installations et la protection de vos marques."
+        "value": "Spécialisée dans le traitement des eaux potables, usées et industrielles, EPUREAU Côte d’Ivoire associe à son ingénierie prouvée en potabilisation et épuration des eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des utilités, l'hygiène, la désinfection de vos installations et la protection de vos marques."
       },
       {
         "key": "f009",
@@ -395,7 +395,7 @@
         "key": "f002",
         "label": "lead — Nous nous engageons sur les performances, les coûts et le respect",
         "type": "long",
-        "value": "Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clé en main des unités de traitement."
+        "value": "Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clés en main des unités de traitement."
       },
       {
         "key": "f003",
@@ -765,7 +765,7 @@
         "key": "f002",
         "label": "lead — EPUREAU Côte d’Ivoire est une société de service : nous prenons e",
         "type": "long",
-        "value": "EPUREAU Côte d’Ivoire est une société de service : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production."
+        "value": "EPUREAU Côte d’Ivoire est une société de services : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production."
       },
       {
         "key": "f003",
@@ -1686,7 +1686,7 @@
         "key": "f112",
         "label": "Texte — Lundi – Vendredi · 08h30 – 17h30",
         "type": "text",
-        "value": "Lundi – Vendredi · 08h30 – 17h30"
+        "value": "Lundi – Vendredi · 08 h 30 – 17 h 30"
       },
       {
         "key": "f113",

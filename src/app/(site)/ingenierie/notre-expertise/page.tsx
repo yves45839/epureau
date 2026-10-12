@@ -12,7 +12,7 @@ import { etapes } from "@/content/site";
 const baseMetadata: Metadata = {
   title: "Notre expertise — Ingénierie du traitement de l'eau",
   description:
-    "Bureau d'études, réalisation et mise en service : EPUREAU Côte d’Ivoire conçoit et livre des unités de traitement des eaux clé en main en Côte d'Ivoire.",
+    "Bureau d'études, réalisation et mise en service : EPUREAU Côte d’Ivoire conçoit et livre des unités de traitement des eaux clés en main en Côte d'Ivoire.",
 };
 
 
@@ -36,7 +36,7 @@ const services = [
         image="/images/illustrations/ingenierie.webp"
         fil={["Ingénierie de l'eau", "Notre expertise"]}
         titre={t("f001", "De la conception à l'exploitation, EPUREAU Côte d’Ivoire assure toute la chaîne")}
-        lead={t("f002", "Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clé en main des unités de traitement.")}
+        lead={t("f002", "Nous nous engageons sur les performances, les coûts et le respect des délais grâce à des méthodes d'installation adaptées, jusqu'à la livraison clés en main des unités de traitement.")}
       />
 <section className="sec">
         <div className="wrap">

@@ -56,7 +56,7 @@ const speciaux = [
         image="/images/illustrations/industrie.webp"
         fil={["Service aux industries"]}
         titre={t("f001", "Une équipe technique chevronnée au service de votre production")}
-        lead={t("f002", "EPUREAU Côte d’Ivoire est une société de service : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production.")}
+        lead={t("f002", "EPUREAU Côte d’Ivoire est une société de services : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production.")}
       />
 <section className="sec">
         <div className="wrap">

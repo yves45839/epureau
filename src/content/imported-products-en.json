@@ -36,7 +36,7 @@
     "gamme": "Open plant cleaning (COP)",
     "usage": "Alcohol-based disinfectant for no-rinse applications.",
     "texte": "Alcohol-based disinfectant for no-rinse applications.",
-    "compatibilite": "Metals (stainless steel, aluminium and aluminium alloys, copper and brass), plastics and seals (PVDF, PVC, HDPE, PP, POM, EPDOM, FKM, HFFKM and NBR).",
+    "compatibilite": "Metals (stainless steel, aluminium and aluminium alloys, copper and brass), plastics and seals (PVDF, PVC, HDPE, PP, POM, EPDM, FKM, HFFKM and NBR).",
     "forme": "5 L"
   },
   "ecolab-drysan-oxy": {
@@ -118,8 +118,8 @@
   "ecolab-mip-sc": {
     "categorie": "Cleaning in place (CIP)",
     "gamme": "Cleaning in place (CIP)",
-    "usage": "Strong alkaline liquid detergent based on sodium hydroxide, with surfactants and antifoaming agents. Intended for heavily soiled surfaces, with strong antifoaming action above 40°C and use across water hardness levels.",
-    "texte": "Strong alkaline liquid detergent based on sodium hydroxide, with surfactants and antifoaming agents. Intended for heavily soiled surfaces, with strong antifoaming action above 40°C and use across water hardness levels.",
+    "usage": "Strong alkaline liquid detergent based on sodium hydroxide, with surfactants and antifoaming agents. Intended for heavily soiled surfaces, with strong antifoaming action above 40 °C and use across water hardness levels.",
+    "texte": "Strong alkaline liquid detergent based on sodium hydroxide, with surfactants and antifoaming agents. Intended for heavily soiled surfaces, with strong antifoaming action above 40 °C and use across water hardness levels.",
     "compatibilite": "Under the specified application conditions: steel, austenitic CrNi stainless steel (AISI 304) and plastics (PTFE, PE, PP, PVC).",
     "forme": "24 kg\n290 kg"
   },
@@ -151,7 +151,7 @@
     "gamme": "Cleaning in place (CIP)",
     "usage": "Non-foaming, non-oxidising liquid disinfectant for circuits and equipment soaking.",
     "texte": "Non-foaming, non-oxidising liquid disinfectant for circuits and equipment soaking.",
-    "forme": "20kg"
+    "forme": "20 kg"
   },
   "ecolab-manosoft": {
     "categorie": "Hand hygiene",
@@ -207,28 +207,28 @@
     "gamme": "Cleaning additives",
     "usage": "Air deodoriser and drain cleaner for manual application.",
     "texte": "Air deodoriser and drain cleaner for manual application.",
-    "forme": "750 ml"
+    "forme": "750 mL"
   },
   "lovibond-indicateur-heliantine": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Methyl orange indicator",
-    "forme": "65 ml"
+    "forme": "65 mL"
   },
   "lovibond-mixte-pour-tac": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Total alkalinity mixed indicator",
-    "forme": "1 l"
+    "forme": "1 L"
   },
   "lovibond-phenolphtaleine-liquide-et-poudre": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Phenolphthalein (liquid and powder)",
-    "forme": "65 ml"
+    "forme": "65 mL"
   },
   "lovibond-n-10-soln-alcalimetrique": {
     "categorie": "Lovibond reagents",
@@ -248,13 +248,13 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-chlorine-free-dpd-f": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-n-10-soln-argentimetrique": {
     "categorie": "Lovibond reagents",
@@ -318,7 +318,7 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "65 ml"
+    "forme": "65 mL"
   },
   "lovibond-hardness-reagent-20-gr": {
     "categorie": "Lovibond reagents",
@@ -329,7 +329,7 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-mo-1-reagent": {
     "categorie": "Lovibond reagents",
@@ -340,7 +340,7 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "25 ml"
+    "forme": "25 mL"
   },
   "lovibond-mo-3-reagent": {
     "categorie": "Lovibond reagents",
@@ -362,7 +362,7 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "1 l"
+    "forme": "1 L"
   },
   "lovibond-pc300-pc450-probe-ph": {
     "categorie": "Lovibond reagents",
@@ -374,7 +374,7 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-microkit-ortho-phospate": {
     "categorie": "Lovibond reagents",
@@ -385,31 +385,31 @@
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-vario-silica-hr-citric-acid": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-vario-silica-hr-molybdate": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-vario-molybdate-3-reagent-solution": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "50 ml"
+    "forme": "50 mL"
   },
   "lovibond-vario-lr-silica-amino-acid-fpp": {
     "categorie": "Lovibond reagents",
     "gamme": "Lovibond reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
-    "forme": "10 ml"
+    "forme": "10 mL"
   },
   "lovibond-sulphite-strips-10-1000-mg-l": {
     "categorie": "Lovibond reagents",
@@ -437,7 +437,7 @@
     "gamme": "Laboratory reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Sodium hydroxide 1N",
-    "forme": "1 l"
+    "forme": "1 L"
   },
   "commodites-reactifs-hypochlorure-de-sodium": {
     "categorie": "Laboratory reagents",
@@ -462,7 +462,7 @@
     "gamme": "Laboratory reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Sodium hydroxide 0.1N",
-    "forme": "1 l"
+    "forme": "1 L"
   },
   "commodites-reactifs-solution-tampon-pour-ph-4-7-9-2-10": {
     "categorie": "Laboratory reagents",
@@ -538,14 +538,14 @@
     "gamme": "Laboratory reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Iso-octane",
-    "forme": "2,5 l"
+    "forme": "2.5 L"
   },
   "commodites-reactifs-ether-diethylique": {
     "categorie": "Laboratory reagents",
     "gamme": "Laboratory reagents",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Diethyl ether",
-    "forme": "5 l"
+    "forme": "5 L"
   },
   "commodites-reactifs-catalyseur-de-mineralisation-kjeldah": {
     "categorie": "Laboratory reagents",
@@ -620,7 +620,7 @@
     "gamme": "Commodity chemicals",
     "texte": "Product offered by EPUREAU Côte d’Ivoire. Contact our team to discuss your requirements and request a quote.",
     "nom": "Hydrochloric acid 38%",
-    "forme": "1L"
+    "forme": "1 L"
   },
   "commodites-reactifs-soude-caustique-perlee": {
     "categorie": "Commodity chemicals",
@@ -949,7 +949,7 @@
     "gamme": "Hand hygiene",
     "usage": "Soap for hand hygiene.",
     "texte": "Soap for hand hygiene.",
-    "forme": "Container 5L"
+    "forme": "Container 5 L"
   },
   "autres-marques-liquide-vaisselle": {
     "categorie": "Manual dishwashing",
@@ -957,14 +957,14 @@
     "usage": "Unscented liquid detergent for manual dishwashing.",
     "texte": "Unscented liquid detergent for manual dishwashing.",
     "nom": "Dishwashing liquid",
-    "forme": "Container 20L"
+    "forme": "Container 20 L"
   },
   "ecolab-solide-hero": {
     "categorie": "Automatic dishwashing",
     "gamme": "Automatic dishwashing",
     "usage": "Solid detergent for automatic dishwashing machines.",
     "texte": "Solid detergent for automatic dishwashing machines.",
-    "forme": "Case of 4,5kg"
+    "forme": "Case of 4.5 kg"
   },
   "ecolab-toprinse-clean": {
     "categorie": "Automatic dishwashing",
@@ -979,21 +979,21 @@
     "usage": "Liquid cleaner for glasses and cups.",
     "texte": "Liquid cleaner for glasses and cups.",
     "nom": "Glasswashing liquid",
-    "forme": "Container 01L"
+    "forme": "Container 1 L"
   },
   "autres-marques-adm": {
     "categorie": "Kitchen cleaning",
     "gamme": "Kitchen cleaning",
     "usage": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
     "texte": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
-    "forme": "Container 20L"
+    "forme": "Container 20 L"
   },
   "autres-marques-c-simple": {
     "categorie": "Kitchen cleaning",
     "gamme": "Kitchen cleaning",
     "usage": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
     "texte": "Multi-purpose foaming cleaner, degreaser and disinfectant.",
-    "forme": "Container 05L"
+    "forme": "Container 5 L"
   },
   "autres-marques-desinfectant-alimentaire-sans-rincage": {
     "categorie": "Kitchen cleaning",
@@ -1001,7 +1001,7 @@
     "usage": "Self-drying, no-rinse, multi-surface disinfectant.",
     "texte": "Self-drying, no-rinse, multi-surface disinfectant.",
     "nom": "No-rinse food-area disinfectant",
-    "forme": "Container 01L"
+    "forme": "Container 1 L"
   },
   "autres-marques-decapant-liquide": {
     "categorie": "Oven and grill cleaning",
@@ -1009,28 +1009,28 @@
     "usage": "Universal liquid oven cleaner.",
     "texte": "Universal liquid oven cleaner.",
     "nom": "Liquid oven cleaner",
-    "forme": "Container 05L"
+    "forme": "Container 5 L"
   },
   "ecolab-helios-brillant": {
     "categorie": "Stainless steel and metal care",
     "gamme": "Stainless steel and metal care",
     "usage": "Cleaner, restorer and protector for stainless steel and other metals.",
     "texte": "Cleaner, restorer and protector for stainless steel and other metals.",
-    "forme": "Container 500mL"
+    "forme": "Container 500 mL"
   },
   "ecolab-polish-cleaner": {
     "categorie": "Stainless steel and metal care",
     "gamme": "Stainless steel and metal care",
     "usage": "Polish cleaner for stainless steel.",
     "texte": "Polish cleaner for stainless steel.",
-    "forme": "Case of 6*500mL"
+    "forme": "Case of 6 × 500 mL"
   },
   "autres-marques-sanicid-100": {
     "categorie": "Washroom hygiene",
     "gamme": "Washroom hygiene",
     "usage": "Mild acidic multi-purpose descaler for bathroom walls and sanitary fixtures.",
     "texte": "Mild acidic multi-purpose descaler for bathroom walls and sanitary fixtures.",
-    "forme": "Container 05L"
+    "forme": "Container 5 L"
   },
   "autres-marques-spado-gel": {
     "categorie": "Washroom hygiene",
@@ -1044,7 +1044,7 @@
     "gamme": "Floor and carpet care",
     "usage": "Crystalliser for marble and limestone.",
     "texte": "Crystalliser for marble and limestone.",
-    "forme": "Container 05L"
+    "forme": "Container 5 L"
   },
   "autres-marques-nettoyant-ecolabel": {
     "categorie": "Floor and carpet care",
@@ -1052,42 +1052,42 @@
     "usage": "Daily cleaner for washable floors and surfaces, including glass, marble, plastics and doors.",
     "texte": "Daily cleaner for washable floors and surfaces, including glass, marble, plastics and doors.",
     "nom": "Ecolabel cleaner",
-    "forme": "Container 05L"
+    "forme": "Container 5 L"
   },
   "autres-marques-st-wandrille-antiquaire": {
     "categorie": "Floor and carpet care",
     "gamme": "Floor and carpet care",
     "usage": "Protects and preserves wood flooring.",
     "texte": "Protects and preserves wood flooring.",
-    "forme": "Tin of 05L"
+    "forme": "Tin of 5 L"
   },
   "ecolab-carpet-a": {
     "categorie": "Floor and carpet care",
     "gamme": "Floor and carpet care",
     "usage": "Carpet stain remover for water-soluble stains, including fruit, soft drinks, tea, coffee and ice cream.",
     "texte": "Carpet stain remover for water-soluble stains, including fruit, soft drinks, tea, coffee and ice cream.",
-    "forme": "Case of 6*500mL"
+    "forme": "Case of 6 × 500 mL"
   },
   "ecolab-carpet-shampoo": {
     "categorie": "Floor and carpet care",
     "gamme": "Floor and carpet care",
     "usage": "Deep carpet and rug cleaning with a single-disc machine or spray extraction. Dry-foam shampoo for different types of soiling.",
     "texte": "Deep carpet and rug cleaning with a single-disc machine or spray extraction. Dry-foam shampoo for different types of soiling.",
-    "forme": "Container 05L"
+    "forme": "Container 5 L"
   },
   "ecolab-carpet-freeze": {
     "categorie": "Floor and carpet care",
     "gamme": "Floor and carpet care",
     "usage": "Removes chewing gum without leaving marks.",
     "texte": "Removes chewing gum without leaving marks.",
-    "forme": "Case of 6*500mL"
+    "forme": "Case of 6 × 500 mL"
   },
   "ecolab-xense-orange-fresh": {
     "categorie": "Floor and carpet care",
     "gamme": "Floor and carpet care",
     "usage": "Deodoriser for toilets, urinals, sinks and waste areas.",
     "texte": "Deodoriser for toilets, urinals, sinks and waste areas.",
-    "forme": "Case of 6*500mL"
+    "forme": "Case of 6 × 500 mL"
   },
   "autres-marques-neo-sp": {
     "categorie": "Laundry detergents",
@@ -1099,8 +1099,8 @@
   "autres-marques-leli-pro": {
     "categorie": "Laundry detergents",
     "gamme": "Laundry detergents",
-    "usage": "Liquid laundry detergent active from 30°C for all fabric types, with stain-removing ingredients.",
-    "texte": "Liquid laundry detergent active from 30°C for all fabric types, with stain-removing ingredients.",
+    "usage": "Liquid laundry detergent active from 30 °C for all fabric types, with stain-removing ingredients.",
+    "texte": "Liquid laundry detergent active from 30 °C for all fabric types, with stain-removing ingredients.",
     "forme": "Container 20 kg"
   },
   "ecolab-ecobrite-delicate": {
@@ -1115,35 +1115,35 @@
     "gamme": "Laundry stain removal",
     "usage": "Non-foaming degreaser, emulsifier and stain remover for laundry.",
     "texte": "Non-foaming degreaser, emulsifier and stain remover for laundry.",
-    "forme": "Container 20kg"
+    "forme": "Container 20 kg"
   },
   "autres-marques-pro-moullant-enzyme": {
     "categorie": "Laundry stain removal",
     "gamme": "Laundry stain removal",
     "usage": "Wetting and degreasing agent for greasy and protein-based stains.",
     "texte": "Wetting and degreasing agent for greasy and protein-based stains.",
-    "forme": "Container 20kg"
+    "forme": "Container 20 kg"
   },
   "ecolab-stain-blaster-multi-purpose": {
     "categorie": "Laundry stain removal",
     "gamme": "Laundry stain removal",
     "usage": "Multi-purpose stain remover for local pretreatment of grease, oil, food residues, ink, lipstick, body fluids and other stains.",
     "texte": "Multi-purpose stain remover for local pretreatment of grease, oil, food residues, ink, lipstick, body fluids and other stains.",
-    "forme": "Bottle of 500mL"
+    "forme": "Bottle of 500 mL"
   },
   "ecolab-ecobrite-oxy": {
     "categorie": "Laundry bleaching",
     "gamme": "Laundry bleaching",
     "usage": "Oxygen-based liquid bleach and disinfectant.",
     "texte": "Oxygen-based liquid bleach and disinfectant.",
-    "forme": "Container 20kg"
+    "forme": "Container 20 kg"
   },
   "autres-marques-olydoux-assoupissant": {
     "categorie": "Fabric softeners",
     "gamme": "Fabric softeners",
     "usage": "Fabric softener for all types of textiles.",
     "texte": "Fabric softener for all types of textiles.",
-    "forme": "Container 20L"
+    "forme": "Container 20 L"
   },
   "autres-marques-compteur-d-eau-froide-multijet-dn-25": {
     "categorie": "Equipment and accessories",

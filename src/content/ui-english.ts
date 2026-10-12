@@ -2,6 +2,8 @@ import pagesEnglish from "./pages-english.json";
 import secondaryEnglish from "./secondary-english.json";
 import homeEnglish from "./home-english.json";
 export const englishUi: Record<string,string> = {
+ "produit":"product",
+ "produits":"products",
  "Autres marques":"Other brands",
  "Compatibilité des matériaux":"Material compatibility",
  "Afficher plus de produits":"Show more products",

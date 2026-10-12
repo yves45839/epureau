@@ -7,8 +7,8 @@ export const societe = {
   telephone: "+225 27 22 22 89 05",
   telephoneLien: "+2252722228905",
   email: "epureau@epureau-ci.com",
-  horaires: "Lun – Ven · 08h30 – 17h30",
-  horairesLong: "Lundi – Vendredi · 08h30 – 17h30",
+  horaires: "Lun – Ven · 08 h 30 – 17 h 30",
+  horairesLong: "Lundi – Vendredi · 08 h 30 – 17 h 30",
   adresse: "424 Rue Koffi N'Guessan, Cité des Cadres — Cocody, Abidjan",
   boitePostale: "30 BP 835 Abidjan 30",
   maps: "https://www.google.com/maps/search/?api=1&query=Epureau+CI%2C+Abidjan",
@@ -100,7 +100,7 @@ export const domaines = [
   {
     titre: "Ingénierie du traitement de l'eau",
     texte:
-      "Bureau d'études, conception, réalisation et exploitation des ouvrages, en clé en main.",
+      "Bureau d'études, conception, réalisation et exploitation d'ouvrages clés en main.",
     lien: "/ingenierie/notre-expertise",
     lienTexte: "Notre expertise",
     image: "/images/projets-ci/abidjan-laiterie.jpg",
@@ -208,7 +208,7 @@ export const etapes = [
     cle: "Étape 1 — Bureau d'études",
     titre: "Conception",
     texte:
-      "Le Bureau d'Études étudie et conçoit des installations répondant aux besoins du client, tout en respectant les normes en vigueur.",
+      "Le bureau d'études étudie et conçoit des installations répondant aux besoins du client, tout en respectant les normes en vigueur.",
     points: ["Analyse de l'effluent", "Dimensionnement", "Choix du procédé", "Conformité aux normes"],
   },
   {
@@ -219,7 +219,7 @@ export const etapes = [
     points: ["Travaux préparatoires", "Génie civil", "Installation des équipements"],
   },
   {
-    cle: "Étape 3 — Livraison clé en main",
+    cle: "Étape 3 — Livraison clés en main",
     titre: "Mise en service",
     texte:
       "Nous effectuons différents tests et réglages des procédés mis en œuvre afin de garantir les performances attendues. Pendant l'exploitation, nous mettons à disposition les produits NALCO et les réactifs de laboratoire nécessaires.",
@@ -382,7 +382,7 @@ export const diapositives = [
     titre: "De la conception à l'exploitation,",
     titreAccent: "toute la chaîne.",
     texte:
-      "Le Bureau d'Études conçoit, les équipes de terrain réalisent, et nous livrons des unités de traitement clé en main : eaux potables, usées et industrielles.",
+      "Le bureau d'études conçoit, les équipes de terrain réalisent, et nous livrons des unités de traitement clés en main : eaux potables, usées et industrielles.",
     image: "/images/hero-2.jpg",
     alt: "Pose des ouvrages de traitement sur chantier",
     actions: [

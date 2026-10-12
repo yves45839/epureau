@@ -60,8 +60,8 @@ const valeurs = [
             <div className="text rv">
               <span className="eyebrow">{t("f003", "Qui sommes-nous ?")}</span>
               <h2 className="title">{t("f004", "Une SAS ivoirienne, membre du groupe YANGONDI")}</h2>
-              <p className="lead" style={{ marginTop: 18 }}>{t("f005", "EPUREAU Côte d’Ivoire est une Société par Actions Simplifiée (SAS), créée et basée en Côte d'Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société française, elle a rejoint ")}<strong>{t("f006", "YANGONDI HOLDING")}</strong>{t("f007", ".")}</p>
-              <p className="lead">{t("f008", "Spécialisée dans le traitement des eaux (potable, usée, industrielle), EPUREAU Côte d’Ivoire associe à son ingénierie prouvée en potabilisation et épuration des eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des utilités, l'hygiène, la désinfection de vos installations et la protection de vos marques.")}</p>
+              <p className="lead" style={{ marginTop: 18 }}>{t("f005", "EPUREAU Côte d’Ivoire est une société par actions simplifiée (SAS), créée et basée en Côte d'Ivoire depuis octobre 2015. Précédemment filiale du groupe MARBOUR, société française, elle a rejoint ")}<strong>{t("f006", "YANGONDI HOLDING")}</strong>{t("f007", ".")}</p>
+              <p className="lead">{t("f008", "Spécialisée dans le traitement des eaux potables, usées et industrielles, EPUREAU Côte d’Ivoire associe à son ingénierie prouvée en potabilisation et épuration des eaux le savoir-faire des marques ECOLAB et NALCO, pour assurer la performance des utilités, l'hygiène, la désinfection de vos installations et la protection de vos marques.")}</p>
               <div className="mission">
                 <ul>
                   {mission.map((m) => (

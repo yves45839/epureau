@@ -102,7 +102,7 @@ const slides = [
     </section>
 <section id="contact" className="contact-section section">
       <div className="shell contact-grid">
-        <div className="contact-copy reveal"><span className="home-eyebrow">{t("f105", "Contact")}</span><h2>{t("f106", "Demander")}<br />{t("f107", "une cotation")}</h2><p>{t("f108", "Notre équipe vous accompagne.")}</p><a className="phone-link" href="tel:+2252722228905"><svg aria-hidden="true"><use href="#phone"/></svg>{t("f109", "+225 27 22 22 89 05")}</a><a className="email-link" href="mailto:epureau@epureau-ci.com">{t("f110", "epureau@epureau-ci.com")}</a><div className="contact-address">{t("f111", "Cocody, Abidjan · Côte d’Ivoire")}<br />{t("f112", "Lundi – Vendredi · 08h30 – 17h30")}</div></div>
+        <div className="contact-copy reveal"><span className="home-eyebrow">{t("f105", "Contact")}</span><h2>{t("f106", "Demander")}<br />{t("f107", "une cotation")}</h2><p>{t("f108", "Notre équipe vous accompagne.")}</p><a className="phone-link" href="tel:+2252722228905"><svg aria-hidden="true"><use href="#phone"/></svg>{t("f109", "+225 27 22 22 89 05")}</a><a className="email-link" href="mailto:epureau@epureau-ci.com">{t("f110", "epureau@epureau-ci.com")}</a><div className="contact-address">{t("f111", "Cocody, Abidjan · Côte d’Ivoire")}<br />{t("f112", "Lundi – Vendredi · 08 h 30 – 17 h 30")}</div></div>
         <HomeQuoteForm />
       </div>
     </section>
