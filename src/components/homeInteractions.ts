@@ -46,57 +46,69 @@ export function mountHomeInteractions(root: HTMLElement, language:"fr"|"en"="fr"
   const story = q(".proof-story");
   if (!story) return () => {};
   const cases = qa("[data-case]");
-  const casePhotos = qa("[data-case-image]");
   const header = q(".site-header");
+  const previous = q<HTMLButtonElement>("[data-case-prev]");
+  const next = q<HTMLButtonElement>("[data-case-next]");
   let caseFrame = 0;
   let caseInView = false;
+  let activeCase = 0;
+  let caseHeight = 0;
   const activateCase = (active: number) => {
-    cases.forEach((card, index) => card.classList.toggle("active", index === active));
-    casePhotos.forEach((photo, index) => photo.classList.toggle("active", index === active));
+    activeCase = active;
+    const staged = story.classList.contains("proof-motion");
+    cases.forEach((card, index) => {
+      const hidden = staged && index !== active;
+      card.classList.toggle("active", index === active);
+      card.inert = hidden;
+      if (hidden) card.setAttribute("aria-hidden", "true");
+      else card.removeAttribute("aria-hidden");
+    });
+    previous.disabled = active === 0;
+    next.disabled = active >= cases.length - 1;
+    q("[data-case-current]").textContent = String(active + 1).padStart(2, "0");
     q(".stage-rail i").style.width = `${cases.length ? (active + 1) / cases.length * 100 : 0}%`;
   };
   const updateCase = () => {
     caseFrame = 0;
     if (!story.classList.contains("proof-motion")) return;
-    const top = Math.max(0, header.getBoundingClientRect().bottom);
-    const bottom = window.innerHeight;
-    const center = (top + bottom) / 2;
-    let active = 0;
-    let mostVisible = -1;
-    let nearest = Infinity;
-    // La photo suit le texte le plus visible dans la zone de lecture.
-    cases.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const visible = Math.max(0, Math.min(rect.bottom, bottom) - Math.max(rect.top, top));
-      const distance = Math.abs((rect.top + rect.bottom) / 2 - center);
-      if (visible > mostVisible || (visible === mostVisible && distance < nearest)) {
-        active = index;
-        mostVisible = visible;
-        nearest = distance;
-      }
-    });
-    activateCase(active);
+    // Un seul panneau contient la photo et le texte : ils changent ensemble.
+    const progress = (header.offsetHeight - story.getBoundingClientRect().top) / caseHeight;
+    activateCase(Math.max(0, Math.min(cases.length - 1, Math.floor(progress + .5))));
   };
   const queueCase = () => { if (caseInView && !caseFrame) caseFrame = requestAnimationFrame(updateCase); };
   const layoutCases = () => {
     if (!alive) return;
-    story.classList.toggle("proof-motion", !motion.matches && window.innerWidth > 700 && cases.length > 1);
-    updateCase();
+    caseHeight = window.innerHeight - header.offsetHeight;
+    story.style.setProperty("--proof-height", `${caseHeight}px`);
+    story.style.setProperty("--proof-count", String(cases.length));
+    const candidate = !motion.matches && window.innerWidth > 900 && caseHeight >= 520 && cases.length > 1;
+    story.classList.toggle("proof-motion", candidate);
+    if (candidate && cases.some(card => card.scrollHeight > caseHeight - 112)) story.classList.remove("proof-motion");
+    if (story.classList.contains("proof-motion")) updateCase();
+    else activateCase(activeCase);
   };
+  const goToCase = (index: number) => {
+    if (!story.classList.contains("proof-motion")) return;
+    window.scrollTo({ top: window.scrollY + story.getBoundingClientRect().top - header.offsetHeight + index * caseHeight, behavior: "smooth" });
+  };
+  on(previous, "click", () => goToCase(Math.max(0, activeCase - 1)));
+  on(next, "click", () => goToCase(Math.min(cases.length - 1, activeCase + 1)));
   const caseObserver = new IntersectionObserver(([entry]) => { caseInView = entry.isIntersecting; queueCase(); }, {rootMargin:"100px 0px"});
   caseObserver.observe(story);
   on(window, "scroll", queueCase, {passive:true});
   on(window, "resize", layoutCases, {passive:true});
   on(motion, "change", layoutCases);
-  on(story, "focusin", event => {
-    const focused = cases.findIndex(card => event.target instanceof Node && card.contains(event.target));
-    if (focused !== -1) activateCase(focused);
-  });
-  on(story, "focusout", queueCase);
+  const caseResizeObserver = new ResizeObserver(layoutCases);
+  cases.forEach(card => caseResizeObserver.observe(card.querySelector(".case-copy")!));
   document.fonts.ready.then(layoutCases);
   layoutCases();
 
-  return () => { caseObserver.disconnect(); cancelAnimationFrame(caseFrame); story.classList.remove("proof-motion"); };
+  return () => {
+    caseObserver.disconnect(); caseResizeObserver.disconnect(); cancelAnimationFrame(caseFrame);
+    story.classList.remove("proof-motion");
+    story.style.removeProperty("--proof-height"); story.style.removeProperty("--proof-count");
+    cases.forEach(card => { card.inert = false; card.removeAttribute("aria-hidden"); });
+  };
   })();
 
   const serviceKeys = ["ingenierie", "industries", "hygiene", "produits"];

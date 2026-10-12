@@ -2,7 +2,7 @@
 main#contenu .text p,
 main#contenu .builder-section p,
 main#contenu .builder-intro,
-.home-experience .case-card > p,
+.home-experience .case-copy > p,
 .home-experience .catalogue-body > p {
  text-align: justify;
  text-align-last: start;
