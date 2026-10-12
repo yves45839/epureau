@@ -47,21 +47,35 @@ export function mountHomeInteractions(root: HTMLElement, language:"fr"|"en"="fr"
   if (!story) return () => {};
   const cases = qa("[data-case]");
   const casePhotos = qa("[data-case-image]");
-  const titles = cases.map(card => card.querySelector("h3")!);
+  const header = q(".site-header");
   let caseFrame = 0;
   let caseInView = false;
-  const updateCase = () => {
-    caseFrame = 0;
-    if (!story.classList.contains("proof-motion")) return;
-    // Déclencher à l'entrée du titre, et non une fois arrivé au milieu de l'écran.
-    let active = 0;
-    const bounds = titles.map(title => title.getBoundingClientRect());
-    bounds.forEach((rect, index) => { if (rect.top <= window.innerHeight * .88) active = index; });
-    const focused = cases.findIndex(card => card.contains(document.activeElement));
-    if (focused !== -1) active = focused;
+  const activateCase = (active: number) => {
     cases.forEach((card, index) => card.classList.toggle("active", index === active));
     casePhotos.forEach((photo, index) => photo.classList.toggle("active", index === active));
     q(".stage-rail i").style.width = `${cases.length ? (active + 1) / cases.length * 100 : 0}%`;
+  };
+  const updateCase = () => {
+    caseFrame = 0;
+    if (!story.classList.contains("proof-motion")) return;
+    const top = Math.max(0, header.getBoundingClientRect().bottom);
+    const bottom = window.innerHeight;
+    const center = (top + bottom) / 2;
+    let active = 0;
+    let mostVisible = -1;
+    let nearest = Infinity;
+    // La photo suit le texte le plus visible dans la zone de lecture.
+    cases.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      const visible = Math.max(0, Math.min(rect.bottom, bottom) - Math.max(rect.top, top));
+      const distance = Math.abs((rect.top + rect.bottom) / 2 - center);
+      if (visible > mostVisible || (visible === mostVisible && distance < nearest)) {
+        active = index;
+        mostVisible = visible;
+        nearest = distance;
+      }
+    });
+    activateCase(active);
   };
   const queueCase = () => { if (caseInView && !caseFrame) caseFrame = requestAnimationFrame(updateCase); };
   const layoutCases = () => {
@@ -74,7 +88,10 @@ export function mountHomeInteractions(root: HTMLElement, language:"fr"|"en"="fr"
   on(window, "scroll", queueCase, {passive:true});
   on(window, "resize", layoutCases, {passive:true});
   on(motion, "change", layoutCases);
-  on(story, "focusin", queueCase);
+  on(story, "focusin", event => {
+    const focused = cases.findIndex(card => event.target instanceof Node && card.contains(event.target));
+    if (focused !== -1) activateCase(focused);
+  });
   on(story, "focusout", queueCase);
   document.fonts.ready.then(layoutCases);
   layoutCases();

@@ -5,7 +5,8 @@ export default async function LanguageSwitch(){
  const path=(await headers()).get("x-epureau-path")||"/";
  const suffix=path==="/"?"":path;
  return <nav className="site-languages" aria-label={language==="en"?"Language":"Langue"}>
-   <a href={"/fr"+suffix} hrefLang="fr" lang="fr" aria-current={language==="fr"?"page":undefined}>FR<span className="language-name"> · Français</span></a>
-   <a href={"/en"+suffix} hrefLang="en" lang="en" aria-current={language==="en"?"page":undefined}>EN<span className="language-name"> · English</span></a>
+   <a href={"/fr"+suffix} hrefLang="fr" lang="fr" aria-label="Français" title="Français" aria-current={language==="fr"?"page":undefined}>FR</a>
+   <span aria-hidden="true">/</span>
+   <a href={"/en"+suffix} hrefLang="en" lang="en" aria-label="English" title="English" aria-current={language==="en"?"page":undefined}>EN</a>
  </nav>;
 }

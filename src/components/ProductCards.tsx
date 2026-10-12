@@ -15,10 +15,7 @@ export default function ProductCards({ produits, marque, prefix = "" }: { produi
 
   return (
     <div className="produits">
-      {liste.map(p => {
-        const points = (p.points || "").split("\n").map(v => v.trim()).filter(Boolean).slice(0, 6);
-        const attributs = ([["Application", p.usage], ["Secteurs", p.secteurs], ["Conditionnement", p.forme]] as const).filter(([, valeur]) => valeur);
-        return (
+      {liste.map(p => (
           <article className="produit" key={p.slug}>
             <div className={"produit-visuel" + (p.image ? "" : " sans-visuel")}>
               {p.image
@@ -29,25 +26,11 @@ export default function ProductCards({ produits, marque, prefix = "" }: { produi
             <div className="produit-corps">
               {p.gamme && <span className="produit-gamme">{p.gamme}</span>}
               <h3><Link href={`${prefix}/negoce/${encodeURIComponent(p.slug)}`}>{p.nom}</Link></h3>
-              {p.texte && <p className="produit-texte">{p.texte}</p>}
-              {attributs.length > 0 && (
-                <dl className="produit-attributs">
-                  {attributs.map(([libelle, valeur]) => (
-                    <div key={libelle}><dt><UiText text={libelle} /></dt><dd>{valeur}</dd></div>
-                  ))}
-                </dl>
-              )}
-              {points.length > 0 && (
-                <ul className="produit-points">
-                  {points.map(point => <li key={point}><Icon name="check" />{point}</li>)}
-                </ul>
-              )}
               <Link className="arrow-link" href={`${prefix}/negoce/${encodeURIComponent(p.slug)}`}><UiText text="Voir le produit" /><Icon name="arrow" /></Link>
               <Link className="product-quote" href={`${prefix}/contact?produit=${encodeURIComponent(p.nom)}#form`}><UiText text="Demander un devis" /></Link>
             </div>
           </article>
-        );
-      })}
+      ))}
     </div>
   );
 }
