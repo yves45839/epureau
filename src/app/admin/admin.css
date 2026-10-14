@@ -176,3 +176,4 @@
 .admin-translation-field small{display:block;margin:8px 0;color:#475569}
 .admin-translation-field button{background:white;border:1px solid #b9cbda;border-radius:6px;padding:7px 10px;margin:4px 8px 4px 0;cursor:pointer}
 @media(max-width:640px){.admin-english{padding:16px}.admin-english .admin-row{flex-wrap:wrap}}
+.admin-app .admin-field input[type=checkbox]{width:20px;height:20px;min-height:20px;padding:0;accent-color:#1747a0}

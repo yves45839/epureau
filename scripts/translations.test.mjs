@@ -13,6 +13,14 @@ const builder=load('src/content/page-builder.ts',{'./page-sections.json':require
 const {translationUnits,readEnglish,validateEnglish,pruneEnglish,englishContent}=load('src/content/translations.ts',{'./page-builder':builder});
 const fields=[{key:'title',label:'Titre'},{key:'image',label:'Image',type:'image'},{key:'email',label:'E-mail'},{key:'url',label:'Lien',type:'url'}];
 const withEnglish=(data,entries)=>({...data,__en:JSON.stringify(entries)});
+
+test('les annonces protègent leurs réglages et limitent aussi la longueur des textes anglais',()=>{
+ const data={title:'Recrutement',description:'Notre offre',category:'Recrutement',startsOn:'2026-10-14',homeFeatured:'oui'};
+ const fields=[{key:'title',label:'Titre'},{key:'description',label:'Texte',type:'long'},{key:'category',label:'Type',type:'announcementType'},{key:'startsOn',label:'Début',type:'date'},{key:'homeFeatured',label:'Accueil',type:'boolean'}];
+ const units=translationUnits(data,fields,'announcements');
+ assert.equal(units.length,2);assert.equal(units[0].limit,200);assert.equal(units[1].limit,2000);
+ assert.throws(()=>validateEnglish(withEnglish(data,{'field:title':{source:data.title,text:'x'.repeat(201),manual:true}}),fields,'announcements'));
+});
 test('seuls les textes sont traduits, jamais les images, liens, coordonnées ou marques',()=>{
  const data={title:'Bonjour',image:'/photo.png',email:'contact@example.com',url:'https://example.com',marque:'ECOLAB',nom:'EPUREAU'};
  const units=translationUnits(data,[...fields,{key:'marque',label:'Marque'},{key:'nom',label:'Société'}],'settings');

@@ -13,7 +13,7 @@ export const societe = {
   boitePostale: "30 BP 835 Abidjan 30",
   maps: "https://www.google.com/maps/search/?api=1&query=Epureau+CI%2C+Abidjan",
   groupe: "SAS · Groupe YANGONDI",
-  site: "www.epureau-ci.com",
+  site: "epureau-ci.com",
 };
 
 /** Fiche d'établissement Google : l'entreprise y est référencée sous « Epureau CI ». */

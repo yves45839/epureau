@@ -11,7 +11,7 @@ const translationsSchema = z.record(z.string().max(240), z.object({
 }).strict()).refine(value => Object.keys(value).length <= 1200);
 const protectedFields = new Set(["email", "notificationEmails", "telephone", "telephoneLien", "adresse", "boitePostale", "maps", "site", "groupe", "linkedin", "facebook", "youtube", "blogEnabled", "marque", "reference", "documentType", "documentLangue", "fiche", "sourceUrl", "client", "debit", "unite"]);
 export function isTranslatable(field: TranslationField, section: string) {
-  return !["image", "url", "brand", "mediaType"].includes(field.type || "") &&
+  return !["image", "url", "brand", "mediaType", "boolean", "date", "announcementType"].includes(field.type || "") &&
     !protectedFields.has(field.key) && !(section === "settings" && field.key === "nom") && !field.key.startsWith("__");
 }
 export function readEnglish(data: ContentData): EnglishTranslations {
@@ -24,7 +24,10 @@ export function translationUnits(data: ContentData, fields: TranslationField[], 
   function add(key: string, label: string, source: string, limit = 24000) {
     if (source.trim() && /\p{L}/u.test(source) && !/^(?:https?:\/\/|mailto:|tel:|\/[^\s]*$)/i.test(source) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(source)) units.push({ key, label, source, limit });
   }
-  for (const field of fields) if (isTranslatable(field, section)) add("field:" + field.key, field.label, data[field.key] || "");
+  for (const field of fields) if (isTranslatable(field, section)) {
+    const limit=section==="announcements"?(field.key==="description"?2000:200):24000;
+    add("field:" + field.key, field.label, data[field.key] || "",limit);
+  }
   if (data.__layout) {
     let layout;
     try { layout = layoutSchema.parse(JSON.parse(data.__layout)); } catch { layout = {version:1,sections:[]}; }

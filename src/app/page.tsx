@@ -1,5 +1,6 @@
 import LanguageSwitch from "@/components/LanguageSwitch";
-import { pageValues, projectList, company } from "@/lib/cms";
+import { pageValues, projectList, company, publishedDocuments, mediaList } from "@/lib/cms";
+import {activeAnnouncements,homeVideo} from "@/content/home-highlights";
 import PreviewBanner from "@/components/PreviewBanner";
 import Audience from "@/components/Audience";
 import CookieBanner from "@/components/CookieBanner";
@@ -13,7 +14,7 @@ import "../../public/maquette/carousels.css";
 export default async function HomePage() {
   return (
     <>
-      <LanguageSwitch /><PreviewBanner /><HomeLanding content={await pageValues("accueil")} realisations={await projectList()} societe={await company()} />
+      <LanguageSwitch /><PreviewBanner /><HomeLanding content={await pageValues("accueil")} realisations={await projectList()} societe={await company()} announcements={activeAnnouncements(await publishedDocuments("announcements"))} video={homeVideo(await mediaList())} />
       <Footer />
       <ToTop />
       <Audience />
@@ -24,7 +25,7 @@ export default async function HomePage() {
           "@context": "https://schema.org",
           "@type": "Organization",
           name: societe.nom,
-          url: "https://www.epureau-ci.com",
+          url: "https://epureau-ci.com",
           email: societe.email,
           telephone: societe.telephone,
           address: {

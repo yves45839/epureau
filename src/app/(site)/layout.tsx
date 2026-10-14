@@ -29,7 +29,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             "@context": "https://schema.org",
             "@type": "Organization",
             name: societe.nom,
-            url: "https://www.epureau-ci.com",
+            url: "https://epureau-ci.com",
             email: societe.email,
             telephone: societe.telephone,
             address: {

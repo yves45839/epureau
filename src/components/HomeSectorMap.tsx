@@ -9,6 +9,9 @@ import styles from "./HomeSectorMap.module.css";
 export default function HomeSectorMap({content}:{content:Record<string,string>}){
   const ui=useUi();
   const root=useRef<HTMLElement>(null);
+  const detail=useRef<HTMLElement>(null);
+  const lastTrigger=useRef<HTMLButtonElement>(null);
+  const selectionFrame=useRef<number>(0);
   const [paused,setPaused]=useState(false);
   const [visible,setVisible]=useState(false);
   useEffect(()=>{
@@ -20,6 +23,25 @@ export default function HomeSectorMap({content}:{content:Record<string,string>})
   const prefix="/"+useLanguage();
   const [selected,setSelected]=useState(0);
   const [documentOpen,setDocumentOpen]=useState(false);
+  useEffect(()=>()=>cancelAnimationFrame(selectionFrame.current),[]);
+  function chooseSector(index:number,trigger:HTMLButtonElement) {
+    setSelected(index);
+    lastTrigger.current=trigger;
+    if (!window.matchMedia("(max-width: 700px)").matches) return;
+    cancelAnimationFrame(selectionFrame.current);
+    selectionFrame.current=requestAnimationFrame(()=>{
+      const panel=detail.current;
+      if (!panel) return;
+      panel.focus({preventScroll:true});
+      const header=document.querySelector(".site-header")?.getBoundingClientRect().height || 80;
+      window.scrollTo({top:window.scrollY+panel.getBoundingClientRect().top-header-16,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+    });
+  }
+  function returnToMap() {
+    const trigger=lastTrigger.current || root.current?.querySelector<HTMLButtonElement>('button[aria-controls="sector-map-detail"]');
+    trigger?.focus({preventScroll:true});
+    trigger?.scrollIntoView({block:"center",behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+  }
   const value=(key:string,fallback:string)=>ui(content[key]??fallback);
   const savedTitle=content.map_title;
   const mapTitle=!savedTitle || ["À chaque environnement, sa solution.", "The right solution for every environment."].includes(savedTitle.trim()) ? ui("Nos domaines d’intervention") : ui(savedTitle);
@@ -34,14 +56,15 @@ export default function HomeSectorMap({content}:{content:Record<string,string>})
           <div className={styles.mapToolbar}><div className={styles.mapLegend}><span className={styles.dot}/>{ui("Une ville, six secteurs d’intervention")}</div><button className={styles.motionToggle} type="button" onClick={()=>setPaused(!paused)} aria-pressed={paused}>{ui(paused?"Activer les animations":"Mettre les animations en pause")}</button></div>
           <div className={styles.scene}>
             <SectorCity/>
-            {sectors.map((sector,i)=><button type="button" className={`${styles.pin} ${i===selected?styles.active:""}`} key={sector.id} style={{left:`${sector.x/12}%`,top:`${sector.y/7}%`}} onClick={()=>setSelected(i)} aria-pressed={selected===i} aria-controls="sector-map-detail" aria-label={`${i+1}. ${sector.title}`}><span>{i+1}</span><b>{ui(sector.short)}</b></button>)}
+            {sectors.map((sector,i)=><button type="button" className={`${styles.pin} ${i===selected?styles.active:""}`} key={sector.id} style={{left:`${sector.x/12}%`,top:`${sector.y/7}%`}} onClick={event=>chooseSector(i,event.currentTarget)} aria-pressed={selected===i} aria-controls="sector-map-detail" aria-label={`${i+1}. ${sector.title}`}><span>{i+1}</span><b>{ui(sector.short)}</b></button>)}
           </div>
-          <div className={styles.selector} aria-label={ui("Choisir un secteur")}>{sectors.map((sector,i)=><button type="button" key={sector.id} aria-pressed={selected===i} onClick={()=>setSelected(i)} aria-controls="sector-map-detail"><span>{String(i+1).padStart(2,"0")}</span>{sector.title}</button>)}</div>
+          <div className={styles.selector} aria-label={ui("Choisir un secteur")}>{sectors.map((sector,i)=><button type="button" key={sector.id} aria-pressed={selected===i} onClick={event=>chooseSector(i,event.currentTarget)} aria-controls="sector-map-detail"><span>{String(i+1).padStart(2,"0")}</span>{sector.title}</button>)}</div>
           <p className={styles.caption}>{ui("Illustration de nos secteurs d’activité · cliquez sur un repère")}</p>
         </div>
-        <article id="sector-map-detail" className={styles.detail} aria-live="polite" aria-atomic="true">
+        <article ref={detail} id="sector-map-detail" className={styles.detail} tabIndex={-1} aria-labelledby="sector-detail-title" aria-live="polite" aria-atomic="true">
+          <button className={styles.backToMap} type="button" onClick={returnToMap}><span aria-hidden="true">↑</span> {prefix==="/en"?"Back to sectors":"Retour aux secteurs"}</button>
           <div className={styles.detailTop}><span>{String(selected+1).padStart(2,"0")} / 06</span><span>{ui("Solutions EPUREAU")}</span></div>
-          <h3 key={active.id+"title"} className={styles.detailEnter}>{active.title}</h3><p key={active.id+"text"} className={styles.detailEnter}>{active.text}</p>
+          <h3 id="sector-detail-title" key={active.id+"title"} className={styles.detailEnter}>{active.title}</h3><p key={active.id+"text"} className={styles.detailEnter}>{active.text}</p>
           <ul>{active.points.split("\n").filter(Boolean).map((point,i)=><li key={i}><span aria-hidden="true">✓</span>{point}</li>)}</ul>
           <a className={styles.primary} href={href.startsWith("/")&&!/^\/(fr|en)(\/|$)/.test(href)?prefix+href:href}>{ui("Découvrir nos solutions")} <span aria-hidden="true">↗</span></a>
           <a className={styles.contact} href={`${prefix}/contact?secteur=${encodeURIComponent(active.title)}#form`}>{ui("Parler de mon projet")} <span aria-hidden="true">→</span></a>

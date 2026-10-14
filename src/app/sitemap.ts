@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { publishedDocuments } from "@/lib/cms";
 import { customPagePath } from "@/content/page-builder";
 
-const BASE = "https://www.epureau-ci.com";
+const BASE = "https://epureau-ci.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = [

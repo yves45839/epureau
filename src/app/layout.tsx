@@ -37,7 +37,7 @@ const mono = localFont({
 });
 
 const baseMetadata: Metadata = {
-  metadataBase: new URL("https://www.epureau-ci.com"),
+  metadataBase: new URL("https://epureau-ci.com"),
   title: {
     default: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
     template: "%s — EPUREAU Côte d’Ivoire",

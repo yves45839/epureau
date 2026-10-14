@@ -10,6 +10,7 @@ import { editableDocuments, editablePageDefinitions, customPageFields, modelFiel
 import {customPagePath,validatePageLayout} from "@/content/page-builder";
 import {validProductDocument} from "@/content/product-catalog";
 import {marqueValide} from "@/content/products";
+import {validAnnouncement,videoSource} from "@/content/home-highlights";
 import { requestList, type CustomerRequest } from "@/lib/admin-requests";
 import type { Document } from "@/content/admin-types";
 export const runtime="nodejs";
@@ -89,6 +90,9 @@ export async function POST(req:Request){
  }
  for(const field of fields)if(["image","url"].includes(field.type||"")&&data[field.key]&&!safePublicUrl(data[field.key]))return response({message:"Utilisez un fichier du site ou un lien HTTPS pour "+field.label+"."},422);
  if(p.section==="media"&&!["photo","video"].includes(data.type))return response({message:"Choisissez photo ou video."},422);
+ if(p.section==="announcements"&&!validAnnouncement(data))return response({message:"Vérifiez le titre, le texte, le type, le lien et les dates de l’annonce."},422);
+ if(p.section==="media"&&data.homeFeatured&&!['oui','non'].includes(data.homeFeatured))return response({message:"Choisissez si la vidéo apparaît sur l’accueil."},422);
+ if(p.section==="media"&&data.homeFeatured==="oui"&&(data.type!=="video"||!videoSource(data.url)))return response({message:"Pour l’accueil, choisissez une vidéo et un lien YouTube, MP4, M4V ou WebM valide."},422);
  if(p.section==="products"){
   if(data.fiche&&!validProductDocument(data.fiche))return response({message:"Le document doit être un lien HTTPS vers un PDF."},422);
   if(data.documentType&&!["Fiche technique","Brochure fabricant"].includes(data.documentType))return response({message:"Choisissez Fiche technique ou Brochure fabricant."},422);

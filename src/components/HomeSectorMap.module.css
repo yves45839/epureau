@@ -30,3 +30,6 @@
 .section[data-motion="paused"] *,.section[data-motion="paused"] *::after{animation-play-state:paused!important}
 @media(prefers-reduced-motion:reduce){.section *,.section *::after{animation:none!important;transition:none!important}.motionToggle{display:none}.pin:hover,.pin:focus-visible{transform:translate(-50%,-50%)}.primary:hover{transform:none}}
 .section[data-motion="paused"] .detailEnter{animation:none!important}
+.detail:focus-visible{outline:3px solid #28b5c4;outline-offset:-3px}
+.section .backToMap{display:none}
+@media(max-width:700px){.section .backToMap{display:flex;align-items:center;gap:8px;align-self:flex-start;font-size:12px;color:#b9eef2;min-height:44px;margin:-8px 0 16px;border-bottom:1px solid #ffffff40}.backToMap:focus-visible{outline:2px solid #b9eef2;outline-offset:3px}}

@@ -8,7 +8,7 @@ import type { Identity } from "./auth";
 import type { Document } from "@/content/admin-types";
 
 /** Rubriques de contenu suivies sur le tableau de bord. */
-const RUBRIQUES = ["pages", "projects", "products", "media", "brochures", "blog"] as const;
+const RUBRIQUES = ["pages", "announcements", "projects", "products", "media", "brochures", "blog"] as const;
 
 export type Overview = {
   demandes: { total: number; mois: number; nouvelles: number; encours: number; traitees: number };

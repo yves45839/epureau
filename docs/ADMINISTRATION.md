@@ -1,5 +1,15 @@
 # Administration EPUREAU Côte d’Ivoire
 
+## Annonces et vidéo de l’accueil
+
+- **Annonces d’accueil** : créer une annonce, choisir Actualité, Recrutement ou Événement, renseigner son titre et son texte. Le lien et les dates sont facultatifs. Le dernier jour d’affichage est inclus, selon l’heure d’Abidjan. Enregistrer conserve un brouillon privé ; Publier affiche l’annonce sous le visuel principal. Dépublier la retire. L’ordre d’affichage suit le nombre saisi dans l’éditeur. La rubrique est accessible aux administrateurs et éditeurs.
+- **Médiathèque** : choisir un média de type Vidéo, renseigner un lien YouTube ou un fichier HTTPS MP4/M4V/WebM, une image d’aperçu et son titre, cocher « Vidéo à afficher sur l’accueil », puis publier. Si plusieurs vidéos sont cochées, la première dans l’ordre d’affichage est utilisée. Décocher ou dépublier la retire de l’accueil.
+- Le lecteur se charge uniquement après le clic. YouTube reçoit les paramètres de lecture automatique après ce clic ; les fichiers vidéo utilisent les commandes natives et restent intégrés à la page sur mobile. L’autorisation d’intégration YouTube doit être activée par le propriétaire. Aucun film de démonstration ni fausse annonce n’est publié par défaut.
+- La traduction anglaise du titre, du texte et du libellé de lien se renseigne dans l’éditeur anglais habituel. Les dates et les réglages d’affichage ne se traduisent pas.
+- Sur mobile, sélectionner un repère de la ville ou un secteur amène la fiche correspondante sous l’en-tête. « Retour aux secteurs » ramène au bouton sélectionné. Le mode de réduction des animations est respecté.
+
+Test isolé : `node scripts/home-highlights-integration.cjs` utilise le port 3119, le jeu local `home-test`, une base désactivée et aucun service e-mail. Il met en cache l’exemple vidéo public de [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/video) pour vérifier la lecture native. Les contenus, la vidéo et les captures de test restent dans `.local/` ; ils ne sont pas publiés sur le site réel.
+
 ## Ce qui est livré
 
 - Espace /admin en français, adapté à l’ordinateur et au mobile.

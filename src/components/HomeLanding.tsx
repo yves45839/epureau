@@ -4,6 +4,9 @@ import Link from "next/link";
 import UiText, {useUi,useLanguage} from "./UiText";
 import homeEnglishFields from "@/content/home-english-fields.json";
 import HomeSectorMap from "./HomeSectorMap";
+import HomeHighlights from "./HomeHighlights";
+import type {Announcement} from "@/content/home-highlights";
+import type {Media} from "@/content/admin-types";
 import PageSections from "@/components/PageSections";
 import {pageLayout} from "@/content/page-builder";
 
@@ -15,7 +18,7 @@ import { mountHomeInteractions } from "./homeInteractions";
 
 
 /** Accueil issu de la maquette validée, avec le formulaire de cotation réel. */
-export default function HomeLanding({ content = {}, realisations = defaultProjects, societe = defaultCompany }: { content?: Record<string,string>; realisations?: typeof defaultProjects; societe?: typeof defaultCompany }) {
+export default function HomeLanding({ content = {}, realisations = defaultProjects, societe = defaultCompany, announcements = [], video }: { content?: Record<string,string>; realisations?: typeof defaultProjects; societe?: typeof defaultCompany; announcements?:Announcement[]; video?:Media }) {
   const ui=useUi();
   const language=useLanguage();
   const t = (id: string, fallback: string) => {
@@ -50,7 +53,7 @@ const slides = [
   </header>
 
   <main id="contenu"><PageSections page="accueil" values={content}>
-<section id="accueil" className="home-hero" data-hero-carousel aria-roledescription={ui("carrousel")} aria-label={ui("Les métiers EPUREAU Côte d’Ivoire")}>
+<div><section id="accueil" className="home-hero" data-hero-carousel aria-roledescription={ui("carrousel")} aria-label={ui("Les métiers EPUREAU Côte d’Ivoire")}>
       <div className="hero-photo">{slides.map((slide, index) => <div key={slide.caption} className={`hero-slide${index === 0 ? " is-current" : ""}`} data-hero-slide data-caption={slide.caption} data-title={slide.title} data-description={slide.description} role="group" aria-roledescription={ui("diapositive")} aria-label={`${index + 1} ${ui("sur")} ${slides.length}`} aria-hidden={index !== 0}><Image src={slide.image} width={1672} height={941} sizes="100vw" alt={slide.alt} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} /></div>)}</div>
       <div className="shell hero-content">
         <span className="home-eyebrow light brand-name">{societe.nom}</span>
@@ -59,7 +62,7 @@ const slides = [
         <div className="hero-actions"><a className="button cyan" href={sectionLink("metiers","section-3","/ingenierie/notre-expertise")}>{t("f017", "Nos métiers")}<svg aria-hidden="true"><use href="#arrow"/></svg></a><a className="text-link" href={sectionLink("realisations","section-4","/ingenierie/nos-realisations")}>{t("f018", "Voir nos réalisations")}<svg aria-hidden="true"><use href="#diagonal"/></svg></a></div>
       </div>
       <div className="hero-bottom shell"><a href={sectionLink("metiers","section-3","/ingenierie/notre-expertise")} className="scroll-link"><span>{t("f019", "↓")}</span>{t("f020", " Découvrir EPUREAU Côte d’Ivoire")}</a><div className="carousel-controls" data-hero-controls hidden><button className="carousel-button carousel-prev" type="button" data-hero-prev aria-label={ui("Photo précédente")}><svg aria-hidden="true"><use href="#arrow"/></svg></button><div className="carousel-dots">{slides.map((slide, index) => <button key={slide.caption} className="carousel-dot" type="button" data-hero-dot aria-label={`${ui("Afficher la photo")} ${index + 1} : ${slide.caption}`} aria-pressed={index === 0} />)}</div><span className="carousel-count" data-hero-count aria-hidden="true">{t("f021", "01 / 04")}</span><button className="carousel-button" type="button" data-hero-rotation aria-label={ui("Mettre le défilement en pause")}><span data-pause-icon><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></span><span data-play-icon hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 4 12 8-12 8Z"/></svg></span></button><button className="carousel-button" type="button" data-hero-next aria-label={ui("Photo suivante")}><svg aria-hidden="true"><use href="#arrow"/></svg></button></div><span className="carousel-announcement" data-hero-announcement role="status" aria-live="polite" aria-atomic="true"></span></div>
-    </section>
+    </section><HomeHighlights announcements={announcements} video={video}/></div>
 <HomeSectorMap content={content} />
 <section id="metiers" className="section services-section">
       <div className="shell services-shell">

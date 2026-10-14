@@ -19,17 +19,17 @@ import type { Overview } from "@/lib/admin-overview";
 import { may } from "@/content/admin-access";
 type Field={key:string;label:string;type?:string};
 type Payload={data:unknown[];fields?:Field[];pages?:PageDefinition[];team?:{id:string;name:string}[];audience?:Rapport;overview?:Overview};
-const sections:Record<string,string>={dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès"};
+const sections:Record<string,string>={dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",announcements:"Annonces d’accueil",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès"};
 const labels:Record<string,string>={nouvelle:"Nouvelle",en_cours:"En cours",traitee:"Traitée"};
 const roleNames:Record<string,string>={admin:"Administrateur",editeur:"Éditeur",commercial:"Commercial"};
 const groupes:{titre:string;cles:string[]}[]=[
  {titre:"Pilotage",cles:["dashboard","audience"]},
  {titre:"Relation client",cles:["requests"]},
- {titre:"Contenus du site",cles:["pages","projects","products","media","brochures","blog"]},
+ {titre:"Contenus du site",cles:["pages","announcements","projects","products","media","brochures","blog"]},
  {titre:"Administration",cles:["settings","users","audit"]},
 ];
-const icones:Record<string,string>={dashboard:"grid",audience:"chart",requests:"mail",pages:"layout",projects:"factory",products:"tag",media:"image",brochures:"file",blog:"pen",settings:"gear",users:"users",audit:"list"};
-const creations:Record<string,string>={pages:"Créer une page",projects:"Ajouter une réalisation",products:"Ajouter un produit",media:"Ajouter un média",brochures:"Ajouter une brochure",blog:"Ajouter un article",users:"Ajouter un compte"};
+const icones:Record<string,string>={dashboard:"grid",audience:"chart",requests:"mail",pages:"layout",announcements:"bell",projects:"factory",products:"tag",media:"image",brochures:"file",blog:"pen",settings:"gear",users:"users",audit:"list"};
+const creations:Record<string,string>={pages:"Créer une page",announcements:"Ajouter une annonce",projects:"Ajouter une réalisation",products:"Ajouter un produit",media:"Ajouter un média",brochures:"Ajouter une brochure",blog:"Ajouter un article",users:"Ajouter un compte"};
 async function request(url:string,body?:unknown){
  const result=await fetch(url,{method:body?"POST":"GET",headers:body?{"Content-Type":"application/json"}:undefined,body:body?JSON.stringify(body):undefined,cache:"no-store"});
  const json=await result.json();if(!result.ok)throw new Error(json.message||"Opération impossible.");return json;
@@ -52,7 +52,7 @@ export default function AdminConsole({user,initial,local}:{user:Identity;initial
  function create(){
   if(section==="pages"){setCreatingPage(true);return;}
   const key=section==="users"?"":crypto.randomUUID();
-  choose({key,revision:0,updated:"",value:{title:"Nouveau contenu",draft:section==="media"?{type:"photo"}:{},published:null,order:rows.length}});
+  choose({key,revision:0,updated:"",value:{title:"Nouveau contenu",draft:section==="media"?{type:"photo"}:section==="announcements"?{category:"Actualité"}:{},published:null,order:rows.length}});
  }
  return <div className="admin-app">
   <aside className={"admin-sidebar"+(menu?" ouvert":"")} id="admin-nav">
@@ -126,7 +126,7 @@ function DocumentEditor({section,row,fields,page,onSaved,onDeleted,onDirty}:{sec
   catch(e){setError((e as Error).message);}finally{setBusy(false);}
  }
 
- const preview=page||customPagePath(row.key)||({projects:"/ingenierie/nos-realisations",products:"/negoce/"+encodeURIComponent(row.key),media:"/mediatheque",brochures:"/mediatheque",blog:"/blog",settings:"/"} as Record<string,string>)[section];
+ const preview=page||customPagePath(row.key)||({announcements:"/",projects:"/ingenierie/nos-realisations",products:"/negoce/"+encodeURIComponent(row.key),media:"/mediatheque",brochures:"/mediatheque",blog:"/blog",settings:"/"} as Record<string,string>)[section];
  return <div className="admin-card admin-editor"><div className="admin-row"><h2>{row.value.title}</h2><span className="admin-badge">{dirty?"Non enregistré":row.value.published?"Version publiée":"Brouillon"}</span></div><p className="admin-info">Enregistrez votre brouillon, vérifiez l’aperçu, puis publiez.</p><div className="admin-editor-actions"><button className="admin-button secondary" disabled={busy||translating} onClick={()=>act("save")}>Enregistrer le brouillon</button><a className={"admin-button secondary "+(dirty?"disabled":"")} aria-disabled={dirty} onClick={e=>{if(dirty)e.preventDefault();}} href={"/api/admin/preview?path="+encodeURIComponent(preview)} target="_blank" rel="noreferrer">Aperçu FR ↗</a><a className={"admin-button secondary "+(dirty?"disabled":"")} aria-disabled={dirty} onClick={e=>{if(dirty)e.preventDefault();}} href={"/api/admin/preview?lang=en&path="+encodeURIComponent(preview)} target="_blank" rel="noreferrer">Aperçu EN ↗</a><button className="admin-button" disabled={busy||translating} onClick={()=>act("publish")}>Publier</button></div>{message&&<p role="status" className="admin-success">{message}</p>}{error&&<p role="alert" className="admin-error">{error}</p>}
  <fieldset disabled={busy||translating}><div className="admin-filters"><label>Titre dans la liste<input value={title} onChange={e=>{setTitle(e.target.value);setDirty(true);onDirty(true);}} maxLength={200} /></label>{!["pages","settings"].includes(section)&&<label>Ordre d’affichage<input type="number" min="0" max="9999" value={order} onChange={e=>{setOrder(Number(e.target.value));setDirty(true);onDirty(true);}} /></label>}</div>
  {section!=="pages"&&fields.length>15&&<label>Filtrer les champs<input value={filter} onChange={e=>setFilter(e.target.value)} placeholder="Titre, texte, image…" /></label>}
