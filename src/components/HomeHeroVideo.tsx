@@ -2,6 +2,7 @@
 import {useEffect, useId, useRef, useState} from "react";
 import type {Media} from "@/content/admin-types";
 import {videoSource} from "@/content/home-highlights";
+import {englishSubtitlesForVideo} from "@/content/video-subtitles";
 import {useLanguage} from "./UiText";
 import Image from "./SiteImage";
 import Icon from "./Icon";
@@ -12,6 +13,7 @@ export default function HomeHeroVideo({video}: {video:Media}) {
   const [open,setOpen]=useState(false),[failed,setFailed]=useState(false);
   const dialog=useRef<HTMLDialogElement>(null),trigger=useRef<HTMLButtonElement>(null),player=useRef<HTMLVideoElement>(null);
   const id=useId(),source=videoSource(video.url);
+  const subtitles=englishSubtitlesForVideo(video.url);
   useEffect(()=>{
     if(!open){dialog.current?.close();return;}
     dialog.current?.showModal();
@@ -35,7 +37,7 @@ export default function HomeHeroVideo({video}: {video:Media}) {
     </button>
     <dialog id={id} ref={dialog} className={styles.dialog} aria-labelledby={id+"-title"} onClose={close} onClick={event=>{if(event.target===event.currentTarget)setOpen(false);}}>
       <div className={styles.heading}><h2 id={id+"-title"}>{video.title}</h2><button type="button" className={styles.close} aria-label={english?"Close the video":"Fermer la vidéo"} onClick={()=>setOpen(false)} autoFocus><Icon name="x"/></button></div>
-      {open&&(failed?<div className={styles.error} role="alert"><p>{english?"The video could not be loaded.":"La vidéo n’a pas pu être chargée."}</p><a href={video.url} target="_blank" rel="noopener noreferrer">{english?"Open the video in a new tab":"Ouvrir la vidéo dans un nouvel onglet"}</a></div>:source.kind==="youtube"?<iframe className={styles.player} src={source.src} title={video.title} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/>:<video ref={player} className={styles.player} src={source.src} poster={video.image} controls autoPlay playsInline preload="metadata" aria-label={video.title} onError={()=>setFailed(true)}/>)}
+      {open&&(failed?<div className={styles.error} role="alert"><p>{english?"The video could not be loaded.":"La vidéo n’a pas pu être chargée."}</p><a href={video.url} target="_blank" rel="noopener noreferrer">{english?"Open the video in a new tab":"Ouvrir la vidéo dans un nouvel onglet"}</a></div>:source.kind==="youtube"?<iframe className={styles.player} src={source.src} title={video.title} allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin"/>:<video ref={player} className={styles.player} src={source.src} poster={video.image} controls autoPlay playsInline preload="metadata" crossOrigin={subtitles?"anonymous":undefined} aria-label={video.title} onError={()=>setFailed(true)}>{subtitles&&<track kind="subtitles" src={subtitles} srcLang="en" label="English" default={english}/>}</video>)}
     </dialog>
   </div>;
 }

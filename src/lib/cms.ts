@@ -17,6 +17,7 @@ import { notFound } from "next/navigation";
 import { customPagePath } from "@/content/page-builder";
 import { productHidden } from "@/content/product-visibility";
 import { updatedIndustryDocument } from "@/content/industry-labels";
+import { sia2026VideoUrl } from "@/content/video-subtitles";
 
 export const pageDefinitions = definitions as PageDefinition[];
 export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",announcements:"Annonces d’accueil",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès" };
@@ -35,7 +36,7 @@ export function seeds(section:string):Entry<Document>[] {
  if(section==="projects")return realisations.map((r,i)=>document(r.slug,r.nom,{nom:r.nom,client:r.client,type:r.type,debit:r.debit,unite:r.unite,image:r.image,texte:r.texte},i));
  if(section==="products")return [...importedProducts.map((p,i)=>document(p.slug,p.data.nom,p.data,i)),...productSamples.filter(p=>!importedProducts.some(imported=>imported.slug===p.slug)).map((p,i)=>document(p.slug,p.data.nom,p.data,i+importedProducts.length)),...produits.map((p,i)=>document(p.slug,p.nom,{nom:p.nom,marque:p.marque,gamme:p.gamme,usage:p.usage,secteurs:p.secteurs,forme:p.forme,points:p.points,image:p.image,texte:p.texte},i+importedProducts.length+productSamples.length))];
  if(section==="media")return [
-  document("video-sia-2026","EPUREAU · SIA 2026",{title:"EPUREAU · SIA 2026",type:"video",url:"https://rfeqcidlnvpbabuuiozp.supabase.co/storage/v1/object/public/site-videos/epureau-sia-2026-c365e3b49c5f.mp4",image:"/images/videos/epureau-sia-2026.jpg",album:"Vidéos",description:"",homeFeatured:"oui"},0),
+  document("video-sia-2026","EPUREAU · SIA 2026",{title:"EPUREAU · SIA 2026",type:"video",url:sia2026VideoUrl,image:"/images/videos/epureau-sia-2026.jpg",album:"Vidéos",description:"",homeFeatured:"oui"},0),
   ...galerie.map((g,i)=>document("photo-"+(i+1),g.legende,{title:g.legende,type:"photo",url:g.image,image:g.image,album:"Chantiers",description:""},i)),
   ...videos.map((v,i)=>document("video-"+(i+1),v.titre,{title:v.titre,type:"video",url:"",image:v.vignette,album:"Vidéos",description:v.sous},i+galerie.length)),
  ];
