@@ -5,16 +5,14 @@ import Image from "@/components/SiteImage";
 import Icon from "@/components/Icon";
 import Galerie from "@/components/Galerie";
 import {projectList,mediaList} from "@/lib/cms";
-import {siteLanguage,siteText} from "@/lib/site-language";
+import {siteLanguage,siteText,localizedMetadata} from "@/lib/site-language";
 import {projectPath,projectName} from "@/content/projects";
 
 type Props={params:Promise<{slug:string}>};
 export async function generateMetadata({params}:Props):Promise<Metadata> {
   const {slug}=await params;
   const project=(await projectList()).find(project=>project.slug===slug);
-  const language=await siteLanguage();
-  const path=projectPath(slug);
-  return {title:project?.nom,description:project?.texte,alternates:{canonical:(language==="en"?"/en":"")+path,languages:{fr:"/fr"+path,en:"/en"+path}}};
+  return localizedMetadata({title:project?.nom,description:project?.texte});
 }
 
 export default async function ProjectPage({params}:Props) {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "@/components/SiteImage";
 import {notFound} from "next/navigation";
 import {productList} from "@/lib/cms";
-import {siteLanguage} from "@/lib/site-language";
+import {siteLanguage,localizedMetadata} from "@/lib/site-language";
 import {uiText} from "@/content/ui-english";
 import {productCategory, publicProduct, validProductDocument} from "@/content/product-catalog";
 import ProductCards from "@/components/ProductCards";
@@ -13,7 +13,7 @@ import Icon from "@/components/Icon";
 type Props={params:Promise<{slug:string}>};
 export async function generateMetadata({params}:Props):Promise<Metadata> {
   const {slug}=await params;const product=(await productList()).find(p=>p.slug===slug);
-  return {title:product ? `${product.nom} — ${uiText(product.marque,await siteLanguage())}` : uiText("Produit",await siteLanguage()),description:product?.texte};
+  return localizedMetadata({title:product ? `${product.nom} — ${uiText(product.marque,await siteLanguage())}` : uiText("Produit",await siteLanguage()),description:product?.texte});
 }
 export default async function ProductPage({params}:Props) {
   const {slug}=await params;

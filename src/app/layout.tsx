@@ -1,5 +1,5 @@
 import {PublicLanguage} from "@/components/UiText";
-import {siteLanguage} from "@/lib/site-language";
+import {siteLanguage,localizedMetadata} from "@/lib/site-language";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -36,33 +36,8 @@ const mono = localFont({
   display: "swap",
 });
 
-const baseMetadata: Metadata = {
-  metadataBase: new URL("https://epureau-ci.com"),
-  title: {
-    default: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
-    template: "%s — EPUREAU Côte d’Ivoire",
-  },
-  description:
-    "Conception et réalisation de stations de traitement des eaux, industries et travaux publics, hygiène institutionnelle et négoce des produits NALCO et ECOLAB en Côte d'Ivoire.",
-  openGraph: {
-    type: "website",
-    locale: "fr_CI",
-    siteName: "EPUREAU Côte d’Ivoire",
-    title: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
-    description:
-      "Des solutions fiables pour votre satisfaction : stations de traitement des eaux, industries et travaux publics, hygiène institutionnelle.",
-  },
-  robots: { index: true, follow: true },
-};
-
 export async function generateMetadata(): Promise<Metadata> {
-  if (await siteLanguage() !== "en") return baseMetadata;
-  return {
-    ...baseMetadata,
-    title: {default: "EPUREAU Côte d’Ivoire — Water treatment engineering", template: "%s — EPUREAU Côte d’Ivoire"},
-    description: "Water treatment plant design and construction, industry and public works, institutional hygiene and supply of NALCO and ECOLAB products in Côte d’Ivoire.",
-    openGraph: {...baseMetadata.openGraph, locale: "en_US", title: "EPUREAU Côte d’Ivoire — Water treatment engineering", description: "Reliable solutions for water treatment, industry and public works and institutional hygiene."},
-  };
+ return localizedMetadata({metadataBase:new URL("https://epureau-ci.com"),title:{default:"EPUREAU Côte d’Ivoire",template:"%s | EPUREAU Côte d’Ivoire"},robots:{index:true,follow:true}});
 }
 
 export const viewport: Viewport = {
