@@ -27,3 +27,11 @@ Références :
 - https://developers.google.com/search/docs/specialty/international/localized-versions
 - https://developers.google.com/search/docs/appearance/structured-data/local-business
 - https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+
+## Découverte par les assistants IA
+
+Le fichier robots.txt autorise explicitement OAI-SearchBot et PerplexityBot sur les pages publiques, avec les mêmes exclusions /admin et /api que la règle générale. Les autres moteurs restent couverts par la règle générale. Ces règles ne remplacent pas l’authentification.
+
+Le fichier public /llms.txt est un résumé factuel avec liens vers les sources publiques. Ce format est complémentaire et expérimental : son utilisation par un assistant et son effet sur les recommandations ne sont pas garantis. Il faut l’actualiser si les domaines d’activité changent. Le HTML rendu côté serveur, le sitemap et les données structurées demeurent les principales sources.
+
+Aucune autorisation supplémentaire d’entraînement, aucun compte payant et aucune inscription à un annuaire ne sont ajoutés. Les règles antérieures pour les autres robots restent inchangées. Un accès HTTP réussi avec le nom d’un robot ne prouve pas qu’une visite réelle depuis son réseau sera acceptée par tous les filtres de l’hébergeur.

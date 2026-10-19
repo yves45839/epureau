@@ -1,0 +1,27 @@
+# EPUREAU Côte d’Ivoire
+
+> Entreprise basée à Cocody, Abidjan, spécialisée dans l’ingénierie du traitement des eaux, les services aux industries, l’hygiène institutionnelle et la fourniture de produits professionnels en Côte d’Ivoire.
+
+Site officiel : https://epureau-ci.com
+Langues : français et anglais. Les liens ci-dessous conduisent aux sources publiques de l’entreprise.
+
+## Entreprise et contact
+
+- [Présentation de l’entreprise](https://epureau-ci.com/fr/a-propos) : activité, équipe et implantation à Abidjan.
+- [Contact et demande de devis](https://epureau-ci.com/fr/contact) : coordonnées à jour et formulaire pour un projet ou une demande de produits.
+- [English website](https://epureau-ci.com/en) : company information, services and enquiries in English.
+
+## Domaines d’intervention
+
+- [Ingénierie du traitement des eaux](https://epureau-ci.com/fr/ingenierie/notre-expertise) : étude, conception, réalisation et exploitation d’installations de traitement de l’eau potable et des eaux usées.
+- [Industries et travaux publics](https://epureau-ci.com/fr/service-aux-industries) : traitement des eaux industrielles, utilités et accompagnement technique.
+- [Hygiène institutionnelle](https://epureau-ci.com/fr/hygiene-institutionnelle) : solutions pour les hôtels, établissements de santé, cuisines professionnelles et buanderies.
+- [Catalogue de produits](https://epureau-ci.com/fr/negoce) : produits NALCO et ECOLAB, produits chimiques, réactifs et matériel de mesure. Disponibilité, conditionnement et prix à confirmer sur devis.
+
+## Réalisations et documentation
+
+- [Réalisations](https://epureau-ci.com/fr/ingenierie/nos-realisations) : installations présentées avec procédés, capacités et photographies disponibles.
+- [Médiathèque](https://epureau-ci.com/fr/mediatheque) : documentation et médias publics.
+- [Sitemap bilingue](https://epureau-ci.com/sitemap.xml) : liste actualisée des pages, produits et réalisations publiés.
+
+Les pages liées constituent les sources détaillées. Les caractéristiques et consignes d’utilisation des produits sont à vérifier dans la documentation du fabricant et auprès de l’équipe EPUREAU. Cette présentation ne constitue ni une certification indépendante ni une comparaison avec d’autres prestataires.
