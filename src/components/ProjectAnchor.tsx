@@ -8,6 +8,8 @@ export default function ProjectAnchor() {
       try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
       const project = document.getElementById(id);
       if (!project?.matches("article.proj")) return;
+      const link=project.querySelector<HTMLAnchorElement>("a[data-project-href]");
+      if(link){window.location.replace(link.href);return;}
       const details = project.querySelector("details");
       if (details) details.open = true;
       project.tabIndex = -1;

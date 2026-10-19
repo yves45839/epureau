@@ -38,6 +38,13 @@ test('vidéo: seules les vidéos explicitement choisies sont affichées',()=>{
   assert.equal(homeVideo([{...base,homeFeatured:'oui',url:''}]),undefined);
   assert.equal(homeVideo([{...base,homeFeatured:'oui'}]).id,'one');
 });
+
+test('vidéo: les pages SharePoint restent des liens externes, jamais des fichiers ou iframes',()=>{
+  const share='https://epureauci-my.sharepoint.com/:v:/g/personal/h_sanogo_epureau-ci_com/example?e=example';
+  assert.equal(videoSource(share).kind,'sharepoint');assert.equal(videoSource(share).src,share);
+  for(const url of ['https://epureauci-my.sharepoint.com.evil.test/:v:/g/example','https://evil.test/?url=https://tenant.sharepoint.com/:v:/g/example','http://tenant.sharepoint.com/:v:/g/example','https://tenant.sharepoint.com/other-page'])assert.equal(videoSource(url),null);
+  assert.equal(homeVideo([{id:'sia',type:'video',homeFeatured:'oui',url:share}]).id,'sia');
+});
 test('droits annonces identiques côté interface et serveur',()=>{
   const client=load('src/content/admin-access.ts');
   const server=load('src/lib/admin-security.ts');

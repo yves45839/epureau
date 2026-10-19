@@ -80,7 +80,7 @@ export default function HomeQuoteForm() {
       <select id="need" value={domain} onChange={event => setDomain(event.target.value as Domain)} required>
         <option value="" disabled><UiText text={"Choisir un domaine"} /></option>
         <option value="ingenierie"><UiText text={"Ingénierie du traitement de l’eau"} /></option>
-        <option value="industries"><UiText text={"Service aux industries"} /></option>
+        <option value="industries"><UiText text={"Industries et travaux publics"} /></option>
         <option value="hygiene"><UiText text={"Hygiène institutionnelle"} /></option>
         <option value="produits"><UiText text={"Produits chimiques"} /></option>
         <option value="autre"><UiText text={"Autre demande"} /></option>

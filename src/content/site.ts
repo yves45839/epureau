@@ -59,7 +59,7 @@ export const navigation: NavItem[] = [
       },
     ],
   },
-  { label: "Industries", href: "/service-aux-industries" },
+  { label: "Industries et travaux publics", href: "/service-aux-industries" },
   { label: "Hygiène institutionnelle", href: "/hygiene-institutionnelle" },
   {
     label: "Produits",
@@ -108,7 +108,7 @@ export const domaines = [
     icone: "droplet",
   },
   {
-    titre: "Service aux industries",
+    titre: "Industries et travaux publics",
     texte:
       "Application de produits formulés, optimisation des utilités et services spéciaux ECOLAB F&B.",
     lien: "/service-aux-industries",
@@ -229,7 +229,7 @@ export const etapes = [
 
 export const objetsDemande = [
   "Ingénierie du traitement de l'eau",
-  "Service aux industries",
+  "Industries et travaux publics",
   "Hygiène institutionnelle",
   "Produits NALCO",
   "Produits ECOLAB",
@@ -369,7 +369,7 @@ export const diapositives = [
     titre: "Des solutions fiables",
     titreAccent: "pour votre satisfaction.",
     texte:
-      "Conception et réalisation de stations de traitement des eaux, service aux industries et hygiène institutionnelle. Distributeur des marques NALCO et ECOLAB en Côte d'Ivoire et dans la sous-région.",
+      "Conception et réalisation de stations de traitement des eaux, industries et travaux publics et hygiène institutionnelle. Distributeur des marques NALCO et ECOLAB en Côte d'Ivoire et dans la sous-région.",
     image: "/images/hero-1.jpg",
     alt: "Station de traitement des eaux réalisée par EPUREAU Côte d’Ivoire",
     actions: [
@@ -391,7 +391,7 @@ export const diapositives = [
     ],
   },
   {
-    surtitre: "Service aux industries",
+    surtitre: "Industries et travaux publics",
     titre: "Vous produisez, nous optimisons",
     titreAccent: "vos utilités et votre hygiène.",
     texte:

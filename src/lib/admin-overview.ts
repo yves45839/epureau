@@ -35,7 +35,7 @@ export async function buildOverview(user: Identity): Promise<Overview> {
       contenus.push({
         section,
         nom: sectionNames[section],
-        publies: docs.filter(d => d.value.published && !d.value.deleted).length,
+        publies: docs.filter(d => d.value.published && !d.value.deleted && !d.value.hidden).length,
         enAttente: docs.filter(d => modifie(d.value)).length,
       });
     } catch { /* rubrique momentanément illisible : on l'omet plutôt que de bloquer le tableau de bord */ }

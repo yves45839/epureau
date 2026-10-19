@@ -15,13 +15,15 @@ import { currentUser } from "./auth";
 import { may } from "./admin-security";
 import { notFound } from "next/navigation";
 import { customPagePath } from "@/content/page-builder";
+import { productHidden } from "@/content/product-visibility";
+import { updatedIndustryDocument } from "@/content/industry-labels";
 
 export const pageDefinitions = definitions as PageDefinition[];
 export const sectionNames: Record<string,string> = { dashboard:"Vue d’ensemble",requests:"Demandes & réclamations",pages:"Pages du site",announcements:"Annonces d’accueil",projects:"Réalisations",products:"Produits",media:"Médiathèque",brochures:"Brochures",blog:"Blog",settings:"Paramètres",users:"Utilisateurs",audience:"Audience",audit:"Journal des accès" };
 export const modelFields: Record<string, { key:string; label:string; type?:string }[]> = {
  projects:[{key:"nom",label:"Nom du projet"},{key:"client",label:"Client et localisation"},{key:"type",label:"Procédé"},{key:"debit",label:"Capacité"},{key:"unite",label:"Unité"},{key:"image",label:"Photo",type:"image"},{key:"texte",label:"Description",type:"long"}],
  products:[{key:"compatibilite",label:"Compatibilité des matériaux",type:"long"},{key:"reference",label:"Référence fabricant"},{key:"categorie",label:"Catégorie (regroupement du catalogue)"},{key:"fiche",label:"Document fabricant PDF (lien HTTPS, accessible après e-mail)",type:"url"},{key:"documentType",label:"Type : Fiche technique ou Brochure fabricant",type:"documentType"},{key:"documentLangue",label:"Langue du document (FR, EN…)"},{key:"sourceUrl",label:"Page fabricant de référence",type:"url"},{key:"nom",label:"Nom du produit"},{key:"marque",label:"Marque",type:"brand"},{key:"gamme",label:"Gamme ou famille"},{key:"usage",label:"Application principale",type:"long"},{key:"secteurs",label:"Secteurs concernés"},{key:"forme",label:"Forme et conditionnement"},{key:"points",label:"Points clés (un par ligne)",type:"long"},{key:"image",label:"Visuel",type:"image"},{key:"texte",label:"Description",type:"long"}],
- media:[{key:"title",label:"Titre / légende"},{key:"type",label:"Type (photo ou video)",type:"mediaType"},{key:"url",label:"Fichier ou lien vidéo (YouTube, MP4 ou WebM)",type:"url"},{key:"homeFeatured",label:"Vidéo à afficher sur l’accueil",type:"boolean"},{key:"image",label:"Image d’aperçu",type:"image"},{key:"album",label:"Album"},{key:"description",label:"Description",type:"long"}],
+ media:[{key:"title",label:"Titre / légende"},{key:"type",label:"Type (photo ou video)",type:"mediaType"},{key:"url",label:"Fichier ou lien vidéo (YouTube, MP4, WebM ou SharePoint)",type:"url"},{key:"homeFeatured",label:"Vidéo en miniature dans le bandeau d’accueil",type:"boolean"},{key:"image",label:"Image d’aperçu",type:"image"},{key:"album",label:"Album"},{key:"description",label:"Description",type:"long"}],
  announcements:[{key:"title",label:"Titre public (200 caractères maximum)"},{key:"category",label:"Type d’annonce",type:"announcementType"},{key:"description",label:"Texte (2 000 caractères maximum)",type:"long"},{key:"url",label:"Lien de l’annonce (facultatif)",type:"url"},{key:"linkLabel",label:"Libellé du lien"},{key:"startsOn",label:"Afficher à partir du (facultatif, heure d’Abidjan)",type:"date"},{key:"endsOn",label:"Dernier jour d’affichage (facultatif)",type:"date"}],
  brochures:[{key:"title",label:"Titre"},{key:"url",label:"Fichier PDF",type:"url"},{key:"description",label:"Description",type:"long"}],
  blog:[{key:"title",label:"Titre"},{key:"image",label:"Image",type:"image"},{key:"description",label:"Résumé",type:"long"},{key:"text",label:"Article",type:"long"}],
@@ -33,6 +35,7 @@ export function seeds(section:string):Entry<Document>[] {
  if(section==="projects")return realisations.map((r,i)=>document(r.slug,r.nom,{nom:r.nom,client:r.client,type:r.type,debit:r.debit,unite:r.unite,image:r.image,texte:r.texte},i));
  if(section==="products")return [...importedProducts.map((p,i)=>document(p.slug,p.data.nom,p.data,i)),...productSamples.filter(p=>!importedProducts.some(imported=>imported.slug===p.slug)).map((p,i)=>document(p.slug,p.data.nom,p.data,i+importedProducts.length)),...produits.map((p,i)=>document(p.slug,p.nom,{nom:p.nom,marque:p.marque,gamme:p.gamme,usage:p.usage,secteurs:p.secteurs,forme:p.forme,points:p.points,image:p.image,texte:p.texte},i+importedProducts.length+productSamples.length))];
  if(section==="media")return [
+  document("video-sia-2026","EPUREAU · SIA 2026",{title:"EPUREAU · SIA 2026",type:"video",url:"https://rfeqcidlnvpbabuuiozp.supabase.co/storage/v1/object/public/site-videos/epureau-sia-2026-c365e3b49c5f.mp4",image:"/images/videos/epureau-sia-2026.jpg",album:"Vidéos",description:"",homeFeatured:"oui"},0),
   ...galerie.map((g,i)=>document("photo-"+(i+1),g.legende,{title:g.legende,type:"photo",url:g.image,image:g.image,album:"Chantiers",description:""},i)),
   ...videos.map((v,i)=>document("video-"+(i+1),v.titre,{title:v.titre,type:"video",url:"",image:v.vignette,album:"Vidéos",description:v.sous},i+galerie.length)),
  ];
@@ -44,7 +47,7 @@ export async function editableDocuments(section:string) {
  const saved=await entries<Document>(section);
  const map=new Map(seeds(section).map(doc=>[doc.key,doc]));
  saved.forEach(doc=>map.set(doc.key,doc));
- return [...map.values()].sort((a,b)=>a.value.order-b.value.order);
+ return [...map.values()].map(doc=>({...doc,value:section==="products"?{...doc.value,hidden:productHidden(doc.value)}:["pages","settings"].includes(section)?updatedIndustryDocument(doc.key,doc.value):doc.value})).sort((a,b)=>a.value.order-b.value.order);
 }
 const cachedDocuments=unstable_cache(editableDocuments,["epureau-content-v1"],{tags:["cms"],revalidate:300});
 const canPreview=cache(async(section:string)=>{
@@ -54,12 +57,13 @@ const canPreview=cache(async(section:string)=>{
 export async function publishedDocuments(section:string,allowPreview=true):Promise<{key:string;data:ContentData}[]> {
  let docs:Entry<Document>[];
  try { docs=storeConfigured()?await cachedDocuments(section):seeds(section); }
- catch { console.error("[cms] Lecture indisponible");docs=seeds(section); }
+ catch { console.error("[cms] Lecture indisponible");docs=section==="products"?[]:seeds(section); }
  const preview=allowPreview&&await canPreview(section);
  if(preview)docs=await editableDocuments(section);
  const language=await siteLanguage();
- return docs.filter(doc=>!doc.value.deleted && (preview||doc.value.published)).map(doc=>{
-  const data=preview?doc.value.draft:doc.value.published!;
+ return docs.filter(doc=>!doc.value.deleted && (preview||(doc.value.published && (section!=="products"||!productHidden(doc.value))))).map(doc=>{
+  const value=["pages","settings"].includes(section)?updatedIndustryDocument(doc.key,doc.value):doc.value;
+  const data=preview?value.draft:value.published!;
   if(language!=="en")return {key:doc.key,data};
   // HomeLanding translates its split headings by field id to preserve English word order.
   const translate=section==="pages"&&doc.key==="accueil"?englishContent:publicEnglish;

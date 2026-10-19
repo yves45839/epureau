@@ -207,13 +207,13 @@ export function mountHomeInteractions(root: HTMLElement, language:"fr"|"en"="fr"
   return () => { serviceObserver.disconnect(); cancelAnimationFrame(servicesFrame); };
   })();
 
-  const closeLogos = () => qa(".company-logo").forEach(logo => { logo.classList.remove("show-name"); logo.setAttribute("aria-pressed", "false"); });
+  const closeLogos = () => qa("button.company-logo").forEach(logo => { logo.classList.remove("show-name"); logo.setAttribute("aria-pressed", "false"); });
   on(root, "click", event => {
-    const logo = event.target instanceof Element ? event.target.closest(".company-logo") : null;
+    const logo = event.target instanceof Element ? event.target.closest("button.company-logo") : null;
     if (!logo) return;
     const open = !logo.classList.contains("show-name");
     closeLogos();
-    qa(".company-logo").filter(item => item.getAttribute("aria-label") === logo.getAttribute("aria-label")).forEach(item => {
+    qa("button.company-logo").filter(item => item.getAttribute("aria-label") === logo.getAttribute("aria-label")).forEach(item => {
       item.classList.toggle("show-name", open); item.setAttribute("aria-pressed", String(open));
     });
   });

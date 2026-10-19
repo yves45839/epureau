@@ -9,7 +9,7 @@ import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
 
 const baseMetadata: Metadata = {
-  title: "Service aux industries",
+  title: "Industries et travaux publics",
   description:
     "Application de produits formulés, optimisation des utilités et services spéciaux ECOLAB Food & Beverage : lavage de bouteilles, lubrification des lignes, CIP et COP.",
 };
@@ -54,7 +54,7 @@ const speciaux = [
   return <PageSections page="service-aux-industries" values={values}>
 <PageHeader
         image="/images/illustrations/industrie.webp"
-        fil={["Service aux industries"]}
+        fil={["Industries et travaux publics"]}
         titre={t("f001", "Une équipe technique chevronnée au service de votre production")}
         lead={t("f002", "EPUREAU Côte d’Ivoire est une société de services : nous prenons en charge les optimisations dans nos spécialités pendant que vous vous concentrez sur votre production.")}
       />

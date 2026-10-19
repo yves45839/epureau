@@ -70,6 +70,33 @@ export async function remove(kind: string, key: string) {
   if (localStore()) return exclusive(async () => writeRows((await localRows()).filter(row => !(row.kind === kind && row.key === key))));
   const sql = await connection(); await sql`delete from admin_records where kind=${kind} and key=${key}`;
 }
+/** All records are saved together, or none if a revision changed concurrently. */
+export async function saveMany<T extends object>(kind: string, changes: {key:string;value:T;revision:number}[]): Promise<Entry<T>[]> {
+  if (new Set(changes.map(change=>change.key)).size !== changes.length) throw new Conflict();
+  if (localStore()) return exclusive(async () => {
+    const rows = await localRows();
+    for (const change of changes) {
+      const old = rows.find(row=>row.kind===kind&&row.key===change.key);
+      if ((old?.revision??0)!==change.revision) throw new Conflict();
+    }
+    const next = changes.map(change=>({kind,key:change.key,value:change.value,revision:change.revision+1,updated:new Date().toISOString()}));
+    const keys = new Set(changes.map(change=>change.key));
+    await writeRows([...rows.filter(row=>row.kind!==kind||!keys.has(row.key)),...next as Stored[]]);
+    return next;
+  });
+  const sql = await connection();
+  const result: Entry<T>[] = [];
+  await sql.begin(async transaction => {
+    for (const change of changes) {
+      const rows = change.revision===0
+        ? await transaction`insert into admin_records(kind,key,value) values(${kind},${change.key},${transaction.json(change.value as never)}) on conflict do nothing returning key,value,revision,updated::text as updated`
+        : await transaction`update admin_records set value=${transaction.json(change.value as never)}, revision=revision+1, updated=now() where kind=${kind} and key=${change.key} and revision=${change.revision} returning key,value,revision,updated::text as updated`;
+      if (!rows.length) throw new Conflict();
+      result.push(rows[0] as unknown as Entry<T>);
+    }
+  });
+  return result;
+}
 export async function prune(kind: string, before: string) {
   if (!storeConfigured()) return;
   if (localStore()) return exclusive(async () => writeRows((await localRows()).filter(row => row.kind !== kind || row.updated >= before)));

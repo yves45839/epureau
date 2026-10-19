@@ -10,6 +10,7 @@ import { editableDocuments, editablePageDefinitions, customPageFields, modelFiel
 import {customPagePath,validatePageLayout} from "@/content/page-builder";
 import {validProductDocument} from "@/content/product-catalog";
 import {marqueValide} from "@/content/products";
+import {productHidden} from "@/content/product-visibility";
 import {validAnnouncement,videoSource} from "@/content/home-highlights";
 import { requestList, type CustomerRequest } from "@/lib/admin-requests";
 import type { Document } from "@/content/admin-types";
@@ -92,7 +93,7 @@ export async function POST(req:Request){
  if(p.section==="media"&&!["photo","video"].includes(data.type))return response({message:"Choisissez photo ou video."},422);
  if(p.section==="announcements"&&!validAnnouncement(data))return response({message:"Vérifiez le titre, le texte, le type, le lien et les dates de l’annonce."},422);
  if(p.section==="media"&&data.homeFeatured&&!['oui','non'].includes(data.homeFeatured))return response({message:"Choisissez si la vidéo apparaît sur l’accueil."},422);
- if(p.section==="media"&&data.homeFeatured==="oui"&&(data.type!=="video"||!videoSource(data.url)))return response({message:"Pour l’accueil, choisissez une vidéo et un lien YouTube, MP4, M4V ou WebM valide."},422);
+ if(p.section==="media"&&data.homeFeatured==="oui"&&(data.type!=="video"||!videoSource(data.url)))return response({message:"Pour l’accueil, choisissez une vidéo et un lien YouTube, MP4, M4V, WebM ou SharePoint valide."},422);
  if(p.section==="products"){
   if(data.fiche&&!validProductDocument(data.fiche))return response({message:"Le document doit être un lien HTTPS vers un PDF."},422);
   if(data.documentType&&!["Fiche technique","Brochure fabricant"].includes(data.documentType))return response({message:"Choisissez Fiche technique ou Brochure fabricant."},422);
@@ -111,6 +112,7 @@ export async function POST(req:Request){
  if((p.section==="settings"||(p.section==="pages"&&!customPage))&&["delete","unpublish"].includes(p.action))return response({message:"Cette page principale reste disponible. Vous pouvez modifier ou retirer ses sections."},422);
  if(p.action==="restore"&&(!customPage||!old?.value.deleted))return response({message:"Cette page n’est pas dans la corbeille."},422);
  const doc:Document={title:p.title||old?.value.title||data.nom||data.title||p.key,draft:data,published:old?.value.published??null,order:p.order??old?.value.order??999};
+ if(p.section==="products")doc.hidden=old?.value.hidden??productHidden(doc);
  if(p.action==="publish")doc.published=data;
  if(p.action==="unpublish")doc.published=null;
  if(p.action==="delete")doc.deleted=true;

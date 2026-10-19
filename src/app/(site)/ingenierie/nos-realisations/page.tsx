@@ -8,6 +8,7 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import { PageHeader, BandeAppel } from "@/components/ui";
 import { projectList } from "@/lib/cms";
+import { projectPath } from "@/content/projects";
 
 const baseMetadata: Metadata = {
   title: "Nos réalisations",
@@ -35,9 +36,9 @@ export default async function NosRealisations() {
           <div className="projects rvs">
             {realisations.map((r) => (
               <article className="proj" key={r.slug} id={r.slug}>
-                <div className="im">
+                <Link className="im" href={`/${language}${projectPath(r.slug)}`} aria-label={`${ui("Voir le projet")} ${r.nom}`}>
                   <Image src={r.image} alt={`${ui("Projet")} ${r.nom}`} width={640} height={245} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
-                  </div>
+                  </Link>
                   <div className="cap">
                     <span className="t">{r.type}</span>
                     <span className="c">
@@ -45,9 +46,10 @@ export default async function NosRealisations() {
                       <small>{r.unite}</small>
                     </span>
                   </div><div className="bd">
-                  <h3>{r.nom}</h3>
+                  <h3><Link href={`/${language}${projectPath(r.slug)}`}>{r.nom}</Link></h3>
                   <span className="cl">{r.client}</span>
-                  <details className="project-details"><summary>{t("f003", "Le projet en détail")}</summary><p>{r.texte}</p></details>
+                  <p>{r.texte}</p>
+                  <Link className="arrow-link more" data-project-href href={`/${language}${projectPath(r.slug)}`}>{t("f003", "Le projet en détail")}<Icon name="arrow" /></Link>
                   <Link className="arrow-link more" href={`${language === "en" ? "/en" : ""}/mediatheque?projet=${encodeURIComponent(r.slug)}#photos`}>{t("f004", "Photos du chantier ")}<Icon name="arrow" />
                   </Link>
                 </div>

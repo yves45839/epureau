@@ -752,7 +752,7 @@
   },
   {
     "key": "service-aux-industries",
-    "title": "Services aux industries",
+    "title": "Industries et travaux publics",
     "path": "/service-aux-industries",
     "fields": [
       {
@@ -916,7 +916,7 @@
         "key": "f004",
         "label": "Texte — Rejoignez une équipe de plus de 40 collaborateurs engagés dans le",
         "type": "long",
-        "value": "Rejoignez une équipe de plus de 40 collaborateurs engagés dans le traitement de l’eau, les services aux industries et l’hygiène institutionnelle en Côte d’Ivoire."
+        "value": "Rejoignez une équipe de plus de 40 collaborateurs engagés dans le traitement de l’eau, les industries et travaux publics et l’hygiène institutionnelle en Côte d’Ivoire."
       },
       {
         "key": "f005",
@@ -986,9 +986,9 @@
       },
       {
         "key": "f016",
-        "label": "Texte — Services aux industries",
+        "label": "Texte — Industries et travaux publics",
         "type": "text",
-        "value": "Services aux industries"
+        "value": "Industries et travaux publics"
       },
       {
         "key": "f017",
@@ -1378,15 +1378,15 @@
       },
       {
         "key": "f038",
-        "label": "Texte — Services",
+        "label": "Texte — Industries",
         "type": "text",
-        "value": "Services"
+        "value": "Industries"
       },
       {
         "key": "f039",
-        "label": "Texte — aux industries",
+        "label": "Texte — et travaux publics",
         "type": "text",
-        "value": "aux industries"
+        "value": "et travaux publics"
       },
       {
         "key": "f040",
@@ -1738,15 +1738,15 @@
       },
       {
         "key": "f121",
-        "label": "title — Les services aux industries",
+        "label": "title — Industries et travaux publics",
         "type": "text",
-        "value": "Les services aux industries"
+        "value": "Industries et travaux publics"
       },
       {
         "key": "f122",
-        "label": "caption — Services aux industries",
+        "label": "caption — Industries et travaux publics",
         "type": "text",
-        "value": "Services aux industries"
+        "value": "Industries et travaux publics"
       },
       {
         "key": "f123",

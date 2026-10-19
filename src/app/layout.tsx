@@ -43,14 +43,14 @@ const baseMetadata: Metadata = {
     template: "%s — EPUREAU Côte d’Ivoire",
   },
   description:
-    "Conception et réalisation de stations de traitement des eaux, service aux industries, hygiène institutionnelle et négoce des produits NALCO et ECOLAB en Côte d'Ivoire.",
+    "Conception et réalisation de stations de traitement des eaux, industries et travaux publics, hygiène institutionnelle et négoce des produits NALCO et ECOLAB en Côte d'Ivoire.",
   openGraph: {
     type: "website",
     locale: "fr_CI",
     siteName: "EPUREAU Côte d’Ivoire",
     title: "EPUREAU Côte d’Ivoire — Ingénierie du traitement de l'eau",
     description:
-      "Des solutions fiables pour votre satisfaction : stations de traitement des eaux, services aux industries, hygiène institutionnelle.",
+      "Des solutions fiables pour votre satisfaction : stations de traitement des eaux, industries et travaux publics, hygiène institutionnelle.",
   },
   robots: { index: true, follow: true },
 };
@@ -60,8 +60,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     ...baseMetadata,
     title: {default: "EPUREAU Côte d’Ivoire — Water treatment engineering", template: "%s — EPUREAU Côte d’Ivoire"},
-    description: "Water treatment plant design and construction, industrial services, institutional hygiene and supply of NALCO and ECOLAB products in Côte d’Ivoire.",
-    openGraph: {...baseMetadata.openGraph, locale: "en_US", title: "EPUREAU Côte d’Ivoire — Water treatment engineering", description: "Reliable solutions for water treatment, industrial services and institutional hygiene."},
+    description: "Water treatment plant design and construction, industry and public works, institutional hygiene and supply of NALCO and ECOLAB products in Côte d’Ivoire.",
+    openGraph: {...baseMetadata.openGraph, locale: "en_US", title: "EPUREAU Côte d’Ivoire — Water treatment engineering", description: "Reliable solutions for water treatment, industry and public works and institutional hygiene."},
   };
 }
 

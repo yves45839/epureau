@@ -24,7 +24,7 @@ export default async function Footer() {
             <Link className="flogo" href="/" aria-label={ui("EPUREAU Côte d’Ivoire — accueil")}>
               <Image src="/images/logo.png" alt="EPUREAU Côte d’Ivoire" width={560} height={162} />
             </Link>
-            <p><UiText text={" Experts en ingénierie du traitement de l'eau : conception et réalisation de stations, service aux industries, hygiène institutionnelle et négoce des produits NALCO et ECOLAB. "} /></p>
+            <p><UiText text={" Experts en ingénierie du traitement de l'eau : conception et réalisation de stations, industries et travaux publics, hygiène institutionnelle et négoce des produits NALCO et ECOLAB. "} /></p>
             <p style={{ fontSize: 13, opacity: 0.75 }}>
               <UiText text={societe.groupe} /> · {societe.adresse}
             </p>
@@ -35,7 +35,7 @@ export default async function Footer() {
             <ul>
               <li><Link href="/ingenierie/notre-expertise"><UiText text={"Notre expertise"} /></Link></li>
               <li><Link href="/ingenierie/nos-realisations"><UiText text={"Nos réalisations"} /></Link></li>
-              <li><Link href="/service-aux-industries"><UiText text={"Service aux industries"} /></Link></li>
+              <li><Link href="/service-aux-industries"><UiText text={"Industries et travaux publics"} /></Link></li>
               <li><Link href="/hygiene-institutionnelle"><UiText text={"Hygiène institutionnelle"} /></Link></li>
             </ul>
           </div>

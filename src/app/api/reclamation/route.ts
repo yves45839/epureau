@@ -10,7 +10,7 @@ const schema = z.object({
   societe: z.string().trim().min(2, "Indiquez votre société.").max(160),
   email: z.string().trim().email("Vérifiez votre adresse e-mail.").max(160),
   telephone: z.string().trim().max(40).optional().default(""),
-  categorie: z.enum(["Ingénierie de l’eau", "Services aux industries", "Hygiène institutionnelle", "Produits chimiques", "Facturation ou livraison", "Autre"]),
+  categorie: z.enum(["Ingénierie de l’eau", "Industries et travaux publics", "Hygiène institutionnelle", "Produits chimiques", "Facturation ou livraison", "Autre"]),
   commande: z.string().trim().max(120).optional().default(""),
   description: z.string().trim().min(10, "Décrivez le problème en au moins 10 caractères.").max(4000),
   attente: z.string().trim().max(2000).optional().default(""),
